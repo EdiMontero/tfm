@@ -1,0 +1,2282 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.6)  8 DEC 2025 22:36
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**c:/TFM/github/tfm/Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond/main.tex
+(c:/TFM/github/tfm/Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond/main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-11-06>
+(C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
+Document Class: report 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count275
+\c@chapter=\count276
+\c@section=\count277
+\c@subsection=\count278
+\c@subsubsection=\count279
+\c@paragraph=\count280
+\c@subparagraph=\count281
+\c@figure=\count282
+\c@table=\count283
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen148
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2025/11/09 v25.15 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
+\babel@savecnt=\count284
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input line 2050.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input line 2052.
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input line 2054.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input line 2055.
+LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) on input line 2056.
+LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) on input line 2058.
+LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) on input line 2083.
+\U@D=\dimen149
+\l@unhyphenated=\language79
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count285
+Package babel Info: Configuration files are deprecated, as
+(babel)             they can break document portability.
+(babel)             Reported on input line 4175.
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/es\babel-spanish.tex)
+Package babel Info: Importing font and identification data for spanish
+(babel)             from babel-es.ini. Reported on input line 4298.
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/babel-spanish\spanish.ldf
+Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
+\es@quottoks=\toks17
+\es@quotdepth=\count286
+Package babel Info: Making " an active character on input line 570.
+Package babel Info: Making . an active character on input line 675.
+Package babel Info: Making < an active character on input line 722.
+Package babel Info: Making > an active character on input line 722.
+))
+LaTeX Encoding Info:    Redeclaring text command \guillemotleft (encoding OT1) on input line 7.
+LaTeX Encoding Info:    Redeclaring text command \guillemotright (encoding OT1) on input line 7.
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks18
+\inpenc@posthook=\toks19
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks20
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen150
+\Gin@req@width=\dimen151
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count287
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count288
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+)
+\@linkdim=\dimen152
+\Hy@linkcounter=\count289
+\Hy@pagecounter=\count290
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count291
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4195.
+Package hyperref Info: Link nesting OFF on input line 4200.
+Package hyperref Info: Hyper index ON on input line 4203.
+Package hyperref Info: Plain pages OFF on input line 4210.
+Package hyperref Info: Backreferencing OFF on input line 4215.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4462.
+\c@Hy@tempcnt=\count292
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4801.
+\XeTeXLinkMargin=\dimen153
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count293
+\Field@Width=\dimen154
+\Fld@charsize=\dimen155
+Package hyperref Info: Hyper figures OFF on input line 6078.
+Package hyperref Info: Link nesting OFF on input line 6083.
+Package hyperref Info: Hyper index ON on input line 6086.
+Package hyperref Info: backreferencing OFF on input line 6093.
+Package hyperref Info: Link coloring OFF on input line 6098.
+Package hyperref Info: Link coloring with OCG OFF on input line 6103.
+Package hyperref Info: PDF/A mode OFF on input line 6108.
+\Hy@abspage=\count294
+\c@Item=\count295
+\c@Hfootnote=\count296
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
+\Fld@listcount=\count297
+\c@bookmark@seq@number=\count298
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
+)
+\Hy@SectionHShift=\skip51
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2025/07/09 v2.17z AMS math features
+\@mathmargin=\skip52
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks21
+\ex@=\dimen156
+)) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen157
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count299
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count300
+\leftroot@=\count301
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count302
+\DOTSCASE@=\count303
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box53
+\strutbox@=\box54
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen158
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count304
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count305
+\dotsspace@=\muskip18
+\c@parentequation=\count306
+\dspbrk@lvl=\count307
+\tag@help=\toks22
+\row@=\count308
+\column@=\count309
+\maxfields@=\count310
+\andhelp@=\toks23
+\eqnshift@=\dimen159
+\alignsep@=\dimen160
+\tagshift@=\dimen161
+\tagwidth@=\dimen162
+\totwidth@=\dimen163
+\lineht@=\dimen164
+\@envbody=\toks24
+\multlinegap=\skip53
+\multlinetaggap=\skip54
+\mathdisplay@stack=\toks25
+LaTeX Info: Redefining \[ on input line 2950.
+LaTeX Info: Redefining \] on input line 2951.
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count311
+\lst@gtempboxa=\box55
+\lst@token=\toks26
+\lst@length=\count312
+\lst@currlwidth=\dimen165
+\lst@column=\count313
+\lst@pos=\count314
+\lst@lostspace=\dimen166
+\lst@width=\dimen167
+\lst@newlines=\count315
+\lst@lineno=\count316
+\lst@maxwidth=\dimen168
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
+File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
+\c@lstnumber=\count317
+\lst@skipnumbers=\count318
+\lst@framebox=\box56
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2025/11/14 1.11b listings configuration
+))
+Package: listings 2025/11/14 1.11b (Carsten Heinz)
+
+==> First Aid for listings.sty no longer applied!
+    Expected:
+        2024/09/23 1.10c (Carsten Heinz)
+    but found:
+        2025/11/14 1.11b (Carsten Heinz)
+    so I'm assuming it got fixed.
+(C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/transparent\transparent.sty
+Package: transparent 2025-06-23 v1.6 Transparency with color stacks
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/transparent\transparent-nometadata.sty
+Package: transparent-nometadata 2025-06-23 v1.6 Transparency via pdfTeX's color stack (HO)
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+))) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty
+Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
+\ESO@tempdima=\dimen169
+\ESO@tempdimb=\dimen170
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+)) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen171
+\lightrulewidth=\dimen172
+\cmidrulewidth=\dimen173
+\belowrulesep=\dimen174
+\belowbottomsep=\dimen175
+\aboverulesep=\dimen176
+\abovetopsep=\dimen177
+\cmidrulesep=\dimen178
+\cmidrulekern=\dimen179
+\defaultaddspace=\dimen180
+\@cmidla=\count319
+\@cmidlb=\count320
+\@aboverulesep=\dimen181
+\@belowrulesep=\dimen182
+\@thisruleclass=\count321
+\@lastruleclass=\count322
+\@thisrulewidth=\dimen183
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count323
+\float@exts=\toks27
+\float@box=\box57
+\@float@everytoks=\toks28
+\@floatcapt=\box58
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+\f@nch@headwidth=\skip55
+\f@nch@offset@elh=\skip56
+\f@nch@offset@erh=\skip57
+\f@nch@offset@olh=\skip58
+\f@nch@offset@orh=\skip59
+\f@nch@offset@elf=\skip60
+\f@nch@offset@erf=\skip61
+\f@nch@offset@olf=\skip62
+\f@nch@offset@orf=\skip63
+\f@nch@height=\skip64
+\f@nch@footalignment=\skip65
+\f@nch@widthL=\skip66
+\f@nch@widthC=\skip67
+\f@nch@widthR=\skip68
+\@temptokenb=\toks29
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
+Package: titlesec 2025/01/04 v2.17 Sectioning titles
+\ttl@box=\box59
+\beforetitleunit=\skip69
+\aftertitleunit=\skip70
+\ttl@plus=\dimen184
+\ttl@minus=\dimen185
+\ttl@toksa=\toks30
+\titlewidth=\dimen186
+\titlewidthlast=\dimen187
+\titlewidthfirst=\dimen188
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count324
+) (main.aux
+LaTeX Info: Redefining \. on input line 13.
+LaTeX Info: Redefining \% on input line 13.
+Package babel Info: 'spanish' activates 'spanish' shorthands.
+(babel)             Reported on input line 13.
+ (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/1.dedicatory.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/3.TableOfContents.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/4.TableOfFigures.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/5.TableOfTables.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/2.acronyms.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/1.introduccion.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/2.redes_5g.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/3.telemetria.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/4.p4_fundamentos.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/5.entorno_desarrollo.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/6.resultados.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/7.discusion.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/8.conclusiones.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/apendices.aux))
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 80.
+LaTeX Font Info:    ... okay on input line 80.
+LaTeX Info: Redefining \. on input line 80.
+LaTeX Info: Redefining \% on input line 80.
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count325
+\scratchdimen=\dimen189
+\scratchbox=\box60
+\nofMPsegments=\count326
+\nofMParguments=\count327
+\everyMPshowfont=\toks31
+\MPscratchCnt=\count328
+\MPscratchDim=\dimen190
+\MPnumerator=\count329
+\makeMPintoPDFobject=\count330
+\everyMPtoPDFconversion=\toks32
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package hyperref Info: Link coloring OFF on input line 80.
+ (main.out) (main.out)
+\@outlinefile=\write3
+\openout3 = `main.out'.
+
+\c@lstlisting=\count331
+LaTeX Font Info:    Trying to load font information for U+msa on input line 87.
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 87.
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+{C:/Users/edinson.montero/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (main.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.30 ...e {2.4.2}SCTP en 5G}{19}{subsection.2.4.2}
+                                                  %
+<images/logo_upct.png, id=546, 597.6729pt x 217.0509pt>
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 30.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [1
+
+ <./images/logo_upct.png>]
+Overfull \hbox (0.77118pt too wide) in paragraph at lines 40--40
+ [][] [][]\T1/cmr/m/n/12 Limitaciones de me-ca-nis-mos tra-di-cio-na-les (SNMP, Net- 
+ []
+
+LaTeX Info: Redefining \. on input line 66.
+LaTeX Info: Redefining \% on input line 66.
+Package babel Info: 'spanish' activates 'spanish' shorthands.
+(babel)             Reported on input line 66.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 66.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+[2]
+LaTeX Info: Redefining \. on input line 106.
+LaTeX Info: Redefining \% on input line 106.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 106.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [3])
+\tf@toc=\write4
+\openout4 = `main.toc'.
+
+LaTeX Info: Redefining \. on input line 90.
+LaTeX Info: Redefining \% on input line 90.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 90.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [4]
+\openout2 = `preface/1.dedicatory.aux'.
+
+ (preface/1.dedicatory.tex)
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 90.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 90.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [5
+
+
+]
+\openout2 = `preface/3.TableOfContents.aux'.
+
+ (preface/3.TableOfContents.tex (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.toc)
+\tf@toc=\write5
+\openout5 = `main.toc'.
+
+)
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 91.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 91.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 91.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [6
+
+
+
+
+]
+\openout2 = `preface/4.TableOfFigures.aux'.
+
+ (preface/4.TableOfFigures.tex (main.lof
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+)
+\tf@lof=\write6
+\openout6 = `main.lof'.
+
+)
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 92.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 92.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 92.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 92.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [7
+
+
+
+
+]
+\openout2 = `preface/5.TableOfTables.aux'.
+
+ (preface/5.TableOfTables.tex (main.lot
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+)
+\tf@lot=\write7
+\openout7 = `main.lot'.
+
+)
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 93.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 93.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 93.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 93.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 93.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [8
+
+
+
+
+]
+\openout2 = `preface/2.acronyms.aux'.
+
+ (preface/2.acronyms.tex)
+Overfull \hbox (32.33856pt too wide) in paragraph at lines 4--94
+[] 
+ []
+
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 94.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 94.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 94.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 94.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 94.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 94.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+[9
+
+
+
+
+]
+\openout2 = `chapters/1.introduccion.aux'.
+
+ (chapters/1.introduccion.tex
+Cap\'{\i }tulo 1.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 10.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 10.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 10.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 10.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 10.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 10.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 10.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+[10
+
+
+
+
+]
+LaTeX Info: Redefining \. on input line 25.
+LaTeX Info: Redefining \% on input line 25.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 25.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 25.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 25.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 25.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 25.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 25.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 25.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [11]
+LaTeX Info: Redefining \. on input line 44.
+LaTeX Info: Redefining \% on input line 44.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 44.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 44.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 44.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 44.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 44.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 44.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 44.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [12])
+LaTeX Info: Redefining \. on input line 98.
+LaTeX Info: Redefining \% on input line 98.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 98.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 98.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 98.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 98.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 98.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 98.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 98.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [13]
+\openout2 = `chapters/2.redes_5g.aux'.
+
+ (chapters/2.redes_5g.tex
+Cap\'{\i }tulo 2.
+
+chapters/2.redes_5g.tex:6: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 \item \textbf
+                 {1G}: Introducción de la comunicación analógica.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 6
+[][]
+ []
+
+
+chapters/2.redes_5g.tex:7: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 \item \textbf
+                 {2G}: Digitalización de la voz y servicios básicos de dat...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 7
+[][]
+ []
+
+
+chapters/2.redes_5g.tex:8: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8 \item \textbf
+                 {3G}: Introducción de datos móviles y servicios multimedia.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 8
+[][]
+ []
+
+
+chapters/2.redes_5g.tex:9: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.9 \item \textbf
+                 {4G}: Redes IP y mayor velocidad de datos.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 9
+[][]
+ []
+
+
+chapters/2.redes_5g.tex:10: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.10 \item \textbf
+                  {LTE y LTE-Advanced}: Mejoras en eficiencia espectral y la...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 10
+[][]
+ []
+
+
+chapters/2.redes_5g.tex:13: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.13 \item \textbf
+                  {5G Non-Standalone (NSA)}: Uso combinado de 4G y 5G para u...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 13
+[][]
+ []
+
+
+chapters/2.redes_5g.tex:14: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 \item \textbf
+                  {5G Standalone (SA)}: Arquitectura completamente nueva bas...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 14
+[][]
+ []
+
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 16.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 16.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 16.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 16.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 16.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 16.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 16.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 16.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+[14
+
+
+
+
+]
+
+chapters/2.redes_5g.tex:17: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.17 \item \textbf
+                  {5G Advanced}: Mejoras en IA, eficiencia energética y sop...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 17
+[][]
+ []
+
+
+chapters/2.redes_5g.tex:18: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 \item \textbf
+                  {Beyond-5G}: Investigación en tecnologías emergentes com...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 18
+[][]
+ []
+
+
+chapters/2.redes_5g.tex:21: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.21 \item \textbf
+                  {Visión de 6G}: Redes ultra confiables, latencia casi nul...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 21
+[][]
+ []
+
+
+chapters/2.redes_5g.tex:22: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.22 \item \textbf
+                  {Tecnologías emergentes}: Comunicaciones terahertz, redes...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 22
+[][]
+ []
+
+
+Overfull \hbox (4.69202pt too wide) in paragraph at lines 22--23
+[]\T1/cmr/bx/n/12 Tecnolog�as emer-gen-tes\T1/cmr/m/n/12 : Co-mu-ni-ca-cio-nes te-ra-hertz, re-des auto-organizadas
+ []
+
+
+chapters/2.redes_5g.tex:23: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.23 \item \textbf
+                  {Aplicaciones futuras}: Realidad extendida (XR), ciudades ...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 23
+[][]
+ []
+
+
+Overfull \hbox (9.0675pt too wide) in paragraph at lines 23--24
+[]\T1/cmr/bx/n/12 Aplicaciones fu-tu-ras\T1/cmr/m/n/12 : Reali-dad ex-ten-di-da (XR), ciu-da-des in-te-li-gen-tes (Smart
+ []
+
+
+chapters/2.redes_5g.tex:24: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.24 \item \textbf
+                  {Desafíos}: Seguridad, privacidad y sostenibilidad ambien...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 24
+[][]
+ []
+
+LaTeX Info: Redefining \. on input line 34.
+LaTeX Info: Redefining \% on input line 34.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 34.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 34.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 34.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 34.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 34.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 34.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 34.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 34.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+[15]
+LaTeX Info: Redefining \. on input line 40.
+LaTeX Info: Redefining \% on input line 40.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 40.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 40.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 40.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 40.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 40.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 40.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 40.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 40.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [16]
+LaTeX Info: Redefining \. on input line 58.
+LaTeX Info: Redefining \% on input line 58.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 58.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 58.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 58.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 58.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 58.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 58.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 58.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 58.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [17]
+<images/combinacion-ran.png, id=736, 753.81625pt x 312.16624pt>
+File: images/combinacion-ran.png Graphic file (type png)
+<use images/combinacion-ran.png>
+Package pdftex.def Info: images/combinacion-ran.png  used on input line 65.
+(pdftex.def)             Requested size: 390.0pt x 161.50333pt.
+LaTeX Info: Redefining \. on input line 79.
+LaTeX Info: Redefining \% on input line 79.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 79.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 79.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 79.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 79.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 79.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 79.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 79.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 79.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [18
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.79     \item \textbf
+                      {Opción 8}: RAN NR conectada al 5GC. (Solo NR) <./images/combinacion-ran.png>]
+LaTeX Info: Redefining \. on input line 104.
+LaTeX Info: Redefining \% on input line 104.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 104.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 104.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 104.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 104.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 104.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 104.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 104.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 104.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [19]
+LaTeX Info: Redefining \. on input line 115.
+LaTeX Info: Redefining \% on input line 115.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 115.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 115.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 115.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 115.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 115.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 115.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 115.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 115.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [20]
+
+LaTeX Warning: Citation `3gpp.ts.37.340' on page 21 undefined on input line 118.
+
+<images/sba.png, id=755, 740.0147pt x 440.39531pt>
+File: images/sba.png Graphic file (type png)
+<use images/sba.png>
+Package pdftex.def Info: images/sba.png  used on input line 132.
+(pdftex.def)             Requested size: 390.0pt x 232.09802pt.
+
+LaTeX Warning: Citation `oreillyf2021' on page 21 undefined on input line 133.
+
+
+LaTeX Warning: Citation `oreillyf2021' on page 21 undefined on input line 133.
+
+LaTeX Info: Redefining \. on input line 137.
+LaTeX Info: Redefining \% on input line 137.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 137.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 137.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 137.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 137.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 137.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 137.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 137.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 137.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+[21]
+<images/sbi_p2p.png, id=762, 768.62157pt x 421.575pt>
+File: images/sbi_p2p.png Graphic file (type png)
+<use images/sbi_p2p.png>
+Package pdftex.def Info: images/sbi_p2p.png  used on input line 144.
+(pdftex.def)             Requested size: 390.0pt x 213.91327pt.
+
+
+LaTeX Warning: Citation `oreillyf2021' on page 22 undefined on input line 145.
+
+LaTeX Info: Redefining \. on input line 149.
+LaTeX Info: Redefining \% on input line 149.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 149.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 149.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 149.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 149.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 149.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 149.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 149.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 149.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+[22
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.149 
+       <./images/sba.png>]
+Overfull \hbox (1.77203pt too wide) in paragraph at lines 153--154
+[]\T1/cmr/bx/n/12 Protocolo HTTP/2\T1/cmr/m/n/12 : 5GC uti-li-za HTTP/2 co-mo el pro-to-co-lo de trans-
+ []
+
+LaTeX Info: Redefining \. on input line 156.
+LaTeX Info: Redefining \% on input line 156.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 156.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 156.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 156.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 156.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 156.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 156.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 156.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 156.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+[23
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.156     \item \textbf
+                       {Seguridad}: La seguridad es un aspecto crítico en l... <./images/sbi_p2p.png>]
+
+LaTeX Warning: Citation `3gpp.ts.23.501' on page 24 undefined on input line 165.
+
+LaTeX Info: Redefining \. on input line 186.
+LaTeX Info: Redefining \% on input line 186.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 186.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 186.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 186.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 186.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 186.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 186.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 186.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 186.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+[24]
+
+chapters/2.redes_5g.tex:186: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.186 \item G
+             estión de la conexión y autenticación del UE.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 186
+[][]
+ []
+
+
+chapters/2.redes_5g.tex:187: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.187 \item M
+             anejo de la movilidad del UE, incluyendo el seguimiento y la ge...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 187
+[][]
+ []
+
+
+chapters/2.redes_5g.tex:188: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.188 \item C
+             oordinación con otras funciones de red para garantizar una exp...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 188
+[][]
+ []
+
+
+chapters/2.redes_5g.tex:189: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.189 \item G
+             estión de la seguridad y la integridad de las comunicaciones e...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 189
+[][]
+ []
+
+
+chapters/2.redes_5g.tex:190: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.190 \item C
+             oordinación con el Session Management Function (SMF) para la g...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 190
+[][]
+ []
+
+
+chapters/2.redes_5g.tex:193: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.193 \item D
+             efinición y aplicación de políticas de calidad de servicio (...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 193
+[][]
+ []
+
+
+chapters/2.redes_5g.tex:194: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.194 \item G
+             estión de políticas de acceso y control de recursos en funci�...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 194
+[][]
+ []
+
+
+chapters/2.redes_5g.tex:195: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.195 \item C
+             oordinación con otras funciones de red, como el AMF y el SMF, ...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 195
+[][]
+ []
+
+)
+LaTeX Info: Redefining \. on input line 99.
+LaTeX Info: Redefining \% on input line 99.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 99.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 99.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 99.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 99.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 99.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 99.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 99.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 99.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [25]
+Overfull \vbox (13.12308pt too high) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 99.
+LaTeX Info: Redefining \% on input line 99.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 99.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 99.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 99.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 99.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 99.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 99.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 99.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 99.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [26]
+\openout2 = `chapters/3.telemetria.aux'.
+
+ (chapters/3.telemetria.tex
+Cap\'{\i }tulo 3.
+
+Overfull \hbox (6.07428pt too wide) in paragraph at lines 4--4
+|[]\T1/cmr/bx/n/14.4 Limitaciones de me-ca-nis-mos tra-di-cio-na-les (SNMP,
+ []
+
+)
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 100.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 100.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 100.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 100.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 100.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 100.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 100.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 100.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 100.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [27
+
+
+
+
+]
+Overfull \vbox (0.52254pt too high) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 100.
+LaTeX Info: Redefining \% on input line 100.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 100.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 100.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 100.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 100.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 100.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 100.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 100.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 100.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 100.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [28]
+\openout2 = `chapters/4.p4_fundamentos.aux'.
+
+ (chapters/4.p4_fundamentos.tex
+Cap\'{\i }tulo 4.
+)
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 101.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 101.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 101.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 101.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 101.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 101.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 101.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 101.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 101.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 101.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [29
+
+
+
+
+]
+\openout2 = `chapters/5.entorno_desarrollo.aux'.
+
+ (chapters/5.entorno_desarrollo.tex
+Cap\'{\i }tulo 5.
+
+Overfull \hbox (0.73444pt too wide) in paragraph at lines 1--1
+|\T1/cmr/bx/n/24.88 Entorno de De-sa-rro-llo e Im-ple-men-
+ []
+
+)
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 102.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 102.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 102.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 102.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 102.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 102.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 102.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 102.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 102.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 102.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 102.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [30
+
+
+
+
+]
+Overfull \vbox (268.92021pt too high) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 102.
+LaTeX Info: Redefining \% on input line 102.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 102.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 102.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 102.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 102.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 102.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 102.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 102.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 102.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 102.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 102.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 102.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [31]
+\openout2 = `chapters/6.resultados.aux'.
+
+ (chapters/6.resultados.tex
+Cap\'{\i }tulo 6.
+)
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [32
+
+
+
+
+]
+Overfull \vbox (52.09921pt too high) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 103.
+LaTeX Info: Redefining \% on input line 103.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 103.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [33]
+\openout2 = `chapters/7.discusion.aux'.
+
+ (chapters/7.discusion.tex
+Cap\'{\i }tulo 7.
+)
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 104.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 104.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 104.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 104.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 104.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 104.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 104.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 104.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 104.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 104.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 104.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 104.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 104.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [34
+
+
+
+
+]
+\openout2 = `chapters/8.conclusiones.aux'.
+
+ (chapters/8.conclusiones.tex
+Cap\'{\i }tulo 8.
+)
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 105.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 105.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 105.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 105.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 105.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 105.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 105.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 105.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 105.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 105.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 105.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 105.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 105.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 105.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [35
+
+
+
+
+]
+\openout2 = `chapters/apendices.aux'.
+
+ (chapters/apendices.tex
+Ap\'{e}ndice A.
+)
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 109.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 109.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 109.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 109.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 109.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 109.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 109.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 109.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 109.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 109.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 109.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 109.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 109.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 109.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+File: images/logo_upct.png Graphic file (type png)
+<use images/logo_upct.png>
+Package pdftex.def Info: images/logo_upct.png  used on input line 109.
+(pdftex.def)             Requested size: 94.01541pt x 34.14322pt.
+ [36
+
+
+
+
+] (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.bbl) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.aux
+LaTeX Info: Redefining \. on input line 12.
+LaTeX Info: Redefining \% on input line 12.
+ (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/1.dedicatory.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/3.TableOfContents.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/4.TableOfFigures.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/5.TableOfTables.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/2.acronyms.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/1.introduccion.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/2.redes_5g.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/3.telemetria.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/4.p4_fundamentos.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/5.entorno_desarrollo.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/6.resultados.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/7.discusion.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/8.conclusiones.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/apendices.aux))
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-11-06>
+ ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: A279EFC0E8C8568A91D34A93C4FF288C;26567
+(rerunfilecheck)             After:  B98C3125C7F53F3CA2C1B915E38805D1;28373.
+ ) 
+Here is how much of TeX's memory you used:
+ 14896 strings out of 467871
+ 248723 string characters out of 5413536
+ 662814 words of memory out of 5000000
+ 43274 multiletter control sequences out of 15000+600000
+ 642248 words of font info for 79 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 75i,12n,88p,1087b,896s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{cite.3gpp.23.799} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{cite.3gpp.sp.160455} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.2.5.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.2.5.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.2.5.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.2.4.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.2.3.6} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.2.3.5} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.2.3.4} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.2.3.3} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.2.3.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.2.2.1} has been referenced but does not exist, replaced by a fixed one
+
+ <C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk>
+Output written on c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetría-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.pdf (37 pages, 616559 bytes).
+PDF statistics:
+ 1291 PDF objects out of 1440 (max. 8388607)
+ 199 named destinations out of 1000 (max. 500000)
+ 1037 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -1,0 +1,223 @@
+\chapter{Fundamentos de las Redes 5G y Beyond}
+
+\section{Evolución de tecnologías móviles}
+Las redes móviles han evolucionado significativamente desde su inicio, pasando por varias generaciones que han mejorado la capacidad, velocidad y latencia de las comunicaciones inalámbricas. pasando a ser una pieza clave en la infraestructura de telecomunicaciones global, impactando positivamente en diversos sectores como la industria, la salud y el entretenimiento, entre otros.
+\subsection{De 1G a 4G: Hitos clave}
+\item \textbf{1G}: Introducción de la comunicación analógica.
+\item \textbf{2G}: Digitalización de la voz y servicios básicos de datos (SMS).
+\item \textbf{3G}: Introducción de datos móviles y servicios multimedia.
+\item \textbf{4G}: Redes IP y mayor velocidad de datos.
+\item \textbf{LTE y LTE-Advanced}: Mejoras en eficiencia espectral y latencia.
+
+\subsection{De 4G a 5G SA}
+\item \textbf{5G Non-Standalone (NSA)}: Uso combinado de 4G y 5G para una transición suave. Aumentando la capacidad y velocidad de la red.
+\item \textbf{5G Standalone (SA)}: Arquitectura completamente nueva basada en servicios y virtualización, permitiendo nuevas funcionalidades y mejoras en latencia y confiabilidad.
+ 
+\subsection{5G Advanced y Beyond-5G}
+\item \textbf{5G Advanced}: Mejoras en IA, eficiencia energética y soporte para nuevas aplicaciones, como XR y comunicaciones vehiculares.
+\item \textbf{Beyond-5G}: Investigación en tecnologías emergentes como comunicaciones cuánticas y redes holográficas, con miras a la futura generación 6G.
+
+\subsection{Tendencias hacia 6G}
+\item \textbf{Visión de 6G}: Redes ultra confiables, latencia casi nula y capacidades de inteligencia artificial integradas de manera nativa.
+\item \textbf{Tecnologías emergentes}: Comunicaciones terahertz, redes auto-organizadas y computación en el borde (Edge Computing).
+\item \textbf{Aplicaciones futuras}: Realidad extendida (XR), ciudades inteligentes (Smart Cities) y redes de sensores masivos (IoT masivo).
+\item \textbf{Desafíos}: Seguridad, privacidad y sostenibilidad ambiental.
+
+%----------------------------------------
+\section{Características de RAN para 5G y beyond}
+En 5G (Release 15) el UE puede conectarse a la red mediante dos tipos de acceso: LTE (E-UTRA) y NR (New Radio). La red Core puede ser EPC (Evolved Packet Core) o 5GC (5G Core), dependiendo de si la red es NSA o SA, respectivamente. Posteriormente, esto se amplió para que ambas celdas puedan pertenecer a 5G NR, en cuyo caso la CN es exclusivamente 5G Core. Estas diversas opciones se agrupan en el término Multi-Radio Dual Connectivity (MR-DC). MR-DC es una generalizacion de Intra-E-UTRA Dual Connectivity (EN-DC) y E-UTRA-NR Dual Connectivity (NE-DC) que permite que un UE se conecte simultáneamente a dos nodos de acceso, que pueden ser E-UTRA o NR. En MR-DC, un nodo de acceso actúa como el nodo maestro o master node (MN) y el otro como el nodo secundario o secondary node (SN). El MN es responsable de la señalización y el control, mientras que el SN se utiliza principalmente para la transferencia de datos.
+
+
+
+\section{Arquitectura 5G Non Standalone (NSA) }
+La arquitectura 5G Non-Standalone (NSA) es una configuración de red que permite la coexistencia y colaboración entre las tecnologías 4G LTE y 5G NR. En esta arquitectura, la red 4G LTE actúa como la red principal para la señalización y el control, mientras que la red 5G NR se utiliza principalmente para el transporte de datos de alta velocidad. Esta configuración permite a los operadores de red aprovechar la infraestructura existente de LTE mientras implementan nuevas capacidades de NR, facilitando una transición más suave hacia las redes 5G completas.
+
+Desde una perspectiva operacional, la arquitectura NSA permite a los proveedores de servicios móviles activar capacidades 5G de forma gradual sin necesidad de reemplazar completamente la infraestructura de núcleo de red existente. El despliegue de NSA comienza típicamente con la instalación de nuevas estaciones base NR que coexisten con las estaciones base LTE existentes. Los dispositivos del usuario (UE) que soportan tanto LTE como NR pueden conectarse simultáneamente a ambas redes, aprovechando la mejor señal disponible para la señalización de control a través de LTE y utilizando NR para el tráfico de datos cuando está disponible. Este enfoque dual proporciona beneficios inmediatos de rendimiento sin requerir una arquitectura de núcleo completamente nueva, lo que reduce significativamente los costos de inversión durante la transición.
+
+La arquitectura NSA introduce el concepto de "Dual Connectivity", donde un dispositivo móvil mantiene conexiones simultáneas a dos estaciones base: una primaria (master) y una secundaria (secundaria). En el caso más común de NSA, la estación base LTE actúa como el nodo maestro, proporcionando la conexión primaria y controlando el plano de control, mientras que la estación base NR actúa como un nodo secundario dedicado al tráfico de datos de alta velocidad. Esta separación de funciones permite que los operadores optimicen el uso del espectro radioeléctrico, permitiendo que LTE continúe manejando eficientemente la señalización de control y la cobertura amplia, mientras que NR proporciona capacidad adicional de datos donde la densidad de usuarios es más alta.
+
+Desde el punto de vista del usuario final, la arquitectura NSA ofrece una experiencia mejorada en comparación con las redes LTE puras. Los usuarios pueden experimentar velocidades de descarga más altas (potencialmente en el rango de gigabits por segundo), menor latencia en aplicaciones específicas de datos, y mejor eficiencia general de la red. Sin embargo, las ventajas están limitadas principalmente al tráfico de datos, ya que los servicios de señalización y control siguen estando limitados por las especificaciones de LTE. Para casos de uso que requieren baja latencia extrema o requisitos ultra confiables (como comunicaciones críticas), la arquitectura NSA puede no ser suficiente, lo que subraya la necesidad eventual de migrar a 5G SA para alcanzar todas las capacidades de 5G.
+
+\subsection{Opciones de arquitectura 3GPP 5G NSA}
+El trabajo realizado por el 3GPP sobre la arquitectura de la red 5G dio como resultado un conjunto de alternativas arquitectónicas, fundamentadas en tres decisiones clave del propio 3GPP. Este estudio esta documentado en el reporte técnico 3GPP TR 23.799 \cite{3gpp.23.799}, donde se describen las diferentes opciones arquitectónicas para la implementación de redes 5G NSA. A continuación, se presentan las principales opciones:
+\begin{itemize}
+    \item \textbf{Opción 1}: Arquitectura basada en LTE/EPC, donde el Core de la red sigue siendo el EPC y se utiliza NR como acceso adicional.
+    \item \textbf{Opción 2}: Arquitectura basada en 5G Core (5GC), donde tanto el acceso como el Core de la red son 5G (SA).
+    \item \textbf{Opción 3}: Arquitectura híbrida que combina elementos de LTE/EPC y 5GC, permitiendo una transición gradual hacia 5G.
+\end{itemize}   
+El hecho de que la red de acceso LTE y NR puedan coexistir en una misma red 5G NSA, permite a los operadores de red aprovechar la infraestructura existente de LTE mientras implementan nuevas capacidades de NR. Por lo que la red LTE (RAN) tiene dos formas de conectarse con el Core (Core):
+\begin{itemize}
+    \item \textbf{Conexión mediante S1 al EPC}: En esta configuración, la red LTE se conecta al EPC a través de la interfaz S1, mientras que la red NR se conecta al EPC a través de una interfaz adaptada. Esta opción permite una integración más sencilla con la infraestructura LTE existente.
+    \item \textbf{Conexión mediante N2/N3 al Core 5GC}: En esta configuración, la red LTE se conecta al Core 5GC a través de las interfaces N2 y N3, mientras que la red NR también se conecta al 5GC. Esto permite una integración más estrecha entre las redes LTE y NR, facilitando la gestión y el control de la red.
+\end{itemize}
+Teniendo en cuenta que RAN de LTE y NR pueden coexistir en una misma red 5G NSA, existen cuatro formas de implementar LTE y/o NR. \cite{3gpp.23.799}:
+\begin{itemize}
+    \item \textbf{Opción 1}: Solo LTE para todo el trafico de datos y señalización.
+    \item \textbf{Opción 2}: Solo NR para todo el trafico de datos y señalización.
+    \item \textbf{Opción 3}: Una combinación de LTE y NR donde LTE tiene la mayor cobertura y se utiliza para señalización, mientras que LTE y NR se utilizan para tráfico de datos.
+    \item \textbf{Opción 4}: Una combinación de LTE y NR donde NR tiene la mayor cobertura y se utiliza para señalización, mientras que LTE y NR se utilizan para tráfico de datos.
+\end{itemize}
+Considerando la integración de 2 Core diferentes (EPC y 5GC) en una red 5G NSA, existen 8 formas de implementar la arquitectura 5G NSA. \cite{3gpp.sp.160455}.
+
+%-------Imagen Figura 2.1-------
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/combinacion-ran.png}
+    \caption{Posibles combinaciones de RAN y Core en una red 5G NSA \cite{3gpp.sp.160455}.}
+    \label{fig:5g-combinations}
+\end{figure}
+%-------------------------------
+En la figura \ref{fig:5g-combinations} se muestran las diferentes combinaciones posibles de RAN y Core en una red 5G NSA 4 × 2 = 8. Las cuales son:
+\begin{itemize}
+    \item \textbf{Opción 1}: RAN LTE conectada al EPC. (Solo LTE)
+    \item \textbf{Opción 2}: RAN LTE conectada al 5GC. (Solo LTE)
+    \item \textbf{Opción 3}: RAN LTE y NR conectadas al EPC. (LTE para señalización y datos, NR para datos)
+    \item \textbf{Opción 4}: RAN LTE y NR conectadas al 5GC. (LTE para señalización y datos, NR para datos)
+    \item \textbf{Opción 5}: RAN NR y LTE conectadas al EPC. (NR para señalización y datos, LTE para datos)
+    \item \textbf{Opción 6}: RAN NR y LTE conectadas al 5GC. (NR para señalización y datos, LTE para datos)
+    \item \textbf{Opción 7}: RAN NR conectada al EPC. (Solo NR)
+    \item \textbf{Opción 8}: RAN NR conectada al 5GC. (Solo NR)
+\end{itemize}
+Las opciones 3, 4, 5 y 6 son las que permiten la coexistencia de LTE y NR en la misma red 5G NSA, aprovechando las capacidades de ambas tecnologías para mejorar la cobertura y el rendimiento de la red. Estas opciones representan diferentes estrategias de integración que los operadores pueden adoptar según sus objetivos de despliegue y requisitos de infraestructura.
+
+En las opciones 3 y 4, LTE actúa como la tecnología principal para la señalización de control y la cobertura amplia, mientras que NR se despliega como una tecnología complementaria para proporcionar capacidad adicional de datos de alta velocidad en áreas densamente pobladas. Esta configuración permite a los operadores mantener una cobertura LTE extendida (que puede alcanzar kilómetros de distancia) mientras aprovechan las bandas de frecuencia más altas de NR (donde la propagación es más limitada) para aumentar la capacidad de datos. Las opciones 3 y 4 difieren en el núcleo de red utilizado: la opción 3 utiliza el EPC tradicional de 4G, lo que requiere menos cambios en la infraestructura existente, mientras que la opción 4 utiliza el 5GC, permitiendo una integración más profunda con las funciones de red 5G.
+
+Las opciones 5 y 6 invierten el rol de las tecnologías, donde NR se convierte en la tecnología primaria para la señalización y el control, mientras que LTE actúa como una tecnología secundaria para datos adicionales. Este enfoque es útil en escenarios donde los operadores han desplegado ampliamente NR y desean optimizar la utilización del espectro LTE existente o en regiones donde LTE proporciona una cobertura superior. Similar a las opciones anteriores, la opción 5 utiliza EPC como núcleo de red, mientras que la opción 6 utiliza 5GC, proporcionando mayor flexibilidad en la arquitectura de red.
+
+La selección entre estas opciones (3, 4, 5 o 6) depende de varios factores estratégicos: la cobertura existente de LTE en la región, la disponibilidad de espectro NR, la madurez de la infraestructura 5GC disponible, los objetivos de calidad de servicio requeridos para diferentes tipos de aplicaciones, y las inversiones ya realizadas en infraestructura de red anterior. Los operadores típicamente comienzan con las opciones 3 o 4 (donde LTE es primario) para aprovechar su cobertura establecida, y gradualmente evolucionan hacia las opciones 5 o 6 (donde NR es primario) conforme la cobertura de NR se expande y se vuelve más dominante en la red.
+%-----------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Arquitectura 5G Standalone (SA)}
+\subsection{Visión general de la arquitectura 5G SA}
+La arquitectura 5G Standalone (SA) representa una evolución significativa en comparación con las generaciones anteriores de redes móviles. A diferencia de las implementaciones Non-Standalone (NSA), que dependen de la infraestructura existente de 4G LTE, la arquitectura SA está diseñada desde cero para aprovechar al máximo las capacidades de la tecnología 5G. Esta arquitectura se basa en una serie de principios clave que permiten una mayor flexibilidad, eficiencia y capacidad para soportar una amplia gama de servicios y aplicaciones. Entre los aspectos más destacados de la arquitectura 5G SA se encuentran:
+\begin{itemize}
+    \item \textbf{Red basada en servicios}: La arquitectura 5G SA adopta un enfoque basado en servicios, donde las funciones de red se implementan como servicios independientes que pueden ser orquestados y gestionados de manera flexible.
+    \item \textbf{Virtualización y desagregación}: La arquitectura permite la virtualización de funciones de red (NFV) y la desagregación de hardware y software, lo que facilita la implementación en entornos de nube y mejora la escalabilidad.
+    \item \textbf{Separación del plano de control y plano de usuario}: Esta separación permite una gestión más eficiente del tráfico y una mejor calidad de servicio (QoS) para diferentes tipos de aplicaciones.
+    \item \textbf{Soporte para nuevas tecnologías}: La arquitectura 5G SA está diseñada para integrar tecnologías emergentes como la inteligencia artificial (IA), el edge computing y la Internet de las cosas (IoT).
+\end{itemize}
+
+\subsection{Modos de implementación de 5G SA}
+Existen tres modos principales de implementación de redes 5G NSA, que permiten la coexistencia de tecnologías LTE y NR en una misma red. Estos modos son:
+\begin{itemize}
+    \item \textbf{NGEN-DC (NG-RAN E-UTRA–NR Dual Connectivity)}: el UE (User Equipment) se conecta simultáneamente a una estación base LTE (eNodeB) como master node (MN) y a una estación base NR (gNodeB) como secondary node (SN), utilizando el EPC como Core de la red. El gNodeB (en-gNB) se puede conectar al EPC mediante la interface S1-U o x2-U para el plano de usuario y la interfaz S1-MME o X2-C para el plano de control.
+    \item \textbf{NE-DC (NR–E-UTRA Dual Connectivity)}: el UE se conecta simultáneamente a una estación base NR como master node (MN) y a una estación base LTE como secondary node (SN), utilizando el 5GC como Core de la red.
+    \item \textbf{NR-DC (NR–NR Dual Connectivity)}: el UE se conecta simultáneamente a dos estaciones base NR, una como master node (MN) y la otra como secondary node (SN), utilizando el 5GC como Core de la red.
+\end{itemize}
+La descripcion de DC se encuentra en el documento 3GPP TS 37.340 \cite{3gpp.ts.37.340}.
+
+
+
+
+\subsection{Perspectivas en 5GC}
+La arquitectura del núcleo de red 5G (5GC) introduce una serie de innovaciones y mejoras en comparación con las arquitecturas de núcleo de red anteriores, como el EPC utilizado en 4G. Estas mejoras están diseñadas para soportar las demandas crecientes de conectividad, velocidad y baja latencia que caracterizan a las redes 5G.
+
+\section{Arquitectura basada en servicios (SBA)}
+La diferencia más destacada en 5G frente a las arquitecturas 3GPP anteriores es la adopción del concepto de interfaces basadas en servicios \textbf{(SBA)} . Esto implica que las funciones de red que contienen la lógica y los mecanismos para procesar los flujos de señalización ya no se conectan mediante interfaces punto a punto, sino que \textbf{exponen sus capacidades como servicios} accesibles para otras funciones de red. En cada intercambio, una función actúa como \textbf{consumidora de servicios} y la otra como \textbf{proveedora de dichos servicios}. \ref{fig:5g-sba} muestra la arquitectura 5GC basada en SBA.
+
+%-------Imagen Figura 2.2-------
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/sba.png}
+    \caption{Arquitectura 5GC basada en interfaces basadas en servicios. \cite{oreillyf2021}.}
+    \label{fig:5g-sba}
+\end{figure}
+%-------------------------------
+
+Las funciones de red en 5GC se comunican entre sí a través de una interfaz común llamada \textbf{Service-Based Interface (SBI)}. Esta interfaz utiliza protocolos estándar como HTTP/2 y RESTful APIs para facilitar la comunicación entre las funciones de red. La adopción de SBA permite una mayor flexibilidad y escalabilidad en la arquitectura de la red, ya que las funciones pueden ser desarrolladas, desplegadas y actualizadas de manera independiente. Además, esta arquitectura facilita la integración con tecnologías emergentes como la virtualización de funciones de red (NFV) y la computación en la nube, permitiendo a los operadores de red adaptarse rápidamente a las demandas cambiantes del mercado y ofrecer nuevos servicios de manera más eficiente.
+
+La arquitectura SBA también se puede representar como punto a punto, donde cada función de red se conecta directamente con las demás funciones que requieren sus servicios, utilizando la interfaz SBI para la comunicación. Como se muestra en la figura \ref{fig:sbi_p2p}.
+%-------Imagen Figura 2.3-------
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/sbi_p2p.png}
+    \caption{Arquitectura 5GC con interfaces punto a punto. \cite{oreillyf2021}.}
+    \label{fig:sbi_p2p}
+\end{figure}
+%-------------------------------
+
+\subsection{Interfaces HTTP REST}
+En la arquitectura 5G Core (5GC), las funciones de red se comunican entre sí utilizando una interfaz basada en servicios conocida como Service-Based Interface (SBI). Esta interfaz utiliza el protocolo HTTP/2 junto con RESTful APIs para facilitar la comunicación y el intercambio de información entre las diferentes funciones de red. A continuación, se describen los aspectos clave de las interfaces HTTP REST en 5GC:
+\begin{itemize}
+    \item \textbf{Protocolo HTTP/2}: 5GC utiliza HTTP/2 como el protocolo de transporte para las comunicaciones entre funciones de red. HTTP/2 ofrece varias ventajas sobre su predecesor, HTTP/1.1, incluyendo una mayor eficiencia en la multiplexación de solicitudes, compresión de encabezados y reducción de la latencia, lo que es crucial para las aplicaciones de baja latencia en 5G.
+    \item \textbf{RESTful APIs}: Las funciones de red en 5GC exponen sus capacidades a través de RESTful APIs, que son interfaces basadas en principios REST (Representational State Transfer). Estas APIs permiten a las funciones de red interactuar de manera sencilla y estandarizada, utilizando métodos HTTP como GET, POST, PUT y DELETE para realizar operaciones sobre los recursos.
+    \item \textbf{Formato de datos JSON}: La comunicación entre funciones de red a través de las RESTful APIs generalmente utiliza JSON (JavaScript Object Notation) como formato de datos para el intercambio de información. JSON es ligero y fácil de leer, lo que facilita la integración entre diferentes sistemas y tecnologías.
+    \item \textbf{Seguridad}: La seguridad es un aspecto crítico en las comunicaciones entre funciones de red. En 5GC, se implementan mecanismos de autenticación y autorización para garantizar que solo las funciones autorizadas puedan acceder a los servicios expuestos a través de las RESTful APIs. Además, se utilizan protocolos seguros como TLS (Transport Layer Security) para proteger la integridad y confidencialidad de los datos transmitidos.
+    \item \textbf{Escalabilidad y flexibilidad}: La adopción de interfaces HTTP REST permite una mayor escalabilidad y flexibilidad en la arquitectura 5GC. Las funciones de red pueden ser desarrolladas, desplegadas y actualizadas de manera independiente, lo que facilita la adaptación a las demandas cambiantes del mercado y la incorporación de nuevas tecnologías.
+\end{itemize}
+
+\section{Componentes de 5G Core (5GC)}
+En 5G Core (5GC), los componentes tienes funciones específicas a diferencia de las arquitecturas anteriores, las cuales combinaban algunas funciones como por ejemplo, el MME y el SGW en una sola entidad llamada AMF.
+
+\subsection{Componentes principales de 5GC}
+\subsubsection{NRF}
+El Network Repository Function (NRF) es un componente clave en la arquitectura 5G Core (5GC) que actúa como un repositorio centralizado para la gestión y descubrimiento de servicios de red. Su función principal es mantener un registro actualizado de todas las funciones de red disponibles en la red 5G, permitiendo que otras funciones de red puedan descubrir y comunicarse con ellas de manera eficiente. acorde a \cite{3gpp.ts.23.501}.
+Algunas de las funciones principales del NRF incluyen:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{AMF}
+El Access and Mobility Management Function (AMF) es responsable de la gestión de la movilidad y el acceso de los dispositivos de usuario (UE) en la red 5G. Sus funciones principales incluyen:
+\item Gestión de la conexión y autenticación del UE.
+\item Manejo de la movilidad del UE, incluyendo el seguimiento y la gestión de la ubicación.
+\item Coordinación con otras funciones de red para garantizar una experiencia de usuario fluida durante los cambios de celda y las transiciones entre diferentes tecnologías de acceso.
+\item Gestión de la seguridad y la integridad de las comunicaciones entre el UE y la red.
+\item Coordinación con el Session Management Function (SMF) para la gestión de sesiones de datos.
+\subsection{PCF}
+El Policy Control Function (PCF) es responsable de la gestión y aplicación de políticas en la red 5G. Sus funciones principales incluyen:
+\item Definición y aplicación de políticas de calidad de servicio (QoS) para diferentes tipos de tráfico.
+\item Gestión de políticas de acceso y control de recursos en función de las condiciones de la red y las necesidades del usuario.
+\item Coordinación con otras funciones de red, como el AMF y el SMF, para garantizar que las políticas se apliquen de manera coherente en toda la red.
+
+
+
+\subsection{SMF}
+\subsection{UPF}
+\subsection{AUSF}
+\subsection{UDM}
+\subsection{PCF}
+
+\subsection{NSSF}
+\subsection{NEF}
+\subsection{AF}
+\subsection{Funciones del plano de control y plano de usuario}
+\subsection{Interfaces clave: N1, N2, N3, N4, N6, N9}
+\subsection{NGAP y N2}
+\subsection{NGRAN y separación CP/UP}
+
+\section{Protocolos relevantes en 5G}
+\subsection{NGAP}
+\subsection{SCTP en 5G}
+\subsection{GTP-U}
+\subsection{PFCP}
+
+\section{QoS en 5G}
+\subsection{Conceptos de QFI, 5QI y políticas de flujo}
+\subsection{Programación del tráfico en UPF}
+\subsection{QoS-based routing y desafíos actuales}
+\subsection{Relación entre QoS y telemetría}

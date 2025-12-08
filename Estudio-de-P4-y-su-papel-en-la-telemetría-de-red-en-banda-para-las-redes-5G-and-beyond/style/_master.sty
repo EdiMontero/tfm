@@ -1,0 +1,23 @@
+% -------------------------------
+% ENCABEZADO Y PIE DE PÁGINA
+% -------------------------------
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{} % Limpia todo
+
+% Encabezado
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\thepage}
+
+% Pie de página con logo UPCT
+\fancyfoot[R]{%
+  \includegraphics[height=1.2cm]{./images/logo_upct.png}
+}
+
+% Elimina la línea horizontal del header
+\renewcommand{\headrulewidth}{0pt}
+
+% Ajuste necesario para evitar warnings
+\setlength{\headheight}{16pt}
+% -------------------------------

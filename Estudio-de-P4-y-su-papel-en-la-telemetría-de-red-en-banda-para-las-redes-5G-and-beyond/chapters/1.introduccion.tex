@@ -1,0 +1,54 @@
+\chapter{Introducción}
+\section{Contexto general de las redes 5G y beyond}
+Las redes de quinta generación (5G) representan un avance significativo en la evolución de las telecomunicaciones móviles, ofreciendo mayores velocidades, menor latencia y una capacidad mejorada para conectar dispositivos masivos.
+ Con la creciente demanda de servicios en tiempo real y aplicaciones críticas, como la realidad aumentada, los vehículos autónomos y la telemedicina, en donde la latencia y la fiabilidad son esenciales debido a que cualquier retraso puede tener consecuencias graves, la necesidad de una visibilidad y monitoreo efectivos de la red se ha vuelto crucial. En esta evolución, las bajas latencias son cruciales para los nuevos servicios en la actualidad y los futuros, incluyendo la cuarta revolucion industrial.
+%---------------------------------------
+ \section{Motivación del estudio}
+La complejidad y dinamismo de las redes 5G y superiores, plantean desafíos significativos para la gestión y el monitoreo de la red. Los métodos tradicionales de telemetría, como SNMP y NetFlow, a menudo no proporcionan la granularidad y la rapidez necesarias para detectar y 
+resolver problemas en tiempo real otorgando una visibilidad de extremo a extremo sobre el estado de la red de forma precisa. La telemetría en banda (In-Band Network Telemetry, INT) emerge como una solución prometedora para abordar estas limitaciones, permitiendo la recopilación de datos detallados directamente desde los paquetes que atraviesan la red. Este estudio se centra en explorar el papel de P4, un lenguaje de programación para definir el comportamiento de los dispositivos de red, en la implementación y optimización de soluciones de telemetría en banda para redes 5G y beyond.
+%---------------------------------------
+\section{Problemática en la visibilidad y monitoreo de redes 5G y beyond}
+A medida que las redes 5G se vuelven más complejas, la visibilidad y el monitoreo efectivos se convierten en desafíos críticos. La diversidad de servicios y la naturaleza dinámica del tráfico generan dificultades para identificar cuellos de botella, latencias elevadas y otros problemas de rendimiento. Además, la necesidad de cumplir con estrictos requisitos de calidad de servicio (QoS) y experiencia del usuario (QoE) exige soluciones de monitoreo que puedan adaptarse rápidamente a las condiciones cambiantes de la red. La problemática radica en cómo implementar mecanismos de telemetría que sean capaces de proporcionar datos precisos y en tiempo real sin introducir una sobrecarga significativa en la red.
+%---------------------------------------
+\section{Hipótesis y preguntas de investigación}
+La hipótesis central de este estudio es que la implementación de telemetría en banda utilizando P4 puede mejorar significativamente la visibilidad y el monitoreo de las redes 5G y beyond, permitiendo una gestión más eficiente y una mejor calidad de servicio. Las preguntas de investigación que guían este estudio incluyen:
+\begin{itemize}
+    \item ¿Cómo puede P4 facilitar la implementación de soluciones de telemetría en banda en redes 5G y beyond?
+    \item ¿Qué beneficios específicos ofrece la telemetría en banda en comparación con los métodos tradicionales de monitoreo?
+    \item ¿Cuáles son los desafíos y limitaciones asociados con el uso de P4 para telemetría en banda en entornos 5G y beyond?
+    \item ¿Cómo afecta la telemetría en banda al rendimiento general de la red y a la experiencia del usuario?
+\end{itemize}
+%---------------------------------------
+\section{Objetivos generales y específicos}
+El objetivo general de este estudio es evaluar el papel de P4 en la implementación de telemetría en banda para mejorar la visibilidad y el monitoreo de las redes 5G y beyond. Los objetivos específicos incluyen:
+\begin{itemize}
+    \item Analizar las capacidades de P4 para definir y programar el comportamiento de los dispositivos de red en el contexto de la telemetría en banda, específicamente INT-MD.
+    \item Diseñar e implementar un prototipo de telemetría en banda (INT-MD) utilizando P4 en un entorno de red 5G SA simulado.
+    \item Evaluar el rendimiento y la efectividad de la solución propuesta en términos de visibilidad, latencia y sobrecarga de la red.
+    \item Identificar los desafíos y limitaciones encontrados durante la implementación y proponer posibles soluciones o mejoras.
+\end{itemize}
+%---------------------------------------
+\section{Metodología de trabajo}
+Este estudio adoptará un enfoque experimental y analítico para investigar el papel de P4 en la telemetría en banda para redes 5G y beyond. La metodología incluirá las siguientes etapas:
+\begin{itemize}
+    \item Revisión bibliográfica: Se realizará una revisión exhaustiva de la literatura existente sobre telemetría en banda, P4 y redes 5G y beyond para establecer un marco teórico sólido.
+    \item Diseño del prototipo: Se diseñará un prototipo de telemetría en banda utilizando P4, definiendo las tablas y acciones necesarias para insertar metadatos INT-MD en el tráfico N2 (SCTP) y N3 (GTP-U).
+    \item Implementación: El prototipo se implementará en un entorno emulado usando herramientas como GNS3 y VMware workstation que contará con Routers Cisco y switches P4 (BMv2), los cuales serán programados para soportar INT-MD y por ultimo, un servidor sink para la recolección y análisis de los datos de telemetría usando influxDB y Grafana para representar los datos. Este prototipo integrará un core 5G SA básico y una red de distribución programable con P4.
+    \item Evaluación: Se llevarán a cabo pruebas para evaluar el rendimiento del prototipo, midiendo métricas como la latencia, la sobrecarga de la red y la precisión de los datos recopilados, asi como el impacto de la telemetría en banda en la calidad del servicio.
+    \item Análisis de resultados: Los resultados obtenidos se analizarán críticamente para identificar beneficios, desafíos y áreas de mejora.
+\end{itemize}
+%---------------------------------------
+\section{Estructura del documento}
+El documento se estructura en varios capítulos que abordan diferentes aspectos del estudio:
+\begin{itemize}
+    \item Capítulo 1: \textbf{Introducción} - Presenta el contexto, la motivación, los objetivos y la metodología del estudio.
+    \item Capítulo 2: \textbf{Redes 5G} - Proporciona una visión general de las redes 5G, sus características y desafíos.
+    \item Capítulo 3: \textbf{Telemetría en Redes 5G} - Explora la necesidad de telemetría, los métodos tradicionales y la telemetría en banda (INT).
+    \item Capítulo 4: \textbf{Fundamentos de P4} - Describe el lenguaje P4, su arquitectura y capacidades relevantes para la telemetría.
+    \item Capítulo 5: \textbf{Entorno de Desarrollo} - Detalla el entorno utilizado para implementar y probar el prototipo de telemetría en banda.
+    \item Capítulo 6: \textbf{Resultados} - Presenta los resultados obtenidos durante las pruebas del prototipo.
+    \item Capítulo 7: \textbf{Discusión} - Analiza críticamente los resultados, comparándolos con el estado del arte y discutiendo beneficios y desafíos.
+    \item Capítulo 8: \textbf{Conclusiones y Trabajo Futuro} - Resume las conclusiones principales, contribuciones, limitaciones y propone líneas futuras de investigación.
+\end{itemize}
+\section{Resumen de capítulos}
+Cada capítulo del documento se enfoca en aspectos específicos del estudio, proporcionando una comprensión integral del papel de P4 en la telemetría en banda para redes 5G. A lo largo del documento, se integran conceptos teóricos con aplicaciones prácticas, culminando en un análisis crítico de los resultados obtenidos y su relevancia para el campo de las telecomunicaciones móviles.
