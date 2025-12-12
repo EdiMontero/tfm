@@ -111,9 +111,9 @@ La arquitectura 5G Standalone (SA) representa una evolución significativa en co
 \subsection{Modos de implementación de 5G SA}
 Existen tres modos principales de implementación de redes 5G NSA, que permiten la coexistencia de tecnologías LTE y NR en una misma red. Estos modos son:
 \begin{itemize}
-    \item \textbf{NGEN-DC (NG-RAN E-UTRA–NR Dual Connectivity)}: el UE (User Equipment) se conecta simultáneamente a una estación base LTE (eNodeB) como master node (MN) y a una estación base NR (gNodeB) como secondary node (SN), utilizando el EPC como Core de la red. El gNodeB (en-gNB) se puede conectar al EPC mediante la interface S1-U o x2-U para el plano de usuario y la interfaz S1-MME o X2-C para el plano de control.
-    \item \textbf{NE-DC (NR–E-UTRA Dual Connectivity)}: el UE se conecta simultáneamente a una estación base NR como master node (MN) y a una estación base LTE como secondary node (SN), utilizando el 5GC como Core de la red.
-    \item \textbf{NR-DC (NR–NR Dual Connectivity)}: el UE se conecta simultáneamente a dos estaciones base NR, una como master node (MN) y la otra como secondary node (SN), utilizando el 5GC como Core de la red.
+    \item \textbf{NGEN-DC (NG-RAN E-UTRA-NR Dual Connectivity)}: el UE (User Equipment) se conecta simultáneamente a una estación base LTE (eNodeB) como master node (MN) y a una estación base NR (gNodeB) como secondary node (SN), utilizando el EPC como Core de la red. El gNodeB (en-gNB) se puede conectar al EPC mediante la interface S1-U o x2-U para el plano de usuario y la interfaz S1-MME o X2-C para el plano de control.
+    \item \textbf{NE-DC (NR-E-UTRA Dual Connectivity)}: el UE se conecta simultáneamente a una estación base NR como master node (MN) y a una estación base LTE como secondary node (SN), utilizando el 5GC como Core de la red.
+    \item \textbf{NR-DC (NR-NR Dual Connectivity)}: el UE se conecta simultáneamente a dos estaciones base NR, una como master node (MN) y la otra como secondary node (SN), utilizando el 5GC como Core de la red.
 \end{itemize}
 La descripcion de DC se encuentra en el documento 3GPP TS 37.340 \cite{3gpp.ts.37.340}.
 
@@ -164,48 +164,144 @@ En 5G Core (5GC), los componentes tienes funciones específicas a diferencia de 
 \subsubsection{NRF}
 El Network Repository Function (NRF) es un componente clave en la arquitectura 5G Core (5GC) que actúa como un repositorio centralizado para la gestión y descubrimiento de servicios de red. Su función principal es mantener un registro actualizado de todas las funciones de red disponibles en la red 5G, permitiendo que otras funciones de red puedan descubrir y comunicarse con ellas de manera eficiente. acorde a \cite{3gpp.ts.23.501}.
 Algunas de las funciones principales del NRF incluyen:
+\begin{itemize}
+    \item \textbf{Registro de instancias de NF}: El NRF mantiene un catálogo dinamizado de instancias de funciones de red (NF) con sus perfiles, incluyendo identidad (NF Instance ID), tipo de NF, direcciones de servicio (Service URIs) y versiones de API soportadas. Soporta mecanismos de heartbeat y actualización periódica del estado operacional.
+    \item \textbf{Service Discovery y Load Balancing}: Las funciones de red consultan al NRF mediante APIs REST (GET /nf-instances?nf-type=SMF) para descubrir instancias disponibles. El NRF implementa algoritmos de balanceo de carga y selección basados en capacidad, latencia y carga actual de las NF.
+    \item \textbf{Gestión del ciclo de vida de NF}: Controla el registro (PUT), actualización (PATCH) y desregistro (DELETE) de instancias de NF. Mantiene información de estado (REGISTERED, SUSPENDED, UNDISCOVERABLE) y maneja timeouts de expiración de registros.
+    \item \textbf{Autenticación y autorización OAuth2}: Implementa OAuth2/OpenID Connect para garantizar que solo NF autorizadas accedan al catálogo de servicios. Emite y valida tokens JWT (JSON Web Tokens) con claims de autorización específicos.
+    \item \textbf{Observabilidad y monitoreo}: El NRF expone métricas sobre disponibilidad de servicios, frecuencia de consultas de descubrimiento y latencia de respuesta. Soporta notificaciones (subscriptions) sobre cambios en la disponibilidad de servicios mediante mecanismo webhook.
+\end{itemize}
+
+\subsubsection{AMF}
+El Access and Mobility Management Function (AMF) es una de las funciones clave en la arquitectura 5G Core (5GC) y se encarga de gestionar el acceso y la movilidad de los dispositivos de usuario (UE) en la red 5G. El AMF desempeña un papel fundamental en la gestión de la conexión del UE, la autenticación, la autorización y el control de movilidad, asegurando que los dispositivos puedan acceder a los servicios de red de manera eficiente y segura. De acuerdo a \cite{3gpp.ts.23.501}, Algunas de las funciones principales del AMF incluyen:
+\begin{itemize}
+    \item \textbf{Gestión de conexión del UE}: Maneja los procedimientos de registro (Registration), autenticación (Authentication) y autorización (Authorization) mediante interacción con AUSF y UDM. Establece y mantiene el contexto de conexión del UE (AMF-UE-NGAP-ID) y gestiona la liberación orderly de conexiones mediante procedimientos de deregistration.
+    \item \textbf{Control de movilidad}: Implementa procedimientos de Mobility Management como handover intra-AMF, inter-AMF y entre tecnologías de acceso (NR a LTE y viceversa). Gestiona la reubicación del UE-NGAP context cuando cruza límites de cobertura, coordinando con RAN para minimizar downtime mediante procedimientos de Xn handover (inter-gNB) y N2 handover.
+    \item \textbf{Interacción con funciones de red}: Coordina con SMF para establecer/modificar/liberar Session Management Subscription (SMS) a través de la interface Namf. Comunica con UPF indirectamente vía SMF para la actualización de rutas del plano de usuario (Uplink Classification Rules, Traffic Steering Rules).
+    \item \textbf{Gestión de seguridad}: Implementa mecanismos de NAS (Non-Access Stratum) seguridad incluyendo NAS-MAC, NAS-ENC y derivación de claves de AS (RRC/PDCP) a partir de claves de NAS. Participa en procedimientos 5G-AKA con AUSF para mutua autenticación y derivación de claves (K\_AUSF, K\_AMF).
+    \item \textbf{Soporte multi-RAT}: Gestiona contextos de conectividad dual (EN-DC, NE-DC, NR-DC) manteniendo sincronización de estado entre nodos maestro y secundario. Controla transiciones RAN-based en NSA mediante coordinación con eNodeB y gNodeB para cambios de plano de usuario sin interrupción.
+\end{itemize}
+
+\subsubsection{SMF}
+El Session Management Function (SMF) se encarga de gestionar las sesiones de datos del usuario (UE) en la red 5G. El SMF desempeña un papel fundamental en la configuración, mantenimiento y liberación de las sesiones de datos, asegurando que los dispositivos puedan acceder a los servicios de red de manera eficiente y segura. De acuerdo a \cite{3gpp.ts.23.501}, algunas de las funciones principales del SMF incluyen:
+\begin{itemize}
+    \item \textbf{Gestión de sesiones de datos}: Es responsable de establecer, modificar y liberar sesiones de datos del UE. Esto incluye la asignación de recursos de red, la configuración de rutas del plano de usuario (UPF) y la aplicación de políticas de calidad de servicio (QoS) para garantizar un rendimiento óptimo.
+    \item \textbf{Interacción con funciones de red}: Interactúa con otras funciones de red, como el AMF para la gestión del contexto del UE y el UPF para la configuración del plano de usuario. También se comunica con el PCF para aplicar políticas de QoS y control de tráfico.
+    \item \textbf{Gestión de políticas de QoS}: Aplica políticas de calidad de servicio (QoS) para las sesiones de datos del UE, asegurando que se cumplan los requisitos de rendimiento y latencia para diferentes tipos de tráfico. Esto incluye la asignación de parámetros QoS como 5QI (5G QoS Identifier) y QFI (QoS Flow Identifier).
+    \item \textbf{Soporte para múltiples tecnologías de acceso}: Es capaz de gestionar sesiones de datos para dispositivos que utilizan diferentes tecnologías de acceso, como NR (New Radio) y LTE (Long Term Evolution). Esto permite una mayor flexibilidad en la gestión de recursos y la optimización del rendimiento de la red.
+    \item \textbf{Gestión de políticas de seguridad}: Implementa políticas de seguridad para las sesiones de datos del UE, incluyendo la autenticación y autorización de dispositivos, así como la protección de datos mediante cifrado y mecanismos de integridad. Esto garantiza que las comunicaciones sean seguras y cumplan con los estándares de privacidad.
+
+\subsubsection{UPF}
+El User Plane Function (UPF) es responsable de la gestión del plano de usuario (User Plane) en la arquitectura 5GC, actuando como el punto de anclaje para el procesamiento y enrutamiento de tráfico de datos. El UPF desempeña un papel crítico en la cadena de procesamiento de paquetes, implementando funciones de forwarding, encapsulación y aplicación de políticas a nivel de flujo. De acuerdo a \cite{3gpp.ts.23.501}, las funciones técnicas principales del UPF incluyen:
+\begin{itemize}
+    \item \textbf{Procesamiento del plano de usuario}: Implementa funciones de IP packet routing and forwarding, encapsulación GTP-U para tráfico entre gNodeB y UPF, así como procesamiento de headers IP y detección de flujos según Uplink Classification Rules (UCR) y Traffic Steering Rules (TSR). Gestiona la terminación de túneles GTP-U en la interfaz N3 (gNodeB-UPF) y N9 (UPF-UPF).
+    \item \textbf{Aplicación de políticas de QoS}: Implementa mecanismos de Traffic Scheduling, Policing y Shaping en función de los parámetros QoS definidos (5QI, QFI, GFBR, MFBR). Realiza Downlink Packet Buffering y reordenamiento de paquetes en casos de cambio de ruta (UPF relocation). Soporta múltiples QoS Flows por PDU Session, permitiendo diferenciación granular de tráfico.
+    \item \textbf{Interacción con funciones de control}: Se comunica con el SMF a través de la interfaz N4 utilizando protocolo PFCP (Packet Forwarding Control Protocol) para recibir reglas de forwarding, detección de flujos y políticas de QoS. Mantiene sesiones PFCP para cada PDU Session activa, con soporte para modificaciones dinámicas mediante PFCP Association Heartbeat.
+    \item \textbf{Funciones avanzadas de forwarding}: Implementa Source IP Address Spoofing Detection, UL/DL Traffic Forwarding según sesión PFCP, Packet Duplication para garantizar entrega confiable, y Redundant Transmission en configuraciones de múltiples UPF. Soporta Traffic Steering mediante N6 routing y Load Balancing entre múltiples instancias de UPF.
+    \item \textbf{Seguridad y monitoreo}: Implementa filtrado de paquetes (Access Control Lists), detección de anomalías de tráfico y generación de eventos de cambio de estado para notificación a SMF. Soporta IPDR (IP Detail Records) para facturación y análisis de uso, exposición de métricas de plano de usuario para observabilidad (packet loss, latency, throughput).
+\end{itemize}
+\subsubsection{AUSF}
+El Authentication Server Function (AUSF) Se encarga de gestionar la autenticación de los dispositivos de usuario (UE) en la red 5G. El AUSF desempeña un papel fundamental en la seguridad de la red, asegurando que solo los dispositivos autorizados puedan acceder a los servicios de red. De acuerdo a \cite{3gpp.ts.23.501}, algunas de las funciones principales del AUSF incluyen:
+\begin{itemize}
+    \item \textbf{Autenticación de dispositivos}: Responsable de autenticar los dispositivos de usuario (UE) que intentan acceder a la red 5G. Esto incluye la verificación de las credenciales del dispositivo y la validación de su identidad mediante mecanismos de autenticación seguros.
+    \item \textbf{Interacción con funciones de red}: Interactúa con otras funciones de red, como el AMF para la gestión del contexto del UE y el UDM para la obtención de datos de suscripción y autenticación. También se comunica con el PCF para aplicar políticas de seguridad y control de acceso.
+    \item \textbf{Soporte para múltiples métodos de autenticación}: Es capaz de gestionar diferentes métodos de autenticación, incluyendo 5G-AKA (Authentication and Key Agreement), EAP (Extensible Authentication Protocol) y otros mecanismos basados en estándares. Esto permite una mayor flexibilidad en la autenticación de dispositivos y usuarios.
+    \item \textbf{Generación y distribución de claves}: Genera y distribuye claves criptográficas utilizadas para proteger las comunicaciones entre el UE y la red. Estas claves son esenciales para garantizar la confidencialidad e integridad de los datos transmitidos en la red 5G.
+    \item \textbf{Gestión de políticas de seguridad}: Implementa políticas de seguridad para la autenticación de dispositivos, incluyendo la gestión de credenciales, la protección contra ataques de suplantación y la prevención de accesos no autorizados. Esto garantiza que las comunicaciones sean seguras y cumplan con los estándares de privacidad.
+\end{itemize}
+\subsubsection{UDM}
+El Unified Data Management (UDM) Es responsable de gestionar los datos de suscripción y la información del usuario en la red 5G. El UDM desempeña un papel fundamental en la gestión de la identidad del usuario, las políticas de acceso y las configuraciones de servicio, asegurando que los dispositivos puedan acceder a los servicios de red de manera eficiente y segura. De acuerdo a \cite{3gpp.ts.23.501}, algunas de las funciones principales del UDM incluyen:
+\begin{itemize}
+    \item \textbf{Gestión de datos de suscripción}: Responsable de almacenar y gestionar los datos de suscripción del usuario, incluyendo la información de identidad, las políticas de acceso y las configuraciones de servicio. Esto permite una gestión centralizada y eficiente de los datos del usuario en la red 5G.
+    \item \textbf{Interacción con funciones de red}: Interactúa con otras funciones de red, como el AMF para la gestión del contexto del UE y el AUSF para la autenticación de dispositivos. También se comunica con el PCF para aplicar políticas de acceso y control de tráfico.
+    \item \textbf{Soporte para múltiples tecnologías de acceso}: Es capaz de gestionar datos de suscripción para dispositivos que utilizan diferentes tecnologías de acceso, como NR (New Radio) y LTE (Long Term Evolution). Esto permite una mayor flexibilidad en la gestión de recursos y la optimización del rendimiento de la red.
+    \item \textbf{Generación y distribución de claves}: Genera y distribuye claves criptográficas utilizadas para proteger las comunicaciones entre el UE y la red. Estas claves son esenciales para garantizar la confidencialidad e integridad de los datos transmitidos en la red 5G.
+    \item \textbf{Gestión de políticas de acceso}: Implementa políticas de acceso para los dispositivos de usuario, incluyendo la autorización de acceso a servicios y la aplicación de restricciones basadas en las condiciones de la red y las necesidades del usuario. Esto garantiza que los dispositivos puedan acceder a los servicios de red de manera segura y eficiente.
+\end{itemize}
+\subsubsection{PCF}
+El Policy Control Function (PCF) Gestiona las políticas de control y calidad de servicio (QoS) en la red 5G. El PCF desempeña un papel fundamental en la aplicación de políticas de acceso, control de tráfico y gestión de recursos, asegurando que los dispositivos puedan acceder a los servicios de red de manera eficiente y segura. De acuerdo a \cite{3gpp.ts.23.501}, algunas de las funciones principales del PCF incluyen:
+\begin{itemize}
+    \item \textbf{Gestión de políticas de QoS}: Responsable de definir y aplicar políticas de calidad de servicio (QoS) para los dispositivos de usuario (UE) en la red 5G. Esto incluye la asignación de recursos de red, la configuración de parámetros QoS como 5QI (5G QoS Identifier) y QFI (QoS Flow Identifier), y la priorización del tráfico según las necesidades del usuario.
+    \item \textbf{Interacción con funciones de red}: Interactúa con otras funciones de red, como el AMF para la gestión del contexto del UE y el SMF para la configuración del plano de usuario. También se comunica con el UDM para obtener datos de suscripción y aplicar políticas de acceso.
+    \item \textbf{Soporte para múltiples tecnologías de acceso}: Es capaz de gestionar políticas de QoS para dispositivos que utilizan diferentes tecnologías de acceso, como NR (New Radio) y LTE (Long Term Evolution). Esto permite una mayor flexibilidad en la gestión de recursos y la optimización del rendimiento de la red.
+    \item \textbf{Aplicación de políticas de control de tráfico}: Implementa políticas de control de tráfico para gestionar el uso de recursos de red y garantizar un rendimiento óptimo. Esto incluye la monitorización del tráfico, la aplicación de restricciones basadas en las condiciones de la red y la priorización del tráfico según las necesidades del usuario.
+    \item \textbf{Gestión de seguridad}: Implementa políticas de seguridad para el control de acceso y la protección de datos en la red 5G. Esto incluye la autenticación y autorización de dispositivos, así como la protección de datos mediante cifrado y mecanismos de integridad. Esto garantiza que las comunicaciones sean seguras y cumplan con los estándares de privacidad.
+\end{itemize}
+\subsubsection{NSSF}
+El Network Slice Selection Function (NSSF) Se encarga de gestionar la selección y asignación de redes de corte (slices) para los dispositivos de usuario (UE) en la red 5G. El NSSF desempeña un papel fundamental en la implementación de redes de corte, que permiten a los operadores ofrecer servicios personalizados y optimizados para diferentes tipos de aplicaciones y usuarios. De acuerdo a \cite{3gpp.ts.23.501}, algunas de las funciones principales del NSSF incluyen:
+\begin{itemize}
+    \item \textbf{Selección de redes de corte}: Responsable de seleccionar la red de corte adecuada para un dispositivo de usuario (UE) en función de sus requisitos de servicio, políticas de QoS y condiciones de la red. Esto permite a los operadores ofrecer servicios personalizados y optimizados para diferentes tipos de aplicaciones y usuarios.
+    \item \textbf{Interacción con funciones de red}: Interactúa con otras funciones de red, como el AMF para la gestión del contexto del UE y el SMF para la configuración del plano de usuario. También se comunica con el PCF para aplicar políticas de QoS y control de tráfico en las redes de corte seleccionadas.
+    \item \textbf{Soporte para múltiples tecnologías de acceso}: Es capaz de gestionar redes de corte para dispositivos que utilizan diferentes tecnologías de acceso, como NR (New Radio) y LTE (Long Term Evolution). Esto permite una mayor flexibilidad en la gestión de recursos y la optimización del rendimiento de la red.
+    \item \textbf{Gestión de políticas de QoS en redes de corte}: Implementa políticas de calidad de servicio (QoS) específicas para cada red de corte, asegurando que se cumplan los requisitos de rendimiento y latencia para diferentes tipos de tráfico. Esto incluye la asignación de parámetros QoS como 5QI (5G QoS Identifier) y QFI (QoS Flow Identifier) en función de las necesidades del usuario y las condiciones de la red.
+    \item \textbf{Gestión de seguridad en redes de corte}: Implementa políticas de seguridad para las redes de corte, incluyendo la autenticación y autorización de dispositivos, así como la protección de datos mediante cifrado y mecanismos de integridad. Esto garantiza que las comunicaciones en las redes de corte sean seguras y cumplan con los estándares de privacidad.
+\end{itemize}
+\subsubsection{NEF}
+El Network Exposure Function (NEF) Expone las capacidades y servicios de la red 5G a aplicaciones externas y terceros. El NEF desempeña un papel fundamental en la facilitación de la interoperabilidad entre la red 5G y aplicaciones de terceros, permitiendo a los desarrolladores crear aplicaciones innovadoras que aprovechen las capacidades avanzadas de la red 5G. De acuerdo a \cite{3gpp.ts.23.501}, algunas de las funciones principales dincluyen:
+\begin{itemize}
+    \item \textbf{Exposición de servicios de red}: Responsable de exponer las capacidades y servicios de la red 5G a aplicaciones externas, permitiendo a los desarrolladores acceder a funciones como la gestión de sesiones, la calidad de servicio (QoS) y la movilidad del usuario. Esto facilita la creación de aplicaciones innovadoras que aprovechen las capacidades avanzadas de la red 5G.
+    \item \textbf{Interacción con funciones de red}: Interactúa con otras funciones de red, como el AMF para la gestión del contexto del UE y el SMF para la configuración del plano de usuario. También se comunica con el PCF para aplicar políticas de QoS y control de tráfico en las aplicaciones expuestas.
+    \item \textbf{Soporte para múltiples tecnologías de acceso}: Capaz de exponer servicios de red para dispositivos que utilizan diferentes tecnologías de acceso, como NR (New Radio) y LTE (Long Term Evolution). Esto permite una mayor flexibilidad en la creación de aplicaciones y la optimización del rendimiento de la red.
+    \item \textbf{Gestión de políticas de QoS en aplicaciones expuestas}: Implementa políticas de calidad de servicio (QoS) específicas para las aplicaciones expuestas, asegurando que se cumplan los requisitos de rendimiento y latencia para diferentes tipos de tráfico. Esto incluye la asignación de parámetros QoS como 5QI (5G QoS Identifier) y QFI (QoS Flow Identifier) en función de las necesidades del usuario y las condiciones de la red.
+    \item \textbf{Gestión de seguridad en aplicaciones expuestas}: Implementa políticas de seguridad para las aplicaciones expuestas, incluyendo la autenticación y autorización de dispositivos, así como la protección de datos mediante cifrado y mecanismos de integridad. Esto garantiza que las comunicaciones entre las aplicaciones externas y la red 5G sean seguras y cumplan con los estándares de privacidad.
+\end{itemize}
+\subsubsection{AF}
+El Application Function (AF) Gestiona las aplicaciones que interactúan con la red 5G. El AF desempeña un papel fundamental en la facilitación de la comunicación entre las aplicaciones y las funciones de red, permitiendo a los desarrolladores crear aplicaciones innovadoras que aprovechen las capacidades avanzadas de la red 5G. De acuerdo a \cite{3gpp.ts.23.501}, algunas de las funciones principales del AF incluyen:
+\begin{itemize}
+    \item \textbf{Gestión de aplicaciones}: Maneja las aplicaciones que interactúan con la red 5G, incluyendo la configuración, el monitoreo y la optimización del rendimiento de las aplicaciones. Esto permite a los desarrolladores crear aplicaciones innovadoras que aprovechen las capacidades avanzadas de la red 5G.
+    \item \textbf{Interacción con funciones de red}: Interactúa con otras funciones de red, como el AMF para la gestión del contexto del UE y el SMF para la configuración del plano de usuario. También se comunica con el PCF para aplicar políticas de QoS y control de tráfico en las aplicaciones gestionadas.
+    \item \textbf{Soporte para múltiples tecnologías de acceso}: Es capaz de gestionar aplicaciones para dispositivos que utilizan diferentes tecnologías de acceso, como NR (New Radio) y LTE (Long Term Evolution). Esto permite una mayor flexibilidad en la creación de aplicaciones y la optimización del rendimiento de la red.
+    \item \textbf{Gestión de políticas de QoS en aplicaciones}: Implementa políticas de calidad de servicio (QoS) específicas para las aplicaciones gestionadas, asegurando que se cumplan los requisitos de rendimiento y latencia para diferentes tipos de tráfico. Esto incluye la asignación de parámetros QoS como 5QI (5G QoS Identifier) y QFI (QoS Flow Identifier) en función de las necesidades del usuario y las condiciones de la red.
+    \item \textbf{Gestión de seguridad en aplicaciones}: Implementa políticas de seguridad para las aplicaciones gestionadas, incluyendo la autenticación y autorización de dispositivos, así como la protección de datos mediante cifrado y mecanismos de integridad. Esto garantiza que las comunicaciones entre las aplicaciones y la red 5G sean seguras y cumplan con los estándares de privacidad.
+\end{itemize}
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-\subsection{AMF}
-El Access and Mobility Management Function (AMF) es responsable de la gestión de la movilidad y el acceso de los dispositivos de usuario (UE) en la red 5G. Sus funciones principales incluyen:
-\item Gestión de la conexión y autenticación del UE.
-\item Manejo de la movilidad del UE, incluyendo el seguimiento y la gestión de la ubicación.
-\item Coordinación con otras funciones de red para garantizar una experiencia de usuario fluida durante los cambios de celda y las transiciones entre diferentes tecnologías de acceso.
-\item Gestión de la seguridad y la integridad de las comunicaciones entre el UE y la red.
-\item Coordinación con el Session Management Function (SMF) para la gestión de sesiones de datos.
-\subsection{PCF}
-El Policy Control Function (PCF) es responsable de la gestión y aplicación de políticas en la red 5G. Sus funciones principales incluyen:
-\item Definición y aplicación de políticas de calidad de servicio (QoS) para diferentes tipos de tráfico.
-\item Gestión de políticas de acceso y control de recursos en función de las condiciones de la red y las necesidades del usuario.
-\item Coordinación con otras funciones de red, como el AMF y el SMF, para garantizar que las políticas se apliquen de manera coherente en toda la red.
-
-
-
-\subsection{SMF}
-\subsection{UPF}
-\subsection{AUSF}
-\subsection{UDM}
-\subsection{PCF}
-
-\subsection{NSSF}
-\subsection{NEF}
-\subsection{AF}
 \subsection{Funciones del plano de control y plano de usuario}
+Plano de Control (Control Plane - CP): El plano de control es responsable de la gestión y control de las conexiones de red, incluyendo la señalización, la autenticación, la autorización y la gestión de movilidad. Las funciones del plano de control incluyen:
+\begin{itemize}
+    \item Gestión de la conexión del usuario (UE)
+    \item Autenticación y autorización
+    \item Gestión de movilidad y handovers
+    \item Configuración y gestión de sesiones
+    \item Aplicación de políticas de calidad de servicio (QoS)
+\end{itemize}
+\subsubsection{Pila de protocolos 5GC}
+A continuacion se muestra la pila de protocolos 
+%-------Imagen Figura 2.3-------
+%\begin{figure}[H]
+%    \centering
+%    \includegraphics[width=1.0\textwidth]{images/sbi_p2p.png}
+%    \caption{Arquitectura 5GC con interfaces punto a punto. \cite{oreillyf2021}.}
+%    \label{fig:sbi_p2p}
+%\end{figure}
+%-------------------------------
+
+
+Plano de Usuario (User Plane - UP): El plano de usuario es responsable del transporte de datos entre el usuario y la red. Las funciones del plano de usuario incluyen:
+\begin{itemize}
+    \item Enrutamiento y reenvío de paquetes de datos
+    \item Gestión del tráfico y aplicación de políticas de QoS
+    \item Procesamiento de datos, como la inspección profunda de paquetes (DPI)
+    \item Soporte para funciones avanzadas, como la duplicación de paquetes y la transmisión redundante
+\end{itemize}
+
+\subsubsection{Pila de protocolos 5GC}
+A continuación se muestra la pila de protocolos del plano de usuario de forma detallada \ref{fig:stack-up}.
+
+%-------Imagen Figura 2.3-------
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/protocol-stack-up.png}
+    \caption{Pila de protocolos del plano de usuario en 5GC. \cite{3gpp.23.501, 3gpp.ts.38.300}.}
+    \label{fig:stack-up}
+\end{figure}
+%-------------------------------
+
+
+
+
 \subsection{Interfaces clave: N1, N2, N3, N4, N6, N9}
 \subsection{NGAP y N2}
 \subsection{NGRAN y separación CP/UP}
