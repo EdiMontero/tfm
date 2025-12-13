@@ -1,0 +1,48 @@
+\chapter{Entorno de Desarrollo e Implementación}
+
+\section{Arquitectura general del sistema}
+A diferencia de las tecnologias pasadas, 5G esta diseñada para ser facilmente desplegada en entornos virtualizados y basados en contenedores, lo que permite una mayor flexibilidad y escalabilidad. En este proyecto, se ha implementado un entorno de desarrollo que emula una red 5G Standalone (SA), virtualizando sus componentes principales mediante Docker y orquestando el Core con Docker Compose.
+El entorno de desarrollo se ha desplegado utilizando GNS3, GNS3 VM y VMware Workstation para crear una infraestructura base o underlay sobre la cual se han implementado otras máquinas virtuales  que alojan los contenedores Docker. Esta infraestructura virtual proporciona la conectividad necesaria entre los componentes y permite emular una red de un MNO (Mobile Network Operator) real, con componentes tanto de red y VFs (Virtualized Functions) como de 5G. Tambien cabe destacar que para los componentes de 5G se empleó el projecto open source free5gc \cite{free5gc}, el cual permite desplegar un core 5G SA completo en un entorno virtualizado con Docker. La siguiente figura muestra la arquitectura general del entorno de desarrollo implementado, destacando la integración entre GNS3, Docker y la máquina virtual en vmware \ref{fig:arquitectura_general}.
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/dis-sistema-v2.png}
+    \caption{Arquitectura general}
+    \label{fig:arquitectura_general}
+\end{figure}
+\subsection{Diseño de la red 5G SA}
+Con respecto a la red de transporte, se ha implementado utilizando switches programables P4 para insertar metadatos de telemetría en banda (INT-MD) en el tráfico N2 (SCTP) y N3 (GTP-U), estos switches estan construidos con P4 para el reenvio de trafico a nivel de L3. ademas de estos switches P4, tanto para el trafico entre los Nodos en el Core como en la comunicacion entre el NGRAN y R1, se ha empleado switches virtuales Open vSwitch (OVS) para gestionar gestionar los paquetes ARP. La siguiente figura muestra la topología de red implementada en GNS3.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/topologia-general.png}
+    \caption{Arquitectura general}
+    \label{fig:arquitectura_geal}
+\end{figure}
+
+\section{Despliegue del Core 5G SA}
+
+
+
+
+
+
+
+\subsection{Componentes utilizados}
+\subsection{Configuración y orquestación}
+\subsection{Integración con UERANSIM}
+
+\section{Implementación de la red de distribución P4}
+\subsection{Diseño de los programas P4}
+\subsection{Tablas y acciones configuradas}
+\subsection{Inserción INT-MD en tráfico N2 (SCTP)}
+\subsection{Inserción INT-MD en tráfico N3 (GTP-U)}
+
+\section{Servidor de recolección y análisis}
+\subsection{Implementación del sink INT}
+\subsection{Procesamiento y parsing de metadatos}
+\subsection{Modelo de base de datos}
+\subsection{Visualización en Grafana}
+
+\section{Tecnologías empleadas}
+\subsection{Docker / Docker Compose}
+\subsection{GNS3 / GNS3 VM}
+\subsection{Wireshark y herramientas auxiliares}

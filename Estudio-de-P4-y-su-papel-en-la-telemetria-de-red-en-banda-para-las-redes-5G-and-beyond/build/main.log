@@ -1,0 +1,444 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.13)  13 DEC 2025 19:49
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**c:/TFM/github/tfm/Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond/main.tex
+(c:/TFM/github/tfm/Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond/main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-11-06>
+(C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
+Document Class: report 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count275
+\c@chapter=\count276
+\c@section=\count277
+\c@subsection=\count278
+\c@subsubsection=\count279
+\c@paragraph=\count280
+\c@subparagraph=\count281
+\c@figure=\count282
+\c@table=\count283
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen148
+) (style/_master.sty (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+\f@nch@headwidth=\skip51
+\f@nch@offset@elh=\skip52
+\f@nch@offset@erh=\skip53
+\f@nch@offset@olh=\skip54
+\f@nch@offset@orh=\skip55
+\f@nch@offset@elf=\skip56
+\f@nch@offset@erf=\skip57
+\f@nch@offset@olf=\skip58
+\f@nch@offset@orf=\skip59
+\f@nch@height=\skip60
+\f@nch@footalignment=\skip61
+\f@nch@widthL=\skip62
+\f@nch@widthC=\skip63
+\f@nch@widthR=\skip64
+\@temptokenb=\toks17
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count284
+\float@exts=\toks18
+\float@box=\box53
+\@float@everytoks=\toks19
+\@floatcapt=\box54
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen149
+\lightrulewidth=\dimen150
+\cmidrulewidth=\dimen151
+\belowrulesep=\dimen152
+\belowbottomsep=\dimen153
+\aboverulesep=\dimen154
+\abovetopsep=\dimen155
+\cmidrulesep=\dimen156
+\cmidrulekern=\dimen157
+\defaultaddspace=\dimen158
+\@cmidla=\count285
+\@cmidlb=\count286
+\@aboverulesep=\dimen159
+\@belowrulesep=\dimen160
+\@thisruleclass=\count287
+\@lastruleclass=\count288
+\@thisrulewidth=\dimen161
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks20
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen162
+\Gin@req@width=\dimen163
+)) (style/header_footer.sty
+
+LaTeX Warning: You have requested package `style/header_footer',
+               but the package provides `header_footer'.
+
+Package: header_footer 
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
+Package: titlesec 2025/01/04 v2.17 Sectioning titles
+\ttl@box=\box55
+\beforetitleunit=\skip65
+\aftertitleunit=\skip66
+\ttl@plus=\dimen164
+\ttl@minus=\dimen165
+\ttl@toksa=\toks21
+\titlewidth=\dimen166
+\titlewidthlast=\dimen167
+\titlewidthfirst=\dimen168
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count289
+) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.aux (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/1.dedicatory.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/2.acronyms.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/3.TableOfContents.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/4.TableOfFigures.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/5.TableOfTables.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/1.introduccion.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/2.redes_5g.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/3.telemetria.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/4.p4_fundamentos.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/5.entorno_desarrollo.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/6.resultados.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/7.discusion.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/8.conclusiones.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/apendices.aux))
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count290
+\scratchdimen=\dimen169
+\scratchbox=\box56
+\nofMPsegments=\count291
+\nofMParguments=\count292
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count293
+\MPscratchDim=\dimen170
+\MPnumerator=\count294
+\makeMPintoPDFobject=\count295
+\everyMPtoPDFconversion=\toks23
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 40.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 40.
+ [1
+
+{C:/Users/edinson.montero/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 4.
+
+Overfull \hbox (0.86264pt too wide) in paragraph at lines 30--30
+ [][] []\OT1/cmr/m/n/12 Limitaciones de mecan-is-mos tradi-cionales (SNMP, Net- 
+ []
+
+[1
+
+] [2] [3])
+\tf@toc=\write3
+\openout3 = `main.toc'.
+
+ [4]
+\openout2 = `preface/1.dedicatory.aux'.
+
+ (preface/1.dedicatory.tex) [5
+
+
+
+]
+\openout2 = `preface/2.acronyms.aux'.
+
+ (preface/2.acronyms.tex
+Overfull \hbox (0.80284pt too wide) in paragraph at lines 7--7
+[]\OT1/cmr/bx/n/12 Acr^^Sonimo| 
+ []
+
+)
+Overfull \hbox (32.33856pt too wide) in paragraph at lines 4--52
+[] 
+ []
+
+[6
+
+
+
+
+]
+\openout2 = `preface/3.TableOfContents.aux'.
+
+ (preface/3.TableOfContents.tex (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.toc)
+\tf@toc=\write4
+\openout4 = `main.toc'.
+
+) [7
+
+
+
+
+]
+\openout2 = `preface/4.TableOfFigures.aux'.
+
+ (preface/4.TableOfFigures.tex (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.lof)
+\tf@lof=\write5
+\openout5 = `main.lof'.
+
+) [8
+
+
+
+
+]
+\openout2 = `preface/5.TableOfTables.aux'.
+
+ (preface/5.TableOfTables.tex (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.lot)
+\tf@lot=\write6
+\openout6 = `main.lot'.
+
+) [9
+
+
+
+
+]
+\openout2 = `chapters/1.introduccion.aux'.
+
+ (chapters/1.introduccion.tex
+Chapter 1.
+[10
+
+
+
+
+]
+Overfull \hbox (1.20566pt too wide) in paragraph at lines 17--18
+[]\OT1/cmr/m/n/12 ?`Qu^^Se ben-efi-cios es-pec^^S^^Pficos ofrece la telemetr^^S^^Pa en banda en com-paraci^^Son
+ []
+
+[11] [12]
+Overfull \hbox (13.50415pt too wide) in paragraph at lines 38--39
+[]\OT1/cmr/m/n/12 An^^Salisis de re-sul-ta-dos: Los re-sul-ta-dos obtenidos se analizar^^San cr^^S^^Pticamente
+ []
+
+) [13] [14]
+\openout2 = `chapters/2.redes_5g.aux'.
+
+ (chapters/2.redes_5g.tex
+Chapter 2.
+[15
+
+
+
+
+]
+Overfull \hbox (36.37474pt too wide) in paragraph at lines 18--19
+[]\OT1/cmr/bx/n/12 Tecnolog^^S^^Pas emer-gentes\OT1/cmr/m/n/12 : Co-mu-ni-ca-ciones ter-a-hertz, re-des auto-organizadas
+ []
+
+
+Overfull \hbox (1.97775pt too wide) in paragraph at lines 19--20
+[]\OT1/cmr/bx/n/12 Aplicaciones fu-turas\OT1/cmr/m/n/12 : Re-al-i-dad ex-ten-dida (XR), ciu-dades in-teligentes
+ []
+
+<images/arc-nr.png, id=56, 521.69907pt x 411.78844pt>
+File: images/arc-nr.png Graphic file (type png)
+<use images/arc-nr.png>
+Package pdftex.def Info: images/arc-nr.png  used on input line 31.
+(pdftex.def)             Requested size: 390.0pt x 307.84149pt.
+[16] [17 <./images/arc-nr.png>] [18] [19]
+<images/sba.png, id=73, 740.0147pt x 440.39531pt>
+File: images/sba.png Graphic file (type png)
+<use images/sba.png>
+Package pdftex.def Info: images/sba.png  used on input line 74.
+(pdftex.def)             Requested size: 350.99762pt x 208.88754pt.
+ [20 <./images/sba.png>]
+<images/sbi_p2p.png, id=78, 768.62157pt x 421.575pt>
+File: images/sbi_p2p.png Graphic file (type png)
+<use images/sbi_p2p.png>
+Package pdftex.def Info: images/sbi_p2p.png  used on input line 86.
+(pdftex.def)             Requested size: 350.99762pt x 192.51808pt.
+ [21 <./images/sbi_p2p.png>]
+Overfull \hbox (0.39491pt too wide) in paragraph at lines 99--100
+[]\OT1/cmr/bx/n/12 Escalabilidad y flex-i-bil-i-dad\OT1/cmr/m/n/12 : La adopci^^Son de in-ter-faces HTTP REST
+ []
+
+[22] [23]
+<images/protocol-stack-cp.png, id=89, 861.2175pt x 249.93375pt>
+File: images/protocol-stack-cp.png Graphic file (type png)
+<use images/protocol-stack-cp.png>
+Package pdftex.def Info: images/protocol-stack-cp.png  used on input line 136.
+(pdftex.def)             Requested size: 390.0pt x 113.1823pt.
+
+
+LaTeX Warning: Reference `tab:acronimos' on page 24 undefined on input line 141.
+
+
+LaTeX Warning: Reference `tab:protocolos' on page 24 undefined on input line 141.
+
+
+LaTeX Warning: Reference `appendix:acronimos_protocolos' on page 24 undefined on input line 141.
+
+[24 <./images/protocol-stack-cp.png>]
+<images/protocol-stack-up.png, id=95, 858.95906pt x 467.49657pt>
+File: images/protocol-stack-up.png Graphic file (type png)
+<use images/protocol-stack-up.png>
+Package pdftex.def Info: images/protocol-stack-up.png  used on input line 150.
+(pdftex.def)             Requested size: 390.0pt x 212.26186pt.
+
+
+LaTeX Warning: Reference `tab:acronimos' on page 25 undefined on input line 156.
+
+
+LaTeX Warning: Reference `tab:protocolos' on page 25 undefined on input line 156.
+
+
+LaTeX Warning: Reference `appendix:acronimos_protocolos' on page 25 undefined on input line 156.
+
+[25 <./images/protocol-stack-up.png>] [26] [27])
+\openout2 = `chapters/3.telemetria.aux'.
+
+ (chapters/3.telemetria.tex
+Chapter 3.
+
+Overfull \hbox (9.92625pt too wide) in paragraph at lines 5--5
+|[]\OT1/cmr/bx/n/14.4 Limitaciones de mecan-is-mos tradi-cionales (SNMP,
+ []
+
+) [28
+
+
+
+
+
+]
+Overfull \vbox (24.73347pt too high) has occurred while \output is active []
+
+ [29]
+\openout2 = `chapters/4.p4_fundamentos.aux'.
+
+ (chapters/4.p4_fundamentos.tex
+Chapter 4.
+) [30
+
+
+
+
+]
+\openout2 = `chapters/5.entorno_desarrollo.aux'.
+
+ (chapters/5.entorno_desarrollo.tex
+Chapter 5.
+<images/dis-sistema-v2.png, id=116, 620.3175pt x 266.49562pt>
+File: images/dis-sistema-v2.png Graphic file (type png)
+<use images/dis-sistema-v2.png>
+Package pdftex.def Info: images/dis-sistema-v2.png  used on input line 8.
+(pdftex.def)             Requested size: 350.99762pt x 150.78989pt.
+[31
+
+
+
+
+]
+<images/topologia-general.png, id=120, 1018.55531pt x 532.23843pt>
+File: images/topologia-general.png Graphic file (type png)
+<use images/topologia-general.png>
+Package pdftex.def Info: images/topologia-general.png  used on input line 16.
+(pdftex.def)             Requested size: 390.0pt x 203.79575pt.
+) [32 <./images/dis-sistema-v2.png> <./images/topologia-general.png>] [33]
+\openout2 = `chapters/6.resultados.aux'.
+
+ (chapters/6.resultados.tex
+Chapter 6.
+) [34
+
+
+
+
+]
+Overfull \vbox (52.13351pt too high) has occurred while \output is active []
+
+ [35]
+\openout2 = `chapters/7.discusion.aux'.
+
+ (chapters/7.discusion.tex
+Chapter 7.
+) [36
+
+
+
+
+]
+\openout2 = `chapters/8.conclusiones.aux'.
+
+ (chapters/8.conclusiones.tex
+Chapter 8.
+) [37
+
+
+
+
+]
+\openout2 = `chapters/apendices.aux'.
+
+ (chapters/apendices.tex
+Appendix A.
+) [38
+
+
+
+
+] (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.bbl) [39
+
+
+
+] (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.aux (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/1.dedicatory.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/2.acronyms.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/3.TableOfContents.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/4.TableOfFigures.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/5.TableOfTables.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/1.introduccion.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/2.redes_5g.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/3.telemetria.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/4.p4_fundamentos.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/5.entorno_desarrollo.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/6.resultados.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/7.discusion.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/8.conclusiones.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/apendices.aux))
+ ***********
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-11-06>
+ ***********
+
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 2634 strings out of 467871
+ 61878 string characters out of 5413535
+ 457421 words of memory out of 5000000
+ 31405 multiletter control sequences out of 15000+600000
+ 634179 words of font info for 61 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 72i,12n,79p,1043b,356s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.pdf (40 pages, 522732 bytes).
+PDF statistics:
+ 172 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+

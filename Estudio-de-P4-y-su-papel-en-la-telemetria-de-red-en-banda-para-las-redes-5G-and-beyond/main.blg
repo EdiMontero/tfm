@@ -1,0 +1,79 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 25 items.
+A level-1 auxiliary file: preface/1.dedicatory.aux
+Reallocating 'name_of_file' (item size: 1) to 23 items.
+A level-1 auxiliary file: preface/2.acronyms.aux
+Reallocating 'name_of_file' (item size: 1) to 30 items.
+A level-1 auxiliary file: preface/3.TableOfContents.aux
+Reallocating 'name_of_file' (item size: 1) to 29 items.
+A level-1 auxiliary file: preface/4.TableOfFigures.aux
+Reallocating 'name_of_file' (item size: 1) to 28 items.
+A level-1 auxiliary file: preface/5.TableOfTables.aux
+Reallocating 'name_of_file' (item size: 1) to 28 items.
+A level-1 auxiliary file: chapters/1.introduccion.aux
+Reallocating 'name_of_file' (item size: 1) to 24 items.
+A level-1 auxiliary file: chapters/2.redes_5g.aux
+Reallocating 'name_of_file' (item size: 1) to 26 items.
+A level-1 auxiliary file: chapters/3.telemetria.aux
+Reallocating 'name_of_file' (item size: 1) to 30 items.
+A level-1 auxiliary file: chapters/4.p4_fundamentos.aux
+Reallocating 'name_of_file' (item size: 1) to 34 items.
+A level-1 auxiliary file: chapters/5.entorno_desarrollo.aux
+Reallocating 'name_of_file' (item size: 1) to 26 items.
+A level-1 auxiliary file: chapters/6.resultados.aux
+Reallocating 'name_of_file' (item size: 1) to 25 items.
+A level-1 auxiliary file: chapters/7.discusion.aux
+Reallocating 'name_of_file' (item size: 1) to 28 items.
+A level-1 auxiliary file: chapters/8.conclusiones.aux
+Reallocating 'name_of_file' (item size: 1) to 23 items.
+A level-1 auxiliary file: chapters/apendices.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: plain.bst
+Reallocating 'name_of_file' (item size: 1) to 20 items.
+Database file #1: chapters/references.bib
+Warning--empty institution in 3gpp.23.501
+Warning--empty institution in 3gpp.ts.38.300
+You've used 3 entries,
+            2118 wiz_defined-function locations,
+            524 strings with 4694 characters,
+and the built_in function-call counts, 704 in all, are:
+= -- 66
+> -- 32
+< -- 0
++ -- 13
+- -- 10
+* -- 39
+:= -- 138
+add.period$ -- 9
+call.type$ -- 3
+change.case$ -- 16
+chr.to.int$ -- 0
+cite$ -- 5
+duplicate$ -- 28
+empty$ -- 53
+format.name$ -- 10
+if$ -- 137
+int.to.chr$ -- 0
+int.to.str$ -- 3
+missing$ -- 2
+newline$ -- 18
+num.names$ -- 6
+pop$ -- 17
+preamble$ -- 1
+purify$ -- 11
+quote$ -- 0
+skip$ -- 16
+stack$ -- 0
+substring$ -- 15
+swap$ -- 1
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 10
+warning$ -- 2
+while$ -- 6
+width$ -- 4
+write$ -- 33
+(There were 2 warnings)

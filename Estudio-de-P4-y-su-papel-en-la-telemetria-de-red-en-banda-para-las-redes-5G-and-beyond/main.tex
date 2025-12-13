@@ -1,0 +1,81 @@
+\documentclass[12pt,a4paper]{report}
+
+%------------------------------------------------
+% Estilos base del proyecto
+%------------------------------------------------
+\usepackage{style/_master}
+\usepackage{style/header_footer}
+
+%------------------------------------------------
+% Formato de títulos
+%------------------------------------------------
+\usepackage{titlesec}
+
+% Capítulos
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}
+  {\chaptername\ \thechapter}
+  {20pt}
+  {\Huge}
+
+% Secciones
+\titleformat{\section}
+  {\normalfont\Large\bfseries}
+  {\thesection}
+  {1em}
+  {}
+
+%------------------------------------------------
+% Comienzo del documento
+%------------------------------------------------
+\begin{document}
+
+%------------------------------------------------
+% Portada
+%------------------------------------------------
+\title{Estudio de P4 y su papel en la telemetría de red en banda para las redes 5G y beyond}
+\author{Edinson Montero Beltre}
+\date{\today}
+
+\maketitle
+
+%------------------------------------------------
+% Índices
+%------------------------------------------------
+\tableofcontents
+\cleardoublepage
+
+%------------------------------------------------
+% Prefacio
+%------------------------------------------------
+\include{preface/1.dedicatory}
+\include{preface/2.acronyms}
+\include{preface/3.TableOfContents}
+\include{preface/4.TableOfFigures}
+\include{preface/5.TableOfTables}
+
+%------------------------------------------------
+% Capítulos
+%------------------------------------------------
+\include{chapters/1.introduccion}
+\include{chapters/2.redes_5g}
+\include{chapters/3.telemetria}
+\include{chapters/4.p4_fundamentos}
+\include{chapters/5.entorno_desarrollo}
+\include{chapters/6.resultados}
+\include{chapters/7.discusion}
+\include{chapters/8.conclusiones}
+
+%------------------------------------------------
+% Apéndices
+%------------------------------------------------
+\appendix
+\include{chapters/apendices}
+
+%------------------------------------------------
+% Bibliografía
+%------------------------------------------------
+\bibliographystyle{plain}
+\bibliography{chapters/references}
+
+\end{document}

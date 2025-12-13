@@ -1,0 +1,19 @@
+\begin{thebibliography}{1}
+
+\bibitem{3gpp.23.501}
+{3GPP}.
+\newblock 3gpp ts 23.501: System architecture for the 5g system (5gs).
+\newblock Technical report, 2021.
+
+\bibitem{3gpp.ts.38.300}
+{3GPP}.
+\newblock 3gpp ts 38.300: Nr; overall description of the 5g nr physical layer.
+\newblock Technical report, 2023.
+
+\bibitem{oreillyf2021}
+Ulises O'Neill, Amelia Mackey, and Victor~C.M. Leung.
+\newblock {\em 5G Core Networks: A Comprehensive Guide to 5GC Architecture and
+  Deployment}.
+\newblock O'Reilly Media, 1st edition, 2021.
+
+\end{thebibliography}
