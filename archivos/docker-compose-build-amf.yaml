@@ -37,16 +37,6 @@ services:
       - "smf.free5gc.org:172.18.0.22"
       - "upf.free5gc.org:172.18.0.24"
       - "gnb.free5gc.org:172.18.10.3"
-      
-
 networks:
   macvlan_net:
    external: true
-
-#  privnet:
-#    ipam:
-#      driver: default
-#      config:
-#        - subnet: 10.100.201.0/24
-#    driver_opts:
-#      com.docker.network.bridge.name: br-free5gc

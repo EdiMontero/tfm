@@ -97,9 +97,10 @@ Una vez clonado el repositorio principal y las bases de las NFs adicionales, se 
     \label{fig:compilacion-nf}
 \end{figure}
 
+\subsubsection{Configuracion de Docker Compose}
 Luego de haberlos compliado, se procede a configurar cada NF de acuerdo con el diseño de bajo nivel (LLD) mostrado en la tabla \ref{tab:lld_containers}.
 Como la VM Core-Host corre los contenedores UDR, UDM, PCF, NRF, AUSF, UDM y NSSF, DB, se despliegan creando un unico archivo Docker Compose llamado \textit{docker-compose-build-core-host.yaml}, el cual se mostrará contenedor por contenedor a continuacion:
-\subsubsection{DB}
+\subsubsubsection{DB}
 
 \begin{lstlisting}[style=yamlstyle, caption={Configuración del MongoDB en Docker Compose}, label=lst:docker-db]
 services:
@@ -119,7 +120,7 @@ services:
           - db
 \end{lstlisting}
 
-\subsubsection{NRF}
+\subsubsubsection{NRF}
 \begin{lstlisting}[style=yamlstyle, caption={Configuración del NRF en Docker Compose}, label=lst:docker-nrf]
   free5gc-nrf:
     container_name: nrf
@@ -153,7 +154,7 @@ services:
       - db
 \end{lstlisting}
 
-\subsubsection{AUSF}
+\subsubsubsection{AUSF}
 \begin{lstlisting}[style=yamlstyle, caption={Configuración del AUSF en Docker Compose}, label=lst:docker-ausf]
   free5gc-ausf:
     container_name: ausf
@@ -183,7 +184,7 @@ services:
     depends_on:
       - free5gc-nrf
 \end{lstlisting}
-\subsubsection{NSSF}
+\subsubsubsection{NSSF}
 \begin{lstlisting}[style=yamlstyle, caption={Configuración del NSSF en Docker Compose}, label=lst:docker-nssf]
   free5gc-nssf:
     container_name: nssf
@@ -212,7 +213,7 @@ services:
     depends_on:
       - free5gc-nrf
 \end{lstlisting}
-\subsubsection{PCF}
+\subsubsubsection{PCF}
 \begin{lstlisting}[style=yamlstyle, caption={Configuración del PCF en Docker Compose}, label=lst:docker-pcf]
   free5gc-pcf:
     container_name: pcf
@@ -242,7 +243,7 @@ services:
       - free5gc-nrf
 
 \end{lstlisting}
-\subsubsection{UDM}
+\subsubsubsection{UDM}
 \begin{lstlisting}[style=yamlstyle, caption={Configuración del UDM en Docker Compose}, label=lst:docker-udm]
   free5gc-udm:
     container_name: udm
@@ -272,7 +273,7 @@ services:
       - db
       - free5gc-nrf
 \end{lstlisting}
-\subsubsection{UDR}
+\subsubsubsection{UDR}
 \begin{lstlisting}[style=yamlstyle, caption={Configuración del UDR en Docker Compose}, label=lst:docker-udr]
   free5gc-udr:
     container_name: udr
@@ -303,7 +304,7 @@ services:
       - db
       - free5gc-nrf
 \end{lstlisting}
-\subsubsection{Despliegue del CHF}
+\subsubsubsection{Despliegue del CHF}
 \begin{lstlisting}[style=yamlstyle, caption={Configuración del CHF en Docker Compose}, label=lst:docker-chf]
   free5gc-chf:
     container_name: chf
@@ -336,7 +337,7 @@ services:
       - free5gc-nrf
       - free5gc-webui
 \end{lstlisting}
-\subsubsection{Despliegue del NEF}
+\subsubsubsection{Despliegue del NEF}
 \begin{lstlisting}[style=yamlstyle, caption={Configuración del NEF en Docker Compose}, label=lst:docker-nef]
   free5gc-nef:
     container_name: nef
@@ -366,7 +367,7 @@ services:
       - db
       - free5gc-nrf
 \end{lstlisting}
-\subsubsection{Despliegue del WebUI}
+\subsubsubsection{Despliegue del WebUI}
 A pesar de que el contenedor WebUI no es un Network Function (NF) del Core 5G SA, se ha incluido en el mismo archivo Docker Compose para facilitar su despliegue y gestión. El WebUI proporciona una interfaz gráfica para monitorizar y gestionar el Core 5G, facilitando la administración de la red.
 \begin{lstlisting}[style=yamlstyle, caption={Configuración del WebUI en Docker Compose}, label=lst:docker-webui]
   free5gc-webui:
@@ -398,7 +399,7 @@ A pesar de que el contenedor WebUI no es un Network Function (NF) del Core 5G SA
       - db
       - free5gc-nrf
 \end{lstlisting}
-\subsubsection{Configuracion de Red y Volumenes}
+\subsubsubsection{Configuracion de Red y Volumenes}
 \begin{lstlisting}[style=yamlstyle, caption={Configuración de red y volúmenes en Docker Compose}, label=lst:docker-network-volumes]
 networks:
   macvlan_net:
@@ -410,11 +411,290 @@ volumes:
 
 
 \subsubsection{Construccion y despliegue}
+Una vez definido el archivo Docker Compose con la configuración de todas las NFs de Core-Host, se procede a construir las imagenes de acuerdo con el archivo Docher Compose como se puede apreciar en la figura \ref{fig:build-core-host}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/docker-build.png}
+    \caption{Construcción de imágenes en Core-Host}
+    \label{fig:build-core-host}
+\end{figure}
+Luego de construir las imagenes y como se puede apreciar en la figura \ref{fig:up-core-host}, se procede a desplegar los contenedores de los cuales se destaca el log del NRF, quien orquesta todo el Core 5G basado en la arquitectura SBI descrita en la figura \ref{fig:sbi_p2p}. El resto de logs de los demas contenedores no se muestran por cuestiones de espacio.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/core-host-up.png}
+    \caption{Despliegue de contenedores en Core-Host}
+    \label{fig:up-core-host}
+\end{figure}
+
+%----------------------------------------------------------------
+\subsection{Configuración de AMF}
+El proceso de obtención, compilación y despliegue del AMF es similar al realizado para el Core-Host. Para fines de ahorrar espacio, no se mostrará el proceso de clonacion. En cambio se mostrará la construcción de la imagen Docker del AMF y su posterior despliegue.
+\subsubsection{Construcción de la imagen Docker del AMF}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/amf-docker-build.png}
+    \caption{Construcción de la imagen Docker del AMF}
+    \label{fig:amf-docker-build}
+\end{figure}
+
+\subsubsection{Despliegue del contenedor AMF}
+Para el despliegue del contenedor AMF, se crea un archivo Docker Compose llamado \textit{docker-compose-build-amf.yaml} con la configuración del AMF mostrado en el siguiente código \ref{lst:docker-amf}.
+\begin{lstlisting}[style=yamlstyle, caption={Configuración del Docker Compose AMF}, label=lst:docker-amf]
+services:
+  free5gc-amf:
+    container_name: amf
+    build:
+      context: ./nf_amf
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./amf -c ./config/amfcfg.yaml
+    expose:
+      - "8000"
+      - "38412"
+    volumes:
+      - ./config/amfcfg.yaml:/free5gc/config/amfcfg.yaml
+      - ./cert:/free5gc/cert
+    environment:
+      GIN_MODE: release
+    ports:
+     - "38412:38412"
+     - "8000:8000"
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.20
+        mac_address: f2:ff:cb:34:07:b5
+        aliases:
+          - amf.free5gc.org
+    extra_hosts:
+      - "nrf.free5gc.org:172.18.0.51"
+      - "udr.free5gc.org:172.18.0.56"
+      - "pcf.free5gc.org:172.18.0.54"
+      - "ausf.free5gc.org:172.18.0.52"
+      - "udm.free5gc.org:172.18.0.55"
+      - "nssf.free5gc.org:172.18.0.53"
+      - smf.free5gc.org:172.18.0.22"
+      - "upf.free5gc.org:172.18.0.24"
+      - "gnb.free5gc.org:172.18.10.3"
+networks:
+  macvlan_net:
+   external: true
+\end{lstlisting}
+
+
+\subsubsection{Registro del AMF en el NRF}
+Una vez desplegado el contenedor AMF, se verifica en los logs del NRF que el AMF se haya registrado correctamente en el NRF mediante la interfaz SBI de acuerdo con la arquitectura mostrada en la figura \ref{fig:sbi_p2p}. Ademas, que empiece a escuchar en el puerto SCTP 38412 y que este listo para recibir conexiones desde el NGRAN, como se muestra en la figura \ref{fig:amf-registro-nrf}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/amf-registro-nrf.png}
+    \caption{Registro del AMF en el NRF}
+    \label{fig:amf-registro-nrf}
+\end{figure}
+
+En la figura \ref{fig:amf-nrf-log} se muestran los logs del NRF que confirman que el AMF se ha registrado correctamente y que esta escuchando en el puerto SCTP 38412, listo para recibir conexiones del NGRAN.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/amf-nrf-log.png}
+    \caption{Verificación del registro del AMF en el NRF}
+    \label{fig:amf-nrf-log}
+\end{figure}
+Las configuraciones del AMF, como las direcciones IP y puertos de escucha, se realizan en el archivo de configuración \textit{amfcfg.yaml} ubicado en el directorio \textit{./config/} del repositorio del AMF, las cuales no se muestran en este documento por cuestiones de espacio.
 
 
 
 
-\subsection{Configuración y orquestación}
+
+
+
+\subsection{Configuración de SMF}
+A diferencia de los NFs desplegados en el Core-Host y SMF, tanto gNB (UERANSIM), SMF como UPF requieren de la version kernel 5.0.0-23-generic o superior a la 5.4 los cuales son compatibles con el modulo de kernel GTP para 5G.
+\subsubsection{Instalacion del modulo GTP}
+Como primer paso antes de instalar el modulo GTP, se instala la version de kernel requerida como se muestra en la figura \ref{fig:install-kernel}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/install-kernel.png}
+    \caption{Instalación de kernel compatible con GTP}
+    \label{fig:install-kernel}
+\end{figure}
+Luego de instalar el kernel compatible, se edita y actualiza el archivo \textit{/etc/default/grub} para establecer la nueva version de kernel como predeterminada al iniciar el sistema, como se muestra en la figura \ref{fig:eleccion-kernel}.
+\begin{figure}[H]   
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/eleccion-kernel.png}
+    \caption{Edición del archivo y actualización de /etc/default/grub}
+    \label{fig:eleccion-kernel}
+\end{figure}
+
+Una vez reiniciado el sistema con la nueva version de kernel, se procede con la instalacion del modulo GTP. Primero se clona el repositorio oficial desde GitHub como se muestra en la figura \ref{fig:clone-gtp}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/clone-gtp.png}
+    \caption{Clonación del repositorio del módulo GTP}
+    \label{fig:clone-gtp}  
+\end{figure}
+Luego de clonar el repositorio, se limpia, compila e instala el modulo GTP en el kernel como se muestra en la figura \ref{fig:build-gtp}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/build-gtp.png}
+    \caption{Compilación e instalación del módulo GTP}
+    \label{fig:build-gtp}
+\end{figure}
+Luego de instalado el modulo GTP, se carga el modulo gtp5g en el kernel y luego se listan los modulos cargados para verificar que el modulo GTP se haya cargado correctamente, como se muestra en la figura \ref{fig:load-gtp}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/load-gtp.png}
+    \caption{Carga y verificación del módulo GTP}
+    \label{fig:load-gtp}
+\end{figure}
+Finalmente, se revisa en los logs del sistema que el modulo GTP se haya cargado correctamente al iniciar el sistema, como se muestra en la figura \ref{fig:check-gtp}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/check-gtp.png}
+    \caption{Verificación del módulo GTP en los logs del sistema}
+    \label{fig:check-gtp}
+\end{figure}
+
+\subsubsection{Obtención e instalación del código fuente SMF}
+Este proceso es similar al realizado para el Core-Host, y el AMF. Para fines de ahorrar espacio, no se mostrará el proceso de clonacion y construccion de imagen Docker del SMF.
+
+\subsubsection{Configuración de Docker Compose}
+Al igual que AMF, para el despliegue del contenedor SMF, se crea un archivo Docker Compose llamado \textit{docker-compose-build-smf.yaml} con la configuración del SMF mostrado en el siguiente código \ref{lst:docker-smf}.
+\begin{lstlisting}[style=yamlstyle, caption={Configuración del Docker Compose SMF}, label=lst:docker-smf]
+services:
+  free5gc-smf:
+    container_name: smf
+    build:
+      context: ./nf_smf
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./smf -c ./config/smfcfg.yaml -u ./config/uerouting.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/smfcfg.yaml:/free5gc/config/smfcfg.yaml
+      - ./config/uerouting.yaml:/free5gc/config/uerouting.yaml
+      - ./cert:/free5gc/cert
+    environment:
+      GIN_MODE: release
+    ports:
+     - "8000:8000"
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.22
+        mac_address: ca:76:58:9c:8e:ec
+        aliases:
+          - smf.free5gc.org
+    extra_hosts:
+      - "nrf.free5gc.org:172.18.0.51"
+      - "udr.free5gc.org:172.18.0.56"
+      - "pcf.free5gc.org:172.18.0.54"
+      - "ausf.free5gc.org:172.18.0.52"
+      - "udm.free5gc.org:172.18.0.55"
+      - "nssf.free5gc.org:172.18.0.53"
+      - "amf.free5gc.org:172.18.0.20"
+      - "upf.free5gc.org:172.18.0.24"
+      - "gnb.free5gc.org:172.18.10.3"
+      
+networks:
+  macvlan_net:
+   external: true
+\end{lstlisting}
+
+Al igual que en los NFs anteriores, se le especifica las direcciones IP de los demas NFs para que pueda resolver los nombre de dominio de cada NF mediante el archivo \textit{/etc/hosts} del contenedor SMF de acuerdo con el LLD mostrado en la tabla \ref{tab:lld_containers}.
+
+\subsubsection{Registro del SMF en el NRF y conexión N4 con UPF}
+
+Una vez desplegado el contenedor SMF, se verifica que se haya registrado correctamente en el NRF y que se establezca la conexion con el UPF mediante la interfaz N4, orquestado por el NRF segun la arquitectura SBI mostrada en la figura \ref{fig:sbi_p2p}.
+Como se puede apreciar en la figura \ref{fig:smf-registro-nrf}, el SMF se ha registrado correctamente en el NRF y esta listo para gestionar las sesiones de usuario y la conexion N4 con el UPF esta establecida correctamente.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/smf-registro-nrf.png}
+    \caption{Registro del SMF en el NRF}
+    \label{fig:smf-registro-nrf}
+\end{figure}
+
+Logs logs del establecimiento de la conexion N4 entre el SMF y el UPF se muestran a detalle en la session del UPF en la figura \ref{fig:smf-upf-n4-connection}.
+
+
+
+
+
+
+\subsection{Configuración de UPF}
+El proceso de obtención, compilación, instalación de modulo gtp5g y despliegue del UPF es similar al realizado para el Core-Host, AMF y SMF. Para fines de ahorrar espacio, no se mostrará el proceso de clonacion y construcción de imagen Docker del UPF.
+\subsubsection{Configuración de Docker Compose}
+Al igual que AMF y SMF, para el despliegue del contenedor UPF, se crea un archivo Docker Compose llamado \textit{docker-compose-build-upf.yaml} con la configuración del UPF mostrado en el siguiente código \ref{lst:docker-upf}.
+\begin{lstlisting}[style=yamlstyle, caption={Configuración del Docker Compose UPF}, label=lst:docker-upf]
+version: "3.8"
+services:
+  free5gc-upf:
+    container_name: upf
+    build:
+      context: ./nf_upf
+      args:
+        DEBUG_TOOLS: "false"
+    command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
+    expose:
+      - "8000"
+      - "38412"
+    volumes:
+      - ./config/upfcfg.yaml:/free5gc/config/upfcfg.yaml
+      - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
+    cap_add:
+      - NET_ADMIN
+    ports:
+     - "38412:38412"
+     - "8000:8000"
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.24
+        mac_address: be:44:98:a4:e5:c4
+        aliases:
+          - upf.free5gc.org
+    extra_hosts:
+      - "nrf.free5gc.org:172.18.0.51"
+      - "udr.free5gc.org:172.18.0.56"
+      - "pcf.free5gc.org:172.18.0.54"
+      - "ausf.free5gc.org:172.18.0.52"
+      - "udm.free5gc.org:172.18.0.55"
+      - "nssf.free5gc.org:172.18.0.53"
+      - "amf.free5gc.org:172.18.0.20"
+      - "smf.free5gc.org:172.18.0.22"
+      - "gnb.free5gc.org:172.18.10.3"
+networks:
+  macvlan_net:
+   external: true
+
+\end{lstlisting}
+\subsubsection{Registro del UPF en el NRF}
+Una vez desplegado el contenedor UPF, en la figura \ref{fig:upf-up} se aprecia que prepara los parametros para la interfaz N3 con gNB y los recursos para el UE, los cuales son \textit{10.60.0.0/16} y \textit{10.61.0.0/16}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/upf-up.png}
+    \caption{ UPF registro y preparacion de interfaz N3}
+    \label{fig:supf-up}    
+\end{figure}
+
+\subsubsection{ Conección N4 con SMF}
+En la figura \ref{fig:smf-upf-n4-connection} se aprecia que el UPF establece la conexion N4 (PFCP) con el SMF y queda listo para gestionar las sesiones de usuario y el trafico de datos del UE.
+%figura 5.19
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/smf-upf-n4-connection.png}
+    \caption{ UPF registro y preparacion de interfaz N3}
+    \label{fig:smf-upf-n4-connection}    
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
 \subsection{Integración con UERANSIM}
 
 \section{Implementación de la red de distribución P4}
@@ -433,3 +713,59 @@ volumes:
 \subsection{Docker / Docker Compose}
 \subsection{GNS3 / GNS3 VM}
 \subsection{Wireshark y herramientas auxiliares}
+
+
+
+\section{Despliegue del NGRAN con UERANSIM}
+El NGRAN se ha desplegado utilizando la herramienta UERANSIM, la cual simula tanto el gNB como el UE en modo 5G Standalone (SA). UERANSIM se ha configurado para conectarse al Core 5G SA desplegado previamente, estableciendo el enlace N2 (SCTP) con el AMF y el enlace N3 (GTP-U) con el UPF.
+\subsection{Despliegue de UERANSIM}
+El despliegue de UERANSIM se realiza mediante Docker Compose, creando un archivo llamado \textit{docker-compose-build-ngran.yaml} que contiene la configuración tanto del gNB como del UE. El archivo Docker Compose se muestra en el siguiente código \ref{lst:docker-ueransim}.
+\begin{lstlisting}[style=yamlstyle, caption={Configuración del Docker Compose UERANSIM}, label=lst:docker-ueransim]
+version: "3.8"
+services:
+  ueransim:
+    container_name: ueransim
+    build:
+      context: ./ueransim
+    command: ./nr-gnb -c ./config/gnbcfg.yaml
+    expose:
+      - "38412"
+    volumes:
+      - ./config/gnbcfg.yaml:/ueransim/config/gnbcfg.yaml
+      - ./config/uecfg.yaml:/ueransim/config/uecfg.yaml
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - "/dev/net/tun"
+    ports:
+     - "38412:38412"
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.10.3
+        mac_address: f6:b8:eb:4d:0f:3c
+        aliases:
+          - gnb.free5gc.org
+    extra_hosts:
+      - "amf.free5gc.org:172.18.0.20"
+      - "upf.free5gc.org:172.18.0.24"   
+networks:
+  macvlan_net:
+   external: true
+\end{lstlisting}
+
+\subsection{Configuración del gNB}
+La configuración del gNB se realiza mediante el archivo \textit{gnb.yaml}, donde se especifican los parámetros necesarios para la conexión con el Core 5G SA, como la dirección IP del AMF, el PLMN ID, y los parámetros de la interfaz N3. Un ejemplo de configuración del gNB se muestra en la figura \ref{fig:gnb-config}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/gnb-config.png}
+    \caption{Configuración del gNB en UERANSIM}
+    \label{fig:gnb-config}
+\end{figure}
+\subsection{Configuración del UE}
+La configuración del UE se realiza mediante el archivo \textit{ue.yaml}, donde se especifican los parámetros necesarios para la conexión con el gNB, como el IMSI, la clave de seguridad, y los parámetros de la interfaz N1. Un ejemplo de configuración del UE se muestra en la figura \ref{fig:ue-config}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/ue-config.png}
+    \caption{Configuración del UE en UERANSIM}
+    \label{fig:ue-config} 
+\end{figure}
