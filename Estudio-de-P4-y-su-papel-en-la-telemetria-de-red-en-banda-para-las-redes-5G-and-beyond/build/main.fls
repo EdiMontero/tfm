@@ -55,9 +55,9 @@ INPUT C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex\latex\titlesec\
 INPUT C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex\latex\titlesec\titlesec.sty
 INPUT C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.aux
-INPUT c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.aux
-INPUT c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.aux
+INPUT .\main.aux
+INPUT .\main.aux
+INPUT main.aux
 INPUT c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface\1.dedicatory.aux
 INPUT c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface\1.dedicatory.aux
 INPUT c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface\1.dedicatory.aux
@@ -117,9 +117,9 @@ OUTPUT c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-ban
 INPUT C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
 INPUT C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
-INPUT c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.toc
-INPUT c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.toc
-INPUT c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.toc
+INPUT .\main.toc
+INPUT .\main.toc
+INPUT main.toc
 INPUT C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
 INPUT C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr6.tfm
@@ -158,9 +158,9 @@ INPUT .\preface\4.TableOfFigures.tex
 INPUT .\preface\4.TableOfFigures.tex
 INPUT .\preface\4.TableOfFigures.tex
 INPUT preface\4.TableOfFigures.tex
-INPUT c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.lof
-INPUT c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.lof
-INPUT c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.lof
+INPUT .\main.lof
+INPUT .\main.lof
+INPUT main.lof
 OUTPUT c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.lof
 INPUT .\preface\5.TableOfTables.tex
 OUTPUT c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface\5.TableOfTables.aux
@@ -168,9 +168,9 @@ INPUT .\preface\5.TableOfTables.tex
 INPUT .\preface\5.TableOfTables.tex
 INPUT .\preface\5.TableOfTables.tex
 INPUT preface\5.TableOfTables.tex
-INPUT c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.lot
-INPUT c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.lot
-INPUT c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.lot
+INPUT .\main.lot
+INPUT .\main.lot
+INPUT main.lot
 OUTPUT c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.lot
 INPUT .\chapters\1.introduccion.tex
 OUTPUT c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters\1.introduccion.aux
@@ -464,3 +464,5 @@ INPUT C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\fonts\type1\public\
 INPUT C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti12.pfb
 INPUT C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt10.pfb
 INPUT C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt10.pfb
+INPUT C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt12.pfb
+INPUT C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt12.pfb
