@@ -1009,3 +1009,25 @@ mongodb  | 2025-12-14T09:25:54.473+0000 I NETWORK  [conn15] received client meta
 
 
 
+
+
+
+
+
+nrf      | 2025-12-14T12:22:35.855912112Z [INFO][NRF][NFM] Handle NFRegisterRequest
+nrf      | 2025-12-14T12:22:35.855912112Z [INFO][NRF][NFM] Handle NFRegisterRequest
+mongodb  | 2025-12-14T12:22:36.094+0000 I COMMAND  [conn9] command free5gc.urilist command: find { find: "urilist", filter: { nfType: "AMF" }, limit: 1, singleBatch: true, lsid: { id: UUID("25e28981-4d12-4b52-a165-f27a49db29bd") }, $db: "free5gc" } planSummary: COLLSCAN keysExamined:0 docsExamined:10 cursorExhausted:1 numYields:1 nreturned:1 reslen:1668 locks:{ Global: { acquireCount: { r: 4 } }, Database: { acquireCount: { r: 2 } }, Collection: { acquireCount: { r: 2 } } } protocol:op_msg 123ms
+mongodb  | 2025-12-14T12:22:36.094+0000 I COMMAND  [conn9] command free5gc.urilist command: find { find: "urilist", filter: { nfType: "AMF" }, limit: 1, singleBatch: true, lsid: { id: UUID("25e28981-4d12-4b52-a165-f27a49db29bd") }, $db: "free5gc" } planSummary: COLLSCAN keysExamined:0 docsExamined:10 cursorExhausted:1 numYields:1 nreturned:1 reslen:1668 locks:{ Global: { acquireCount: { r: 4 } }, Database: { acquireCount: { r: 2 } }, Collection: { acquireCount: { r: 2 } } } protocol:op_msg 123ms
+nrf      | 2025-12-14T12:22:36.184283550Z [INFO][NRF][NFM] urilist update
+nrf      | 2025-12-14T12:22:36.184283550Z [INFO][NRF][NFM] urilist update
+nrf      | 2025-12-14T12:22:36.220642118Z [INFO][NRF][NFM] Create NF Profile: 8773b008-7c8e-4476-aef0-5ba67af6c6d2
+nrf      | 2025-12-14T12:22:36.220642118Z [INFO][NRF][NFM] Create NF Profile: 8773b008-7c8e-4476-aef0-5ba67af6c6d2
+nrf      | 2025-12-14T12:22:36.241341176Z [INFO][NRF][NFM] Use NF certPath: cert/amf.pem
+nrf      | 2025-12-14T12:22:36.241341176Z [INFO][NRF][NFM] Use NF certPath: cert/amf.pem
+nrf      | 2025-12-14T12:22:36.299032727Z [INFO][NRF][GIN] | 201 |     172.18.0.20 | PUT     | /nnrf-nfm/v1/nf-instances/8773b008-7c8e-4476-aef0-5ba67af6c6d2 |  |
+nrf      | 2025-12-14T12:22:36.299032727Z [INFO][NRF][GIN] | 201 |     172.18.0.20 | PUT     | /nnrf-nfm/v1/nf-instances/8773b008-7c8e-4476-aef0-5ba67af6c6d2 |  |
+
+
+
+
+
