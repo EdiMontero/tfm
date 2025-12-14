@@ -1,0 +1,52 @@
+edinsonm@smf:~/github$ 
+edinsonm@smf:~/github$ cd ..
+edinsonm@smf:~$ cd free5gc-compose/
+edinsonm@smf:~/free5gc-compose$ 
+edinsonm@smf:~/free5gc-compose$ sudo docker compose -f docker-compose-build-smf.yaml up
+[sudo] password for edinsonm: 
+Attaching to smf
+smf  | 2025-12-14T13:34:07.073075123Z [INFO][SMF][Main] SMF version:  
+smf  | 	free5GC version: v4.0.1-47-gf923972
+smf  |  build time:      2025-08-24T14:14:10Z
+smf  |  commit hash:     f7eab072
+smf  |  commit time:     2025-08-01T03:00:56Z
+smf  |  go version:      go1.24.5 linux/amd64
+smf  | 2025-12-14T13:34:07.081071957Z [INFO][SMF][CFG] Read config from [./config/smfcfg.yaml]
+smf  | 2025-12-14T13:34:07.088413137Z [INFO][SMF][CFG] Read config from [./config/uerouting.yaml]
+smf  | 2025-12-14T13:34:07.089043295Z [INFO][SMF][Main] Log enable is set to [true]
+smf  | 2025-12-14T13:34:07.089894869Z [INFO][SMF][Main] Log level is set to [info]
+smf  | 2025-12-14T13:34:07.073075123Z [INFO][SMF][Main] SMF version:  
+smf  |  free5GC version: v4.0.1-47-gf923972
+smf  | ebuild time:      2025-08-24T14:14:10Z
+smf  | 	commit hash:     f7eab072
+smf  | 	commit time:     2025-08-01T03:00:56Z
+smf  | 	go version:      go1.24.5 linux/amd64
+smf  | 2025-12-14T13:34:07.081071957Z [INFO][SMF][CFG] Read config from [./config/smfcfg.yaml]
+smf  | 2025-12-14T13:34:07.088413137Z [INFO][SMF][CFG] Read config from [./config/uerouting.yaml]
+smf  | 2025-12-14T13:34:07.089043295Z [INFO][SMF][Main] Log enable is set to [true]
+smf  | 2025-12-14T13:34:07.089894869Z [INFO][SMF][Main] Log level is set to [info]
+smf  | 2025-12-14T13:34:07.090006805Z [INFO][SMF][Main] Report Caller is set to [false]
+smf  | 2025-12-14T13:34:07.090201197Z [INFO][SMF][CTX] smfconfig Info: Version[1.0.7] Description[SMF initial local configuration]
+smf  | 2025-12-14T13:34:07.090006805Z [INFO][SMF][Main] Report Caller is set to [false]
+smf  | 2025-12-14T13:34:07.090201197Z [INFO][SMF][CTX] smfconfig Info: Version[1.0.7] Description[SMF initial local configuration]
+smf  | 2025-12-14T13:34:07.093862099Z [INFO][SMF][CTX] Endpoints: [upf.free5gc.org]
+smf  | 2025-12-14T13:34:07.094904842Z [INFO][SMF][Init] Server started
+smf  | 2025-12-14T13:34:07.093862099Z [INFO][SMF][CTX] Endpoints: [upf.free5gc.org]
+smf  | 2025-12-14T13:34:07.094904842Z [INFO][SMF][Init] Server started
+smf  | 2025-12-14T13:34:07.763935955Z [INFO][SMF][Main] OAuth2 setting receive from NRF: true
+smf  | 2025-12-14T13:34:07.763935955Z [INFO][SMF][Main] OAuth2 setting receive from NRF: true
+smf  | 2025-12-14T13:34:07.765511632Z [INFO][SMF][Init] SMF Registration to NRF {93201f37-e26b-4e0e-a8b8-bf5dc29133ad  SMF REGISTERED [] 0 [{208 93}] [] [{1 010203 [] false} {1 112233 [] false}] [] []   [smf.free5gc.org] [] [] [] [] [] [] 0 0 0 <nil> area1 <nil> map[] <nil> map[] <nil> map[] <nil> map[] 0xc000098b00 map[] <nil> map[] <nil> map[] <nil> map[] <nil> map[] <nil> <nil> <nil> map[] <nil> map[] map[] map[] map[oauth2:true] <nil> false [{93201f37-e26b-4e0e-a8b8-bf5dc29133adnsmf-pdusession nsmf-pdusession [{v1 https://smf.free5gc.org:8000/nsmf-pdusession/v1 2025-12-14 13:34:07.094801238 +0000 UTC}] https REGISTERED   [{smf.free5gc.org   8000}] http://smf.free5gc.org:8000 [] [] [] [] [] [] map[] map[] 0 0 0 <nil> <nil>  [] [] []  map[] false <nil>} {93201f37-e26b-4e0e-a8b8-bf5dc29133adnsmf-event-exposure nsmf-event-exposure [{v1 https://smf.free5gc.org:8000/nsmf-pdusession/v1 2025-12-14 13:34:07.094801238 +0000 UTC}] https REGISTERED   [{smf.free5gc.org   8000}] http://smf.free5gc.org:8000 [] [] [] [] [] [] map[] map[] 0 0 0 <nil> <nil>  [] [] []  map[] false <nil>} {93201f37-e26b-4e0e-a8b8-bf5dc29133adnsmf-oam nsmf-oam [{v1 https://smf.free5gc.org:8000/nsmf-pdusession/v1 2025-12-14 13:34:07.094801238 +0000 UTC}] https REGISTERED   [{smf.free5gc.org   8000}] http://smf.free5gc.org:8000 [] [] [] [] [] [] map[] map[] 0 0 0 <nil> <nil>  [] [] []  map[] false <nil>}] map[] false false [] <nil> <nil> [] [] false false map[] map[] [] <nil> <nil>  map[] map[] <nil> <nil> map[] <nil> map[] map[] map[] map[] <nil> <nil> [] <nil> <nil>}
+smf  | 2025-12-14T13:34:07.768595226Z [INFO][SMF][SBI] Start SBI server (listen on smf.free5gc.org:8000)
+smf  | 2025-12-14T13:34:07.765511632Z [INFO][SMF][Init] SMF Registration to NRF {93201f37-e26b-4e0e-a8b8-bf5dc29133ad  SMF REGISTERED [] 0 [{208 93}] [] [{1 010203 [] false} {1 112233 [] false}] [] []   [smf.free5gc.org] [] [] [] [] [] [] 0 0 0 <nil> area1 <nil> map[] <nil> map[] <nil> map[] <nil> map[] 0xc000098b00 map[] <nil> map[] <nil> map[] <nil> map[] <nil> map[] <nil> <nil> <nil> map[] <nil> map[] map[] map[] map[oauth2:true] <nil> false [{93201f37-e26b-4e0e-a8b8-bf5dc29133adnsmf-pdusession nsmf-pdusession [{v1 https://smf.free5gc.org:8000/nsmf-pdusession/v1 2025-12-14 13:34:07.094801238 +0000 UTC}] https REGISTERED   [{smf.free5gc.org   8000}] http://smf.free5gc.org:8000 [] [] [] [] [] [] map[] map[] 0 0 0 <nil> <nil>  [] [] []  map[] false <nil>} {93201f37-e26b-4e0e-a8b8-bf5dc29133adnsmf-event-exposure nsmf-event-exposure [{v1 https://smf.free5gc.org:8000/nsmf-pdusession/v1 2025-12-14 13:34:07.094801238 +0000 UTC}] https REGISTERED   [{smf.free5gc.org   8000}] http://smf.free5gc.org:8000 [] [] [] [] [] [] map[] map[] 0 0 0 <nil> <nil>  [] [] []  map[] false <nil>} {93201f37-e26b-4e0e-a8b8-bf5dc29133adnsmf-oam nsmf-oam [{v1 https://smf.free5gc.org:8000/nsmf-pdusession/v1 2025-12-14 13:34:07.094801238 +0000 UTC}] https REGISTERED   [{smf.free5gc.org   8000}] http://smf.free5gc.org:8000 [] [] [] [] [] [] map[] map[] 0 0 0 <nil> <nil>  [] [] []  map[] false <nil>}] map[] false false [] <nil> <nil> [] [] false false map[] map[] [] <nil> <nil>  map[] map[] <nil> <nil> map[] <nil> map[] map[] map[] map[] <nil> <nil> [] <nil> <nil>}
+smf  | 2025-12-14T13:34:07.768595226Z [INFO][SMF][SBI] Start SBI server (listen on smf.free5gc.org:8000)
+smf  | 2025-12-14T13:34:07.799697470Z [INFO][SMF][PFCP] Listen on 172.18.0.22:8805
+smf  | 2025-12-14T13:34:07.807841594Z [INFO][SMF][PFCP] Pfcp running... [2025-12-14 13:34:07.807783451 +0000 UTC m=+0.964714240]
+smf  | 2025-12-14T13:34:07.799697470Z [INFO][SMF][PFCP] Listen on 172.18.0.22:8805
+smf  | 2025-12-14T13:34:07.807841594Z [INFO][SMF][PFCP] Pfcp running... [2025-12-14 13:34:07.807783451 +0000 UTC m=+0.964714240]
+smf  | 2025-12-14T13:34:08.813301272Z [INFO][SMF][Main] Sending PFCP Association Request to UPF[upf.free5gc.org](172.18.0.24)
+smf  | 2025-12-14T13:34:08.813301272Z [INFO][SMF][Main] Sending PFCP Association Request to UPF[upf.free5gc.org](172.18.0.24)
+smf  | 2025-12-14T13:34:08.831001462Z [INFO][SMF][Main] Received PFCP Association Setup Accepted Response from UPF[upf.free5gc.org](172.18.0.24)
+smf  | 2025-12-14T13:34:08.831252271Z [INFO][SMF][Main] UPF(172.18.0.24) setup association
+smf  | 2025-12-14T13:34:08.831001462Z [INFO][SMF][Main] Received PFCP Association Setup Accepted Response from UPF[upf.free5gc.org](172.18.0.24)
+smf  | 2025-12-14T13:34:08.831252271Z [INFO][SMF][Main] UPF(172.18.0.24) setup association
+
