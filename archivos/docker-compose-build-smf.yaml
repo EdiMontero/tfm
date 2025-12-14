@@ -1,0 +1,48 @@
+#version: "3.8"
+
+services:
+  free5gc-smf:
+    container_name: smf
+    build:
+      context: ./nf_smf
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./smf -c ./config/smfcfg.yaml -u ./config/uerouting.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/smfcfg.yaml:/free5gc/config/smfcfg.yaml
+      - ./config/uerouting.yaml:/free5gc/config/uerouting.yaml
+      - ./cert:/free5gc/cert
+    environment:
+      GIN_MODE: release
+    ports:
+     - "8000:8000"
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.22
+        mac_address: ca:76:58:9c:8e:ec
+        aliases:
+          - smf.free5gc.org
+    extra_hosts:
+      - "nrf.free5gc.org:172.18.0.51"
+      - "udr.free5gc.org:172.18.0.56"
+      - "pcf.free5gc.org:172.18.0.54"
+      - "ausf.free5gc.org:172.18.0.52"
+      - "udm.free5gc.org:172.18.0.55"
+      - "nssf.free5gc.org:172.18.0.53"
+      - "amf.free5gc.org:172.18.0.20"
+      - "upf.free5gc.org:172.18.0.24"
+      - "gnb.free5gc.org:172.18.10.3"
+      
+networks:
+  macvlan_net:
+   external: true
+
+#  privnet:
+#    ipam:
+#      driver: default
+#      config:
+#        - subnet: 10.100.201.0/24
+#    driver_opts:
+#      com.docker.network.bridge.name: br-free5gc

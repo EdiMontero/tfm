@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  free5gc-upf:
+    container_name: upf
+    build:
+      context: ./nf_upf
+      args:
+        DEBUG_TOOLS: "false"
+    command: bash -c "./upf-iptables.sh && ./upf -c ./config/upfcfg.yaml"
+    expose:
+      - "8000"
+      - "38412"
+    volumes:
+      - ./config/upfcfg.yaml:/free5gc/config/upfcfg.yaml
+      - ./config/upf-iptables.sh:/free5gc/upf-iptables.sh
+    cap_add:
+      - NET_ADMIN
+    ports:
+     - "38412:38412"
+     - "8000:8000"
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.24
+        mac_address: be:44:98:a4:e5:c4
+        aliases:
+          - upf.free5gc.org
+    extra_hosts:
+      - "nrf.free5gc.org:172.18.0.51"
+      - "udr.free5gc.org:172.18.0.56"
+      - "pcf.free5gc.org:172.18.0.54"
+      - "ausf.free5gc.org:172.18.0.52"
+      - "udm.free5gc.org:172.18.0.55"
+      - "nssf.free5gc.org:172.18.0.53"
+      - "amf.free5gc.org:172.18.0.20"
+      - "smf.free5gc.org:172.18.0.22"
+      - "gnb.free5gc.org:172.18.10.3"
+      
+
+networks:
+  macvlan_net:
+   external: true
+

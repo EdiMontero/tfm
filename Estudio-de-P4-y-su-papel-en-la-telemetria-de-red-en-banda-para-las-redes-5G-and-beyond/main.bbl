@@ -10,6 +10,10 @@
 \newblock 3gpp ts 38.300: Nr; overall description of the 5g nr physical layer.
 \newblock Technical report, 2023.
 
+\bibitem{free5gc}
+{Free5GC Community}.
+\newblock Free5gc: Open source 5g core network, 2021.
+
 \bibitem{oreillyf2021}
 Ulises O'Neill, Amelia Mackey, and Victor~C.M. Leung.
 \newblock {\em 5G Core Networks: A Comprehensive Guide to 5GC Architecture and

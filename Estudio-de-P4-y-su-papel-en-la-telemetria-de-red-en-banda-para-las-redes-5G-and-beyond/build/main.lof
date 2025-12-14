@@ -9,7 +9,10 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Arquitectura general}}{32}{}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Arquitectura general}}{32}{}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Topología de red implementada en GNS3}}{33}{}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Clonación del repositorio de free5gc}}{34}{}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Clonación de base de NFs adicionales}}{35}{}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Compilación de NFs adicionales}}{36}{}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.13)  13 DEC 2025 19:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.13)  14 DEC 2025 00:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -85,6 +85,53 @@ File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen162
 \Gin@req@width=\dimen163
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count289
+\lst@gtempboxa=\box55
+\lst@token=\toks21
+\lst@length=\count290
+\lst@currlwidth=\dimen164
+\lst@column=\count291
+\lst@pos=\count292
+\lst@lostspace=\dimen165
+\lst@width=\dimen166
+\lst@newlines=\count293
+\lst@lineno=\count294
+\lst@maxwidth=\dimen167
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpatch.sty
+File: lstpatch.sty 2025/11/14 1.11b (Carsten Heinz)
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
+\c@lstnumber=\count295
+\lst@skipnumbers=\count296
+\lst@framebox=\box56
+) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2025/11/14 1.11b listings configuration
+))
+Package: listings 2025/11/14 1.11b (Carsten Heinz)
+
+==> First Aid for listings.sty no longer applied!
+    Expected:
+        2024/09/23 1.10c (Carsten Heinz)
+    but found:
+        2025/11/14 1.11b (Carsten Heinz)
+    so I'm assuming it got fixed.
+(C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+ (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 )) (style/header_footer.sty
 
 LaTeX Warning: You have requested package `style/header_footer',
@@ -93,18 +140,18 @@ LaTeX Warning: You have requested package `style/header_footer',
 Package: header_footer 
 ) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
 Package: titlesec 2025/01/04 v2.17 Sectioning titles
-\ttl@box=\box55
+\ttl@box=\box57
 \beforetitleunit=\skip65
 \aftertitleunit=\skip66
-\ttl@plus=\dimen164
-\ttl@minus=\dimen165
-\ttl@toksa=\toks21
-\titlewidth=\dimen166
-\titlewidthlast=\dimen167
-\titlewidthfirst=\dimen168
+\ttl@plus=\dimen168
+\ttl@minus=\dimen169
+\ttl@toksa=\toks22
+\titlewidth=\dimen170
+\titlewidthlast=\dimen171
+\titlewidthfirst=\dimen172
 ) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count289
+\l__color_backend_stack_int=\count297
 ) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.aux (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/1.dedicatory.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/2.acronyms.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/3.TableOfContents.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/4.TableOfFigures.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/5.TableOfTables.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/1.introduccion.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/2.redes_5g.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/3.telemetria.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/4.p4_fundamentos.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/5.entorno_desarrollo.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/6.resultados.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/7.discusion.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/8.conclusiones.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/apendices.aux))
 \openout1 = `main.aux'.
 
@@ -124,23 +171,24 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
 LaTeX Font Info:    ... okay on input line 31.
  (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count290
-\scratchdimen=\dimen169
-\scratchbox=\box56
-\nofMPsegments=\count291
-\nofMParguments=\count292
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count293
-\MPscratchDim=\dimen170
-\MPnumerator=\count294
-\makeMPintoPDFobject=\count295
-\everyMPtoPDFconversion=\toks23
+\scratchcounter=\count298
+\scratchdimen=\dimen173
+\scratchbox=\box58
+\nofMPsegments=\count299
+\nofMParguments=\count300
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count301
+\MPscratchDim=\dimen174
+\MPnumerator=\count302
+\makeMPintoPDFobject=\count303
+\everyMPtoPDFconversion=\toks24
 ) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
+\c@lstlisting=\count304
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 40.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -154,14 +202,14 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 4.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 4.
+ [1
 
+]
 Overfull \hbox (0.86264pt too wide) in paragraph at lines 30--30
  [][] []\OT1/cmr/m/n/12 Limitaciones de mecan-is-mos tradi-cionales (SNMP, Net- 
  []
 
-[1
-
-] [2] [3])
+[2] [3])
 \tf@toc=\write3
 \openout3 = `main.toc'.
 
@@ -354,10 +402,15 @@ Chapter 4.
 
  (chapters/5.entorno_desarrollo.tex
 Chapter 5.
-<images/dis-sistema-v2.png, id=116, 620.3175pt x 266.49562pt>
-File: images/dis-sistema-v2.png Graphic file (type png)
-<use images/dis-sistema-v2.png>
-Package pdftex.def Info: images/dis-sistema-v2.png  used on input line 8.
+
+Overfull \hbox (12.07991pt too wide) in paragraph at lines 1--1
+|\OT1/cmr/bx/n/24.88 Entorno de De-sar-rollo Im-ple-men-
+ []
+
+<images/diseno-sistema.png, id=116, 620.3175pt x 266.49562pt>
+File: images/diseno-sistema.png Graphic file (type png)
+<use images/diseno-sistema.png>
+Package pdftex.def Info: images/diseno-sistema.png  used on input line 8.
 (pdftex.def)             Requested size: 350.99762pt x 150.78989pt.
 [31
 
@@ -365,17 +418,42 @@ Package pdftex.def Info: images/dis-sistema-v2.png  used on input line 8.
 
 
 ]
-<images/topologia-general.png, id=120, 1018.55531pt x 532.23843pt>
-File: images/topologia-general.png Graphic file (type png)
-<use images/topologia-general.png>
-Package pdftex.def Info: images/topologia-general.png  used on input line 16.
-(pdftex.def)             Requested size: 390.0pt x 203.79575pt.
-) [32 <./images/dis-sistema-v2.png> <./images/topologia-general.png>] [33]
+<images/Topo.png, id=120, 896.59969pt x 475.02469pt>
+File: images/Topo.png Graphic file (type png)
+<use images/Topo.png>
+Package pdftex.def Info: images/Topo.png  used on input line 17.
+(pdftex.def)             Requested size: 390.0pt x 206.61957pt.
+ [32 <./images/diseno-sistema.png>]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 29.
+
+Overfull \hbox (78.11626pt too wide) in paragraph at lines 29--62
+ [][] 
+ []
+
+[33 <./images/Topo.png>]
+<images/clone-repo.png, id=131, 1630.09pt x 686.565pt>
+File: images/clone-repo.png Graphic file (type png)
+<use images/clone-repo.png>
+Package pdftex.def Info: images/clone-repo.png  used on input line 79.
+(pdftex.def)             Requested size: 350.99762pt x 147.8286pt.
+<images/clonacion-nf.png, id=132, 2055.68pt x 1433.355pt>
+File: images/clonacion-nf.png Graphic file (type png)
+<use images/clonacion-nf.png>
+Package pdftex.def Info: images/clonacion-nf.png  used on input line 87.
+(pdftex.def)             Requested size: 390.0pt x 271.92473pt.
+ [34 <./images/clone-repo.png>]
+<images/compilacion-nf.png, id=137, 2035.605pt x 1658.195pt>
+File: images/compilacion-nf.png Graphic file (type png)
+<use images/compilacion-nf.png>
+Package pdftex.def Info: images/compilacion-nf.png  used on input line 95.
+(pdftex.def)             Requested size: 390.0pt x 317.69173pt.
+ [35 <./images/clonacion-nf.png>] [36 <./images/compilacion-nf.png>] [37] [38] [39] [40] [41] [42]) [43] [44]
 \openout2 = `chapters/6.resultados.aux'.
 
  (chapters/6.resultados.tex
 Chapter 6.
-) [34
+) [45
 
 
 
@@ -383,12 +461,12 @@ Chapter 6.
 ]
 Overfull \vbox (52.13351pt too high) has occurred while \output is active []
 
- [35]
+ [46]
 \openout2 = `chapters/7.discusion.aux'.
 
  (chapters/7.discusion.tex
 Chapter 7.
-) [36
+) [47
 
 
 
@@ -398,7 +476,7 @@ Chapter 7.
 
  (chapters/8.conclusiones.tex
 Chapter 8.
-) [37
+) [48
 
 
 
@@ -408,12 +486,12 @@ Chapter 8.
 
  (chapters/apendices.tex
 Appendix A.
-) [38
+) [49
 
 
 
 
-] (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.bbl) [39
+] (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.bbl) [50
 
 
 
@@ -428,17 +506,17 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 2634 strings out of 467871
- 61878 string characters out of 5413535
- 457421 words of memory out of 5000000
- 31405 multiletter control sequences out of 15000+600000
- 634179 words of font info for 61 fonts, out of 8000000 for 9000
+ 4789 strings out of 467871
+ 91673 string characters out of 5413535
+ 657666 words of memory out of 5000000
+ 33536 multiletter control sequences out of 15000+600000
+ 634828 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,12n,79p,1043b,356s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.pdf (40 pages, 522732 bytes).
+ 72i,12n,79p,1031b,1863s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx6.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.pdf (51 pages, 1437545 bytes).
 PDF statistics:
- 172 PDF objects out of 1000 (max. 8388607)
+ 228 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

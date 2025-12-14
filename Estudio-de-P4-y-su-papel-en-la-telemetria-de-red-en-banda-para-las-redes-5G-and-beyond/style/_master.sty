@@ -5,6 +5,31 @@
 \usepackage{float}
 \usepackage{booktabs}
 \usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Configuración de listings para YAML
+\lstdefinestyle{yamlstyle}{
+    basicstyle=\ttfamily\footnotesize,
+    backgroundcolor=\color{gray!10},
+    frame=single,
+    rulecolor=\color{gray!40},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=8pt,
+    breaklines=true,
+    showstringspaces=false,
+    commentstyle=\color{green!60!black},
+    keywordstyle=\color{blue!80!black}\bfseries,
+    stringstyle=\color{red!70!black},
+    tabsize=2,
+    captionpos=b
+}
+
+% Renombrar "Listing" a "Código"
+\renewcommand{\lstlistingname}{Código}
+\renewcommand{\lstlistlistingname}{Lista de Códigos}
+
 \pagestyle{fancy}
 \fancyhf{} % Limpia todo
 
@@ -17,4 +42,18 @@
 
 % Ajuste necesario para evitar warnings
 \setlength{\headheight}{16pt}
+% -------------------------------
+
+% -------------------------------
+% DEFINICIÓN DE SUBSUBSUBSECTION
+% -------------------------------
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\makeatletter
+\newcommand\subsubsubsection{\@startsection{paragraph}{4}{\z@}%
+  {-3.25ex\@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\normalfont\normalsize\bfseries}}
+\makeatother
 % -------------------------------

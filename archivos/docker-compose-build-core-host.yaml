@@ -1,0 +1,286 @@
+version: "3.8"
+
+services:
+
+  db:
+    container_name: mongodb
+    image: mongo:3.6.8
+    command: mongod --port 27017
+    expose:
+      - "27017"
+    volumes:
+      - dbdata:/data/db
+    networks:
+  #    privnet:
+      macvlan_net:
+        ipv4_address: 172.18.0.50
+        mac_address: "22:e5:63:00:49:85"
+        aliases:
+          - db
+
+  free5gc-nrf:
+    container_name: nrf
+    build:
+      context: ./nf_nrf
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./nrf -c ./config/nrfcfg.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/nrfcfg.yaml:/free5gc/config/nrfcfg.yaml
+      - ./cert:/free5gc/cert
+    environment:
+      DB_URI: mongodb://db/free5gc
+      GIN_MODE: release
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.51
+        mac_address: "3a:e5:07:18:07:fb"
+        aliases:
+          - nrf.free5gc.org
+    extra_hosts:
+     - "amf.free5gc.org:172.18.0.20"
+     - "smf.free5gc.org:172.18.0.22"
+     - "upf.free5gc.org:172.18.0.23"
+    ports:
+      - "8000"
+      
+    depends_on:
+      - db
+
+  free5gc-ausf:
+    container_name: ausf
+    build:
+      context: ./nf_ausf
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./ausf -c ./config/ausfcfg.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/ausfcfg.yaml:/free5gc/config/ausfcfg.yaml
+      - ./cert:/free5gc/cert
+    environment:
+      GIN_MODE: release
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.52
+        mac_address: "aa:61:e3:b4:07:2e"
+        aliases:
+          - ausf.free5gc.org
+    extra_hosts:
+     - "amf.free5gc.org:172.18.0.20"
+     - "smf.free5gc.org:172.18.0.22"
+     - "upf.free5gc.org:172.18.0.23"
+
+    depends_on:
+      - free5gc-nrf
+
+  free5gc-nssf:
+    container_name: nssf
+    build:
+      context: ./nf_nssf
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./nssf -c ./config/nssfcfg.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/nssfcfg.yaml:/free5gc/config/nssfcfg.yaml
+      - ./cert:/free5gc/cert
+    environment:
+      GIN_MODE: release
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.53
+        mac_address: "3e:74:95:c5:bc:4e"
+        aliases: 
+          - nssf.free5gc.org
+    extra_hosts:
+     - "amf.free5gc.org:172.18.0.20"
+     - "smf.free5gc.org:172.18.0.22"
+     - "upf.free5gc.org:172.18.0.23"  
+    depends_on:
+      - free5gc-nrf
+
+  free5gc-pcf:
+    container_name: pcf
+    build:
+      context: ./nf_pcf
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./pcf -c ./config/pcfcfg.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/pcfcfg.yaml:/free5gc/config/pcfcfg.yaml
+      - ./cert:/free5gc/cert
+    environment:
+      GIN_MODE: release
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.54
+        mac_address: "72:b2:53:59:fc:ce"
+        aliases:
+          - pcf.free5gc.org
+    extra_hosts:
+     - "amf.free5gc.org:172.18.0.20"
+     - "smf.free5gc.org:172.18.0.22"
+     - "upf.free5gc.org:172.18.0.23"
+    depends_on:
+      - free5gc-nrf
+
+
+  free5gc-udm:
+    container_name: udm
+    build:
+      context: ./nf_udm
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./udm -c ./config/udmcfg.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/udmcfg.yaml:/free5gc/config/udmcfg.yaml
+      - ./cert:/free5gc/cert
+    environment:
+      GIN_MODE: release
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.55
+        mac_address: "9a:a1:ed:b3:60:8c"
+        aliases:
+          - udm.free5gc.org
+    extra_hosts:
+     - "amf.free5gc.org:172.18.0.20"
+     - "smf.free5gc.org:172.18.0.22"
+     - "upf.free5gc.org:172.18.0.23"
+    depends_on:
+      - db
+      - free5gc-nrf
+
+  free5gc-udr:
+    container_name: udr
+    build:
+      context: ./nf_udr
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./udr -c ./config/udrcfg.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/udrcfg.yaml:/free5gc/config/udrcfg.yaml
+      - ./cert:/free5gc/cert
+    environment:
+      DB_URI: mongodb://db/free5gc
+      GIN_MODE: release
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.56
+        mac_address: "ea:b1:9d:90:a4:d1"
+        aliases:
+          - udr.free5gc.org
+    extra_hosts:
+     - "amf.free5gc.org:172.18.0.20"
+     - "smf.free5gc.org:172.18.0.22"
+     - "upf.free5gc.org:172.18.0.23"
+    depends_on:
+      - db
+      - free5gc-nrf
+
+  free5gc-chf:
+    container_name: chf
+    build:
+      context: ./nf_chf
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./chf -c ./config/chfcfg.yaml
+    expose:
+      - "8000"
+      - "2122"
+    volumes:
+      - ./config/chfcfg.yaml:/free5gc/config/chfcfg.yaml
+      - ./cert:/free5gc/cert
+    environment:
+      DB_URI: mongodb://db/free5gc
+      GIN_MODE: release
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.57
+        mac_address: "ee:e6:15:22:6f:ad"
+        aliases:
+          - chf.free5gc.org
+    extra_hosts:
+     - "amf.free5gc.org:172.18.0.20"
+     - "smf.free5gc.org:172.18.0.22"
+     - "upf.free5gc.org:172.18.0.23"
+    depends_on:
+      - db
+      - free5gc-nrf
+      - free5gc-webui
+
+  free5gc-nef:
+    container_name: nef
+    build:
+      context: ./nf_nef
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./nef -c ./config/nefcfg.yaml
+    expose:
+      - "8000"
+    volumes: 
+      - ./config/nefcfg.yaml:/free5gc/config/nefcfg.yaml
+      - ./cert:/free5gc/cert
+    environment:
+      GIN_MODE: release
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.58
+        mac_address: "e2:66:f3:0f:e0:e2"
+        aliases:
+          - nef.free5gc.org
+    extra_hosts:
+     - "amf.free5gc.org:172.18.0.20"
+     - "smf.free5gc.org:172.18.0.22"
+     - "upf.free5gc.org:172.18.0.23"
+    depends_on:
+      - db
+      - free5gc-nrf
+
+  free5gc-webui:
+    container_name: webui
+    build:
+      context: ./webui
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./webui -c ./config/webuicfg.yaml
+    expose:
+      - "2121"
+    volumes:
+      - ./config/webuicfg.yaml:/free5gc/config/webuicfg.yaml
+    environment:
+      - GIN_MODE=release
+    ports:
+      - "5000:5000"
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.59
+        mac_address: "2a:5c:48:5c:aa:a0"
+        aliases:
+          - webui
+    extra_hosts:
+     - "amf.free5gc.org:172.18.0.20"
+     - "smf.free5gc.org:172.18.0.22"
+     - "upf.free5gc.org:172.18.0.23"
+    depends_on:
+      - db
+      - free5gc-nrf
+
+
+networks:
+  macvlan_net:
+   external: true
+   
+volumes:
+  dbdata:

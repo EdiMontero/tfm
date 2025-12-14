@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  ueransim:
+    container_name: ueransim
+    build:
+      context: ./ueransim
+    command: ./nr-gnb -c ./config/gnbcfg.yaml
+    expose:
+      - "38412"
+    volumes:
+      - ./config/gnbcfg.yaml:/ueransim/config/gnbcfg.yaml
+      - ./config/uecfg.yaml:/ueransim/config/uecfg.yaml
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - "/dev/net/tun"
+    ports:
+     - "38412:38412"
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.10.3
+        mac_address: f6:b8:eb:4d:0f:3c
+        aliases:
+          - gnb.free5gc.org
+    extra_hosts:
+      - "amf.free5gc.org:172.18.0.20"
+      - "upf.free5gc.org:172.18.0.24"
+      
+networks:
+  macvlan_net:
+   external: true
+

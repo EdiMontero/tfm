@@ -1,32 +1,419 @@
-\chapter{Entorno de Desarrollo e Implementación}
+\chapter{Entorno de Desarrollo Implementado}
 
 \section{Arquitectura general del sistema}
 A diferencia de las tecnologias pasadas, 5G esta diseñada para ser facilmente desplegada en entornos virtualizados y basados en contenedores, lo que permite una mayor flexibilidad y escalabilidad. En este proyecto, se ha implementado un entorno de desarrollo que emula una red 5G Standalone (SA), virtualizando sus componentes principales mediante Docker y orquestando el Core con Docker Compose.
-El entorno de desarrollo se ha desplegado utilizando GNS3, GNS3 VM y VMware Workstation para crear una infraestructura base o underlay sobre la cual se han implementado otras máquinas virtuales  que alojan los contenedores Docker. Esta infraestructura virtual proporciona la conectividad necesaria entre los componentes y permite emular una red de un MNO (Mobile Network Operator) real, con componentes tanto de red y VFs (Virtualized Functions) como de 5G. Tambien cabe destacar que para los componentes de 5G se empleó el projecto open source free5gc \cite{free5gc}, el cual permite desplegar un core 5G SA completo en un entorno virtualizado con Docker. La siguiente figura muestra la arquitectura general del entorno de desarrollo implementado, destacando la integración entre GNS3, Docker y la máquina virtual en vmware \ref{fig:arquitectura_general}.
+El entorno de desarrollo se ha desplegado utilizando GNS3, GNS3 VM y VMware Workstation para crear una infraestructura base o underlay sobre la cual se han implementado otras máquinas virtuales  que alojan los contenedores Docker. Esta infraestructura virtual proporciona la conectividad necesaria entre los componentes y permite emular una red de un MNO (Mobile Network Operator) real, con componentes tanto de red y VFs (Virtualized Functions) como de 5G. Tambien cabe destacar que para los componentes de 5G se empleó el projecto open source free5gc \cite{free5gc}, el cual permite desplegar un core 5G SA completo en un entorno virtualizado con Docker. La siguiente figura muestra la arquitectura general del entorno de desarrollo implementado, destacando la integración entre GNS3, Docker y la máquina virtual en vmware \ref{fig:diseno_sistema}.
  \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{images/dis-sistema-v2.png}
+    \includegraphics[width=0.9\textwidth]{images/diseno-sistema.png}
     \caption{Arquitectura general}
-    \label{fig:arquitectura_general}
+    \label{fig:diseno_sistema}
 \end{figure}
 \subsection{Diseño de la red 5G SA}
-Con respecto a la red de transporte, se ha implementado utilizando switches programables P4 para insertar metadatos de telemetría en banda (INT-MD) en el tráfico N2 (SCTP) y N3 (GTP-U), estos switches estan construidos con P4 para el reenvio de trafico a nivel de L3. ademas de estos switches P4, tanto para el trafico entre los Nodos en el Core como en la comunicacion entre el NGRAN y R1, se ha empleado switches virtuales Open vSwitch (OVS) para gestionar gestionar los paquetes ARP. La siguiente figura muestra la topología de red implementada en GNS3.
+Con respecto a la red de transporte, se ha implementado utilizando switches programables P4 para insertar metadatos de telemetría en banda (INT-MD) en el tráfico N2 (SCTP) y N3 (GTP-U), estos switches estan construidos con P4 para el reenvio de trafico a nivel de L3. ademas de estos switches P4, tanto para el trafico entre los Nodos en el Core como en la comunicacion entre el NGRAN y R1, se ha empleado switches virtuales Open vSwitch (OVS) para gestionar gestionar los paquetes ARP. La siguiente figura es un diseño de alto nivel (HLD) quemuestra la topología de red implementada en GNS3 \ref{fig:topologia_red}.
+\subsubsection{Diseño de alto nivel (HLD)}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{images/topologia-general.png}
-    \caption{Arquitectura general}
-    \label{fig:arquitectura_geal}
+    \includegraphics[width=1.0\textwidth]{images/Topo.png}
+    \caption{Topología de red implementada en GNS3}
+    \label{fig:topologia_red}
 \end{figure}
 
+\subsubsection{Diseño de bajo nivel (LLD)}
+La anterior tabla \ref{tab:lld_containers} detalla la configuración de red de cada contenedor Docker, direcciones IP y MAC asignadas, el tipo de red utilizado (macvlan), etc. Con esta configuración, se asegura una correcta interconexión y funcionamiento del Core 5G SA dentro del entorno virtualizado.
+
+\begin{table}[H]
+\centering
+\tiny
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\toprule
+\textbf{NF} & \textbf{Direccion IP} & \textbf{Mascara} &\textbf{Direccion MAC} & \textbf{Tipo de Red} & \textbf{Alias} & \textbf{Puertos} & \textbf{BD} & \textbf{Deps.} \\
+\midrule
+db & 172.18.0.50 & /24 & 22:e5:63:00:49:85 & macvlan & db & 27017 & - & - \\
+\midrule
+NRF & 172.18.0.51 & /24 & 3a:e5:07:18:07:fb & macvlan & nrf.free5gc.org & 8000 & db & db \\
+\midrule
+AUSF & 172.18.0.52 & /24 & aa:61:e3:b4:07:2e & macvlan & ausf.free5gc.org & 8000 & - & nrf \\
+\midrule
+NSSF & 172.18.0.53 & /24 & 3e:74:95:c5:bc:4e & macvlan & nssf.free5gc.org & 8000 & - & nrf \\
+\midrule
+PCF & 172.18.0.54 & /24 & 72:b2:53:59:fc:ce & macvlan & pcf.free5gc.org & 8000 & - & nrf \\
+\midrule
+UDM & 172.18.0.55 & /24 & 9a:a1:ed:b3:60:8c & macvlan & udm.free5gc.org & 8000 & - & db, nrf \\
+\midrule
+UDR & 172.18.0.56 & /24 & ea:b1:9d:90:a4:d1 & macvlan & udr.free5gc.org & 8000 & db & db, nrf \\
+\midrule
+CHF & 172.18.0.57 & /24 & ee:e6:15:22:6f:ad & macvlan & chf.free5gc.org & 8000, 2122 & db & db, nrf, webui \\
+\midrule
+NEF & 172.18.0.58 & /24 & e2:66:f3:0f:e0:e2 & macvlan & nef.free5gc.org & 8000 & db & db, nrf \\
+\midrule
+WebUI & 172.18.0.59 & /24 & 2a:5c:48:5c:aa:a0 & macvlan & webui & 2121 (ext: 5000) & - & db, nrf \\
+\midrule
+AMF & 172.18.0.20 & /24 & f2:ff:cb:34:07:b5 & macvlan & amf.free5gc.org & 38412 (SCTP), 8000 & - & - \\
+\midrule
+SMF & 172.18.0.22 & /24 & ca:76:58:9c:8e:ec & macvlan & smf.free5gc.org & 8000 & - & - \\
+\midrule
+UPF & 172.18.0.24 & /24 & be:44:98:a4:e5:c4 & macvlan & upf.free5gc.org & 8000, 38412 (SCTP) & - & - \\
+\midrule
+ueransim & 172.18.10.3 & /29 & f6:b8:eb:4d:0f:3c & macvlan & ueransim.free5gc.org & 38412 (SCTP) & - & - \\
+\bottomrule
+\end{tabular}
+\caption{Diseño de bajo nivel (LLD)}
+\label{tab:lld_containers}
+\end{table}
+
+
 \section{Despliegue del Core 5G SA}
+Como se pudo apreciar en la figura \ref{fig:diseno_sistema}, el Core 5G SA se ha desplegado utilizando contenedores Docker orquestados con Docker Compose dentro de maquinas virtuales alojadas en una maquina virtual principal (GNS3 VM). los componentes que interactuan mediante HTTP/2 se han desplegado en una VM con Ubuntu 20.04, mientras que el resto de componentes; AMF, SMF y UPF se han desplegado en maquinas virtuales separadas con la misma version de Ubuntu. Juntar los componentes que interactuan mediante HTTP/2 en una sola VM permite reducir la latencia y mejorar el rendimiento de las comunicaciones entre ellos.
+
+La configuracion de red de cada contenedor Docker se realizó con la modalidad de red \textbf{macvlan}, detallada en la tabla \ref{tab:lld_containers}, que permite asignar una direccion IP en el mismo ranfo que la red fisica de la VM anfitriona. Esto facilita la comunicacion entre los contenedores y hace posible el establecimiento del enlace \textbf{N2} (SCTP) entre el NGRAN y el AMF.
+
+\subsection{Configuracion de Core-Host}
+Los detalles sobre la instalacion de Docker y Docker Compose no estan incluidos en este documento, pero se asume que el lector tiene conocimientos basicos sobre estas tecnologias. En caso contrario, puede consultar la documentacion oficial \cite{docker2024install}.
+\subsubsection{Obtención del código fuente 5GC}
+El primer paso para desplegar el Core 5G SA es clonar el repositorio oficial de free5gc desde GitHub como se muestra en la figura \ref{fig:clone-repo}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/clone-repo.png}
+    \caption{Clonación del repositorio de free5gc}
+    \label{fig:clone-repo}
+\end{figure}
+
+Luego de clonar el repositorio, se procede a clonar las bases de las Network Functions (NFs) adicionales que no vienen incluidas en el repositorio principal de free5gc, como se muestra en la figura \ref{fig:clonacion-nf}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/clonacion-nf.png}
+    \caption{Clonación de base de NFs adicionales}
+    \label{fig:clonacion-nf}
+\end{figure}
+
+Una vez clonado el repositorio principal y las bases de las NFs adicionales, se procede a complilar las NFs que en este caso, como es en el Core-Host, los compilamos todos como se puede ver en la figura \ref{fig:compilacion-nf}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/compilacion-nf.png}
+    \caption{Compilación de NFs adicionales}
+    \label{fig:compilacion-nf}
+\end{figure}
+
+Luego de haberlos compliado, se procede a configurar cada NF de acuerdo con el diseño de bajo nivel (LLD) mostrado en la tabla \ref{tab:lld_containers}.
+Como la VM Core-Host corre los contenedores UDR, UDM, PCF, NRF, AUSF, UDM y NSSF, DB, se despliegan creando un unico archivo Docker Compose llamado \textit{docker-compose-build-core-host.yaml}, el cual se mostrará contenedor por contenedor a continuacion:
+\subsubsection{DB}
+
+\begin{lstlisting}[style=yamlstyle, caption={Configuración del MongoDB en Docker Compose}, label=lst:docker-db]
+services:
+  db:
+    container_name: mongodb
+    image: mongo:3.6.8
+    command: mongod --port 27017
+    expose:
+      - "27017"
+    volumes:
+      - dbdata:/data/db
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.50
+        mac_address: "22:e5:63:00:49:85"
+        aliases:
+          - db
+\end{lstlisting}
+
+\subsubsection{NRF}
+\begin{lstlisting}[style=yamlstyle, caption={Configuración del NRF en Docker Compose}, label=lst:docker-nrf]
+  free5gc-nrf:
+    container_name: nrf
+    build:
+      context: ./nf_nrf
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./nrf -c ./config/nrfcfg.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/nrfcfg.yaml:/free5gc/config/nrfcfg.yaml
+      - ./cert:/free5gc/cert
+    environment:
+      DB_URI: mongodb://db/free5gc
+      GIN_MODE: release
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.51
+        mac_address: "3a:e5:07:18:07:fb"
+        aliases:
+          - nrf.free5gc.org
+    extra_hosts:
+     - "amf.free5gc.org:172.18.0.20"
+     - "smf.free5gc.org:172.18.0.22"
+     - "upf.free5gc.org:172.18.0.23"
+    ports:
+      - "8000"
+      
+    depends_on:
+      - db
+\end{lstlisting}
+
+\subsubsection{AUSF}
+\begin{lstlisting}[style=yamlstyle, caption={Configuración del AUSF en Docker Compose}, label=lst:docker-ausf]
+  free5gc-ausf:
+    container_name: ausf
+    build:
+      context: ./nf_ausf
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./ausf -c ./config/ausfcfg.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/ausfcfg.yaml:/free5gc/config/ausfcfg.yaml
+      - ./cert:/free5gc/cert
+    environment:
+      GIN_MODE: release
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.52
+        mac_address: "aa:61:e3:b4:07:2e"
+        aliases:
+          - ausf.free5gc.org
+    extra_hosts:
+     - "amf.free5gc.org:172.18.0.20"
+     - "smf.free5gc.org:172.18.0.22"
+     - "upf.free5gc.org:172.18.0.23"
+
+    depends_on:
+      - free5gc-nrf
+\end{lstlisting}
+\subsubsection{NSSF}
+\begin{lstlisting}[style=yamlstyle, caption={Configuración del NSSF en Docker Compose}, label=lst:docker-nssf]
+  free5gc-nssf:
+    container_name: nssf
+    build:
+      context: ./nf_nssf
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./nssf -c ./config/nssfcfg.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/nssfcfg.yaml:/free5gc/config/nssfcfg.yaml
+      - ./cert:/free5gc/cert
+    environment:
+      GIN_MODE: release
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.53
+        mac_address: "3e:74:95:c5:bc:4e"
+        aliases: 
+          - nssf.free5gc.org
+    extra_hosts:
+     - "amf.free5gc.org:172.18.0.20"
+     - "smf.free5gc.org:172.18.0.22"
+     - "upf.free5gc.org:172.18.0.23"  
+    depends_on:
+      - free5gc-nrf
+\end{lstlisting}
+\subsubsection{PCF}
+\begin{lstlisting}[style=yamlstyle, caption={Configuración del PCF en Docker Compose}, label=lst:docker-pcf]
+  free5gc-pcf:
+    container_name: pcf
+    build:
+      context: ./nf_pcf
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./pcf -c ./config/pcfcfg.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/pcfcfg.yaml:/free5gc/config/pcfcfg.yaml
+      - ./cert:/free5gc/cert
+    environment:
+      GIN_MODE: release
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.54
+        mac_address: "72:b2:53:59:fc:ce"
+        aliases:
+          - pcf.free5gc.org
+    extra_hosts:
+     - "amf.free5gc.org:172.18.0.20"
+     - "smf.free5gc.org:172.18.0.22"
+     - "upf.free5gc.org:172.18.0.23"
+    depends_on:
+      - free5gc-nrf
+
+\end{lstlisting}
+\subsubsection{UDM}
+\begin{lstlisting}[style=yamlstyle, caption={Configuración del UDM en Docker Compose}, label=lst:docker-udm]
+  free5gc-udm:
+    container_name: udm
+    build:
+      context: ./nf_udm
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./udm -c ./config/udmcfg.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/udmcfg.yaml:/free5gc/config/udmcfg.yaml
+      - ./cert:/free5gc/cert
+    environment:
+      GIN_MODE: release
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.55
+        mac_address: "9a:a1:ed:b3:60:8c"
+        aliases:
+          - udm.free5gc.org
+    extra_hosts:
+     - "amf.free5gc.org:172.18.0.20"
+     - "smf.free5gc.org:172.18.0.22"
+     - "upf.free5gc.org:172.18.0.23"
+    depends_on:
+      - db
+      - free5gc-nrf
+\end{lstlisting}
+\subsubsection{UDR}
+\begin{lstlisting}[style=yamlstyle, caption={Configuración del UDR en Docker Compose}, label=lst:docker-udr]
+  free5gc-udr:
+    container_name: udr
+    build:
+      context: ./nf_udr
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./udr -c ./config/udrcfg.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/udrcfg.yaml:/free5gc/config/udrcfg.yaml
+      - ./cert:/free5gc/cert
+    environment:
+      DB_URI: mongodb://db/free5gc
+      GIN_MODE: release
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.56
+        mac_address: "ea:b1:9d:90:a4:d1"
+        aliases:
+          - udr.free5gc.org
+    extra_hosts:
+     - "amf.free5gc.org:172.18.0.20"
+     - "smf.free5gc.org:172.18.0.22"
+     - "upf.free5gc.org:172.18.0.23"
+    depends_on:
+      - db
+      - free5gc-nrf
+\end{lstlisting}
+\subsubsection{Despliegue del CHF}
+\begin{lstlisting}[style=yamlstyle, caption={Configuración del CHF en Docker Compose}, label=lst:docker-chf]
+  free5gc-chf:
+    container_name: chf
+    build:
+      context: ./nf_chf
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./chf -c ./config/chfcfg.yaml
+    expose:
+      - "8000"
+      - "2122"
+    volumes:
+      - ./config/chfcfg.yaml:/free5gc/config/chfcfg.yaml
+      - ./cert:/free5gc/cert
+    environment:
+      DB_URI: mongodb://db/free5gc
+      GIN_MODE: release
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.57
+        mac_address: "ee:e6:15:22:6f:ad"
+        aliases:
+          - chf.free5gc.org
+    extra_hosts:
+     - "amf.free5gc.org:172.18.0.20"
+     - "smf.free5gc.org:172.18.0.22"
+     - "upf.free5gc.org:172.18.0.23"
+    depends_on:
+      - db
+      - free5gc-nrf
+      - free5gc-webui
+\end{lstlisting}
+\subsubsection{Despliegue del NEF}
+\begin{lstlisting}[style=yamlstyle, caption={Configuración del NEF en Docker Compose}, label=lst:docker-nef]
+  free5gc-nef:
+    container_name: nef
+    build:
+      context: ./nf_nef
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./nef -c ./config/nefcfg.yaml
+    expose:
+      - "8000"
+    volumes: 
+      - ./config/nefcfg.yaml:/free5gc/config/nefcfg.yaml
+      - ./cert:/free5gc/cert
+    environment:
+      GIN_MODE: release
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.58
+        mac_address: "e2:66:f3:0f:e0:e2"
+        aliases:
+          - nef.free5gc.org
+    extra_hosts:
+     - "amf.free5gc.org:172.18.0.20"
+     - "smf.free5gc.org:172.18.0.22"
+     - "upf.free5gc.org:172.18.0.23"
+    depends_on:
+      - db
+      - free5gc-nrf
+\end{lstlisting}
+\subsubsection{Despliegue del WebUI}
+A pesar de que el contenedor WebUI no es un Network Function (NF) del Core 5G SA, se ha incluido en el mismo archivo Docker Compose para facilitar su despliegue y gestión. El WebUI proporciona una interfaz gráfica para monitorizar y gestionar el Core 5G, facilitando la administración de la red.
+\begin{lstlisting}[style=yamlstyle, caption={Configuración del WebUI en Docker Compose}, label=lst:docker-webui]
+  free5gc-webui:
+    container_name: webui
+    build:
+      context: ./webui
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./webui -c ./config/webuicfg.yaml
+    expose:
+      - "2121"
+    volumes:
+      - ./config/webuicfg.yaml:/free5gc/config/webuicfg.yaml
+    environment:
+      - GIN_MODE=release
+    ports:
+      - "5000:5000"
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.0.59
+        mac_address: "2a:5c:48:5c:aa:a0"
+        aliases:
+          - webui
+    extra_hosts:
+     - "amf.free5gc.org:172.18.0.20"
+     - "smf.free5gc.org:172.18.0.22"
+     - "upf.free5gc.org:172.18.0.23"
+    depends_on:
+      - db
+      - free5gc-nrf
+\end{lstlisting}
+\subsubsection{Configuracion de Red y Volumenes}
+\begin{lstlisting}[style=yamlstyle, caption={Configuración de red y volúmenes en Docker Compose}, label=lst:docker-network-volumes]
+networks:
+  macvlan_net:
+   external: true
+   
+volumes:
+  dbdata:
+\end{lstlisting}
+
+
+\subsubsection{Construccion y despliegue}
 
 
 
 
-
-
-
-\subsection{Componentes utilizados}
 \subsection{Configuración y orquestación}
 \subsection{Integración con UERANSIM}
 
