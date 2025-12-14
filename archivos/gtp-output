@@ -1,0 +1,129 @@
+edinsonm@upf:~$ cd free5gc-compose/
+edinsonm@upf:~/free5gc-compose$ 
+edinsonm@upf:~/free5gc-compose$ sudo docker compose -f docker-compose-build-upf.yaml up
+[sudo] password for edinsonm: 
+WARN[0000] /home/edinsonm/free5gc-compose/docker-compose-build-upf.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+Attaching to upf
+upf  | 2025-12-14T13:31:13.843687483Z [INFO][UPF][Main] UPF version:  
+upf  | 	free5GC version: v4.0.1-47-gf923972
+upf  |  build time:      2025-08-26T20:17:34Z
+upf  |  commit hash:     9740983c
+upf  |  commit time:     2025-07-18T14:47:46Z
+upf  |  go version:      go1.24.5 linux/amd64
+upf  | 2025-12-14T13:31:13.857445343Z [INFO][UPF][CFG] Read config from [./config/upfcfg.yaml]
+upf  | 2025-12-14T13:31:13.843687483Z [INFO][UPF][Main] UPF version:  
+upf  |  free5GC version: v4.0.1-47-gf923972
+upf  |  build time:      2025-08-26T20:17:34Z
+upf  |  commit hash:     9740983c
+upf  |  commit time:     2025-07-18T14:47:46Z
+upf  |  go version:      go1.24.5 linux/amd64
+upf  | 2025-12-14T13:31:13.857445343Z [INFO][UPF][CFG] Read config from [./config/upfcfg.yaml]
+upf  | 2025-12-14T13:31:13.868135211Z [INFO][UPF][CFG] ==================================================
+upf  | 2025-12-14T13:31:13.868173594Z [INFO][UPF][CFG] (*factory.Config)(0xc0001233b0)({
+upf  |  Version: (string) (len=5) "1.0.3",
+upf  |  Description: (string) (len=31) "UPF initial local configuration",
+upf  |  Pfcp: (*factory.Pfcp)(0xc000176e70)({
+upf  |          Addr: (string) (len=15) "upf.free5gc.org",
+upf  |          NodeID: (string) (len=15) "upf.free5gc.org",
+
+upf  | 2025-12-14T13:31:13.868135211Z [INFO][UPF][CFG] ==================================================
+upf  | 2025-12-14T13:31:13.868173594Z [INFO][UPF][CFG] (*factory.Config)(0xc0001233b0)({
+upf  | 	Version: (string) (len=5) "1.0.3",
+upf  | 	Description: (string) (len=31) "UPF initial local configuration",
+upf  | 	Pfcp: (*factory.Pfcp)(0xc000176e70)({
+upf  | 		Addr: (string) (len=15) "upf.free5gc.org",
+upf  | 		NodeID: (string) (len=15) "upf.free5gc.org",
+upf  | 		RetransTimeout: (time.Duration) 1s,
+upf  | 		MaxRetrans: (uint8) 3
+upf  | 	}),
+upf  | 	Gtpu: (*factory.Gtpu)(0xc000176f60)({
+upf  | 		Forwarder: (string) (len=5) "gtp5g",
+upf  | 		IfList: ([]factory.IfInfo) (len=1 cap=1) {
+upf  | 			(factory.IfInfo) {
+upf  | 				Addr: (string) (len=15) "upf.free5gc.org",
+upf  | 				Type: (string) (len=2) "N3",
+upf  | 				Name: (string) "",
+upf  | 				IfName: (string) "",
+upf  | 				MTU: (uint32) 0
+upf  | 			}
+upf  | 		}
+upf  | 	}),
+upf  | 	DnnList: ([]factory.DnnList) (len=2 cap=2) {
+upf  | 		(factory.DnnList) {
+upf  | 			Dnn: (string) (len=8) "internet",
+upf  | 			Cidr: (string) (len=12) "10.60.0.0/16",
+upf  | 			NatIfName: (string) ""
+upf  | 		},
+upf  | 		(factory.DnnList) {
+upf  | 			Dnn: (string) (len=8) "internet",
+upf  | 			Cidr: (string) (len=12) "10.61.0.0/16",
+upf  | 			NatIfName: (string) ""
+upf  | 		}
+upf  | 	},
+upf  | 	Logger: (*factory.Logger)(0xc000226ea0)({
+upf  | 		Enable: (bool) true,
+upf  | 		Level: (string) (len=4) "info",
+upf  | 		ReportCaller: (bool) false
+upf  | 	})
+upf  | })
+upf  | 2025-12-14T13:31:13.868180873Z [INFO][UPF][CFG] ==================================================
+upf  | 2025-12-14T13:31:13.868186215Z [INFO][UPF][Main] Log level is set to [info]
+upf  | 2025-12-14T13:31:13.868190788Z [INFO][UPF][Main] Report Caller is set to [false]
+upf  | 2025-12-14T13:31:13.872986954Z [INFO][UPF][Main] starting Gtpu Forwarder [gtp5g]
+upf  | 2025-12-14T13:31:13.873321518Z [INFO][UPF][Main] GTP Address: "upf.free5gupf  |          RetransTimeout: (time.Duration) 1s,
+upf  |          MaxRetrans: (uint8) 3
+upf  |  }),
+upf  |  Gtpu: (*factory.Gtpu)(0xc000176f60)({
+upf  |          Forwarder: (string) (len=5) "gtp5g",
+upf  |          IfList: ([]factory.IfInfo) (len=1 cap=1) {
+upf  |                  (factory.IfInfo) {
+upf  |                          Addr: (string) (len=15) "upf.free5gc.org",
+upf  |                          Type: (string) (len=2) "N3",
+upf  |                          Name: (string) "",
+upf  |                          IfName: (string) "",
+upf  |                          MTU: (uint32) 0
+upf  |                  }
+upf  |          }
+upf  |  }),
+upf  |  DnnList: ([]factory.DnnList) (len=2 cap=2) {
+upf  |          (factory.DnnList) {
+upf  |                  Dnn: (string) (len=8) "internet",
+upf  |                  Cidr: (string) (len=12) "10.60.0.0/16",
+upf  |                  NatIfName: (string) ""
+upf  |          },
+upf  |          (factory.DnnList) {
+upf  |                  Dnn: (string) (len=8) "internet",
+upf  |                  Cidr: (string) (len=12) "10.61.0.0/16",
+upf  |                  NatIfName: (string) ""
+upf  |          }
+upf  |  },
+upf  |  Logger: (*factory.Logger)(0xc000226ea0)({
+upf  |          Enable: (bool) true,
+upf  |          Level: (string) (len=4) "info",
+upf  |          ReportCaller: (bool) false
+upf  |  })
+upf  | })
+upf  | 2025-12-14T13:31:13.868180873Z [INFO][UPF][CFG] ==================================================
+upf  | 2025-12-14T13:31:13.868186215Z [INFO][UPF][Main] Log level is set to [info]
+upf  | 2025-12-14T13:31:13.868190788Z [INFO][UPF][Main] Report Caller is set to [false]
+upf  | 2025-12-14T13:31:13.872986954Z [INFO][UPF][Main] starting Gtpu Forwarder [gtp5g]
+upf  | 2025-12-14T13:31:13.873321518Z [INFO][UPF][Main] GTP Address: "upf.free5gc.org:2152"
+
+
+upf  | 2025-12-14T13:31:13.990072956Z [INFO][UPF][BUFF] buff netlink server starupf  | 2025-12-14T13:31:13.990072956Z [INFO][UPF][BUFF] buff netlink server started  | 2025-12-14T13:31:13.990309613Z [INFO][UPF][Gtp5g] Forwarder started
+upf  | 2025-12-14T13:31:13.990309613Z [INFO][UPF][Gtp5g] Forwarder started
+upf  | 2025-12-14T13:31:13.993242593Z [INFO][UPF][Perio] perio server started
+upf  | 2025-12-14T13:31:13.993242593Z [INFO][UPF][Perio] perio server started
+upf  | 2025-12-14T13:31:13.993664129Z [INFO][UPF][PFCP][LAddr:upf.free5gc.org:8805] starting pfcp server
+upf  | 2025-12-14T13:31:13.993820716Z [INFO][UPF][PFCP][LAddr:upf.free5gc.org:8805] pfcp server started
+upf  | 2025-12-14T13:31:13.993844666Z [INFO][UPF][Main] UPF started
+upf  | 2025-12-14T13:31:13.993664129Z [INFO][UPF][PFCP][LAddr:upf.free5gc.org:8805] starting pfcp server
+upf  | 2025-12-14T13:31:13.993820716Z [INFO][UPF][PFCP][LAddr:upf.free5gc.org:8805] pfcp server started
+upf  | 2025-12-14T13:31:13.993844666Z [INFO][UPF][Main] UPF started
+upf  | 2025-12-14T13:34:08.844882890Z [INFO][UPF][PFCP][LAddr:upf.free5gc.org:8805] handleAssociationSetupRequest
+upf  | 2025-12-14T13:34:08.844882890Z [INFO][UPF][PFCP][LAddr:upf.free5gc.org:8805] handleAssociationSetupRequest
+upf  | 2025-12-14T13:34:08.848493277Z [INFO][UPF][PFCP][LAddr:upf.free5gc.org:8805][CPNodeID:smf.free5gc.org] New node
+upf  | 2025-12-14T13:34:08.848493277Z [INFO][UPF][PFCP][LAddr:upf.free5gc.org:8805][CPNodeID:smf.free5gc.org] New node
+
+
+
