@@ -1,0 +1,1011 @@
+edinsonm@core-host:~$ cd free5gc-compose/
+edinsonm@core-host:~/free5gc-compose$ sudo docker compose -f docker-compose-build-core-host.yaml build
+[sudo] password for edinsonm: 
+WARN[0000] /home/edinsonm/free5gc-compose/docker-compose-build-core-host.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+#1 [internal] load local bake definitions
+#1 reading from stdin 4.89kB done
+#1 DONE 0.0s
+
+#2 [free5gc-ausf internal] load build definition from Dockerfile
+#2 ...
+
+#3 [free5gc-pcf internal] load build definition from Dockerfile
+#3 transferring dockerfile: 804B 0.0s done
+#3 DONE 0.2s
+
+#4 [free5gc-udr internal] load build definition from Dockerfile
+#4 transferring dockerfile: 804B 0.1s done
+#4 DONE 0.2s
+
+#2 [free5gc-ausf internal] load build definition from Dockerfile
+#2 transferring dockerfile: 806B 0.0s done
+#2 ...
+
+#5 [free5gc-nssf internal] load build definition from Dockerfile
+#5 transferring dockerfile: 806B 0.0s done
+#5 DONE 0.2s
+
+#6 [free5gc-udr internal] load metadata for docker.io/free5gc/udr-base:latest
+#6 DONE 0.0s
+
+#7 [free5gc-udm internal] load build definition from Dockerfile
+#7 transferring dockerfile: 804B 0.0s done
+#7 DONE 0.3s
+
+#8 [free5gc-nssf internal] load metadata for docker.io/free5gc/nssf-base:latest
+#8 DONE 0.0s
+
+#9 [free5gc-pcf internal] load metadata for docker.io/free5gc/pcf-base:latest
+#9 DONE 0.0s
+
+#10 [free5gc-webui internal] load build definition from Dockerfile
+#10 transferring dockerfile: 829B 0.0s done
+#10 DONE 0.4s
+
+#11 [free5gc-chf internal] load build definition from Dockerfile
+#11 transferring dockerfile: 896B 0.0s done
+#11 DONE 0.4s
+
+#12 [free5gc-udm internal] load metadata for docker.io/free5gc/udm-base:latest
+#12 DONE 0.0s
+
+#13 [free5gc-nef internal] load build definition from Dockerfile
+#13 transferring dockerfile: 804B 0.0s done
+#13 DONE 0.4s
+
+#2 [free5gc-ausf internal] load build definition from Dockerfile
+#2 DONE 0.4s
+
+#14 [free5gc-webui internal] load metadata for docker.io/free5gc/webconsole-base:latest
+#14 DONE 0.0s
+
+#15 [free5gc-nef internal] load metadata for docker.io/free5gc/nef-base:latest
+#15 DONE 0.0s
+
+#16 [free5gc-nef internal] load metadata for docker.io/library/alpine:3.15
+#16 ...
+
+#17 [free5gc-chf internal] load metadata for docker.io/free5gc/chf-base:latest
+#17 DONE 0.0s
+
+#18 [free5gc-nrf internal] load build definition from Dockerfile
+#18 transferring dockerfile: 804B 0.0s done
+#18 DONE 0.5s
+
+#19 [free5gc-ausf internal] load metadata for docker.io/free5gc/ausf-base:latest
+#19 DONE 0.0s
+
+#20 [free5gc-nrf internal] load metadata for docker.io/free5gc/nrf-base:latest
+#20 DONE 0.0s
+
+#16 [free5gc-nrf internal] load metadata for docker.io/library/alpine:3.15
+#16 DONE 2.0s
+
+#21 [free5gc-webui internal] load metadata for docker.io/bitnami/minideb:bullseye
+#21 DONE 1.8s
+
+#22 [free5gc-nrf internal] load .dockerignore
+#22 transferring context: 2B done
+#22 DONE 0.1s
+
+#23 [free5gc-udr internal] load .dockerignore
+#23 transferring context: 2B 0.0s done
+#23 DONE 0.1s
+
+#24 [free5gc-webui internal] load .dockerignore
+#24 transferring context: 2B done
+#24 DONE 0.2s
+
+#25 [free5gc-ausf internal] load .dockerignore
+#25 transferring context: 2B done
+#25 DONE 0.2s
+
+#26 [free5gc-pcf internal] load .dockerignore
+#26 transferring context: 2B done
+#26 DONE 0.2s
+
+#27 [free5gc-chf internal] load .dockerignore
+#27 transferring context: 2B done
+#27 DONE 0.2s
+
+#28 [free5gc-udr stage-1 1/7] FROM docker.io/library/alpine:3.15@sha256:19b4bcc4f60e99dd5ebdca0cbce22c503bbcff197549d7e19dab4f22254dc864
+#28 DONE 0.0s
+
+#29 [free5gc-udr builder 1/1] FROM docker.io/free5gc/udr-base:latest
+#29 DONE 0.0s
+
+#30 [free5gc-nssf internal] load .dockerignore
+#30 transferring context: 2B done
+#30 DONE 0.2s
+
+#31 [free5gc-nef internal] load .dockerignore
+#31 transferring context: 2B done
+#31 DONE 0.2s
+
+#32 [free5gc-udm internal] load .dockerignore
+#32 transferring context: 2B done
+#32 DONE 0.2s
+
+#33 [free5gc-udr stage-1 3/7] WORKDIR /free5gc
+#33 CACHED
+
+#34 [free5gc-udr stage-1 6/7] COPY --from=builder /free5gc/cert/udr.pem ./cert/
+#34 CACHED
+
+#35 [free5gc-udr stage-1 5/7] COPY --from=builder /free5gc/udr ./
+#35 CACHED
+
+#36 [free5gc-udr stage-1 4/7] RUN mkdir -p config/ log/ cert/
+#36 CACHED
+
+#37 [free5gc-udr stage-1 2/7] RUN if [ "false" = "true" ] ; then apk add -U vim strace net-tools curl netcat-openbsd ; fi
+#37 CACHED
+
+#38 [free5gc-udr stage-1 7/7] COPY --from=builder /free5gc/cert/udr.key ./cert/
+#38 CACHED
+
+#28 [free5gc-nef stage-1 1/7] FROM docker.io/library/alpine:3.15@sha256:19b4bcc4f60e99dd5ebdca0cbce22c503bbcff197549d7e19dab4f22254dc864
+#28 DONE 0.0s
+
+#39 [free5gc-ausf builder 1/1] FROM docker.io/free5gc/ausf-base:latest
+#39 DONE 0.0s
+
+#40 [free5gc-nrf builder 1/1] FROM docker.io/free5gc/nrf-base:latest
+#40 DONE 0.0s
+
+#41 [free5gc-chf builder 1/1] FROM docker.io/free5gc/chf-base:latest
+#41 DONE 0.0s
+
+#42 [free5gc-nssf builder 1/1] FROM docker.io/free5gc/nssf-base:latest
+#42 DONE 0.0s
+
+#43 [free5gc-webui builder 1/1] FROM docker.io/free5gc/webconsole-base:latest
+#43 DONE 0.0s
+
+#44 [free5gc-webui stage-1 1/6] FROM docker.io/bitnami/minideb:bullseye@sha256:4d0ab5d148f2b8a29383e8a24a2c32cad7c4cd0f0766dd240a286dc2a03f3647
+#44 DONE 0.0s
+
+#45 [free5gc-webui stage-1 2/6] RUN if [ "false" = "true" ] ; then apt-get update && apt-get install -y vim strace net-tools curl netcat-openbsd ; fi
+#45 CACHED
+
+#46 [free5gc-webui stage-1 5/6] COPY --from=builder /free5gc/webui ./
+#46 CACHED
+
+#47 [free5gc-webui stage-1 3/6] WORKDIR /free5gc
+#47 CACHED
+
+#48 [free5gc-webui stage-1 4/6] RUN mkdir -p config/ public/
+#48 CACHED
+
+#49 [free5gc-webui stage-1 6/6] COPY --from=builder /free5gc/public ./public
+#49 CACHED
+
+#50 [free5gc-pcf builder 1/1] FROM docker.io/free5gc/pcf-base:latest
+#50 DONE 0.0s
+
+#51 [free5gc-nef builder 1/1] FROM docker.io/free5gc/nef-base:latest
+#51 DONE 0.0s
+
+#52 [free5gc-udm builder 1/1] FROM docker.io/free5gc/udm-base:latest
+#52 DONE 0.0s
+
+#53 [free5gc-webui] exporting to image
+#53 exporting layers done
+#53 writing image sha256:cf8a171550ec4d4b3112d7e9c341514002ede99552b5531ae95dd906c89c2797 done
+#53 naming to docker.io/library/free5gc-compose-free5gc-webui done
+#53 DONE 0.0s
+
+#54 [free5gc-udr] exporting to image
+#54 exporting layers done
+#54 writing image sha256:afea208a8863d3ab11e0016245d1dc7842ab1ba8e3e1bb86007a5b5aa454a915 0.0s done
+#54 naming to docker.io/library/free5gc-compose-free5gc-udr 0.0s done
+#54 DONE 0.0s
+
+#55 [free5gc-nssf stage-1 5/7] COPY --from=builder /free5gc/nssf ./
+#55 CACHED
+
+#56 [free5gc-nssf stage-1 3/7] WORKDIR /free5gc
+#56 CACHED
+
+#57 [free5gc-nssf stage-1 4/7] RUN mkdir -p config/ log/ cert/
+#57 CACHED
+
+#58 [free5gc-nssf stage-1 2/7] RUN if [ "false" = "true" ] ; then apk add -U vim strace net-tools curl netcat-openbsd ; fi
+#58 CACHED
+
+#59 [free5gc-nssf stage-1 6/7] COPY --from=builder /free5gc/cert/nssf.pem ./cert/
+#59 CACHED
+
+#60 [free5gc-nssf stage-1 7/7] COPY --from=builder /free5gc/cert/nssf.key ./cert/
+#60 CACHED
+
+#61 [free5gc-ausf stage-1 4/7] RUN mkdir -p config/ log/ cert/
+#61 CACHED
+
+#62 [free5gc-ausf stage-1 5/7] COPY --from=builder /free5gc/ausf ./
+#62 CACHED
+
+#63 [free5gc-ausf stage-1 2/7] RUN if [ "false" = "true" ] ; then apk add -U vim strace net-tools curl netcat-openbsd ; fi
+#63 CACHED
+
+#64 [free5gc-ausf stage-1 3/7] WORKDIR /free5gc
+#64 CACHED
+
+#65 [free5gc-ausf stage-1 6/7] COPY --from=builder /free5gc/cert/ausf.pem ./cert/
+#65 CACHED
+
+#66 [free5gc-ausf stage-1 7/7] COPY --from=builder /free5gc/cert/ausf.key ./cert/
+#66 CACHED
+
+#67 [free5gc-nrf stage-1 6/7] COPY --from=builder /free5gc/cert/nrf.pem ./cert/
+#67 CACHED
+
+#68 [free5gc-nrf stage-1 4/7] RUN mkdir -p config/ log/ cert/
+#68 CACHED
+
+#69 [free5gc-nrf stage-1 3/7] WORKDIR /free5gc
+#69 CACHED
+
+#70 [free5gc-nrf stage-1 5/7] COPY --from=builder /free5gc/nrf ./
+#70 CACHED
+
+#71 [free5gc-nrf stage-1 2/7] RUN if [ "false" = "true" ] ; then apk add -U vim strace net-tools curl netcat-openbsd ; fi
+#71 CACHED
+
+#72 [free5gc-nrf stage-1 7/7] COPY --from=builder /free5gc/cert/nrf.key ./cert/
+#72 CACHED
+
+#73 [free5gc-chf stage-1 6/7] COPY --from=builder /free5gc/cert/chf.pem ./cert/
+#73 CACHED
+
+#74 [free5gc-chf stage-1 3/7] WORKDIR /free5gc
+#74 CACHED
+
+#75 [free5gc-chf stage-1 4/7] RUN mkdir -p config/ log/ cert/
+#75 CACHED
+
+#76 [free5gc-chf stage-1 5/7] COPY --from=builder /free5gc/chf ./
+#76 CACHED
+
+#77 [free5gc-chf stage-1 2/7] RUN if [ "false" = "true" ] ; then apk add -U vim strace net-tools curl netcat-openbsd ; fi
+#77 CACHED
+
+#78 [free5gc-chf stage-1 7/7] COPY --from=builder /free5gc/cert/chf.key ./cert/
+#78 CACHED
+
+#79 [free5gc-pcf stage-1 6/7] COPY --from=builder /free5gc/cert/pcf.pem ./cert/
+#79 CACHED
+
+#80 [free5gc-pcf stage-1 3/7] WORKDIR /free5gc
+#80 CACHED
+
+#81 [free5gc-pcf stage-1 5/7] COPY --from=builder /free5gc/pcf ./
+#81 CACHED
+
+#82 [free5gc-pcf stage-1 4/7] RUN mkdir -p config/ log/ cert/
+#82 CACHED
+
+#83 [free5gc-pcf stage-1 2/7] RUN if [ "false" = "true" ] ; then apk add -U vim strace net-tools curl netcat-openbsd ; fi
+#83 CACHED
+
+#84 [free5gc-pcf stage-1 7/7] COPY --from=builder /free5gc/cert/pcf.key ./cert/
+#84 CACHED
+
+#85 [free5gc-nef stage-1 6/7] COPY --from=builder /free5gc/cert/nef.pem ./cert/
+#85 CACHED
+
+#86 [free5gc-nef stage-1 5/7] COPY --from=builder /free5gc/nef ./
+#86 CACHED
+
+#87 [free5gc-nef stage-1 3/7] WORKDIR /free5gc
+#87 CACHED
+
+#88 [free5gc-nef stage-1 2/7] RUN if [ "false" = "true" ] ; then apk add -U vim strace net-tools curl netcat-openbsd ; fi
+#88 CACHED
+
+#89 [free5gc-nef stage-1 4/7] RUN mkdir -p config/ log/ cert/
+#89 CACHED
+
+#90 [free5gc-nef stage-1 7/7] COPY --from=builder /free5gc/cert/nef.key ./cert/
+#90 CACHED
+
+#91 [free5gc-udm stage-1 4/7] RUN mkdir -p config/ log/ cert/
+#91 CACHED
+
+#92 [free5gc-udm stage-1 2/7] RUN if [ "false" = "true" ] ; then apk add -U vim strace net-tools curl netcat-openbsd ; fi
+#92 CACHED
+
+#93 [free5gc-udm stage-1 6/7] COPY --from=builder /free5gc/cert/udm.pem ./cert/
+#93 CACHED
+
+#94 [free5gc-udm stage-1 3/7] WORKDIR /free5gc
+#94 CACHED
+
+#95 [free5gc-udm stage-1 5/7] COPY --from=builder /free5gc/udm ./
+#95 CACHED
+
+#96 [free5gc-udm stage-1 7/7] COPY --from=builder /free5gc/cert/udm.key ./cert/
+#96 CACHED
+
+#97 [free5gc-nrf] exporting to image
+#97 exporting layers done
+#97 writing image sha256:216543dae82f4fe04ef91c7595c81cab8d8e7b6e3ae3df16688ec45cb964db80 done
+#97 naming to docker.io/library/free5gc-compose-free5gc-nrf 0.0s done
+#97 DONE 0.0s
+
+#98 [free5gc-udm] exporting to image
+#98 exporting layers done
+#98 writing image sha256:ac38dbbda31bafaee79ca9e4b8d6258e66a03c7d6f0ea8ca1092996fee78b556 done
+#98 naming to docker.io/library/free5gc-compose-free5gc-udm done
+#98 DONE 0.1s
+
+#99 [free5gc-ausf] exporting to image
+#99 exporting layers done
+#99 writing image sha256:a2e59f97a6bae501490ce9b792594b827ffad699eaa657427222ed51164a7b08 0.0s done
+#99 naming to docker.io/library/free5gc-compose-free5gc-ausf 0.0s done
+#99 DONE 0.1s
+
+#100 [free5gc-pcf] exporting to image
+#100 exporting layers done
+#100 writing image sha256:37b2eedf63ab35f75b70a51c5f70d7cbc9a20e2dd7c842ad78f3ab668c3f82c0 0.0s done
+#100 naming to docker.io/library/free5gc-compose-free5gc-pcf 0.0s done
+#100 DONE 0.1s
+
+#101 [free5gc-nssf] exporting to image
+#101 exporting layers done
+#101 writing image sha256:faed39fe01332bd182bc0566c3def57b9516ac45e6d5edfac8820eac9616a4cc 0.0s done
+#101 naming to docker.io/library/free5gc-compose-free5gc-nssf 0.0s done
+#101 DONE 0.1s
+
+#102 [free5gc-chf] exporting to image
+#102 exporting layers done
+#102 writing image sha256:87aca488e18a2f4affbba14b424fd814cdac33f4f0d13007fade774f27e573fd 0.0s done
+#102 naming to docker.io/library/free5gc-compose-free5gc-chf 0.0s done
+#102 DONE 0.1s
+
+#103 [free5gc-nef] exporting to image
+#103 exporting layers done
+#103 writing image sha256:50aab80ceb487b2067ba8f813b4938a563ae1e414ca85e0c63b3c0769393a252 0.0s done
+#103 naming to docker.io/library/free5gc-compose-free5gc-nef 0.0s done
+#103 DONE 0.1s
+
+#104 [free5gc-webui] resolving provenance for metadata file
+#104 DONE 0.1s
+
+#105 [free5gc-udr] resolving provenance for metadata file
+#105 DONE 0.2s
+
+#106 [free5gc-nef] resolving provenance for metadata file
+#106 DONE 0.1s
+
+#107 [free5gc-nrf] resolving provenance for metadata file
+#107 DONE 0.2s
+
+#108 [free5gc-chf] resolving provenance for metadata file
+#108 DONE 0.1s
+
+#109 [free5gc-ausf] resolving provenance for metadata file
+#109 DONE 0.0s
+
+#110 [free5gc-nssf] resolving provenance for metadata file
+#110 DONE 0.1s
+
+#111 [free5gc-pcf] resolving provenance for metadata file
+#111 DONE 0.0s
+
+#112 [free5gc-udm] resolving provenance for metadata file
+#112 DONE 0.1s
+[+] Building 9/9
+ ✔ free5gc-compose-free5gc-pcf    Built                                                            0.0s 
+ ✔ free5gc-compose-free5gc-nef    Built                                                            0.0s 
+ ✔ free5gc-compose-free5gc-webui  Built                                                            0.0s 
+ ✔ free5gc-compose-free5gc-udr    Built                                                            0.0s 
+ ✔ free5gc-compose-free5gc-nrf    Built                                                            0.0s 
+ ✔ free5gc-compose-free5gc-udm    Built                                                            0.0s 
+ ✔ free5gc-compose-free5gc-nssf   Built                                                            0.0s 
+ ✔ free5gc-compose-free5gc-chf    Built                                                            0.0s 
+ ✔ free5gc-compose-free5gc-ausf   Built                                                            0.0s 
+edinsonm@core-host:~/free5gc-compose$ 
+edinsonm@core-host:~/free5gc-compose$ 
+edinsonm@core-host:~/free5gc-compose$ 
+edinsonm@core-host:~/free5gc-compose$ 
+edinsonm@core-host:~/free5gc-compose$ 
+edinsonm@core-host:~/free5gc-compose$ 
+edinsonm@core-host:~/free5gc-compose$ 
+edinsonm@core-host:~/free5gc-compose$ sudo docker compose -f docker-compose-build-core-host.yaml up
+WARN[0000] /home/edinsonm/free5gc-compose/docker-compose-build-core-host.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+[+] Running 1/1
+ ✔ Container webui  Recreated                                                                      0.2s 
+Attaching to ausf, chf, mongodb, nef, nrf, nssf, pcf, udm, udr, webui
+nrf  | 2025-12-14T09:25:37.477526405Z [INFO][NRF][Main] NRF version:  
+nrf  | 	free5GC version: v4.0.1-47-gf923972
+nrf  | 	build time:      2025-08-24T13:02:40Z
+nrf  | 	commit hash:     eb00d20f
+nrf  | 	commit time:     2025-07-18T14:33:54Z
+nrf  | 	go version:      go1.24.5 linux/amd64
+nrf  | 2025-12-14T09:25:37.477526405Z [INFO][NRF][Main] NRF version:  
+nrf  |  free5GC version: v4.0.1-47-gf923972
+nrf  |  build time:      2025-08-24T13:02:40Z
+nrf  |  commit hash:     eb00d20f
+nrf  |  commit time:     2025-07-18T14:33:54Z
+nrf  | 2025-12-14T09:25:37.491487954Z [INFO][NRF][CFG] Read config from [./config/nrfcfg.yaml]
+nrf  |  go version:      go1.24.5 linux/amd64
+nrf  | 2025-12-14T09:25:37.499946416Z [INFO][NRF][Main] Log enable is set to [true]
+nrf  | 2025-12-14T09:25:37.499972196Z [INFO][NRF][Main] Log level is set to [info]
+nrf  | 2025-12-14T09:25:37.499980668Z [INFO][NRF][Main] Report Caller is set to [false]
+nrf  | 2025-12-14T09:25:37.499989018Z [INFO][NRF][Init] nrfconfig Info: Version[1.0.2] Description[NRF initial local configuration]
+nrf  | 2025-12-14T09:25:37.491487954Z [INFO][NRF][CFG] Read config from [./config/nrfcfg.yaml]
+nrf  | 2025-12-14T09:25:37.499946416Z [INFO][NRF][Main] Log enable is set to [true]
+nrf  | 2025-12-14T09:25:37.499972196Z [INFO][NRF][Main] Log level is set to [info]
+nrf  | 2025-12-14T09:25:37.499980668Z [INFO][NRF][Main] Report Caller is set to [false]
+nrf  | 2025-12-14T09:25:37.499989018Z [INFO][NRF][Init] nrfconfig Info: Version[1.0.2] Description[NRF initial local configuration]
+
+
+nrf  | 2025-12-14T09:25:37.513578265Z [INFO][NRF][Init] generate new NRF cert
+nrf  | 2025-12-14T09:25:37.549165939Z [INFO][NRF][SBI] Binding addr: [nrf.free5gc.org:8000]
+nrf  | 2025-12-14T09:25:37.513578265Z [INFO][NRF][Init] generate new NRF cert
+nrf  | 2025-12-14T09:25:37.549165939Z [INFO][NRF][SBI] Binding addr: [nrf.free5gc.org:8000]
+nrf  | 2025-12-14T09:25:37.554344873Z [INFO][NRF][Init] Server starting
+nrf  | 2025-12-14T09:25:37.554366551Z [INFO][NRF][SBI] SBI server started
+mongodb  | 2025-12-14T09:25:37.629+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=4a2206df726a
+mongodb  | 2025-12-14T09:25:37.673+0000 I CONTROL  [initandlisten] db version v3.6.8
+mongodb  | 2025-12-14T09:25:37.673+0000 I CONTROL  [initandlisten] git version: 6bc9ed599c3fa164703346a22bad17e33fa913e4
+mongodb  | 2025-12-14T09:25:37.673+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.0f  25 May 2017
+mongodb  | 2025-12-14T09:25:37.673+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+
+
+mongodb  | 2025-12-14T09:25:37.629+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=4a2206df726a
+mongodb  | 2025-12-14T09:25:37.673+0000 I CONTROL  [initandlisten] db version v3.6.8
+mongodb  | 2025-12-14T09:25:37.673+0000 I CONTROL  [initandlisten] git version: 6bc9ed599c3fa164703346a22bad17e33fa913e4
+mongodb  | 2025-12-14T09:25:37.673+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.0f  25 May 2017
+mongodb  | 2025-12-14T09:25:37.673+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+mongodb  | 2025-12-14T09:25:37.673+0000 I CONTROL  [initandlisten] modules: none
+mongodb  | 2025-12-14T09:25:37.673+0000 I CONTROL  [initandlisten] build environment:
+mongodb  | 2025-12-14T09:25:37.673+0000 I CONTROL  [initandlisten]     distmod: debian92
+mongodb  | 2025-12-14T09:25:37.673+0000 I CONTROL  [initandlisten]     distarch: x86_64
+mongodb  | 2025-12-14T09:25:37.673+0000 I CONTROL  [initandlisten]     target_arch: x86_64
+mongodb  | 2025-12-14T09:25:37.673+0000 I CONTROL  [initandlisten] options: { net: { bindIpAll: true, port: 27017 } }
+mongodb  | 2025-12-14T09:25:37.676+0000 I -        [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+mongodb  | 2025-12-14T09:25:37.676+0000 I STORAGE  [initandlisten] 
+mongodb  | 2025-12-14T09:25:37.676+0000 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+mongodb  | 2025-12-14T09:25:37.676+0000 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+mongodb  | 2025-12-14T09:25:37.676+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=256M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),cache_cursors=false,compatibility=(release="3.0",require_max="3.0"),log=(enabled=true,archive=true,path=jmongodb  | 2025-12-14T09:25:37.673+0000 I CONTROL  [initandlisten] modules: nonewait=0),verbose=(recovermongodb  | 2025-12-14T09:25:37.673+0000 I CONTROL  [initandlisten] build environment:
+mongodb  | 2025-12-14T09:25:37.673+0000 I CONTROL  [initandlisten]     distmod: debian92
+mongodb  | 2025-12-14T09:25:37.673+0000 I CONTROL  [initandlisten]     distarch: x86_64
+mongodb  | 2025-12-14T09:25:37.673+0000 I CONTROL  [initandlisten]     target_arch: x86_64
+mongodb  | 2025-12-14T09:25:37.673+0000 I CONTROL  [initandlisten] options: { net: { bindIpAll: true, port: 27017 } }
+mongodb  | 2025-12-14T09:25:37.676+0000 I -        [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+mongodb  | 2025-12-14T09:25:37.676+0000 I STORAGE  [initandlisten] 
+mongodb  | 2025-12-14T09:25:37.676+0000 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+mongodb  | 2025-12-14T09:25:37.676+0000 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+mongodb  | 2025-12-14T09:25:37.676+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=256M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),cache_cursors=false,compatibility=(release="3.0",require_max="3.0"),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+webui    | 2025-12-14T09:25:39.817432020Z [INFO][WEBUI][Main] WEBUI version:  
+webui    |      free5GC version: v4.0.1-47-gf923972
+webui    | tch  build time:      2025-08-24T13:40:57Z
+webui    | 	commit hash:     c9d7cc97
+webui    | 	commit time:     2025-07-18T14:59:30Z
+webui    | 	go version:      go1.24.5 linux/amd64
+webui    | 2025-12-14T09:25:39.817432020Z [INFO][WEBUI][Main] WEBUI version:  
+webui    |      free5GC version: v4.0.1-47-gf923972
+webui    |      build time:      2025-08-24T13:40:57Z
+webui    |      commit hash:     c9d7cc97
+webui    |      commit time:     2025-07-18T14:59:30Z
+webui    |      go version:      go1.24.5 linux/amd64
+webui    | 2025-12-14T09:25:39.856351167Z [INFO][WEBUI][CFG] Read config from [./config/webuicfg.yaml]
+webui    | 2025-12-14T09:25:39.860500087Z [INFO][WEBUI][Main] Log enable is set to [true]
+webui    | 2025-12-14T09:25:39.860519959Z [INFO][WEBUI][Main] Log level is set to [info]
+webui    | 2025-12-14T09:25:39.860525443Z [INFO][WEBUI][Main] Report Caller is set to [false]
+webui    | 2025-12-14T09:25:39.879732260Z [INFO][WEBUI][Init] Server started
+webui    | 2025-12-14T09:25:39.856351167Z [INFO][WEBUI][CFG] Read config from [./config/webuicfg.yaml]
+webui    | 2025-12-14T09:25:39.860500087Z [INFO][WEBUI][Main] Log enable is set to [true]
+webui    | 2025-12-14T09:25:39.860519959Z [INFO][WEBUI][Main] Log level is set to [info]
+webui    | 2025-12-14T09:25:39.860525443Z [INFO][WEBUI][Main] Report Caller is set to [false]
+webui    | 2025-12-14T09:25:39.879732260Z [INFO][WEBUI][Init] Server started
+udr      | 2025-12-14T09:25:40.042591233Z [INFO][UDR][Main] UDR version:  
+udr      |      free5GC version: v4.0.1-47-gf923972
+udr      |      build time:      2025-08-24T13:14:07Z
+udr      |      commit hash:     5485d563
+udr      |      commit time:     2025-07-18T14:35:55Z
+udr      |      go version:      go1.24.5 linux/amd64
+udr      | 2025-12-14T09:25:40.059511310Z [INFO][UDR][CFG] Read config from [./config/udrcfg.yaml]
+udr      | 2025-12-14T09:25:40.078231842Z [INFO][UDR][Util] udrconfig Info: Version[1.1.0] Description[UDR initial local configuration]
+
+
+udr      | 2025-12-14T09:25:40.042591233Z [INFO][UDR][Main] UDR version:  
+udr      | 	free5GC version: v4.0.1-47-gf923972
+udr      | 	build time:      2025-08-24T13:14:07Z
+udr      | 	commit hash:     5485d563
+udr      | 	commit time:     2025-07-18T14:35:55Z
+udr      | 	go version:      go1.24.5 linux/amd64
+udr      | 2025-12-14T09:25:40.059511310Z [INFO][UDR][CFG] Read config from [./config/udrcfg.yaml]
+udr      | 2025-12-14T09:25:40.078231842Z [INFO][UDR][Util] udrconfig Info: Version[1.1.0] Description[UDR initial local configuration]
+udr      | 2025-12-14T09:25:40.078265055Z [INFO][UDR][Main] Log enable is set to [true]
+udr      | 2025-12-14T09:25:40.078265055Z [INFO][UDR][Main] Log enable is set to [true]
+udr      | 2025-12-14T09:25:40.078271684Z [INFO][UDR][Main] Log level is set to [info]
+udr      | 2025-12-14T09:25:40.078276189Z [INFO][UDR][Main] Report Caller is set to [false]
+nrf      | 2025-12-14T09:25:40.277486748Z [INFO][NRF][NFM] Handle NFRegisterRequest
+nrf      | 2025-12-14T09:25:40.277486748Z [INFO][NRF][NFM] Handle NFRegisterRequest
+nrf      | 2025-12-14T09:25:40.315431438Z [INFO][NRF][NFM] Handle NFRegisterRequest
+nrf      | 2025-12-14T09:25:40.315431438Z [INFO][NRF][NFM] Handle NFRegisterRequest
+pcf      | 2025-12-14T09:25:41.759709688Z [INFO][PCF][Main] pcf
+ausf     | 2025-12-14T09:25:41.882620483Z [INFO][AUSF][Main] AUSF version:  
+ausf     |      free5GC version: v4.0.1-47-gf923972
+ausf     | tch  build time:      2025-08-24T13:01:20Z
+ausf     | 	commit hash:     1218e3e9
+ausf     | 	commit time:     2025-07-18T14:26:36Z
+ausf     | 	go version:      go1.24.5 linux/amd64
+ausf     | 2025-12-14T09:25:41.882620483Z [INFO][AUSF][Main] AUSF version:  
+ausf     |      free5GC version: v4.0.1-47-gf923972
+pcf      | 2025-12-14T09:25:41.759709688Z [INFO][PCF][Main] pcf
+pcf      | 2025-12-14T09:25:41.911252480Z [INFO][PCF][Main] PCF version:  
+pcf      | 	free5GC version: v4.0.1-47-gf923972
+pcf      | 	build time:      2025-08-24T13:10:28Z
+pcf      | 	commit hash:     6ba2d87c
+pcf      | 	commit time:     2025-07-18T14:34:38Z
+pcf      | 	go version:      go1.24.5 linux/amd64
+ausf     |      build time:      2025-08-24T13:01:20Z
+
+ausf     |      commit hash:     1218e3e9
+ausf     |      commit time:     2025-07-18T14:26:36Z
+ausf     |      go version:      go1.24.5 linux/amd64
+ausf     | 2025-12-14T09:25:41.943029531Z [INFO][AUSF][CFG] Read config from [./config/ausfcfg.yaml]
+ausf     | 2025-12-14T09:25:41.943029531Z [INFO][AUSF][CFG] Read config from [./config/ausfcfg.yaml]
+pcf      | 2025-12-14T09:25:41.974979894Z [INFO][PCF][CFG] Read config from [./config/pcfcfg.yaml]
+pcf      |      free5GC version: v4.0.1-47-gf923972
+pcf      |      build time:      2025-08-24T13:10:28Z
+pcf      |      commit hash:     6ba2d87c
+pcf      |      commit time:     2025-07-18T14:34:38Z
+pcf      |      go version:      go1.24.5 linux/amd64
+ausf     | 2025-12-14T09:25:42.147795875Z [INFO][AUSF][Main] Log enable is set to [true]
+ausf     | 2025-12-14T09:25:42.147824666Z [INFO][AUSF][Main] Log level is set to [info]
+ausf     | 2025-12-14T09:25:42.147831460Z [INFO][AUSF][Main] Report Caller is set to [false]
+ausf     | 2025-12-14T09:25:42.147919631Z [INFO][AUSF][Init] ausfconfig Info: Version[1.0.3] Description[AUSF initial local configuration]
+pcf      | 2025-12-14T09:25:42.151180222Z [INFO][PCF][Main] Log enable is set to [true]
+pcf      | 2025-12-14T09:25:42.171284607Z [INFO][PCF][Main] Log level is set to [info]
+pcf      | 2025-12-14T09:25:42.171307638Z [INFO][PCF][Main] Report Caller is set to [false]
+pcf      | 2025-12-14T09:25:42.178811283Z [INFO][PCF][Util] pcfconfig Info: Version[1.0.2] Description[PCF initial local configuration]
+ausf     | 2025-12-14T09:25:42.147795875Z [INFO][AUSF][Main] Log enable is set to [true]
+ausf     | 2025-12-14T09:25:42.147824666Z [INFO][AUSF][Main] Log level is set to [info]
+ausf     | 2025-12-14T09:25:42.147831460Z [INFO][AUSF][Main] Report Caller is set to [false]
+ausf     | 2025-12-14T09:25:42.147919631Z [INFO][AUSF][Init] ausfconfig Info: Version[1.0.3] Description[AUSF initial local configuration]
+pcf      | 2025-12-14T09:25:41.974979894Z [INFO][PCF][CFG] Read config from [./config/pcfcfg.yaml]
+ausf     | ausf context =  &{{{} {{{} 0} {0 0} {[] {} <nil>} <nil> <nil> 0}} {{} {{{} 0} {0 0} {[] {} <nil>} <nil> <nil> 0}} 9b34ec17-0d2d-4beb-82f7-89789093713d ausfGroup001 8000 ausf.free5gc.org ausf.free5gc.org http://ausf.free5gc.org:8000 http http://nrf.free5gc.org:8000 cert/nrf.pem map[nausf-auth:{9b34ec17-0d2d-4beb-82f7-89789093713d nausf-auth [{v1 1.0.3 <nil>}] http REGISTERED   [{ausf.free5gc.org   8000}]  [] [] [] [] [] [] map[] map[] 0 0 0 <nil> <nil>  [] [] []  map[] false <nil>}] [{208 93} {123 45}]  0xc000576f00 false false}
+pcf      | 2025-12-14T09:25:42.198132880Z [INFO][PCF][SBI] Binding addr: [pcf.free5gc.org:8000]
+pcf      | 2025-12-14T09:25:42.198306849Z [INFO][PCF][Init] Server started
+ausf     | ausf context =  &{{{} {{{} 0} {0 0} {[] {} <nil>} <nil> <nil> 0}} {{} {{{} 0} {0 0} {[] {} <nil>} <nil> <nil> 0}} 9b34ec17-0d2d-4beb-82f7-89789093713d ausfGroup001 8000 ausf.free5gc.org ausf.free5gc.org http://ausf.free5gc.org:8000 http http://nrf.free5gc.org:8000 cert/nrf.pem map[nausf-auth:{9b34ec17-0d2d-4beb-82f7-89789093713d nausf-auth [{v1 1.0.3 <nil>}] http REGISTERED   [{ausf.free5gc.org   8000}]  [] [] [] [] [] [] map[] map[] 0 0 0 <nil> <nil>  [] [] []  map[] false <nil>}] [{208 93} {123 45}]  0xc000576f00 false false}
+ausf     | 2025-12-14T09:25:42.166450159Z [INFO][AUSF][SBI] Binding addr: [ausf.free5gc.org:8000]
+ausf     | 2025-12-14T09:25:42.166481366Z [INFO][AUSF][Init] Server started
+ausf     | 2025-12-14T09:25:42.166450159Z [INFO][AUSF][SBI] Binding addr: [ausf.free5gc.org:8000]
+ausf     | 2025-12-14T09:25:42.166481366Z [INFO][AUSF][Init] Server started
+pcf      | 2025-12-14T09:25:42.151180222Z [INFO][PCF][Main] Log enable is set to [true]
+pcf      | 2025-12-14T09:25:42.171284607Z [INFO][PCF][Main] Log level is set to [info]
+pcf      | 2025-12-14T09:25:42.171307638Z [INFO][PCF][Main] Report Caller is set to [false]
+pcf      | 2025-12-14T09:25:42.178811283Z [INFO][PCF][Util] pcfconfig Info: Version[1.0.2] Description[PCF initial local configuration]
+pcf      | 2025-12-14T09:25:42.198132880Z [INFO][PCF][SBI] Binding addr: [pcf.free5gc.org:8000]
+pcf      | 2025-12-14T09:25:42.198306849Z [INFO][PCF][Init] Server started
+nef      | 2025-12-14T09:25:42.314933395Z [INFO][NEF][Main] NEF version:  
+nef      |      free5GC version: v4.0.1-47-gf923972
+nef      |      build time:      2025-08-24T13:37:51Z
+nef      |      commit hash:     7cdbde92
+nef      |      commit time:     2025-07-18T14:32:42Z
+nef      |      go version:      go1.24.5 linux/amd64
+nef      | 2025-12-14T09:25:42.325617395Z [INFO][NEF][CFG] Read config from [./config/nefcfg.yaml]
+nef      | 2025-12-14T09:25:42.333950144Z [INFO][NEF][CFG] ==================================================
+nef      | 2025-12-14T09:25:42.333982855Z [INFO][NEF][CFG] (*factory.Configuration)(0xc0001b8080)({
+nef      |      Sbi: (*factory.Sbi)(0xc0001b80c0)({
+nef      |              Scheme: (string) (len=4) "http",
+nef      |              RegisterIPv4: (string) (len=15) "nef.free5gc.org",
+nef      |              BindingIPv4: (string) (len=15) "nef.free5gc.org",
+nef      |              Port: (int) 8000,
+nef      |              Tls: (*factory.Tls)(0xc00018e560)({
+nef      |                      Pem: (string) (len=12) "cert/nef.pem",
+nef      |                      Key: (string) (len=12) "cert/nef.key"
+nef      |              })
+nef      |      }),
+nef      |      NrfUri: (string) (len=27) "http://nrf.free5gc.org:8000",
+nef      |      NrfCertPem: (string) (len=12) "cert/nrf.pem",
+nef      |      ServiceList: ([]factory.Service) (len=2 cap=2) {
+nef      |              (factory.Service) {
+nef      |                      ServiceName: (string) (len=18) "nnef-pfdmanagement",
+nef      |                      SuppFeat: (string) ""
+nef      |              },
+nef      |              (factory.Service) {
+nef      |                      ServiceName: (string) (len=8) "nnef-oam",
+nef      |                      SuppFeat: (string) ""
+nef      |              }
+nef      |      }
+nef      | })
+nef      | 2025-12-14T09:25:42.334012375Z [INFO][NEF][CFG] ==================================================
+nef      | 2025-12-14T09:25:42.334018979Z [INFO][NEF][Main] Log enable is set to [true]
+nef      | 2025-12-14T09:25:42.334023636Z [INFO][NEF][Main] Log level is set to [info]
+nef      | 2025-12-14T09:25:42.334027899Z [INFO][NEF][Main] Report Caller is set to [false]
+nef      | 2025-12-14T09:25:42.334041448Z [INFO][NEF][CTX] New nfInstID: [0bb73282-d069-4c69-9cea-c7475a3f5049]
+nef      | 2025-12-14T09:25:42.358473807Z [INFO][NEF][SBI] Binding addr: [nef.free5gc.org:8000]
+nef      | 2025-12-14T09:25:42.394592820Z [INFO][NEF][SBI] Start SBI server (listen on nef.free5gc.org:8000)
+nssf     | 2025-12-14T09:25:42.572784810Z [INFO][NSSF][Main] NSSF version:  
+nssf     |      free5GC version: v4.0.1-47-gf923972
+nssf     | tch  build time:      2025-08-24T13:04:42Z
+nssf     | 	commit hash:     872b2c87
+nssf     | 	commit time:     2025-07-18T14:34:23Z
+nssf     | 	go version:      go1.24.5 linux/amd64
+nssf     | 2025-12-14T09:25:42.577697816Z [INFO][NSSF][CFG] Read config from [./config/nssfcfg.yaml]
+nssf     | 2025-12-14T09:25:42.601967918Z [INFO][NSSF][Main] Log enable is set to [true]
+nssf     | 2025-12-14T09:25:42.602043950Z [INFO][NSSF][Main] Log level is set to [info]
+nssf     | 2025-12-14T09:25:42.602067090Z [INFO][NSSF][Main] Report Caller is set to [false]
+nssf     | 2025-12-14T09:25:42.572784810Z [INFO][NSSF][Main] NSSF version:  
+nssf     |      free5GC version: v4.0.1-47-gf923972
+nssf     |      build time:      2025-08-24T13:04:42Z
+nssf     |      commit hash:     872b2c87
+nssf     |      commit time:     2025-07-18T14:34:23Z
+nssf     |      go version:      go1.24.5 linux/amd64
+nssf     | 2025-12-14T09:25:42.577697816Z [INFO][NSSF][CFG] Read config from [./config/nssfcfg.yaml]
+nssf     | 2025-12-14T09:25:42.601967918Z [INFO][NSSF][Main] Log enable is set to [true]
+nssf     | 2025-12-14T09:25:42.602043950Z [INFO][NSSF][Main] Log level is set to [info]
+nssf     | 2025-12-14T09:25:42.602067090Z [INFO][NSSF][Main] Report Caller is set to [false]
+nef      | 2025-12-14T09:25:42.314933395Z [INFO][NEF][Main] NEF version:  
+nef      |      free5GC version: v4.0.1-47-gf923972
+nef      | tch  build time:      2025-08-24T13:37:51Z
+nef      | 	commit hash:     7cdbde92
+nef      | 	commit time:     2025-07-18T14:32:42Z
+nef      | 	go version:      go1.24.5 linux/amd64
+nef      | 2025-12-14T09:25:42.325617395Z [INFO][NEF][CFG] Read config from [./config/nefcfg.yaml]
+nef      | 2025-12-14T09:25:42.333950144Z [INFO][NEF][CFG] ==================================================
+nef      | 2025-12-14T09:25:42.333982855Z [INFO][NEF][CFG] (*factory.Configuration)(0xc0001b8080)({
+nef      | 	Sbi: (*factory.Sbi)(0xc0001b80c0)({
+nef      | 		Scheme: (string) (len=4) "http",
+nef      | 		RegisterIPv4: (string) (len=15) "nef.free5gc.org",
+nef      | 		BindingIPv4: (string) (len=15) "nef.free5gc.org",
+nef      | 		Port: (int) 8000,
+nef      | 		Tls: (*factory.Tls)(0xc00018e560)({
+nef      | 			Pem: (string) (len=12) "cert/nef.pem",
+nef      | 			Key: (string) (len=12) "cert/nef.key"
+nef      | 		})
+nef      | 	}),
+nef      | 	NrfUri: (string) (len=27) "http://nrf.free5gc.org:8000",
+nef      | 	NrfCertPem: (string) (len=12) "cert/nrf.pem",
+nef      | 	ServiceList: ([]factory.Service) (len=2 cap=2) {
+nef      | 		(factory.Service) {
+nef      | 			ServiceName: (string) (len=18) "nnef-pfdmanagement",
+nef      | 			SuppFeat: (string) ""
+nef      | 		},
+nef      | 		(factory.Service) {
+nef      | 			ServiceName: (string) (len=8) "nnef-oam",
+nef      | 			SuppFeat: (string) ""
+nef      | 		}
+nef      | 	}
+nef      | })
+nef      | 2025-12-14T09:25:42.334012375Z [INFO][NEF][CFG] ==================================================
+nef      | 2025-12-14T09:25:42.334018979Z [INFO][NEF][Main] Log enable is set to [true]
+nef      | 2025-12-14T09:25:42.334023636Z [INFO][NEF][Main] Log level is set to [info]
+nef      | 2025-12-14T09:25:42.334027899Z [INFO][NEF][Main] Report Caller is set to [false]
+nef      | 2025-12-14T09:25:42.334041448Z [INFO][NEF][CTX] New nfInstID: [0bb73282-d069-4c69-9cea-c7475a3f5049]
+nef      | 2025-12-14T09:25:42.358473807Z [INFO][NEF][SBI] Binding addr: [nef.free5gc.org:8000]
+nef      | 2025-12-14T09:25:42.394592820Z [INFO][NEF][SBI] Start SBI server (listen on nef.free5gc.org:8000)
+nrf      | 2025-12-14T09:25:42.395302534Z [INFO][NRF][NFM] Handle NFRegisterRequest
+nrf      | 2025-12-14T09:25:42.402081600Z [INFO][NRF][NFM] Handle NFRegisterRequest
+nrf      | 2025-12-14T09:25:42.460415397Z [INFO][NRF][NFM] Handle NFRegisterRequest
+nrf      | 2025-12-14T09:25:42.697986248Z [INFO][NRF][NFM] Handle NFRegisterRequest
+nrf      | 2025-12-14T09:25:42.395302534Z [INFO][NRF][NFM] Handle NFRegisterRequest
+nrf      | 2025-12-14T09:25:42.402081600Z [INFO][NRF][NFM] Handle NFRegisterRequest
+nrf      | 2025-12-14T09:25:42.460415397Z [INFO][NRF][NFM] Handle NFRegisterRequest
+nrf      | 2025-12-14T09:25:42.697986248Z [INFO][NRF][NFM] Handle NFRegisterRequest
+mongodb  | 2025-12-14T09:25:43.292+0000 I STORAGE  [initandlisten] WiredTiger message [1765704343:287264][1:0x7f2d3d587580], txn-recover: Main recovery loop: starting at 28/32768
+mongodb  | 2025-12-14T09:25:43.292+0000 I STORAGE  [initandlisten] WiredTiger message [1765704343:287264][1:0x7f2d3d587580], txn-recover: Main recovery loop: starting at 28/32768
+udm      | 2025-12-14T09:25:43.331407579Z [INFO][UDM][Main] UDM version:  
+udm      | 2025-12-14T09:25:43.331407579Z [INFO][UDM][Main] UDM version:  
+udm      |      free5GC version: v4.0.1-47-gf923972
+udm      |      build time:      2025-08-24T13:12:40Z
+udm      |      commit hash:     69909959
+udm      |      commit time:     2025-07-18T14:35:28Z
+udm      |      go version:      go1.24.5 linux/amd64
+udm      | 2025-12-14T09:25:43.381897823Z [INFO][UDM][CFG] Read config from [./config/udmcfg.yaml]
+udm      |      free5GC version: v4.0.1-47-gf923972
+udm      |      build time:      2025-08-24T13:12:40Z
+udm      | 	commit hash:     69909959
+udm      | 	commit time:     2025-07-18T14:35:28Z
+udm      | 2025-12-14T09:25:43.390301933Z [INFO][UDM][Main] Log enable is set to [true]
+udm      | 2025-12-14T09:25:43.416173573Z [INFO][UDM][Main] Log level is set to [info]
+udm      | 2025-12-14T09:25:43.416201243Z [INFO][UDM][Main] Report Caller is set to [false]
+
+
+udm      |      go version:      go1.24.5 linux/amd64
+udm      | 2025-12-14T09:25:43.381897823Z [INFO][UDM][CFG] Read config from [./config/udmcfg.yaml]
+udm      | 2025-12-14T09:25:43.390301933Z [INFO][UDM][Main] Log enable is set to [true]
+udm      | 2025-12-14T09:25:43.416173573Z [INFO][UDM][Main] Log level is set to [info]
+udm      | 2025-12-14T09:25:43.416201243Z [INFO][UDM][Main] Report Caller is set to [false]
+udm      | 2025-12-14T09:25:43.419666184Z [INFO][UDM][Util] udmconfig Info: Version[1.0.3] Description[UDM initial local configuration]
+udm      | 2025-12-14T09:25:43.454500872Z [INFO][UDM][SBI] Binding addr: [udm.free5gc.org:8000]
+udm      | 2025-12-14T09:25:43.419666184Z [INFO][UDM][Util] udmconfig Info: Version[1.0.3] Description[UDM initial local configuration]477679409Z [INFO][UDM][SBI] Starting server...
+udm      | 2025-12-14T09:25:43.454500872Z [INFO][UDM][SBI] Binding addr: [udm.free5gc.org:8000]
+udm      | 2025-12-14T09:25:43.466527793Z [INFO][UDM][Init] Server started
+udm      | 2025-12-14T09:25:43.477679409Z [INFO][UDM][SBI] Starting server...
+nrf      | 2025-12-14T09:25:43.601868454Z [INFO][NRF][NFM] Handle NFRegisterRequest
+nrf      | 2025-12-14T09:25:43.601868454Z [INFO][NRF][NFM] Handle NFRegisterRequest
+mongodb  | 2025-12-14T09:25:43.773+0000 I STORAGE  [initandlisten] WiredTiger message [1765704343:773715][1:0x7f2d3d587580], txn-recover: Recovering log 28 through 29
+mongodb  | 2025-12-14T09:25:43.773+0000 I STORAGE  [initandlisten] WiredTiger message [1765704343:773715][1:0x7f2d3d587580], txn-recover: Recovering log 28 through 29
+mongodb  | 2025-12-14T09:25:43.926+0000 I STORAGE  [initandlisten] WiredTiger message [1765704343:926859][1:0x7f2d3d587580], txn-recover: Recovering log 29 through 29
+mongodb  | 2025-12-14T09:25:43.926+0000 I STORAGE  [initandlisten] WiredTiger message [1765704343:926859][1:0x7f2d3d587580], txn-recover: Recovering log 29 through 29
+mongodb  | 2025-12-14T09:25:44.303+0000 I STORAGE  [initandlisten] WiredTiger message [1765704344:303095][1:0x7f2d3d587580], txn-recover: Set global recovery timestamp: 0
+mongodb  | 2025-12-14T09:25:44.303+0000 I STORAGE  [initandlisten] WiredTiger message [1765704344:303095][1:0x7f2d3d587580], txn-recover: Set global recovery timestamp: 0
+chf      | 2025-12-14T09:25:44.381401368Z [INFO][CHF][Main] CHF version:  
+chf      |      free5GC version: v4.0.1-47-gf923972
+chf      | tch  build time:      2025-08-24T13:17:33Z
+chf      | 	commit hash:     7985bed2
+chf      | 	commit time:     2025-07-18T14:28:32Z
+chf      | 	go version:      go1.24.5 linux/amd64
+chf      | 2025-12-14T09:25:44.406091391Z [INFO][CHF][CFG] Read config from [./config/chfcfg.yaml]
+chf      | 2025-12-14T09:25:44.411555420Z [INFO][CHF][Main] Log enable is set to [true]
+chf      | 2025-12-14T09:25:44.412756733Z [INFO][CHF][Main] Log level is set to [info]
+chf      | 2025-12-14T09:25:44.412857827Z [INFO][CHF][Main] Report Caller is set to [false]
+chf      | 2025-12-14T09:25:44.413204840Z [INFO][CHF][Init] chfconfig Info: Version[1.0.3] Description[CHF initial local configuration]
+chf      | 2025-12-14T09:25:44.413311849Z [INFO][CHF][SBI] Binding addr: [chf.free5gc.org:8000]
+chf      | 2025-12-14T09:25:44.413701209Z [INFO][CHF][Init] Server started
+chf      | 2025-12-14T09:25:44.418408829Z [INFO][CHF][CGF] FTP server Start
+chf      | 2025-12-14T09:25:44.381401368Z [INFO][CHF][Main] CHF version:  
+chf      |      free5GC version: v4.0.1-47-gf923972
+chf      |      build time:      2025-08-24T13:17:33Z
+chf      |      commit hash:     7985bed2
+chf      | 2025-12-14T09:25:44.423444318Z [INFO][CHF][Acct] Open Account Balance Management Server
+chf      | 2025-12-14T09:25:44.504258017Z [WARN][CHF][CGF] Login to Webconsole FTP fail: dial tcp 172.18.0.59:2121: connect: connection refused, retrying [1]
+nrf      | 2025-12-14T09:25:44.531148590Z [INFO][NRF][NFM] Handle NFRegisterRequest
+nrf      | 2025-12-14T09:25:44.531148590Z [INFO][NRF][NFM] Handle NFRegisterRequest
+chf      |      commit time:     2025-07-18T14:28:32Z
+chf      |      go version:      go1.24.5 linux/amd64
+chf      | 2025-12-14T09:25:44.406091391Z [INFO][CHF][CFG] Read config from [./config/chfcfg.yaml]
+chf      | 2025-12-14T09:25:44.411555420Z [INFO][CHF][Main] Log enable is set to [true]
+chf      | 2025-12-14T09:25:44.412756733Z [INFO][CHF][Main] Log level is set to [info]
+chf      | 2025-12-14T09:25:44.412857827Z [INFO][CHF][Main] Report Caller is set to [false]
+mongodb  | 2025-12-14T09:25:44.597+0000 I CONTROL  [initandlisten] 
+mongodb  | 2025-12-14T09:25:44.599+0000 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+mongodb  | 2025-12-14T09:25:44.599+0000 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+mongodb  | 2025-12-14T09:25:44.599+0000 I CONTROL  [initandlisten] 
+mongodb  | 2025-12-14T09:25:44.597+0000 I CONTROL  [initandlisten] 
+mongodb  | 2025-12-14T09:25:44.599+0000 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+mongodb  | 2025-12-14T09:25:44.599+0000 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+mongodb  | 2025-12-14T09:25:44.599+0000 I CONTROL  [initandlisten] 
+chf      | 2025-12-14T09:25:44.413204840Z [INFO][CHF][Init] chfconfig Info: Version[1.0.3] Description[CHF initial local configuration]
+chf      | 2025-12-14T09:25:44.413311849Z [INFO][CHF][SBI] Binding addr: [chf.free5gc.org:8000]
+chf      | 2025-12-14T09:25:44.413701209Z [INFO][CHF][Init] Server started
+chf      | 2025-12-14T09:25:44.418408829Z [INFO][CHF][CGF] FTP server Start
+chf      | 2025-12-14T09:25:44.423444318Z [INFO][CHF][Acct] Open Account Balance Management Server
+chf      | 2025-12-14T09:25:44.504258017Z [WARN][CHF][CGF] Login to Webconsole FTP fail: dial tcp 172.18.0.59:2121: connect: connection refused, retrying [1]
+mongodb  | 2025-12-14T09:25:44.732+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+mongodb  | 2025-12-14T09:25:44.735+0000 I NETWORK  [initandlisten] waiting for connections on port 27017
+mongodb  | 2025-12-14T09:25:44.732+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+mongodb  | 2025-12-14T09:25:44.735+0000 I NETWORK  [initandlisten] waiting for connections on port 27017
+mongodb  | 2025-12-14T09:25:44.898+0000 I NETWORK  [listener] connection accepted from 172.18.0.59:60750 #1 (1 connection now open)
+
+
+mongodb  | 2025-12-14T09:25:44.898+0000 I NETWORK  [listener] connection accepted from 172.18.0.59:60750 #1 (1 connection now open)
+mongodb  | 2025-12-14T09:25:44.911+0000 I NETWORK  [conn1] received client metadata from 172.18.0.59:60750 conn1: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+mongodb  | 2025-12-14T09:25:44.919+0000 I NETWORK  [listener] connection accepted from 172.18.0.59:60752 #2 (2 connections now open)
+mongodb  | 2025-12-14T09:25:44.920+0000 I NETWORK  [conn2] received client metadata from 172.18.0.59:607mongodb  | 2025-12-14T09:25:44.911+0000 I NETWORK  [conn1] received client metadata from 172.18.0.59:60750 conn1: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+mongodb  | 2025-12-14T09:25:44.919+0000 I NETWORK  [listener] connection accepted from 172.18.0.59:60752 #2 (2 connections now open)
+mongodb  | 2025-12-14T09:25:44.920+0000 I NETWORK  [conn2] received client metadata from 172.18.0.59:60752 conn2: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+webui    | 2025-12-14T09:25:44.950022787Z [INFO][WEBUI][Init] Create tenant: admin
+webui    | 2025-12-14T09:25:44.964910420Z [INFO][WEBUI][Init] Create user: admin
+webui    | 2025-12-14T09:25:44.950022787Z [INFO][WEBUI][Init] Create tenant: admin
+webui    | 2025-12-14T09:25:44.964910420Z [INFO][WEBUI][Init] Create user: admin
+mongodb  | 2025-12-14T09:25:45.079+0000 I NETWORK  [listener] connection accepted from 172.18.0.51:41776 #3 (3 connections now open)
+mongodb  | 2025-12-14T09:25:45.079+0000 I NETWORK  [listener] connection accepted from 172.18.0.51:41776 #3 (3 connections now open)
+mongodb  | 2025-12-14T09:25:45.113+0000 I NETWORK  [conn3] received client metadata from 172.18.0.51:41776 conn3: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+mongodb  | 2025-12-14T09:25:45.113+0000 I NETWORK  [conn3] received client metadata from 172.18.0.51:41776 conn3: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+mongodb  | 2025-12-14T09:25:45.137+0000 I NETWORK  [listener] connection accepted from 172.18.0.51:41778 #4 (4 connections now open)
+mongodb  | 2025-12-14T09:25:45.138+0000 I NETWORK  [listener] connection accepted from 172.18.0.51:41780 #5 (5 connections now open)
+mongodb  | 2025-12-14T09:25:45.140+0000 I NETWORK  [conn5] received client metadata from 172.18.0.51:41780 conn5: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+mongodb  | 2025-12-14T09:25:45.137+0000 I NETWORK  [listener] connection accepted from 172.18.0.51:41778 #4 (4 connections now open)
+mongodb  | 2025-12-14T09:25:45.138+0000 I NETWORK  [listener] connection accepted from 172.18.0.51:41780 #5 (5 connections now open)
+mongodb  | 2025-12-14T09:25:45.140+0000 I NETWORK  [conn5] received client metadata from 172.18.0.51:41780 conn5: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+mongodb  | 2025-12-14T09:25:45.141+0000 I NETWORK  [conn4] received client metadata from 172.18.0.51:41778 conn4: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+mongodb  | 2025-12-14T09:25:45.141+0000 I NETWORK  [conn4] received client metadata from 172.18.0.51:41778 conn4: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+mongodb  | 2025-12-14T09:25:45.182+0000 I NETWORK  [listener] connection accepted from 172.18.0.51:41782 #6 (6 connections now open)
+mongodb  | 2025-12-14T09:25:45.187+0000 I NETWORK  [listener] connection accepted from 172.18.0.51:41784 #7 (7 connections now open)
+
+
+mongodb  | 2025-12-14T09:25:45.182+0000 I NETWORK  [listener] connection accepted from 172.18.0.51:41782 #6 (6 connections now open)
+mongodb  | 2025-12-14T09:25:45.187+0000 I NETWORK  [listener] connection accepted from 172.18.0.51:41784 #7 (7 connections now open)
+mongodb  | 2025-12-14T09:25:45.202+0000 I NETWORK  [conn6] received client metadata from 172.18.0.51:41782 conn6: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+mongodb  | 2025-12-14T09:25:45.204+0000 I NETWORK  [conn7] received client metadata from 172.18.0.51:41784 conn7: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+mongodb  | 2025-12-14T09:25:45.207+0000 I NETWORK  [listener] connection accepted from 172.18.0.51:41786 #8 (8 connections now open)
+mongodb  | 2025-12-14T09:25:45.210+0000 I NETWORK  [conn8] received client metadata from 172.18.0.51:417mongodb  | 2025-12-14T09:25:45.202+0000 I NETWORK  [conn6] received client metadata from 172.18.0.51:41782 conn6: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+mongodb  | 2025-12-14T09:25:45.204+0000 I NETWORK  [conn7] received client metadata from 172.18.0.51:41784 conn7: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+mongodb  | 2025-12-14T09:25:45.207+0000 I NETWORK  [listener] connection accepted from 172.18.0.51:41786 #8 (8 connections now open)
+mongodb  | 2025-12-14T09:25:45.210+0000 I NETWORK  [conn8] received client metadata from 172.18.0.51:41786 conn8: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+mongodb  | 2025-12-14T09:25:45.229+0000 I NETWORK  [listener] connection accepted from 172.18.0.51:41788 #9 (9 connections now open)
+mongodb  | 2025-12-14T09:25:45.253+0000 I NETWORK  [listener] connection accepted from 172.18.0.51:41790 #10 (10 connections now open)
+mongodb  | 2025-12-14T09:25:45.274+0000 I NETWORK  [conn9] received client metadata from 172.18.0.51:41788 conn9: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+nrf      | 2025-12-14T09:25:45.231141774Z [INFO][NRF][NFM] urilist update
+nrf      | 2025-12-14T09:25:45.235169694Z [INFO][NRF][NFM] urilist update
+nrf      | 2025-12-14T09:25:45.237489253Z [INFO][NRF][NFM] urilist update
+nrf      | 2025-12-14T09:25:45.250408291Z [INFO][NRF][NFM] urilist update
+nrf      | 2025-12-14T09:25:45.254678581Z [INFO][NRF][NFM] urilist update
+nrf      | 2025-12-14T09:25:45.258429115Z [INFO][NRF][NFM] urilist update
+nrf      | 2025-12-14T09:25:45.265198907Z [INFO][NRF][NFM] urilist update
+nrf      | 2025-12-14T09:25:45.272244159Z [INFO][NRF][NFM] urilist update
+mongodb  | 2025-12-14T09:25:45.229+0000 I NETWORK  [listener] connection accepted from 172.18.0.51:41788 #9 (9 connections now open)
+mongodb  | 2025-12-14T09:25:45.253+0000 I NETWORK  [listener] connection accepted from 172.18.0.51:41790 #10 (10 connections now open)
+mongodb  | 2025-12-14T09:25:45.274+0000 I NETWORK  [conn9] received client metadata from 172.18.0.51:41788 conn9: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+mongodb  | 2025-12-14T09:25:45.284+0000 I NETWORK  [listener] connection accepted from 172.18.0.51:41792 #11 (11 connections now open)
+mongodb  | 2025-12-14T09:25:45.280+0000 I NETWORK  [conn10] received client metadata from 172.18.0.51:41790 conn10: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+mongodb  | 2025-12-14T09:25:45.288+0000 I STORAGE  [conn8] createCollection: free5gc.NfProfile with generated UUID: d4cdca1c-05fe-4900-a40c-7317dab9ef0e
+mongodb  | 2025-12-14T09:25:45.298+0000 I NETWORK  [listener] connection accepted from 172.18.0.51:41796 #12 (12 connections now open)
+mongodb  | 2025-12-14T09:25:45.304+0000 I NETWORK  [conn11] received client metadata from 172.18.0.51:41792 conn11: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+mongodb  | 2025-12-14T09:25:45.308+0000 I NETWORK  [conn12] received client metadata from 172.18.0.51:41796 conn12: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+nrf      | 2025-12-14T09:25:45.231141774Z [INFO][NRF][NFM] urilist update
+nrf      | 2025-12-14T09:25:45.235169694Z [INFO][NRF][NFM] urilist update
+nrf      | 2025-12-14T09:25:45.237489253Z [INFO][NRF][NFM] urilist update
+nrf      | 2025-12-14T09:25:45.250408291Z [INFO][NRF][NFM] urilist update
+nrf      | 2025-12-14T09:25:45.254678581Z [INFO][NRF][NFM] urilist update
+nrf      | 2025-12-14T09:25:45.258429115Z [INFO][NRF][NFM] urilist update
+nrf      | 2025-12-14T09:25:45.265198907Z [INFO][NRF][NFM] urilist update
+mongodb  | 2025-12-14T09:25:45.284+0000 I NETWORK  [listener] connection accepted from 172.18.0.51:41792 #11 (11 connections now open)
+mongodb  | 2025-12-14T09:25:45.280+0000 I NETWORK  [conn10] received client metadata from 172.18.0.51:41790 conn10: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+mongodb  | 2025-12-14T09:25:45.288+0000 I STORAGE  [conn8] createCollection: free5gc.NfProfile with generated UUID: d4cdca1c-05fe-4900-a40c-7317dab9ef0e
+mongodb  | 2025-12-14T09:25:45.298+0000 I NETWORK  [listener] connection accepted from 172.18.0.51:41796 #12 (12 connections now open)
+mongodb  | 2025-12-14T09:25:45.304+0000 I NETWORK  [conn11] received client metadata from 172.18.0.51:41792 conn11: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+mongodb  | 2025-12-14T09:25:45.308+0000 I NETWORK  [conn12] received client metadata from 172.18.0.51:41796 conn12: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+nrf      | 2025-12-14T09:25:45.347205437Z [INFO][NRF][NFM] Create NF Profile: fa6c5151-14f4-4fec-ad8d-74bfa3ca4540
+nrf      | 2025-12-14T09:25:45.348702129Z [INFO][NRF][NFM] Create NF Profile: 9b34ec17-0d2d-4beb-82f7-89789093713d
+nrf      | 2025-12-14T09:25:45.348983970Z [INFO][NRF][NFM] Create NF Profile: 0bb73282-d069-4c69-9cea-c7475a3f5049
+nrf      | 2025-12-14T09:25:45.349176737Z [INFO][NRF][NFM] Create NF Profile: fadb56c3-1416-47fd-bcd6-72aaeb3b5f40
+nrf      | 2025-12-14T09:25:45.354515379Z [INFO][NRF][NFM] Use NF certPath: cert/af.pem
+nrf      | 2025-12-14T09:25:45.357435098Z [INFO][NRF][NFM] Use NF certPath: cert/chf.pem
+nrf      | 2025-12-14T09:25:45.372285760Z [INFO][NRF][NFM] Create NF Profile: 496df33f-aa99-4ec0-b472-ff268fb189c6
+nrf      | 2025-12-14T09:25:45.378078560Z [INFO][NRF][NFM] Create NF Profile: 47251178-f389-479e-84a4-a5c231f22de9
+nrf      | 2025-12-14T09:25:45.378334491Z [INFO][NRF][NFM] Create NF Profile: ff099707-4e4a-4c39-a5e8-ed0ae73f6acf
+nrf      | 2025-12-14T09:25:45.397933345Z [WARN][NRF][NFM] No NF cert: parse cert pem: x509: malformed serial number; generate new one
+nrf      | 2025-12-14T09:25:45.405647918Z [INFO][NRF][NFM] Use NF certPath: cert/nssf.pem
+nrf      | 2025-12-14T09:25:45.419469260Z [INFO][NRF][NFM] Use NF certPath: cert/nef.pem
+nrf      | 2025-12-14T09:25:45.442384861Z [INFO][NRF][NFM] Use NF certPath: cert/pcf.pem
+nrf      | 2025-12-14T09:25:45.452777776Z [INFO][NRF][NFM] Create NF Profile: 5ee057c4-af37-4fdd-83d0-59e6198939d5
+nrf      | 2025-12-14T09:25:45.272244159Z [INFO][NRF][NFM] urilist update
+nrf      | 2025-12-14T09:25:45.347205437Z [INFO][NRF][NFM] Create NF Profile: fa6c5151-14f4-4fec-ad8d-74bfa3ca4540
+nrf      | 2025-12-14T09:25:45.477801098Z [INFO][NRF][GIN] | 201 |     172.18.0.57 | PUT     | /nnrf-nfm/v1/nf-instances/fa6c5151-14f4-4fec-ad8d-74bfa3ca4540 |  |
+nrf      | 2025-12-14T09:25:45.484176310Z [INFO][NRF][NFM] Use NF certPath: cert/ausf.pem
+nrf      | 2025-12-14T09:25:45.489882053Z [INFO][NRF][GIN] | 201 |     172.18.0.52 | PUT     | /nnrf-nfm/v1/nf-instances/9b34ec17-0d2d-4beb-82f7-89789093713d |  |
+nrf      | 2025-12-14T09:25:45.348702129Z [INFO][NRF][NFM] Create NF Profile: 9b34ec17-0d2d-4beb-82f7-89789093713d
+nrf      | 2025-12-14T09:25:45.348983970Z [INFO][NRF][NFM] Create NF Profile: 0bb73282-d069-4c69-9cea-c7475a3f5049
+nrf      | 2025-12-14T09:25:45.349176737Z [INFO][NRF][NFM] Create NF Profile: fadb56c3-1416-47fd-bcd6-72aaeb3b5f40
+nrf      | 2025-12-14T09:25:45.354515379Z [INFO][NRF][NFM] Use NF certPath: cert/af.pem
+nrf      | 2025-12-14T09:25:45.357435098Z [INFO][NRF][NFM] Use NF certPath: cert/chf.pem
+nrf      | 2025-12-14T09:25:45.521991251Z [INFO][NRF][GIN] | 201 |     172.18.0.59 | PUT     | /nnrf-nfm/v1/nf-instances/fadb56c3-1416-47fd-bcd6-72aaeb3b5f40 |  |
+nrf      | 2025-12-14T09:25:45.586661130Z [INFO][NRF][GIN] | 201 |     172.18.0.53 | PUT     | /nnrf-nfm/v1/nf-instances/ff099707-4e4a-4c39-a5e8-ed0ae73f6acf |  |
+nrf      | 2025-12-14T09:25:45.589718252Z [INFO][NRF][GIN] | 201 |     172.18.0.58 | PUT     | /nnrf-nfm/v1/nf-instances/0bb73282-d069-4c69-9cea-c7475a3f5049 |  |
+chf      | 2025-12-14T09:25:45.508611576Z [WARN][CHF][CGF] Login to Webconsole FTP fail: dial tcp 172.18.0.59:2121: connect: connection refused, retrying [2]
+chf      | 2025-12-14T09:25:45.526891803Z [INFO][CHF][Main] OAuth2 setting receive from NRF: true
+chf      | 2025-12-14T09:25:45.527000051Z [INFO][CHF][SBI] Start SBI server (listen on chf.free5gc.org:8000)
+chf      | 2025-12-14T09:25:45.508611576Z [WARN][CHF][CGF] Login to Webconsole FTP fail: dial tcp 172.18.0.59:2121: connect: connection refused, retrying [2]
+nrf      | 2025-12-14T09:25:45.372285760Z [INFO][NRF][NFM] Create NF Profile: 496df33f-aa99-4ec0-b472-ff268fb189c6
+nrf      | 2025-12-14T09:25:45.378078560Z [INFO][NRF][NFM] Create NF Profile: 47251178-f389-479e-84a4-a5c231f22de9
+ausf     | 2025-12-14T09:25:45.624217310Z [INFO][AUSF][Main] OAuth2 setting receive from NRF: true
+ausf     | 2025-12-14T09:25:45.638898621Z [INFO][AUSF][SBI] Start SBI server (listen on ausf.free5gc.org:8000)
+nrf      | 2025-12-14T09:25:45.625339640Z [INFO][NRF][GIN] | 201 |     172.18.0.54 | PUT     | /nnrf-nfm/v1/nf-instances/47251178-f389-479e-84a4-a5c231f22de9 |  |
+nrf      | 2025-12-14T09:25:45.650174603Z [INFO][NRF][NFM] Use NF certPath: cert/udm.pem
+ausf     | 2025-12-14T09:25:45.624217310Z [INFO][AUSF][Main] OAuth2 setting receive from NRF: true
+chf      | 2025-12-14T09:25:45.526891803Z [INFO][CHF][Main] OAuth2 setting receive from NRF: true
+nrf      | 2025-12-14T09:25:45.378334491Z [INFO][NRF][NFM] Create NF Profile: ff099707-4e4a-4c39-a5e8-ed0ae73f6acf
+nrf      | 2025-12-14T09:25:45.397933345Z [WARN][NRF][NFM] No NF cert: parse cert pem: x509: malformed serial number; generate new one
+nrf      | 2025-12-14T09:25:45.405647918Z [INFO][NRF][NFM] Use NF certPath: cert/nssf.pem
+nrf      | 2025-12-14T09:25:45.419469260Z [INFO][NRF][NFM] Use NF certPath: cert/nef.pem
+nrf      | 2025-12-14T09:25:45.442384861Z [INFO][NRF][NFM] Use NF certPath: cert/pcf.pem
+nrf      | 2025-12-14T09:25:45.452777776Z [INFO][NRF][NFM] Create NF Profile: 5ee057c4-af37-4fdd-83d0-59e6198939d5
+nrf      | 2025-12-14T09:25:45.477801098Z [INFO][NRF][GIN] | 201 |     172.18.0.57 | PUT     | /nnrf-nfm/v1/nf-instances/fa6c5151-14f4-4fec-ad8d-74bfa3ca4540 |  |
+nssf     | 2025-12-14T09:25:45.737212954Z [INFO][NSSF][Main] OAuth2 setting receive from NRF: true
+nssf     | 2025-12-14T09:25:45.748975731Z [INFO][NSSF][Main] register to NRF successfully
+nssf     | 2025-12-14T09:25:45.760542709Z [INFO][NSSF][SBI] Starting server...
+webui    | 2025-12-14T09:25:45.900858514Z [INFO][WEBUI][Main] OAuth2 setting receive from NRF: true
+nrf      | 2025-12-14T09:25:45.692505933Z [INFO][NRF][NFM] Use NF certPath: cert/udr.pem
+nrf      | 2025-12-14T09:25:45.742454042Z [INFO][NRF][GIN] | 201 |     172.18.0.55 | PUT     | /nnrf-nfm/v1/nf-instances/5ee057c4-af37-4fdd-83d0-59e6198939d5 |  |
+nrf      | 2025-12-14T09:25:45.844122173Z [INFO][NRF][GIN] | 201 |     172.18.0.56 | PUT     | /nnrf-nfm/v1/nf-instances/496df33f-aa99-4ec0-b472-ff268fb189c6 |  |
+nef      | 2025-12-14T09:25:45.763621553Z [INFO][NEF][CTX] Set nfInstID: [0bb73282-d069-4c69-9cea-c7475a3f5049]
+nef      | 2025-12-14T09:25:45.767832267Z [INFO][NEF][Main] OAuth2 setting receive from NRF: true
+nef      | 2025-12-14T09:25:45.770784885Z [INFO][NEF][Consumer] NFRegister Created
+pcf      | 2025-12-14T09:25:45.845696799Z [INFO][PCF][Main] OAuth2 setting receive from NRF: true
+pcf      | 2025-12-14T09:25:45.855636363Z [INFO][PCF][SBI] Start SBI server (listen on pcf.free5gc.org:8000)
+udm      | 2025-12-14T09:25:45.826899160Z [INFO][UDM][Main] OAuth2 setting receive from NRF: true
+udm      | 2025-12-14T09:25:45.830099088Z [INFO][UDM][SBI] Start SBI server (listen on udm.free5gc.org:8000)
+
+
+w Enable Watchpcf      | 2025-12-14T09:25:45.845696799Z [INFO][PCF][Main] OAuth2 setting receive from NRF: true
+webui    | 2025-12-14T09:25:45.900858514Z [INFO][WEBUI][Main] OAuth2 setting receive from NRF: true
+chf      | 2025-12-14T09:25:45.527000051Z [INFO][CHF][SBI] Start SBI server (listen on chf.free5gc.org:8000)
+nssf     | 2025-12-14T09:25:45.737212954Z [INFO][NSSF][Main] OAuth2 setting receive from NRF: true
+nef      | 2025-12-14T09:25:45.763621553Z [INFO][NEF][CTX] Set nfInstID: [0bb73282-d069-4c69-9cea-c7475a3f5049]
+udm      | 2025-12-14T09:25:45.826899160Z [INFO][UDM][Main] OAuth2 setting receive from NRF: true
+nrf      | 2025-12-14T09:25:45.484176310Z [INFO][NRF][NFM] Use NF certPath: cert/ausf.pemusf.free5gc.orgnssf     | 2025-12-14T09:25:45.748975731Z [INFO][NSSF][Main] register to NRF successfully
+nssf     | 2025-12-14T09:25:45.760542709Z [INFO][NSSF][SBI] Starting server...
+nef      | 2025-12-14T09:25:45.767832267Z [INFO][NEF][Main] OAuth2 setting receive from NRF: true
+nef      | 2025-12-14T09:25:45.770784885Z [INFO][NEF][Consumer] NFRegister Created
+mongodb  | 2025-12-14T09:25:46.051+0000 I NETWORK  [listener] connection accepted from 172.18.0.56:47118 #13 (13 connections now open)
+mongodb  | 2025-12-14T09:25:46.065+0000 I NETWORK  [conn13] received client metadata from 172.18.0.56:47118 conn13: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+mongodb  | 2025-12-14T09:25:46.051+0000 I NETWORK  [listener] connection accepted from 172.18.0.56:47118 #13 (13 connections now open)
+mongodb  | 2025-12-14T09:25:46.065+0000 I NETWORK  [conn13] received client metadata from 172.18.0.56:47118 conn13: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+nrf      | 2025-12-14T09:25:45.489882053Z [INFO][NRF][GIN] | 201 |     172.18.0.52 | PUT     | /nnrf-nfm/v1/nf-instances/9b34ec17-0d2d-4beb-82f7-89789093713d |  |
+webui    | 2025-12-14T09:25:46.014745900Z [INFO][WEBUI][Init] Webconsole-AF Registration to NRF success
+nrf      | 2025-12-14T09:25:45.958645583Z [INFO][NRF][NFM] Handle NFRegisterRequest
+nrf      | 2025-12-14T09:25:45.962084013Z [INFO][NRF][NFM] urilist update
+nrf      | 2025-12-14T09:25:45.968191168Z [INFO][NRF][NFM] NFRegister NfProfile Update: fadb56c3-1416-47fd-bcd6-72aaeb3b5f40
+nrf      | 2025-12-14T09:25:45.971096237Z [INFO][NRF][GIN] | 200 |     172.18.0.59 | PUT     | /nnrf-nfm/v1/nf-instances/fadb56c3-1416-47fd-bcd6-72aaeb3b5f40 |  |
+
+
+udm      | 2025-12-14T09:25:45.830099088Z [INFO][UDM][SBI] Start SBI server (listen on udm.free5gc.org:8000)
+udr      | 2025-12-14T09:25:45.968572183Z [INFO][UDR][Main] OAuth2 setting receive from NRF: true
+webui    | 2025-12-14T09:25:46.014745900Z [INFO][WEBUI][Init] Webconsole-AF Registration to NRF success8nrf      | 2025-12-14T09:25:45.521991251Z [INFO][NRF][GIN] | 201 |     172.18.0.59 | PUT     | /nnrf-nfm/v1/nf-instances/fadb56c3-1416-47fd-bcd6-72aaeb3b5f40 |  |
+udr      | 2025-12-14T09:25:45.968572183Z [INFO][UDR][Main] OAuth2 setting receive from NRF: true
+udr      | 2025-12-14T09:25:45.971748862Z [INFO][UDR][Init] register to NRF successfully
+udr      | 2025-12-14T09:25:45.971761117Z [INFO][UDR][Init] Server started
+udr      | 2025-12-14T09:25:45.973440665Z [INFO][UDR][Init] UDR Config Info: Version[1.1.0] Description[UDR initial local configuration]
+udr      | 2025-12-14T09:25:45.993094553Z [INFO][UDR][SBI] Starting server...
+nrf      | 2025-12-14T09:25:45.586661130Z [INFO][NRF][GIN] | 201 |     172.18.0.53 | PUT     | /nnrf-nfm/v1/nf-instances/ff099707-4e4a-4c39-a5e8-ed0ae73f6acf |  |
+nrf      | 2025-12-14T09:25:45.589718252Z [INFO][NRF][GIN] | 201 |     172.18.0.58 | PUT     | /nnrf-nfm/v1/nf-instances/0bb73282-d069-4c69-9cea-c7475a3f5049 |  |
+udr      | 2025-12-14T09:25:45.971748862Z [INFO][UDR][Init] register to NRF successfully
+nrf      | 2025-12-14T09:25:45.625339640Z [INFO][NRF][GIN] | 201 |     172.18.0.54 | PUT     | /nnrf-nfm/v1/nf-instances/47251178-f389-479e-84a4-a5c231f22de9 |  |
+
+
+udr      | 2025-12-14T09:25:45.971761117Z [INFO][UDR][Init] Server started
+nrf      | 2025-12-14T09:25:45.650174603Z [INFO][NRF][NFM] Use NF certPath: cert/udm.pem
+nrf      | 2025-12-14T09:25:45.692505933Z [INFO][NRF][NFM] Use NF certPath: cert/udr.pem
+nrf      | 2025-12-14T09:25:45.742454042Z [INFO][NRF][GIN] | 201 |     172.18.0.55 | PUT     | /nnrf-nfm/v1/nf-instances/5ee057c4-af37-4fdd-83d0-59e6198939d5 |  |
+nrf      | 2025-12-14T09:25:46.268676730Z [INFO][NRF][Token] In HTTPAccessTokenRequest
+nrf      | 2025-12-14T09:25:46.278218221Z [WARN][NRF][Token] Certificate verify: x509: certificate signed by unknown authority (possibly because of "x509: invalid signature: parent certificate cannot sign this kind of certificate" while trying to verify candidate authority certificate "NRF")
+nrf      | 2025-12-14T09:25:46.287725502Z [INFO][NRF][GIN] | 200 |     172.18.0.59 | POST    | /oauth2/token |  |
+nrf      | 2025-12-14T09:25:46.297465472Z [INFO][NRF][DISC] Handle NFDiscoveryRequest
+nrf      | 2025-12-14T09:25:46.302886508Z [INFO][NRF][GIN] | 200 |     172.18.0.59 | GET     | /nnrf-disc/v1/nf-instances?requester-nf-type=AF&target-nf-type=AMF |  |
+nrf      | 2025-12-14T09:25:46.316155232Z [INFO][NRF][Token] In HTTPAccessTokenRequest
+nrf      | 2025-12-14T09:25:46.321360419Z [WARN][NRF][Token] Certificate verify: x509: certificate signed by unknown authority (possibly because of "x509: invalid signature: parent certificate cannot sign this kind of certificate" while trying to verify candidate authority certificate "NRF")
+webui    | 2025-12-14T09:25:46.265462181Z [INFO][WEBUI][Consumer] GetTokenCtx: NRF nnrf-disc
+webui    | 2025-12-14T09:25:46.311098879Z [INFO][WEBUI][Consumer] GetTokenCtx: NRF nnrf-disc
+nrf      | 2025-12-14T09:25:46.326444303Z [INFO][NRF][GIN] | 200 |     172.18.0.59 | POST    | /oauth2/token |  |
+udr      | 2025-12-14T09:25:45.973440665Z [INFO][UDR][Init] UDR Config Info: Version[1.1.0] Description[UDR initial local configuration]
+webui    | 2025-12-14T09:25:46.265462181Z [INFO][WEBUI][Consumer] GetTokenCtx: NRF nnrf-disc
+nrf      | 2025-12-14T09:25:45.844122173Z [INFO][NRF][GIN] | 201 |     172.18.0.56 | PUT     | /nnrf-nfm/v1/nf-instances/496df33f-aa99-4ec0-b472-ff268fb189c6 |  |
+webui    | 2025-12-14T09:25:46.342736533Z [INFO][WEBUI][BillingLog] Open BillingServer on /tmp/webconsole
+webui    | 2025-12-14T09:25:46.346143472Z [INFO][WEBUI][BillingLog] Billing server started
+webui    | 2025-12-14T09:25:46.347733067Z [INFO][WEBUI][Main] wait all routine stopped
+webui    | 2025-12-14T09:25:46.348046138Z [INFO][WEBUI][Main] Http server listening on 172.18.0.59:5000
+webui    | 2025-12-14T09:25:46.354781103Z [INFO][address:172.18.0.59:2121][category:FTPServer][component:Billing] Listening...
+webui    | 2025-12-14T09:25:46.357065819Z [INFO][category:FTPServer][component:Billing] Starting...
+webui    | 2025-12-14T09:25:46.311098879Z [INFO][WEBUI][Consumer] GetTokenCtx: NRF nnrf-disc
+webui    | 2025-12-14T09:25:46.342736533Z [INFO][WEBUI][BillingLog] Open BillingServer on /tmp/webconsole
+webui    | 2025-12-14T09:25:46.346143472Z [INFO][WEBUI][BillingLog] Billing server started
+webui    | 2025-12-14T09:25:46.347733067Z [INFO][WEBUI][Main] wait all routine stopped
+webui    | 2025-12-14T09:25:46.348046138Z [INFO][WEBUI][Main] Http server listening on 172.18.0.59:5000
+webui    | 2025-12-14T09:25:46.354781103Z [INFO][address:172.18.0.59:2121][category:FTPServer][component:Billing] Listening...
+webui    | 2025-12-14T09:25:46.357065819Z [INFO][category:FTPServer][component:Billing] Starting...
+nrf      | 2025-12-14T09:25:46.329962518Z [INFO][NRF][DISC] Handle NFDiscoveryRequest
+nrf      | 2025-12-14T09:25:46.332414078Z [INFO][NRF][GIN] | 200 |     172.18.0.59 | GET     | /nnrf-disc/v1/nf-instances?requester-nf-type=AF&target-nf-type=SMF |  |
+udr      | 2025-12-14T09:25:45.993094553Z [INFO][UDR][SBI] Starting server...
+nrf      | 2025-12-14T09:25:45.958645583Z [INFO][NRF][NFM] Handle NFRegisterRequest
+
+nrf      | 2025-12-14T09:25:45.962084013Z [INFO][NRF][NFM] urilist update
+nrf      | 2025-12-14T09:25:45.968191168Z [INFO][NRF][NFM] NFRegister NfProfile Update: fadb56c3-1416-47fd-bcd6-72aaeb3b5f40
+nrf      | 2025-12-14T09:25:45.971096237Z [INFO][NRF][GIN] | 200 |     172.18.0.59 | PUT     | /nnrf-nfm/v1/nf-instances/fadb56c3-1416-47fd-bcd6-72aaeb3b5f40 |  |
+nrf      | 2025-12-14T09:25:46.268676730Z [INFO][NRF][Token] In HTTPAccessTokenRequest
+nrf      | 2025-12-14T09:25:46.278218221Z [WARN][NRF][Token] Certificate verify: x509: certificate signed by unknown authority (possibly because of "x509: invalid signature: parent certificate cannot sign this kind of certificate" while trying to verify candidate authority certificate "NRF")
+nrf      | 2025-12-14T09:25:46.287725502Z [INFO][NRF][GIN] | 200 |     172.18.0.59 | POST    | /oauth2/token |  |
+nrf      | 2025-12-14T09:25:46.297465472Z [INFO][NRF][DISC] Handle NFDiscoveryRequest
+nrf      | 2025-12-14T09:25:46.302886508Z [INFO][NRF][GIN] | 200 |     172.18.0.59 | GET     | /nnrf-disc/v1/nf-instances?requester-nf-type=AF&target-nf-type=AMF |  |
+nrf      | 2025-12-14T09:25:46.316155232Z [INFO][NRF][Token] In HTTPAccessTokenRequest
+nrf      | 2025-12-14T09:25:46.321360419Z [WARN][NRF][Token] Certificate verify: x509: certificate signed by unknown authority (possibly because of "x509: invalid signature: parent certificate cannot sign this kind of certificate" while trying to verify candidate authority certificate "NRF")
+nrf      | 2025-12-14T09:25:46.326444303Z [INFO][NRF][GIN] | 200 |     172.18.0.59 | POST    | /oauth2/token |  |
+nrf      | 2025-12-14T09:25:46.329962518Z [INFO][NRF][DISC] Handle NFDiscoveryRequest
+nrf      | 2025-12-14T09:25:46.332414078Z [INFO][NRF][GIN] | 200 |     172.18.0.59 | GET     | /nnrf-disc/v1/nf-instances?requester-nf-type=AF&target-nf-type=SMF |  |
+webui    | 2025-12-14T09:25:46.509821775Z [INFO][category:FTPServer][clientId:1][component:Billing][nbClients:1][remoteAddr:172.18.0.57:59306] Client connected
+chf      | 2025-12-14T09:25:46.510667346Z [INFO][CHF][CGF] Login FTP server succeed
+chf      | 2025-12-14T09:25:46.515332271Z [INFO][address:172.18.0.57:2122][category:FTP][component:CHF] Listening...ch
+chf      | 2025-12-14T09:25:46.515520824Z [INFO][category:FTP][component:CHF] Starting...
+webui    | 2025-12-14T09:25:46.509821775Z [INFO][category:FTPServer][clientId:1][component:Billing][nbClients:1][remoteAddr:172.18.0.57:59306] Client connected
+chf      | 2025-12-14T09:25:46.510667346Z [INFO][CHF][CGF] Login FTP server succeed
+chf      | 2025-12-14T09:25:46.515332271Z [INFO][address:172.18.0.57:2122][category:FTP][component:CHF] Listening...
+chf      | 2025-12-14T09:25:46.515520824Z [INFO][category:FTP][component:CHF] Starting...
+mongodb  | 2025-12-14T09:25:52.240+0000 I NETWORK  [listener] connection accepted from 172.18.0.54:44694 #14 (14 connections now open)
+mongodb  | 2025-12-14T09:25:52.240+0000 I NETWORK  [listener] connection accepted from 172.18.0.54:44694 #14 (14 connections now open)
+mongodb  | 2025-12-14T09:25:52.253+0000 I NETWORK  [conn14] received client metadata from 172.18.0.54:44694 conn14: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+mongodb  | 2025-12-14T09:25:52.253+0000 I NETWORK  [conn14] received client metadata from 172.18.0.54:44694 conn14: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+mongodb  | 2025-12-14T09:25:54.452+0000 I NETWORK  [listener] connection accepted from 172.18.0.57:49168 #15 (15 connections now open)
+mongodb  | 2025-12-14T09:25:54.452+0000 I NETWORK  [listener] connection accepted from 172.18.0.57:49168 #15 (15 connections now open)
+mongodb  | 2025-12-14T09:25:54.473+0000 I NETWORK  [conn15] received client metadata from 172.18.0.57:49168 conn15: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+mongodb  | 2025-12-14T09:25:54.473+0000 I NETWORK  [conn15] received client metadata from 172.18.0.57:49168 conn15: { driver: { name: "mongo-go-driver", version: "1.17.1" }, os: { type: "linux", architecture: "amd64" }, platform: "go1.24.5", env: { container: { runtime: "docker" } } }
+
+
+
