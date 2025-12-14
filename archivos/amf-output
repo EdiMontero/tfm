@@ -1,0 +1,43 @@
+edinsonm@amf:~$ cd free5gc-compose/
+edinsonm@amf:~/free5gc-compose$ 
+edinsonm@amf:~/free5gc-compose$ 
+edinsonm@amf:~/free5gc-compose$ sudo docker compose -f docker-compose-build up
+[sudo] password for edinsonm: 
+open /home/edinsonm/free5gc-compose/docker-compose-build: no such file or directory
+edinsonm@amf:~/free5gc-compose$ 
+edinsonm@amf:~/free5gc-compose$ sudo docker compose -f docker-compose-build-amf.yaml up
+Attaching to amf
+amf  | 2025-12-14T12:22:35.650929989Z [INFO][AMF][Main] AMF version:  
+amf  | 	free5GC version: v4.0.1-47-gf923972
+amf  |  build time:      2025-08-24T11:38:21Z
+amf  |  commit hash:     cd9f6775
+amf  |  commit time:     2025-07-18T14:24:15Z
+amf  |  go version:      go1.24.5 linux/amd64
+amf  | 2025-12-14T12:22:35.650929989Z [INFO][AMF][Main] AMF version:  
+amf  |  free5GC version: v4.0.1-47-gf923972
+amf  |  build time:      2025-08-24T11:38:21Z
+amf  |  commit hash:     cd9f6775
+amf  |  commit time:     2025-07-18T14:24:15Z
+amf  |  go version:      go1.24.5 linux/amd64
+amf  | 2025-12-14T12:22:35.663255384Z [INFO][AMF][CFG] Read config from [./config/amfcfg.yaml]
+amf  | 2025-12-14T12:22:35.663255384Z [INFO][AMF][CFG] Read config from [./config/amfcfg.yaml]
+amf  | 2025-12-14T12:22:35.686628116Z [INFO][AMF][Main] Log enable is set to [true]
+amf  | 2025-12-14T12:22:35.686771861Z [INFO][AMF][Main] Log level is set to [info]
+amf  | 2025-12-14T12:22:35.686781793Z [INFO][AMF][Main] Report Caller is set to [false]
+amf  | 2025-12-14T12:22:35.686628116Z [INFO][AMF][Main] Log enable is set to [true]
+amf  | 2025-12-14T12:22:35.686771861Z [INFO][AMF][Main] Log level is set to [info]
+amf  | 2025-12-14T12:22:35.686781793Z [INFO][AMF][Main] Report Caller is set to [false]
+amf  | 2025-12-14T12:22:35.693597345Z [INFO][AMF][SBI] Binding addr: [amf.free5gc.org:8000]
+amf  | 2025-12-14T12:22:35.693892050Z [INFO][AMF][Util] amfconfig Info: Version[1.0.9]
+
+amf  | 2025-12-14T12:22:35.693597345Z [INFO][AMF][SBI] Binding addr: [amf.free5gc.org:8000]
+amf  | 2025-12-14T12:22:35.723822566Z [INFO][AMF][Init] Server started
+amf  | 2025-12-14T12:22:35.723822566Z [INFO][AMF][Init] Server started
+amf  | 2025-12-14T12:22:35.792339468Z [INFO][AMF][Ngap] Listen on 172.18.0.20:38412
+amf  | 2025-12-14T12:22:35.792339468Z [INFO][AMF][Ngap] Listen on 172.18.0.20:38412
+amf  | 2025-12-14T12:22:36.320213828Z [INFO][AMF][Main] OAuth2 setting receive from NRF: true
+amf  | 2025-12-14T12:22:36.320213828Z [INFO][AMF][Main] OAuth2 setting receive from NRF: true
+amf  | 2025-12-14T12:22:36.321023128Z [INFO][AMF][SBI] Start SBI server (listen on amf.free5gc.org:8000)
+amf  | 2025-12-14T12:22:36.321023128Z [INFO][AMF][SBI] Start SBI server (listen on amf.free5gc.org:8000)
+
+
