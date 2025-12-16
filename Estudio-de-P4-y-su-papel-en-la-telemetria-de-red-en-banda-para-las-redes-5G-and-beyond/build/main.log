@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.13)  14 DEC 2025 16:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.13)  16 DEC 2025 10:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -152,7 +152,7 @@ Package: titlesec 2025/01/04 v2.17 Sectioning titles
 ) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count297
-) (main.aux (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/1.dedicatory.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/2.acronyms.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/3.TableOfContents.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/4.TableOfFigures.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/5.TableOfTables.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/1.introduccion.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/2.redes_5g.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/3.telemetria.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/4.p4_fundamentos.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/5.entorno_desarrollo.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/6.resultados.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/7.discusion.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/8.conclusiones.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/apendices.aux))
+) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.aux (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/1.dedicatory.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/2.acronyms.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/3.TableOfContents.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/4.TableOfFigures.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/5.TableOfTables.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/1.introduccion.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/2.redes_5g.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/3.telemetria.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/4.p4_fundamentos.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/5.entorno_desarrollo.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/6.resultados.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/7.conclusiones.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/apendices.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
@@ -195,7 +195,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 40.
  [1
 
-{C:/Users/edinson.montero/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (main.toc
+{C:/Users/edinson.montero/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 4.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -253,7 +253,7 @@ Overfull \hbox (32.33856pt too wide) in paragraph at lines 4--52
 ]
 \openout2 = `preface/4.TableOfFigures.aux'.
 
- (preface/4.TableOfFigures.tex (main.lof)
+ (preface/4.TableOfFigures.tex (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.lof)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
@@ -265,7 +265,7 @@ Overfull \hbox (32.33856pt too wide) in paragraph at lines 4--52
 ]
 \openout2 = `preface/5.TableOfTables.aux'.
 
- (preface/5.TableOfTables.tex (main.lot)
+ (preface/5.TableOfTables.tex (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.lot)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
@@ -384,10 +384,7 @@ Overfull \hbox (9.92625pt too wide) in paragraph at lines 5--5
 
 
 
-]
-Overfull \vbox (24.73347pt too high) has occurred while \output is active []
-
- [29]
+] [29]
 \openout2 = `chapters/4.p4_fundamentos.aux'.
 
  (chapters/4.p4_fundamentos.tex
@@ -432,9 +429,6 @@ Overfull \hbox (78.11626pt too wide) in paragraph at lines 29--62
  []
 
 [33 <./images/Topo.png>]
-
-LaTeX Warning: Citation `docker2024install' on page 34 undefined on input line 73.
-
 <images/clone-repo.png, id=131, 1630.09pt x 686.565pt>
 File: images/clone-repo.png Graphic file (type png)
 <use images/clone-repo.png>
@@ -445,7 +439,7 @@ File: images/clonacion-nf.png Graphic file (type png)
 <use images/clonacion-nf.png>
 Package pdftex.def Info: images/clonacion-nf.png  used on input line 87.
 (pdftex.def)             Requested size: 390.0pt x 271.92473pt.
-[34 <./images/clone-repo.png>]
+ [34 <./images/clone-repo.png>]
 <images/compilacion-nf.png, id=137, 2035.605pt x 1658.195pt>
 File: images/compilacion-nf.png Graphic file (type png)
 <use images/compilacion-nf.png>
@@ -548,71 +542,27 @@ File: images/smf-upf-n4-connection.png Graphic file (type png)
 Package pdftex.def Info: images/smf-upf-n4-connection.png  used on input line 682.
 (pdftex.def)             Requested size: 390.0pt x 175.79189pt.
  [60 <./images/upf-up.png>]
-Overfull \hbox (0.50583pt too wide) in paragraph at lines 719--719
-|[]\OT1/cmr/bx/n/17.28 Despliegue del NGRAN con UER-AN-SIM| 
- []
-
-[61 <./images/smf-upf-n4-connection.png>] [62]
-
-LaTeX Warning: File `images/gnb-config.png' not found on input line 760.
-
-
-chapters/5.entorno_desarrollo.tex:760: Package pdftex.def Error: File `images/gnb-config.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.760 ...dth=1.0\textwidth]{images/gnb-config.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[63]
-
-LaTeX Warning: File `images/ue-config.png' not found on input line 768.
-
-
-chapters/5.entorno_desarrollo.tex:768: Package pdftex.def Error: File `images/ue-config.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.768 ...idth=1.0\textwidth]{images/ue-config.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-) [64] [65]
+<images/int-topologia.png, id=251, 613.54219pt x 420.06938pt>
+File: images/int-topologia.png Graphic file (type png)
+<use images/int-topologia.png>
+Package pdftex.def Info: images/int-topologia.png  used on input line 692.
+(pdftex.def)             Requested size: 390.0pt x 267.01671pt.
+ [61 <./images/smf-upf-n4-connection.png>]) [62 <./images/int-topologia.png>] [63]
 \openout2 = `chapters/6.resultados.aux'.
 
  (chapters/6.resultados.tex
 Chapter 6.
-) [66
+) [64
 
 
 
 
 ]
-Overfull \vbox (52.13351pt too high) has occurred while \output is active []
+\openout2 = `chapters/7.conclusiones.aux'.
 
- [67]
-\openout2 = `chapters/7.discusion.aux'.
-
- (chapters/7.discusion.tex
+ (chapters/7.conclusiones.tex
 Chapter 7.
-) [68
-
-
-
-
-]
-\openout2 = `chapters/8.conclusiones.aux'.
-
- (chapters/8.conclusiones.tex
-Chapter 8.
-) [69
+) [65
 
 
 
@@ -622,16 +572,16 @@ Chapter 8.
 
  (chapters/apendices.tex
 Appendix A.
-) [70
+) [66
 
 
 
 
-] (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.bbl) [71
+] (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.bbl) [67
 
 
 
-] (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.aux (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/1.dedicatory.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/2.acronyms.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/3.TableOfContents.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/4.TableOfFigures.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/5.TableOfTables.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/1.introduccion.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/2.redes_5g.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/3.telemetria.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/4.p4_fundamentos.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/5.entorno_desarrollo.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/6.resultados.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/7.discusion.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/8.conclusiones.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/apendices.aux))
+] (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.aux (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/1.dedicatory.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/2.acronyms.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/3.TableOfContents.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/4.TableOfFigures.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/5.TableOfTables.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/1.introduccion.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/2.redes_5g.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/3.telemetria.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/4.p4_fundamentos.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/5.entorno_desarrollo.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/6.resultados.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/7.conclusiones.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/apendices.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
@@ -640,22 +590,19 @@ L3 programming layer <2025-11-06>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 4969 strings out of 467871
- 96490 string characters out of 5413535
- 659043 words of memory out of 5000000
- 33715 multiletter control sequences out of 15000+600000
+ 4888 strings out of 467871
+ 93787 string characters out of 5413535
+ 659201 words of memory out of 5000000
+ 33642 multiletter control sequences out of 15000+600000
  634828 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,12n,79p,1031b,1861s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx6.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.pdf (72 pages, 6452201 bytes).
+ 72i,12n,79p,1779b,1861s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx6.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.pdf (68 pages, 6478115 bytes).
 PDF statistics:
- 327 PDF objects out of 1000 (max. 8388607)
+ 312 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 126 words of extra memory for PDF output out of 10000 (max. 10000000)
 

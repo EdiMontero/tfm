@@ -105,33 +105,28 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.4.3} Conección N4 con SMF}{60}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5.19}{\ignorespaces  UPF registro y preparacion de interfaz N3}}{61}{}\protected@file@percent }
 \newlabel{fig:smf-upf-n4-connection}{{5.19}{61}{ Conección N4 con SMF}{figure.5.19}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.5}Integración con UERANSIM}{62}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Implementación de la red de distribución P4}{62}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Diseño de los programas P4}{62}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Tablas y acciones configuradas}{62}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}Inserción INT-MD en tráfico N2 (SCTP)}{62}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.4}Inserción INT-MD en tráfico N3 (GTP-U)}{62}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Servidor de recolección y análisis}{62}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Implementación del sink INT}{62}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Procesamiento y parsing de metadatos}{62}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}Modelo de base de datos}{62}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.4}Visualización en Grafana}{62}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Tecnologías empleadas}{62}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Docker / Docker Compose}{62}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}GNS3 / GNS3 VM}{62}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.3}Wireshark y herramientas auxiliares}{62}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.6}Despliegue del NGRAN con UERANSIM}{62}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.1}Despliegue de UERANSIM}{63}{}\protected@file@percent }
-\newlabel{lst:docker-ueransim}{{5.15}{63}{Despliegue de UERANSIM}{lstlisting.5.15}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.15}Configuración del Docker Compose UERANSIM}{63}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.2}Configuración del gNB}{63}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.20}{\ignorespaces Configuración del gNB en UERANSIM}}{64}{}\protected@file@percent }
-\newlabel{fig:gnb-config}{{5.20}{64}{Configuración del gNB}{figure.5.20}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.3}Configuración del UE}{64}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.21}{\ignorespaces Configuración del UE en UERANSIM}}{65}{}\protected@file@percent }
-\newlabel{fig:ue-config}{{5.21}{65}{Configuración del UE}{figure.5.21}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Implementación Red de Transporte con INT}{61}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.20}{\ignorespaces Topologia INT-MD}}{62}{}\protected@file@percent }
+\newlabel{sec:topologia_int}{{5.20}{62}{Implementación Red de Transporte con INT}{figure.5.20}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Despliegue de switches BMv2 con INT-MD}{63}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}INT como extensión de SCTP}{63}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Formato de metadatos INT-MD para SCTP}{63}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Estructura de metadatos INT-MD}{63}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.3}INT sobre tráfico NGAP (SCTP)}{63}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}INT como extensión de GTP-U}{63}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.1}Formato de metadatos INT-MD para GTP-U}{63}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.2}Estructura de metadatos INT-MD}{63}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.3}INT sobre tráfico N3 (GTP-U)}{63}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.4}Formato de metadatos INT-MD para GTP-U}{63}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.5}Tablas y acciones configuradas}{63}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.6}Inserción INT-MD en tráfico N2 (SCTP)}{63}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.7}Inserción INT-MD en tráfico N3 (GTP-U)}{63}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.7}Servidor de recolección y análisis}{63}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.1}Procesamiento y parsing de metadatos}{63}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.2}Modelo de base de datos}{63}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.3}Visualización en Grafana}{63}{}\protected@file@percent }
 \@setckpt{chapters/5.entorno_desarrollo}{
-\setcounter{page}{66}
+\setcounter{page}{64}
 \setcounter{equation}{0}
 \setcounter{enumi}{0}
 \setcounter{enumii}{0}
@@ -141,14 +136,14 @@
 \setcounter{mpfootnote}{0}
 \setcounter{part}{0}
 \setcounter{chapter}{5}
-\setcounter{section}{6}
+\setcounter{section}{7}
 \setcounter{subsection}{3}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{21}
+\setcounter{figure}{20}
 \setcounter{table}{1}
 \setcounter{float@type}{8}
-\setcounter{lstnumber}{31}
-\setcounter{lstlisting}{15}
+\setcounter{lstnumber}{41}
+\setcounter{lstlisting}{14}
 }

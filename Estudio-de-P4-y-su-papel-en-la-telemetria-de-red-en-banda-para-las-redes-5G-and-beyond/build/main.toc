@@ -34,18 +34,13 @@
 \contentsline {subsection}{\numberline {3.2.2}Arquitectura INT: source, transit y sink}{29}{}%
 \contentsline {subsection}{\numberline {3.2.3}Metadatos INT-MD y su estructura}{29}{}%
 \contentsline {subsection}{\numberline {3.2.4}INT vs telemetría out-of-band}{29}{}%
-\contentsline {section}{\numberline {3.3}Telemetría aplicada en 5G}{29}{}%
-\contentsline {subsection}{\numberline {3.3.1}Relevancia de INT en el plano de control N2}{29}{}%
-\contentsline {subsection}{\numberline {3.3.2}Relevancia de INT en el plano de usuario N3}{29}{}%
-\contentsline {subsection}{\numberline {3.3.3}Métricas clave para tráfico GTP-U}{29}{}%
-\contentsline {subsection}{\numberline {3.3.4}Desafíos y limitaciones en redes móviles}{29}{}%
-\contentsline {section}{\numberline {3.4}Calidad de Servicio en 5G}{29}{}%
-\contentsline {section}{\numberline {3.5}QoS basado en 5G Flujo}{29}{}%
-\contentsline {subsection}{\numberline {3.5.1}Definición de flujo en 5G}{29}{}%
-\contentsline {subsection}{\numberline {3.5.2}Identificación y clasificación de flujos}{29}{}%
-\contentsline {subsection}{\numberline {3.5.3}Mecanismos de gestión de QoS por flujo}{29}{}%
-\contentsline {section}{\numberline {3.6}Señalización de QoS en 5G}{29}{}%
-\contentsline {section}{\numberline {3.7}Caracteristicas de QoS en 5G}{29}{}%
+\contentsline {section}{\numberline {3.3}Calidad de Servicio en 5G}{29}{}%
+\contentsline {section}{\numberline {3.4}QoS basado en 5G Flujo}{29}{}%
+\contentsline {subsection}{\numberline {3.4.1}Definición de flujo en 5G}{29}{}%
+\contentsline {subsection}{\numberline {3.4.2}Identificación y clasificación de flujos}{29}{}%
+\contentsline {subsection}{\numberline {3.4.3}Mecanismos de gestión de QoS por flujo}{29}{}%
+\contentsline {section}{\numberline {3.5}Señalización de QoS en 5G}{29}{}%
+\contentsline {section}{\numberline {3.6}Caracteristicas de QoS en 5G}{29}{}%
 \contentsline {chapter}{\numberline {4}Fundamentos de P4 y Programación del Plano de Datos}{30}{}%
 \contentsline {section}{\numberline {4.1}Introducción a P4}{30}{}%
 \contentsline {subsection}{\numberline {4.1.1}Historia y evolución}{30}{}%
@@ -94,62 +89,49 @@
 \contentsline {subsubsection}{\numberline {5.2.4.1}Configuración de Docker Compose}{58}{}%
 \contentsline {subsubsection}{\numberline {5.2.4.2}Registro del UPF en el NRF}{59}{}%
 \contentsline {subsubsection}{\numberline {5.2.4.3} Conección N4 con SMF}{60}{}%
-\contentsline {subsection}{\numberline {5.2.5}Integración con UERANSIM}{62}{}%
-\contentsline {section}{\numberline {5.3}Implementación de la red de distribución P4}{62}{}%
-\contentsline {subsection}{\numberline {5.3.1}Diseño de los programas P4}{62}{}%
-\contentsline {subsection}{\numberline {5.3.2}Tablas y acciones configuradas}{62}{}%
-\contentsline {subsection}{\numberline {5.3.3}Inserción INT-MD en tráfico N2 (SCTP)}{62}{}%
-\contentsline {subsection}{\numberline {5.3.4}Inserción INT-MD en tráfico N3 (GTP-U)}{62}{}%
-\contentsline {section}{\numberline {5.4}Servidor de recolección y análisis}{62}{}%
-\contentsline {subsection}{\numberline {5.4.1}Implementación del sink INT}{62}{}%
-\contentsline {subsection}{\numberline {5.4.2}Procesamiento y parsing de metadatos}{62}{}%
-\contentsline {subsection}{\numberline {5.4.3}Modelo de base de datos}{62}{}%
-\contentsline {subsection}{\numberline {5.4.4}Visualización en Grafana}{62}{}%
-\contentsline {section}{\numberline {5.5}Tecnologías empleadas}{62}{}%
-\contentsline {subsection}{\numberline {5.5.1}Docker / Docker Compose}{62}{}%
-\contentsline {subsection}{\numberline {5.5.2}GNS3 / GNS3 VM}{62}{}%
-\contentsline {subsection}{\numberline {5.5.3}Wireshark y herramientas auxiliares}{62}{}%
-\contentsline {section}{\numberline {5.6}Despliegue del NGRAN con UERANSIM}{62}{}%
-\contentsline {subsection}{\numberline {5.6.1}Despliegue de UERANSIM}{63}{}%
-\contentsline {subsection}{\numberline {5.6.2}Configuración del gNB}{63}{}%
-\contentsline {subsection}{\numberline {5.6.3}Configuración del UE}{64}{}%
-\contentsline {chapter}{\numberline {6}Resultados Experimentales}{66}{}%
-\contentsline {section}{\numberline {6.1}Metodología de evaluación}{67}{}%
-\contentsline {subsection}{\numberline {6.1.1}Escenarios de prueba}{67}{}%
-\contentsline {subsection}{\numberline {6.1.2}Tráfico analizado}{67}{}%
-\contentsline {subsection}{\numberline {6.1.3}Métricas recolectadas}{67}{}%
-\contentsline {section}{\numberline {6.2}Validación funcional}{67}{}%
-\contentsline {subsection}{\numberline {6.2.1}INT en tráfico N2}{67}{}%
-\contentsline {subsection}{\numberline {6.2.2}INT en tráfico N3}{67}{}%
-\contentsline {subsection}{\numberline {6.2.3}Recepción de metadatos en el servidor}{67}{}%
-\contentsline {section}{\numberline {6.3}Resultados cuantitativos}{67}{}%
-\contentsline {subsection}{\numberline {6.3.1}Latencia hop-by-hop}{67}{}%
-\contentsline {subsection}{\numberline {6.3.2}Carga adicional introducida por INT}{67}{}%
-\contentsline {subsection}{\numberline {6.3.3}Impacto en el plano de usuario}{67}{}%
-\contentsline {section}{\numberline {6.4}Resultados cualitativos}{67}{}%
-\contentsline {subsection}{\numberline {6.4.1}Dashboards obtenidos}{67}{}%
-\contentsline {subsection}{\numberline {6.4.2}Interpretación de tendencias}{67}{}%
-\contentsline {subsection}{\numberline {6.4.3}Problemas encontrados}{67}{}%
-\contentsline {chapter}{\numberline {7}Discusión}{68}{}%
-\contentsline {section}{\numberline {7.1}Análisis crítico de los resultados}{68}{}%
-\contentsline {subsection}{\numberline {7.1.1}Comparación con el estado del arte}{68}{}%
-\contentsline {subsection}{\numberline {7.1.2}Validación de la hipótesis planteada}{68}{}%
-\contentsline {section}{\numberline {7.2}Beneficios del uso de P4 en redes 5G}{68}{}%
-\contentsline {section}{\numberline {7.3}Desafíos de escalabilidad}{68}{}%
-\contentsline {section}{\numberline {7.4}Consideraciones de seguridad para INT}{68}{}%
-\contentsline {section}{\numberline {7.5}Limitaciones del trabajo realizado}{68}{}%
-\contentsline {chapter}{\numberline {8}Conclusiones y Trabajo Futuro}{69}{}%
-\contentsline {section}{\numberline {8.1}Conclusiones principales}{69}{}%
-\contentsline {section}{\numberline {8.2}Contribuciones del trabajo}{69}{}%
-\contentsline {section}{\numberline {8.3}Limitaciones del estudio}{69}{}%
-\contentsline {section}{\numberline {8.4}Líneas futuras de investigación}{69}{}%
-\contentsline {subsection}{\numberline {8.4.1}INT en 6G}{69}{}%
-\contentsline {subsection}{\numberline {8.4.2}UPF programable con P4}{69}{}%
-\contentsline {subsection}{\numberline {8.4.3}IA para análisis de telemetría}{69}{}%
-\contentsline {chapter}{\numberline {A}Apéndices}{70}{}%
-\contentsline {section}{\numberline {A.1}Código P4}{70}{}%
-\contentsline {section}{\numberline {A.2}Topologías de red}{70}{}%
-\contentsline {section}{\numberline {A.3}Configuraciones del core 5G}{70}{}%
-\contentsline {section}{\numberline {A.4}Capturas de tráfico}{70}{}%
-\contentsline {section}{\numberline {A.5}Dashboards de Grafana}{70}{}%
-\contentsline {section}{\numberline {A.6}Scripts y herramientas auxiliares}{70}{}%
+\contentsline {section}{\numberline {5.3}Implementación Red de Transporte con INT}{61}{}%
+\contentsline {section}{\numberline {5.4}Despliegue de switches BMv2 con INT-MD}{63}{}%
+\contentsline {section}{\numberline {5.5}INT como extensión de SCTP}{63}{}%
+\contentsline {subsection}{\numberline {5.5.1}Formato de metadatos INT-MD para SCTP}{63}{}%
+\contentsline {subsection}{\numberline {5.5.2}Estructura de metadatos INT-MD}{63}{}%
+\contentsline {subsection}{\numberline {5.5.3}INT sobre tráfico NGAP (SCTP)}{63}{}%
+\contentsline {section}{\numberline {5.6}INT como extensión de GTP-U}{63}{}%
+\contentsline {subsection}{\numberline {5.6.1}Formato de metadatos INT-MD para GTP-U}{63}{}%
+\contentsline {subsection}{\numberline {5.6.2}Estructura de metadatos INT-MD}{63}{}%
+\contentsline {subsection}{\numberline {5.6.3}INT sobre tráfico N3 (GTP-U)}{63}{}%
+\contentsline {subsection}{\numberline {5.6.4}Formato de metadatos INT-MD para GTP-U}{63}{}%
+\contentsline {subsection}{\numberline {5.6.5}Tablas y acciones configuradas}{63}{}%
+\contentsline {subsection}{\numberline {5.6.6}Inserción INT-MD en tráfico N2 (SCTP)}{63}{}%
+\contentsline {subsection}{\numberline {5.6.7}Inserción INT-MD en tráfico N3 (GTP-U)}{63}{}%
+\contentsline {section}{\numberline {5.7}Servidor de recolección y análisis}{63}{}%
+\contentsline {subsection}{\numberline {5.7.1}Procesamiento y parsing de metadatos}{63}{}%
+\contentsline {subsection}{\numberline {5.7.2}Modelo de base de datos}{63}{}%
+\contentsline {subsection}{\numberline {5.7.3}Visualización en Grafana}{63}{}%
+\contentsline {chapter}{\numberline {6}Resultados Experimentales}{64}{}%
+\contentsline {section}{\numberline {6.1}Validación funcional}{64}{}%
+\contentsline {subsection}{\numberline {6.1.1}INT en tráfico N2}{64}{}%
+\contentsline {subsection}{\numberline {6.1.2}INT en tráfico N3}{64}{}%
+\contentsline {subsection}{\numberline {6.1.3}Recepción de metadatos en el servidor}{64}{}%
+\contentsline {section}{\numberline {6.2}Resultados cuantitativos}{64}{}%
+\contentsline {subsection}{\numberline {6.2.1}Latencia hop-by-hop}{64}{}%
+\contentsline {subsection}{\numberline {6.2.2}Carga adicional introducida por INT}{64}{}%
+\contentsline {subsection}{\numberline {6.2.3}Impacto en el plano de usuario}{64}{}%
+\contentsline {section}{\numberline {6.3}Resultados cualitativos}{64}{}%
+\contentsline {subsection}{\numberline {6.3.1}Dashboards obtenidos}{64}{}%
+\contentsline {subsection}{\numberline {6.3.2}Interpretación de tendencias}{64}{}%
+\contentsline {subsection}{\numberline {6.3.3}Problemas encontrados}{64}{}%
+\contentsline {chapter}{\numberline {7}Conclusiones y Trabajo Futuro}{65}{}%
+\contentsline {section}{\numberline {7.1}Conclusiones principales}{65}{}%
+\contentsline {section}{\numberline {7.2}Contribuciones del trabajo}{65}{}%
+\contentsline {section}{\numberline {7.3}Limitaciones del estudio}{65}{}%
+\contentsline {section}{\numberline {7.4}Líneas futuras de investigación}{65}{}%
+\contentsline {subsection}{\numberline {7.4.1}INT en 6G}{65}{}%
+\contentsline {subsection}{\numberline {7.4.2}UPF programable con P4}{65}{}%
+\contentsline {subsection}{\numberline {7.4.3}IA para análisis de telemetría}{65}{}%
+\contentsline {chapter}{\numberline {A}Apéndices}{66}{}%
+\contentsline {section}{\numberline {A.1}Código}{66}{}%
+\contentsline {section}{\numberline {A.2}Topologías de red}{66}{}%
+\contentsline {section}{\numberline {A.3}Configuraciones del core 5G}{66}{}%
+\contentsline {section}{\numberline {A.4}Capturas de tráfico}{66}{}%
+\contentsline {section}{\numberline {A.5}Dashboards de Grafana}{66}{}%
+\contentsline {section}{\numberline {A.6}Scripts y herramientas auxiliares}{66}{}%

@@ -685,87 +685,111 @@ En la figura \ref{fig:smf-upf-n4-connection} se aprecia que el UPF establece la 
 \end{figure}
 
 
+\section{Implementación Red de Transporte con INT}
+El diseño de la red de transporte se se encuentra en la grafica \ref{sec:topologia_int}. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/int-topologia.png}
+    \caption{Topologia INT-MD}
+    \label{sec:topologia_int}
+\end{figure}
 
+\section{Despliegue de switches BMv2 con INT-MD}
 
+\section{INT como extensión de SCTP}
+\subsection{Formato de metadatos INT-MD para SCTP}
+\subsection{Estructura de metadatos INT-MD}
+\subsection{INT sobre tráfico NGAP (SCTP)}
 
+\section{INT como extensión de GTP-U}
+\subsection{Formato de metadatos INT-MD para GTP-U}
+\subsection{Estructura de metadatos INT-MD}
+\subsection{INT sobre tráfico N3 (GTP-U)}
 
-
-
-
-
-
-
-\subsection{Integración con UERANSIM}
-
-\section{Implementación de la red de distribución P4}
-\subsection{Diseño de los programas P4}
+\subsection{Formato de metadatos INT-MD para GTP-U}
 \subsection{Tablas y acciones configuradas}
 \subsection{Inserción INT-MD en tráfico N2 (SCTP)}
 \subsection{Inserción INT-MD en tráfico N3 (GTP-U)}
 
 \section{Servidor de recolección y análisis}
-\subsection{Implementación del sink INT}
+%\subsection{Implementación del sink INT}
 \subsection{Procesamiento y parsing de metadatos}
 \subsection{Modelo de base de datos}
 \subsection{Visualización en Grafana}
 
-\section{Tecnologías empleadas}
-\subsection{Docker / Docker Compose}
-\subsection{GNS3 / GNS3 VM}
-\subsection{Wireshark y herramientas auxiliares}
+%\section{Tecnologías empleadas}
+%\subsection{Docker / Docker Compose}
+%\subsection{GNS3 / GNS3 VM}
+%\subsection{Wireshark y herramientas auxiliares}
+
+
+%
+%\section{Despliegue del NGRAN con UERANSIM}
+%El NGRAN se ha desplegado utilizando la herramienta UERANSIM, la cual simula tanto el gNB como el UE en modo 5G Standalone (SA). UERANSIM se ha configurado para conectarse al Core 5G SA desplegado previamente, estableciendo el enlace N2 (SCTP) con el AMF y el enlace N3 (GTP-U) con el UPF.
+%\subsection{Despliegue de UERANSIM}
+%El despliegue de UERANSIM se realiza mediante Docker Compose, creando un archivo llamado \textit{docker-compose-build-ngran.yaml} que contiene la configuración tanto del gNB como del UE. El archivo Docker Compose se muestra en el siguiente código \ref{lst:docker-ueransim}.
+%\begin{lstlisting}[style=yamlstyle, caption={Configuración del Docker Compose UERANSIM}, label=lst:docker-ueransim]
+%version: "3.8"
+%services:
+%  ueransim:
+%    container_name: ueransim
+%    build:
+%      context: ./ueransim
+%    command: ./nr-gnb -c ./config/gnbcfg.yaml
+%    expose:
+%      - "38412"
+%    volumes:
+%      - ./config/gnbcfg.yaml:/ueransim/config/gnbcfg.yaml
+%      - ./config/uecfg.yaml:/ueransim/config/uecfg.yaml
+%    cap_add:
+%      - NET_ADMIN
+%    devices:
+%      - "/dev/net/tun"
+%    ports:
+%     - "38412:38412"
+%    networks:
+%      macvlan_net:
+%        ipv4_address: 172.18.10.3
+%        mac_address: f6:b8:eb:4d:0f:3c
+%        aliases:
+%          - gnb.free5gc.org
+%    extra_hosts:
+%      - "amf.free5gc.org:172.18.0.20"
+%      - "upf.free5gc.org:172.18.0.24"   
+%networks:
+%  macvlan_net:
+%   external: true
+%\end{lstlisting}
+%
+%\subsection{Configuración del gNB}
+%
 
 
 
-\section{Despliegue del NGRAN con UERANSIM}
-El NGRAN se ha desplegado utilizando la herramienta UERANSIM, la cual simula tanto el gNB como el UE en modo 5G Standalone (SA). UERANSIM se ha configurado para conectarse al Core 5G SA desplegado previamente, estableciendo el enlace N2 (SCTP) con el AMF y el enlace N3 (GTP-U) con el UPF.
-\subsection{Despliegue de UERANSIM}
-El despliegue de UERANSIM se realiza mediante Docker Compose, creando un archivo llamado \textit{docker-compose-build-ngran.yaml} que contiene la configuración tanto del gNB como del UE. El archivo Docker Compose se muestra en el siguiente código \ref{lst:docker-ueransim}.
-\begin{lstlisting}[style=yamlstyle, caption={Configuración del Docker Compose UERANSIM}, label=lst:docker-ueransim]
-version: "3.8"
-services:
-  ueransim:
-    container_name: ueransim
-    build:
-      context: ./ueransim
-    command: ./nr-gnb -c ./config/gnbcfg.yaml
-    expose:
-      - "38412"
-    volumes:
-      - ./config/gnbcfg.yaml:/ueransim/config/gnbcfg.yaml
-      - ./config/uecfg.yaml:/ueransim/config/uecfg.yaml
-    cap_add:
-      - NET_ADMIN
-    devices:
-      - "/dev/net/tun"
-    ports:
-     - "38412:38412"
-    networks:
-      macvlan_net:
-        ipv4_address: 172.18.10.3
-        mac_address: f6:b8:eb:4d:0f:3c
-        aliases:
-          - gnb.free5gc.org
-    extra_hosts:
-      - "amf.free5gc.org:172.18.0.20"
-      - "upf.free5gc.org:172.18.0.24"   
-networks:
-  macvlan_net:
-   external: true
-\end{lstlisting}
+%La configuración del gNB se realiza mediante el archivo \textit{gnb.yaml}, donde se especifican los parámetros necesarios para la conexión con el Core 5G SA, como la dirección IP del AMF, el PLMN ID, y los parámetros de la interfaz N3. Un ejemplo de configuración del gNB se muestra en la figura \ref{fig:gnb-config}.
+%\begin{figure}[H]
+%    \centering
+%    \includegraphics[width=1.0\textwidth]{images/gnb-config.png}
+%    \caption{Configuración del gNB en UERANSIM}
+%    \label{fig:gnb-config}
+%\end{figure}
+%\subsection{Configuración del UE}
+%La configuración del UE se realiza mediante el archivo \textit{ue.yaml}, donde se especifican los parámetros necesarios para la conexión con el gNB, como el IMSI, la clave de seguridad, y los parámetros de la interfaz N1. Un ejemplo de configuración del UE se muestra en la figura \ref{fig:ue-config}.
+%\begin{figure}[H]
+%    \centering
+%    \includegraphics[width=1.0\textwidth]{images/ue-config.png}
+%    \caption{Configuración del UE en UERANSIM}
+%    \label{fig:ue-config} 
+%\end{figure}
 
-\subsection{Configuración del gNB}
-La configuración del gNB se realiza mediante el archivo \textit{gnb.yaml}, donde se especifican los parámetros necesarios para la conexión con el Core 5G SA, como la dirección IP del AMF, el PLMN ID, y los parámetros de la interfaz N3. Un ejemplo de configuración del gNB se muestra en la figura \ref{fig:gnb-config}.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1.0\textwidth]{images/gnb-config.png}
-    \caption{Configuración del gNB en UERANSIM}
-    \label{fig:gnb-config}
-\end{figure}
-\subsection{Configuración del UE}
-La configuración del UE se realiza mediante el archivo \textit{ue.yaml}, donde se especifican los parámetros necesarios para la conexión con el gNB, como el IMSI, la clave de seguridad, y los parámetros de la interfaz N1. Un ejemplo de configuración del UE se muestra en la figura \ref{fig:ue-config}.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1.0\textwidth]{images/ue-config.png}
-    \caption{Configuración del UE en UERANSIM}
-    \label{fig:ue-config} 
-\end{figure}
+
+
+
+
+
+------------------------------------------------
+%\section{Implicación del código switch INT source}
+%
+%El programa P4 del switch INT source implementa la inserción de metadatos de telemetría en banda (INT-MD) específicamente para el tráfico NGAP transportado sobre SCTP en el enlace N2 entre el NG-RAN y el AMF. El parser del programa analiza secuencialmente las cabeceras Ethernet, IPv4, SCTP y los chunks SCTP, extrayendo información crítica como los puertos de origen y destino del protocolo SCTP. Cuando el parser detecta que el puerto de destino es 38412 (puerto estándar de NGAP), activa la bandera \texttt{is\_ngap\_traffic} en los metadatos internos del switch. Esta identificación selectiva es fundamental para aplicar la inserción INT únicamente al tráfico de señalización 5G, evitando la sobrecarga innecesaria en otros flujos de datos. El pipeline de ingreso consulta la tabla \texttt{int\_source\_table} que, al encontrar una coincidencia exacta con tráfico NGAP, marca el paquete para inserción INT mediante la acción \texttt{int\_source\_action}. Posteriormente, la función \texttt{do\_insert\_int()} modifica el \texttt{EtherType} original a 0xFA (indicando presencia de INT), inserta la cabecera INT shim que preserva el protocolo original en el campo \texttt{next\_proto}, y configura la cabecera INT con parámetros como el contador de saltos restantes (\texttt{remaining\_hop\_cnt}) inicializado a 7 (MAX\_HOP\_COUNT - 1) y la máscara de instrucciones que indica qué metadatos deben recolectarse en cada salto.
+%
+%La inserción del primer bloque de metadatos INT-MD se realiza creando una cabecera \texttt{int\_md\_t} que contiene información del switch fuente como el identificador único del switch (\texttt{switch\_id}), el puerto de entrada (\texttt{ingress\_port\_id}) y la marca temporal de ingreso (\texttt{ingress\_timestamp}) capturada desde el metadato estándar \texttt{ingress\_global\_timestamp}. Los campos relacionados con el egreso como \texttt{egress\_port\_id}, \texttt{hop\_latency} y \texttt{queue\_occupancy} se inicializan en cero durante la fase de ingreso, siendo actualizados posteriormente en el pipeline de egreso mediante la función \texttt{update\_int\_metadata()}. Esta actualización en egreso calcula la latencia del salto restando la marca temporal de ingreso de la marca temporal de egreso (\texttt{egress\_global\_timestamp}), y registra la ocupación de cola mediante el metadato \texttt{enq\_qdepth}, proporcionando visibilidad en tiempo real del comportamiento del switch. El deparser ensambla el paquete modificado emitiendo secuencialmente todas las cabeceras válidas: primero Ethernet con el nuevo EtherType INT, seguido de las cabeceras INT shim, INT header e INT metadata, y finalmente las cabeceras del paquete original (IPv4, SCTP y sus chunks), preservando así la integridad del payload mientras se añaden las capas de telemetría. Esta arquitectura permite que los switches downstream (transit nodes) procesen los metadatos INT existentes y agreguen sus propios bloques de metadatos, construyendo una traza completa del recorrido del paquete NGAP a través de la red de transporte 5G.
