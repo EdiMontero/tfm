@@ -26,6 +26,25 @@
     captionpos=b
 }
 
+% Configuración de listings para P4
+\lstdefinestyle{p4style}{
+    basicstyle=\ttfamily\footnotesize,
+    backgroundcolor=\color{gray!10},
+    frame=single,
+    rulecolor=\color{gray!40},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=8pt,
+    breaklines=true,
+    showstringspaces=false,
+    commentstyle=\color{green!60!black},
+    keywordstyle=\color{blue!80!black}\bfseries,
+    stringstyle=\color{red!70!black},
+    tabsize=4,
+    captionpos=b,
+    morekeywords={header, struct, parser, control, action, table, apply, bit, packet_in, packet_out, inout, out, in, state, transition, select, default, if, return, extern, typedef, const, exact, lpm, ternary, setValid, setInvalid, isValid, emit, extract}
+}
+
 % Renombrar "Listing" a "Código"
 \renewcommand{\lstlistingname}{Código}
 \renewcommand{\lstlistlistingname}{Lista de Códigos}
