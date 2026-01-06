@@ -31,15 +31,16 @@ def parse_int_metadata_correct(md_data, hop_number):
         return None
    
     try:
-        padding = struct.unpack('<H', md_data[0:2])[0]
-        switch_id = struct.unpack('<H', md_data[2:4])[0]
-        ingress_port_id = struct.unpack('<H', md_data[4:6])[0]
-        egress_port_id = struct.unpack('<H', md_data[6:8])[0]
+        # INT-MD on the wire is network byte order (big-endian)
+        padding = struct.unpack('>H', md_data[0:2])[0]
+        switch_id = struct.unpack('>H', md_data[2:4])[0]
+        ingress_port_id = struct.unpack('>H', md_data[4:6])[0]
+        egress_port_id = struct.unpack('>H', md_data[6:8])[0]
 
-        hop_latency = struct.unpack('<I', md_data[8:12])[0]
-        queue_occupancy = struct.unpack('<I', md_data[12:16])[0]
-        ingress_timestamp = struct.unpack('<I', md_data[16:20])[0]
-        egress_timestamp = struct.unpack('<I', md_data[20:24])[0]
+        hop_latency = struct.unpack('>I', md_data[8:12])[0]
+        queue_occupancy = struct.unpack('>I', md_data[12:16])[0]
+        ingress_timestamp = struct.unpack('>I', md_data[16:20])[0]
+        egress_timestamp = struct.unpack('>I', md_data[20:24])[0]
 
         congestion_notification = md_data[24]
 
