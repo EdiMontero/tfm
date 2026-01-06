@@ -39,6 +39,7 @@ def parse_int_metadata_correct(md_data, hop_number):
 
         hop_latency_field = struct.unpack('>I', md_data[8:12])[0]
         queue_occupancy = struct.unpack('>I', md_data[12:16])[0]
+        queue_occupancy_raw = queue_occupancy
         ingress_timestamp = struct.unpack('>I', md_data[16:20])[0]
         egress_timestamp = struct.unpack('>I', md_data[20:24])[0]
 
@@ -86,9 +87,10 @@ def parse_int_metadata_correct(md_data, hop_number):
         print(
             f"[DEBUG] Hop {hop_number}: switch={switch_id}, "
             f"ingress={ingress_port_id}, egress={egress_port_id}, "
-            f"queue={queue_occupancy} packets, "
+            f"queue={queue_occupancy} packets (raw={queue_occupancy_raw}), "
             f"ingress_ts={ingress_timestamp_ms:.3f}ms, egress_ts={egress_timestamp_ms:.3f}ms, "
-            f"latency={hop_latency_ms:.3f}ms ({hop_latency_used}µs){flags_str}"
+            f"latency={hop_latency_ms:.3f}ms ({hop_latency_used}µs), "
+            f"cn={congestion_notification}{flags_str}"
         )
 
         return {
@@ -98,6 +100,7 @@ def parse_int_metadata_correct(md_data, hop_number):
             "hop_latency": hop_latency_used,
             "hop_latency_ms": hop_latency_ms,
             "queue_occupancy": queue_occupancy,
+            "queue_occupancy_raw": queue_occupancy_raw,
             "ingress_timestamp": ingress_timestamp,
             "ingress_timestamp_ms": ingress_timestamp_ms,
             "egress_timestamp": egress_timestamp,
@@ -105,6 +108,7 @@ def parse_int_metadata_correct(md_data, hop_number):
             "congestion_notification": congestion_notification,
             "hop_number": hop_number,
             "hop_latency_field": hop_latency_field,
+            "recovered": recovered,
         }
         
     except Exception as e:
@@ -283,6 +287,8 @@ def handle_packet(pkt):
                     "hop_latency_ms": actual_latency_ms,
                     # Queue occupancy in packets (not time!)
                     "queue_occupancy_packets": md_block["queue_occupancy"],
+                    "queue_occupancy_raw": md_block.get("queue_occupancy_raw", md_block["queue_occupancy"]),
+                    "parser_recovered": 1 if md_block.get("recovered") else 0,
                     # Timestamps in microseconds
                     "ingress_timestamp_us": md_block["ingress_timestamp"],
                     "egress_timestamp_us": md_block["egress_timestamp"],
