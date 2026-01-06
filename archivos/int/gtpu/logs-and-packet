@@ -1,0 +1,1871 @@
+[16:18:08.757] [bmv2] [D] [thread 334] [374.0] [cxt 0] Processing packet received on port 1
+[16:18:08.757] [bmv2] [D] [thread 334] [374.0] [cxt 0] Parser 'parser': start
+[16:18:08.757] [bmv2] [D] [thread 334] [374.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:18:08.757] [bmv2] [D] [thread 334] [374.0] [cxt 0] Extracting header 'ethernet'
+[16:18:08.757] [bmv2] [D] [thread 334] [374.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (1)
+[16:18:08.757] [bmv2] [D] [thread 334] [374.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1052971224
+[16:18:08.757] [bmv2] [D] [thread 334] [374.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:18:08.757] [bmv2] [D] [thread 334] [374.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_ngap_traffic' to 0
+[16:18:08.757] [bmv2] [D] [thread 334] [374.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_gtp_u_traffic' to 0
+[16:18:08.757] [bmv2] [D] [thread 334] [374.0] [cxt 0] Parser set: setting field 'scalars.metadata.traffic_type' to 0
+[16:18:08.757] [bmv2] [D] [thread 334] [374.0] [cxt 0] Parser set: setting field 'scalars.metadata.should_insert_int' to 0
+[16:18:08.757] [bmv2] [D] [thread 334] [374.0] [cxt 0] Parser state 'start': key is 9000
+[16:18:08.757] [bmv2] [T] [thread 334] [374.0] [cxt 0] Bytes parsed: 14
+[16:18:08.757] [bmv2] [D] [thread 334] [374.0] [cxt 0] Parser 'parser': end
+[16:18:08.757] [bmv2] [D] [thread 334] [374.0] [cxt 0] Pipeline 'ingress': start
+[16:18:08.757] [bmv2] [T] [thread 334] [374.0] [cxt 0] Applying table 'tbl_intsource293'
+[16:18:08.757] [bmv2] [D] [thread 334] [374.0] [cxt 0] Looking up key:
+
+[16:18:08.757] [bmv2] [D] [thread 334] [374.0] [cxt 0] Table 'tbl_intsource293': miss
+[16:18:08.757] [bmv2] [D] [thread 334] [374.0] [cxt 0] Action entry is intsource293 -
+[16:18:08.757] [bmv2] [T] [thread 334] [374.0] [cxt 0] Action intsource293
+[16:18:08.757] [bmv2] [T] [thread 334] [374.0] [cxt 0] int-source.p4(293) Primitive meta.switch_id = 1
+[16:18:08.757] [bmv2] [T] [thread 334] [374.0] [cxt 0] int-source.p4(295) Condition "hdr.ethernet.isValid() && hdr.ipv4.isValid()" (node_3) is false
+[16:18:08.757] [bmv2] [D] [thread 334] [374.0] [cxt 0] Pipeline 'ingress': end
+[16:18:08.757] [bmv2] [D] [thread 334] [374.0] [cxt 0] Egress port is 0
+[16:18:08.758] [bmv2] [D] [thread 335] [374.0] [cxt 0] Pipeline 'egress': start
+[16:18:08.758] [bmv2] [T] [thread 335] [374.0] [cxt 0] int-source.p4(328) Condition "hdr.int_shim.isValid()" (node_11) is false
+[16:18:08.758] [bmv2] [D] [thread 335] [374.0] [cxt 0] Pipeline 'egress': end
+[16:18:08.758] [bmv2] [D] [thread 335] [374.0] [cxt 0] Deparser 'deparser': start
+[16:18:08.758] [bmv2] [D] [thread 335] [374.0] [cxt 0] Deparsing header 'ethernet'
+[16:18:08.758] [bmv2] [D] [thread 335] [374.0] [cxt 0] Deparser 'deparser': end
+[16:18:08.758] [bmv2] [D] [thread 339] [374.0] [cxt 0] Transmitting packet of size 60 out of port 0
+[16:18:10.929] [bmv2] [D] [thread 334] [375.0] [cxt 0] Processing packet received on port 2
+[16:18:10.929] [bmv2] [D] [thread 334] [375.0] [cxt 0] Parser 'parser': start
+[16:18:10.929] [bmv2] [D] [thread 334] [375.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:18:10.929] [bmv2] [D] [thread 334] [375.0] [cxt 0] Extracting header 'ethernet'
+[16:18:10.929] [bmv2] [D] [thread 334] [375.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (2)
+[16:18:10.929] [bmv2] [D] [thread 334] [375.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1055143870
+[16:18:10.929] [bmv2] [D] [thread 334] [375.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:18:10.929] [bmv2] [D] [thread 334] [375.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_ngap_traffic' to 0
+[16:18:10.929] [bmv2] [D] [thread 334] [375.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_gtp_u_traffic' to 0
+[16:18:10.929] [bmv2] [D] [thread 334] [375.0] [cxt 0] Parser set: setting field 'scalars.metadata.traffic_type' to 0
+[16:18:10.929] [bmv2] [D] [thread 334] [375.0] [cxt 0] Parser set: setting field 'scalars.metadata.should_insert_int' to 0
+[16:18:10.929] [bmv2] [D] [thread 334] [375.0] [cxt 0] Parser state 'start': key is 0800
+[16:18:10.930] [bmv2] [T] [thread 334] [375.0] [cxt 0] Bytes parsed: 14
+[16:18:10.930] [bmv2] [D] [thread 334] [375.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[16:18:10.930] [bmv2] [D] [thread 334] [375.0] [cxt 0] Extracting header 'ipv4'
+[16:18:10.930] [bmv2] [D] [thread 334] [375.0] [cxt 0] Parser state 'parse_ipv4': key is 01
+[16:18:10.930] [bmv2] [T] [thread 334] [375.0] [cxt 0] Bytes parsed: 34
+[16:18:10.930] [bmv2] [D] [thread 334] [375.0] [cxt 0] Parser 'parser': end
+[16:18:10.930] [bmv2] [D] [thread 334] [375.0] [cxt 0] Pipeline 'ingress': start
+[16:18:10.930] [bmv2] [T] [thread 334] [375.0] [cxt 0] Applying table 'tbl_intsource293'
+[16:18:10.930] [bmv2] [D] [thread 334] [375.0] [cxt 0] Looking up key:
+
+[16:18:10.930] [bmv2] [D] [thread 334] [375.0] [cxt 0] Table 'tbl_intsource293': miss
+[16:18:10.930] [bmv2] [D] [thread 334] [375.0] [cxt 0] Action entry is intsource293 -
+[16:18:10.930] [bmv2] [T] [thread 334] [375.0] [cxt 0] Action intsource293
+[16:18:10.930] [bmv2] [T] [thread 334] [375.0] [cxt 0] int-source.p4(293) Primitive meta.switch_id = 1
+[16:18:10.930] [bmv2] [T] [thread 334] [375.0] [cxt 0] int-source.p4(295) Condition "hdr.ethernet.isValid() && hdr.ipv4.isValid()" (node_3) is true
+[16:18:10.930] [bmv2] [T] [thread 334] [375.0] [cxt 0] int-source.p4(297) Condition "(hdr.ipv4.protocol == 132 && hdr.sctp.isValid()) || ..." (node_4) is false
+[16:18:10.930] [bmv2] [T] [thread 334] [375.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:18:10.930] [bmv2] [D] [thread 334] [375.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : ac120a03
+
+[16:18:10.930] [bmv2] [D] [thread 334] [375.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 1
+[16:18:10.930] [bmv2] [D] [thread 334] [375.0] [cxt 0] Dumping entry 1
+Match key:
+* hdr.ipv4.dstAddr    : LPM       ac120a03/32
+Action entry: MyIngress.forward_action - 1,
+
+[16:18:10.930] [bmv2] [D] [thread 334] [375.0] [cxt 0] Action entry is MyIngress.forward_action - 1,
+[16:18:10.930] [bmv2] [T] [thread 334] [375.0] [cxt 0] Action MyIngress.forward_action
+[16:18:10.930] [bmv2] [T] [thread 334] [375.0] [cxt 0] int-source.p4(264) Primitive standard_metadata.egress_spec = egress_port
+[16:18:10.930] [bmv2] [T] [thread 334] [375.0] [cxt 0] int-source.p4(306) Condition "meta.should_insert_int == 1" (node_7) is false
+[16:18:10.930] [bmv2] [D] [thread 334] [375.0] [cxt 0] Pipeline 'ingress': end
+[16:18:10.930] [bmv2] [D] [thread 334] [375.0] [cxt 0] Egress port is 1
+[16:18:10.930] [bmv2] [D] [thread 336] [375.0] [cxt 0] Pipeline 'egress': start
+[16:18:10.930] [bmv2] [T] [thread 336] [375.0] [cxt 0] int-source.p4(328) Condition "hdr.int_shim.isValid()" (node_11) is false
+[16:18:10.930] [bmv2] [D] [thread 336] [375.0] [cxt 0] Pipeline 'egress': end
+[16:18:10.930] [bmv2] [D] [thread 336] [375.0] [cxt 0] Deparser 'deparser': start
+[16:18:10.930] [bmv2] [D] [thread 336] [375.0] [cxt 0] Deparsing header 'ethernet'
+[16:18:10.930] [bmv2] [D] [thread 336] [375.0] [cxt 0] Deparsing header 'ipv4'
+[16:18:10.930] [bmv2] [D] [thread 336] [375.0] [cxt 0] Deparser 'deparser': end
+[16:18:10.930] [bmv2] [D] [thread 339] [375.0] [cxt 0] Transmitting packet of size 110 out of port 1
+[16:18:17.601] [bmv2] [D] [thread 334] [376.0] [cxt 0] Processing packet received on port 1
+[16:18:17.601] [bmv2] [D] [thread 334] [376.0] [cxt 0] Parser 'parser': start
+[16:18:17.601] [bmv2] [D] [thread 334] [376.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:18:17.601] [bmv2] [D] [thread 334] [376.0] [cxt 0] Extracting header 'ethernet'
+[16:18:17.601] [bmv2] [D] [thread 334] [376.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (1)
+[16:18:17.601] [bmv2] [D] [thread 334] [376.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1061815637
+[16:18:17.601] [bmv2] [D] [thread 334] [376.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:18:17.601] [bmv2] [D] [thread 334] [376.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_ngap_traffic' to 0
+[16:18:17.601] [bmv2] [D] [thread 334] [376.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_gtp_u_traffic' to 0
+[16:18:17.601] [bmv2] [D] [thread 334] [376.0] [cxt 0] Parser set: setting field 'scalars.metadata.traffic_type' to 0
+[16:18:17.601] [bmv2] [D] [thread 334] [376.0] [cxt 0] Parser set: setting field 'scalars.metadata.should_insert_int' to 0
+[16:18:17.601] [bmv2] [D] [thread 334] [376.0] [cxt 0] Parser state 'start': key is 015c
+[16:18:17.601] [bmv2] [T] [thread 334] [376.0] [cxt 0] Bytes parsed: 14
+[16:18:17.601] [bmv2] [D] [thread 334] [376.0] [cxt 0] Parser 'parser': end
+[16:18:17.601] [bmv2] [D] [thread 334] [376.0] [cxt 0] Pipeline 'ingress': start
+[16:18:17.601] [bmv2] [T] [thread 334] [376.0] [cxt 0] Applying table 'tbl_intsource293'
+[16:18:17.601] [bmv2] [D] [thread 334] [376.0] [cxt 0] Looking up key:
+
+[16:18:17.601] [bmv2] [D] [thread 334] [376.0] [cxt 0] Table 'tbl_intsource293': miss
+[16:18:17.601] [bmv2] [D] [thread 334] [376.0] [cxt 0] Action entry is intsource293 -
+[16:18:17.601] [bmv2] [T] [thread 334] [376.0] [cxt 0] Action intsource293
+[16:18:17.601] [bmv2] [T] [thread 334] [376.0] [cxt 0] int-source.p4(293) Primitive meta.switch_id = 1
+[16:18:17.601] [bmv2] [T] [thread 334] [376.0] [cxt 0] int-source.p4(295) Condition "hdr.ethernet.isValid() && hdr.ipv4.isValid()" (node_3) is false
+[16:18:17.601] [bmv2] [D] [thread 334] [376.0] [cxt 0] Pipeline 'ingress': end
+[16:18:17.601] [bmv2] [D] [thread 334] [376.0] [cxt 0] Egress port is 0
+[16:18:17.602] [bmv2] [D] [thread 335] [376.0] [cxt 0] Pipeline 'egress': start
+[16:18:17.602] [bmv2] [T] [thread 335] [376.0] [cxt 0] int-source.p4(328) Condition "hdr.int_shim.isValid()" (node_11) is false
+[16:18:17.602] [bmv2] [D] [thread 335] [376.0] [cxt 0] Pipeline 'egress': end
+[16:18:17.602] [bmv2] [D] [thread 335] [376.0] [cxt 0] Deparser 'deparser': start
+[16:18:17.602] [bmv2] [D] [thread 335] [376.0] [cxt 0] Deparsing header 'ethernet'
+[16:18:17.602] [bmv2] [D] [thread 335] [376.0] [cxt 0] Deparser 'deparser': end
+[16:18:17.602] [bmv2] [D] [thread 339] [376.0] [cxt 0] Transmitting packet of size 362 out of port 0
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Processing packet received on port 1
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser 'parser': start
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Extracting header 'ethernet'
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (1)
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1062181732
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_ngap_traffic' to 0
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_gtp_u_traffic' to 0
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser set: setting field 'scalars.metadata.traffic_type' to 0
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser set: setting field 'scalars.metadata.should_insert_int' to 0
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser state 'start': key is 0800
+[16:18:17.967] [bmv2] [T] [thread 334] [377.0] [cxt 0] Bytes parsed: 14
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Extracting header 'ipv4'
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser state 'parse_ipv4': key is 84
+[16:18:17.967] [bmv2] [T] [thread 334] [377.0] [cxt 0] Bytes parsed: 34
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser 'parser' entering state 'parse_sctp_common'
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Extracting header 'sctp'
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser set: setting field 'scalars.metadata.transport_src_port' from field 'sctp.src_port' (52137)
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser set: setting field 'scalars.metadata.transport_dst_port' from field 'sctp.dst_port' (38412)
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser set: setting field 'scalars.tmp_0' from expression, new value is 1
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser state 'parse_sctp_common': key is 01
+[16:18:17.967] [bmv2] [T] [thread 334] [377.0] [cxt 0] Bytes parsed: 46
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser 'parser' entering state 'parse_sctp_common_true'
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_ngap_traffic' to 1
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser set: setting field 'scalars.metadata.traffic_type' to 1
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser state 'parse_sctp_common_true' has no switch, going to default next state
+[16:18:17.967] [bmv2] [T] [thread 334] [377.0] [cxt 0] Bytes parsed: 46
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser 'parser' entering state 'parse_sctp_common_join'
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Extracting header 'sctp_chunk'
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser state 'parse_sctp_common_join': key is 01
+[16:18:17.967] [bmv2] [T] [thread 334] [377.0] [cxt 0] Bytes parsed: 50
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Parser 'parser': end
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Pipeline 'ingress': start
+[16:18:17.967] [bmv2] [T] [thread 334] [377.0] [cxt 0] Applying table 'tbl_intsource293'
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Looking up key:
+
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Table 'tbl_intsource293': miss
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Action entry is intsource293 -
+[16:18:17.967] [bmv2] [T] [thread 334] [377.0] [cxt 0] Action intsource293
+[16:18:17.967] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(293) Primitive meta.switch_id = 1
+[16:18:17.967] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(295) Condition "hdr.ethernet.isValid() && hdr.ipv4.isValid()" (node_3) is true
+[16:18:17.967] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(297) Condition "(hdr.ipv4.protocol == 132 && hdr.sctp.isValid()) || ..." (node_4) is true
+[16:18:17.967] [bmv2] [T] [thread 334] [377.0] [cxt 0] Applying table 'MyIngress.int_source_table'
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Looking up key:
+* meta.traffic_type   : 01
+
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Table 'MyIngress.int_source_table': hit with handle 0
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Dumping entry 0
+Match key:
+* meta.traffic_type   : EXACT     01
+Action entry: MyIngress.int_source_action -
+
+[16:18:17.967] [bmv2] [D] [thread 334] [377.0] [cxt 0] Action entry is MyIngress.int_source_action -
+[16:18:17.967] [bmv2] [T] [thread 334] [377.0] [cxt 0] Action MyIngress.int_source_action
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(220) Primitive meta.should_insert_int = 1
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:18:17.968] [bmv2] [D] [thread 334] [377.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : ac120014
+
+[16:18:17.968] [bmv2] [D] [thread 334] [377.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 2
+[16:18:17.968] [bmv2] [D] [thread 334] [377.0] [cxt 0] Dumping entry 2
+Match key:
+* hdr.ipv4.dstAddr    : LPM       00000000/0
+Action entry: MyIngress.forward_action - 2,
+
+[16:18:17.968] [bmv2] [D] [thread 334] [377.0] [cxt 0] Action entry is MyIngress.forward_action - 2,
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] Action MyIngress.forward_action
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(264) Primitive standard_metadata.egress_spec = egress_port
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(306) Condition "meta.should_insert_int == 1" (node_7) is true
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] Applying table 'tbl_do_insert_int'
+[16:18:17.968] [bmv2] [D] [thread 334] [377.0] [cxt 0] Looking up key:
+
+[16:18:17.968] [bmv2] [D] [thread 334] [377.0] [cxt 0] Table 'tbl_do_insert_int': miss
+[16:18:17.968] [bmv2] [D] [thread 334] [377.0] [cxt 0] Action entry is MyIngress.do_insert_int -
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] Action MyIngress.do_insert_int
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(225) Primitive bit<16> original_ether_type = hdr.ethernet.etherType
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(228) Primitive hdr.ethernet.etherType = 0xFA
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(231) Primitive hdr.int_shim.setValid()
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(232) Primitive hdr.int_shim.type = 1
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(233) Primitive hdr.int_shim.reserved = 0
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(234) Primitive hdr.int_shim.length = 44
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(235) Primitive hdr.int_shim.next_proto = original_ether_type
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(238) Primitive hdr.int_header.setValid()
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(239) Primitive hdr.int_header.version = 1
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(240) Primitive hdr.int_header.d = 0
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(241) Primitive hdr.int_header.q = 0
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(242) Primitive hdr.int_header.m = 1
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(243) Primitive hdr.int_header.reserved1 = 0
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(244) Primitive hdr.int_header.hop_ml = 1
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(245) Primitive hdr.int_header.instruction = 0x00FF
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(246) Primitive hdr.int_header.reserved2 = 0
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(247) Primitive hdr.int_header.remaining_hop_cnt = 8 - 1
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(250) Primitive hdr.int_md.setValid()
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(251) Primitive hdr.int_md.switch_id = meta.switch_id
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(252) Primitive hdr.int_md.ingress_port_id = (bit<16>)meta.ingress_port
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(253) Primitive hdr.int_md.ingress_timestamp = meta.ingress_ts
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(254) Primitive hdr.int_md.egress_port_id = 0
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(255) Primitive hdr.int_md.hop_latency = 0
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(256) Primitive hdr.int_md.egress_timestamp = 0
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(257) Primitive hdr.int_md.queue_occupancy = 0
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(258) Primitive hdr.int_md.congestion_notification = 0
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(259) Primitive hdr.int_md.reserved1 = 0
+[16:18:17.968] [bmv2] [T] [thread 334] [377.0] [cxt 0] int-source.p4(260) Primitive hdr.int_md.reserved2 = 0
+[16:18:17.968] [bmv2] [D] [thread 334] [377.0] [cxt 0] Pipeline 'ingress': end
+[16:18:17.968] [bmv2] [D] [thread 334] [377.0] [cxt 0] Egress port is 2
+[16:18:17.968] [bmv2] [D] [thread 337] [377.0] [cxt 0] Pipeline 'egress': start
+[16:18:17.968] [bmv2] [T] [thread 337] [377.0] [cxt 0] int-source.p4(328) Condition "hdr.int_shim.isValid()" (node_11) is true
+[16:18:17.968] [bmv2] [T] [thread 337] [377.0] [cxt 0] Applying table 'tbl_update_int_metadata'
+[16:18:17.968] [bmv2] [D] [thread 337] [377.0] [cxt 0] Looking up key:
+
+[16:18:17.968] [bmv2] [D] [thread 337] [377.0] [cxt 0] Table 'tbl_update_int_metadata': miss
+[16:18:17.968] [bmv2] [D] [thread 337] [377.0] [cxt 0] Action entry is MyEgress.update_int_metadata -
+[16:18:17.968] [bmv2] [T] [thread 337] [377.0] [cxt 0] Action MyEgress.update_int_metadata
+[16:18:17.968] [bmv2] [T] [thread 337] [377.0] [cxt 0] int-source.p4(319) Primitive if
+[16:18:17.968] [bmv2] [T] [thread 337] [377.0] [cxt 0] int-source.p4(320) Primitive hdr.int_md.egress_port_id = (bit<16>)standard_metadata.egress_port
+[16:18:17.968] [bmv2] [T] [thread 337] [377.0] [cxt 0] int-source.p4(321) Primitive hdr.int_md.egress_timestamp = (bit<32>)standard_metadata.egress_global_timestamp
+[16:18:17.968] [bmv2] [T] [thread 337] [377.0] [cxt 0] int-source.p4(322) Primitive hdr.int_md.hop_latency = hdr.int_md.egress_timestamp - hdr.int_md.ingress_timestamp
+[16:18:17.968] [bmv2] [T] [thread 337] [377.0] [cxt 0] int-source.p4(323) Primitive hdr.int_md.queue_occupancy = (bit<32>)standard_metadata.enq_qdepth
+[16:18:17.968] [bmv2] [D] [thread 337] [377.0] [cxt 0] Pipeline 'egress': end
+[16:18:17.968] [bmv2] [D] [thread 337] [377.0] [cxt 0] Deparser 'deparser': start
+[16:18:17.968] [bmv2] [D] [thread 337] [377.0] [cxt 0] Deparsing header 'ethernet'
+[16:18:17.968] [bmv2] [D] [thread 337] [377.0] [cxt 0] Deparsing header 'int_shim'
+[16:18:17.968] [bmv2] [D] [thread 337] [377.0] [cxt 0] Deparsing header 'int_header'
+[16:18:17.968] [bmv2] [D] [thread 337] [377.0] [cxt 0] Deparsing header 'int_md'
+[16:18:17.968] [bmv2] [D] [thread 337] [377.0] [cxt 0] Deparsing header 'ipv4'
+[16:18:17.968] [bmv2] [D] [thread 337] [377.0] [cxt 0] Deparsing header 'sctp'
+[16:18:17.968] [bmv2] [D] [thread 337] [377.0] [cxt 0] Deparsing header 'sctp_chunk'
+[16:18:17.968] [bmv2] [D] [thread 337] [377.0] [cxt 0] Deparser 'deparser': end
+[16:18:17.968] [bmv2] [D] [thread 339] [377.0] [cxt 0] Transmitting packet of size 123 out of port 2
+[16:18:18.757] [bmv2] [D] [thread 334] [378.0] [cxt 0] Processing packet received on port 1
+[16:18:18.757] [bmv2] [D] [thread 334] [378.0] [cxt 0] Parser 'parser': start
+[16:18:18.757] [bmv2] [D] [thread 334] [378.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:18:18.757] [bmv2] [D] [thread 334] [378.0] [cxt 0] Extracting header 'ethernet'
+[16:18:18.757] [bmv2] [D] [thread 334] [378.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (1)
+[16:18:18.757] [bmv2] [D] [thread 334] [378.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1062971333
+[16:18:18.757] [bmv2] [D] [thread 334] [378.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:18:18.757] [bmv2] [D] [thread 334] [378.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_ngap_traffic' to 0
+[16:18:18.757] [bmv2] [D] [thread 334] [378.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_gtp_u_traffic' to 0
+[16:18:18.757] [bmv2] [D] [thread 334] [378.0] [cxt 0] Parser set: setting field 'scalars.metadata.traffic_type' to 0
+[16:18:18.757] [bmv2] [D] [thread 334] [378.0] [cxt 0] Parser set: setting field 'scalars.metadata.should_insert_int' to 0
+[16:18:18.757] [bmv2] [D] [thread 334] [378.0] [cxt 0] Parser state 'start': key is 9000
+[16:18:18.757] [bmv2] [T] [thread 334] [378.0] [cxt 0] Bytes parsed: 14
+[16:18:18.757] [bmv2] [D] [thread 334] [378.0] [cxt 0] Parser 'parser': end
+[16:18:18.757] [bmv2] [D] [thread 334] [378.0] [cxt 0] Pipeline 'ingress': start
+[16:18:18.758] [bmv2] [T] [thread 334] [378.0] [cxt 0] Applying table 'tbl_intsource293'
+[16:18:18.758] [bmv2] [D] [thread 334] [378.0] [cxt 0] Looking up key:
+
+[16:18:18.758] [bmv2] [D] [thread 334] [378.0] [cxt 0] Table 'tbl_intsource293': miss
+[16:18:18.758] [bmv2] [D] [thread 334] [378.0] [cxt 0] Action entry is intsource293 -
+[16:18:18.758] [bmv2] [T] [thread 334] [378.0] [cxt 0] Action intsource293
+[16:18:18.758] [bmv2] [T] [thread 334] [378.0] [cxt 0] int-source.p4(293) Primitive meta.switch_id = 1
+[16:18:18.759] [bmv2] [T] [thread 334] [378.0] [cxt 0] int-source.p4(295) Condition "hdr.ethernet.isValid() && hdr.ipv4.isValid()" (node_3) is false
+[16:18:18.759] [bmv2] [D] [thread 334] [378.0] [cxt 0] Pipeline 'ingress': end
+[16:18:18.759] [bmv2] [D] [thread 334] [378.0] [cxt 0] Egress port is 0
+[16:18:18.759] [bmv2] [D] [thread 335] [378.0] [cxt 0] Pipeline 'egress': start
+[16:18:18.759] [bmv2] [T] [thread 335] [378.0] [cxt 0] int-source.p4(328) Condition "hdr.int_shim.isValid()" (node_11) is false
+[16:18:18.759] [bmv2] [D] [thread 335] [378.0] [cxt 0] Pipeline 'egress': end
+[16:18:18.759] [bmv2] [D] [thread 335] [378.0] [cxt 0] Deparser 'deparser': start
+[16:18:18.759] [bmv2] [D] [thread 335] [378.0] [cxt 0] Deparsing header 'ethernet'
+[16:18:18.759] [bmv2] [D] [thread 335] [378.0] [cxt 0] Deparser 'deparser': end
+[16:18:18.759] [bmv2] [D] [thread 339] [378.0] [cxt 0] Transmitting packet of size 60 out of port 0
+[16:18:21.103] [bmv2] [D] [thread 334] [379.0] [cxt 0] Processing packet received on port 2
+[16:18:21.103] [bmv2] [D] [thread 334] [379.0] [cxt 0] Parser 'parser': start
+[16:18:21.103] [bmv2] [D] [thread 334] [379.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:18:21.103] [bmv2] [D] [thread 334] [379.0] [cxt 0] Extracting header 'ethernet'
+[16:18:21.103] [bmv2] [D] [thread 334] [379.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (2)
+[16:18:21.103] [bmv2] [D] [thread 334] [379.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1065316174
+[16:18:21.103] [bmv2] [D] [thread 334] [379.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:18:21.103] [bmv2] [D] [thread 334] [379.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_ngap_traffic' to 0
+[16:18:21.103] [bmv2] [D] [thread 334] [379.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_gtp_u_traffic' to 0
+[16:18:21.103] [bmv2] [D] [thread 334] [379.0] [cxt 0] Parser set: setting field 'scalars.metadata.traffic_type' to 0
+[16:18:21.103] [bmv2] [D] [thread 334] [379.0] [cxt 0] Parser set: setting field 'scalars.metadata.should_insert_int' to 0
+[16:18:21.103] [bmv2] [D] [thread 334] [379.0] [cxt 0] Parser state 'start': key is 0800
+[16:18:21.103] [bmv2] [T] [thread 334] [379.0] [cxt 0] Bytes parsed: 14
+[16:18:21.103] [bmv2] [D] [thread 334] [379.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[16:18:21.103] [bmv2] [D] [thread 334] [379.0] [cxt 0] Extracting header 'ipv4'
+[16:18:21.104] [bmv2] [D] [thread 334] [379.0] [cxt 0] Parser state 'parse_ipv4': key is 01
+[16:18:21.104] [bmv2] [T] [thread 334] [379.0] [cxt 0] Bytes parsed: 34
+[16:18:21.104] [bmv2] [D] [thread 334] [379.0] [cxt 0] Parser 'parser': end
+[16:18:21.104] [bmv2] [D] [thread 334] [379.0] [cxt 0] Pipeline 'ingress': start
+[16:18:21.104] [bmv2] [T] [thread 334] [379.0] [cxt 0] Applying table 'tbl_intsource293'
+[16:18:21.104] [bmv2] [D] [thread 334] [379.0] [cxt 0] Looking up key:
+
+[16:18:21.104] [bmv2] [D] [thread 334] [379.0] [cxt 0] Table 'tbl_intsource293': miss
+[16:18:21.104] [bmv2] [D] [thread 334] [379.0] [cxt 0] Action entry is intsource293 -
+[16:18:21.104] [bmv2] [T] [thread 334] [379.0] [cxt 0] Action intsource293
+[16:18:21.104] [bmv2] [T] [thread 334] [379.0] [cxt 0] int-source.p4(293) Primitive meta.switch_id = 1
+[16:18:21.104] [bmv2] [T] [thread 334] [379.0] [cxt 0] int-source.p4(295) Condition "hdr.ethernet.isValid() && hdr.ipv4.isValid()" (node_3) is true
+[16:18:21.104] [bmv2] [T] [thread 334] [379.0] [cxt 0] int-source.p4(297) Condition "(hdr.ipv4.protocol == 132 && hdr.sctp.isValid()) || ..." (node_4) is false
+[16:18:21.104] [bmv2] [T] [thread 334] [379.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:18:21.104] [bmv2] [D] [thread 334] [379.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : ac120a03
+
+[16:18:21.104] [bmv2] [D] [thread 334] [379.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 1
+[16:18:21.104] [bmv2] [D] [thread 334] [379.0] [cxt 0] Dumping entry 1
+Match key:
+* hdr.ipv4.dstAddr    : LPM       ac120a03/32
+Action entry: MyIngress.forward_action - 1,
+
+[16:18:21.104] [bmv2] [D] [thread 334] [379.0] [cxt 0] Action entry is MyIngress.forward_action - 1,
+[16:18:21.104] [bmv2] [T] [thread 334] [379.0] [cxt 0] Action MyIngress.forward_action
+[16:18:21.104] [bmv2] [T] [thread 334] [379.0] [cxt 0] int-source.p4(264) Primitive standard_metadata.egress_spec = egress_port
+[16:18:21.105] [bmv2] [T] [thread 334] [379.0] [cxt 0] int-source.p4(306) Condition "meta.should_insert_int == 1" (node_7) is false
+[16:18:21.105] [bmv2] [D] [thread 334] [379.0] [cxt 0] Pipeline 'ingress': end
+[16:18:21.105] [bmv2] [D] [thread 334] [379.0] [cxt 0] Egress port is 1
+[16:18:21.105] [bmv2] [D] [thread 336] [379.0] [cxt 0] Pipeline 'egress': start
+[16:18:21.105] [bmv2] [T] [thread 336] [379.0] [cxt 0] int-source.p4(328) Condition "hdr.int_shim.isValid()" (node_11) is false
+[16:18:21.105] [bmv2] [D] [thread 336] [379.0] [cxt 0] Pipeline 'egress': end
+[16:18:21.105] [bmv2] [D] [thread 336] [379.0] [cxt 0] Deparser 'deparser': start
+[16:18:21.105] [bmv2] [D] [thread 336] [379.0] [cxt 0] Deparsing header 'ethernet'
+[16:18:21.105] [bmv2] [D] [thread 336] [379.0] [cxt 0] Deparsing header 'ipv4'
+[16:18:21.105] [bmv2] [D] [thread 336] [379.0] [cxt 0] Deparser 'deparser': end
+[16:18:21.105] [bmv2] [D] [thread 339] [379.0] [cxt 0] Transmitting packet of size 110 out of port 1
+
+
+
+
+
+
+
+-------------SW2
+[16:18:48.695] [bmv2] [D] [thread 338] [26.0] [cxt 0] Transmitting packet of size 151 out of port 2
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Processing packet received on port 2
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Parser 'parser': start
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Extracting header 'ethernet'
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (2)
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1084832346
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' to 0
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Parser state 'start': key is 0800
+[16:18:51.879] [bmv2] [T] [thread 333] [27.0] [cxt 0] Bytes parsed: 14
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Extracting header 'ipv4_inner'
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Parser state 'parse_ipv4': key is 01
+[16:18:51.879] [bmv2] [T] [thread 333] [27.0] [cxt 0] Bytes parsed: 34
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Parser 'parser': end
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Pipeline 'ingress': start
+[16:18:51.879] [bmv2] [T] [thread 333] [27.0] [cxt 0] Applying table 'tbl_intgtptransit292'
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Looking up key:
+
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Table 'tbl_intgtptransit292': miss
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Action entry is intgtptransit292 -
+[16:18:51.879] [bmv2] [T] [thread 333] [27.0] [cxt 0] Action intgtptransit292
+[16:18:51.879] [bmv2] [T] [thread 333] [27.0] [cxt 0] int-gtp-transit.p4(292) Primitive meta.switch_id = 2
+[16:18:51.879] [bmv2] [T] [thread 333] [27.0] [cxt 0] int-gtp-transit.p4(294) Condition "hdr.int_shim.isValid()" (node_3) is false
+[16:18:51.879] [bmv2] [T] [thread 333] [27.0] [cxt 0] int-gtp-transit.p4(314) Condition "hdr.ipv4_inner.isValid()" (node_6) is true
+[16:18:51.879] [bmv2] [T] [thread 333] [27.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Looking up key:
+* hdr.ipv4_inner.dstAddr: ac120a03
+
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 1
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Dumping entry 1
+Match key:
+* hdr.ipv4_inner.dstAddr: LPM       ac120a03/32
+Action entry: MyIngress.forward_action - 1,
+
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Action entry is MyIngress.forward_action - 1,
+[16:18:51.879] [bmv2] [T] [thread 333] [27.0] [cxt 0] Action MyIngress.forward_action
+[16:18:51.879] [bmv2] [T] [thread 333] [27.0] [cxt 0] int-gtp-transit.p4(276) Primitive standard_metadata.egress_spec = egress_port
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Pipeline 'ingress': end
+[16:18:51.879] [bmv2] [D] [thread 333] [27.0] [cxt 0] Egress port is 1
+[16:18:51.879] [bmv2] [D] [thread 335] [27.0] [cxt 0] Pipeline 'egress': start
+[16:18:51.879] [bmv2] [T] [thread 335] [27.0] [cxt 0] int-gtp-transit.p4(326) Condition "hdr.int_shim.isValid()" (node_10) is false
+[16:18:51.879] [bmv2] [D] [thread 335] [27.0] [cxt 0] Pipeline 'egress': end
+[16:18:51.879] [bmv2] [D] [thread 335] [27.0] [cxt 0] Deparser 'deparser': start
+[16:18:51.879] [bmv2] [D] [thread 335] [27.0] [cxt 0] Deparsing header 'ethernet'
+[16:18:51.879] [bmv2] [D] [thread 335] [27.0] [cxt 0] Deparsing header 'ipv4_inner'
+[16:18:51.879] [bmv2] [D] [thread 335] [27.0] [cxt 0] Deparser 'deparser': end
+[16:18:51.879] [bmv2] [D] [thread 338] [27.0] [cxt 0] Transmitting packet of size 110 out of port 1
+[16:18:58.921] [bmv2] [D] [thread 333] [28.0] [cxt 0] Processing packet received on port 1
+[16:18:58.921] [bmv2] [D] [thread 333] [28.0] [cxt 0] Parser 'parser': start
+[16:18:58.921] [bmv2] [D] [thread 333] [28.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:18:58.921] [bmv2] [D] [thread 333] [28.0] [cxt 0] Extracting header 'ethernet'
+[16:18:58.921] [bmv2] [D] [thread 333] [28.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (1)
+[16:18:58.921] [bmv2] [D] [thread 333] [28.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1091874587
+[16:18:58.921] [bmv2] [D] [thread 333] [28.0] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' to 0
+[16:18:58.921] [bmv2] [D] [thread 333] [28.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:18:58.921] [bmv2] [D] [thread 333] [28.0] [cxt 0] Parser state 'start': key is 00fa
+[16:18:58.921] [bmv2] [T] [thread 333] [28.0] [cxt 0] Bytes parsed: 14
+[16:18:58.921] [bmv2] [D] [thread 333] [28.0] [cxt 0] Parser 'parser' entering state 'parse_int_shim'
+[16:18:58.921] [bmv2] [D] [thread 333] [28.0] [cxt 0] Extracting header 'int_shim'
+[16:18:58.921] [bmv2] [D] [thread 333] [28.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 1
+[16:18:58.921] [bmv2] [D] [thread 333] [28.0] [cxt 0] Extracting header 'int_header'
+[16:18:58.921] [bmv2] [D] [thread 333] [28.0] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' from expression, new value is 250
+[16:18:58.921] [bmv2] [D] [thread 333] [28.0] [cxt 0] Extracting header 'int_md[0]'
+[16:18:58.921] [bmv2] [D] [thread 333] [28.0] [cxt 0] Parser state 'parse_int_shim': key is 0800
+[16:18:58.921] [bmv2] [T] [thread 333] [28.0] [cxt 0] Bytes parsed: 55
+[16:18:58.921] [bmv2] [D] [thread 333] [28.0] [cxt 0] Parser 'parser' entering state 'parse_encapsulated_ipv4'
+[16:18:58.921] [bmv2] [D] [thread 333] [28.0] [cxt 0] Extracting header 'ipv4_inner'
+[16:18:58.922] [bmv2] [D] [thread 333] [28.0] [cxt 0] Parser state 'parse_encapsulated_ipv4': key is 84
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] Bytes parsed: 75
+[16:18:58.922] [bmv2] [D] [thread 333] [28.0] [cxt 0] Parser 'parser' entering state 'parse_encapsulated_sctp_common'
+[16:18:58.922] [bmv2] [D] [thread 333] [28.0] [cxt 0] Extracting header 'sctp'
+[16:18:58.922] [bmv2] [D] [thread 333] [28.0] [cxt 0] Extracting header 'sctp_chunk'
+[16:18:58.922] [bmv2] [D] [thread 333] [28.0] [cxt 0] Parser state 'parse_encapsulated_sctp_common': key is 01
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] Bytes parsed: 91
+[16:18:58.922] [bmv2] [D] [thread 333] [28.0] [cxt 0] Parser 'parser': end
+[16:18:58.922] [bmv2] [D] [thread 333] [28.0] [cxt 0] Pipeline 'ingress': start
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] Applying table 'tbl_intgtptransit292'
+[16:18:58.922] [bmv2] [D] [thread 333] [28.0] [cxt 0] Looking up key:
+
+[16:18:58.922] [bmv2] [D] [thread 333] [28.0] [cxt 0] Table 'tbl_intgtptransit292': miss
+[16:18:58.922] [bmv2] [D] [thread 333] [28.0] [cxt 0] Action entry is intgtptransit292 -
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] Action intgtptransit292
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] int-gtp-transit.p4(292) Primitive meta.switch_id = 2
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] int-gtp-transit.p4(294) Condition "hdr.int_shim.isValid()" (node_3) is true
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] int-gtp-transit.p4(295) Condition "hdr.int_header.remaining_hop_cnt > 0" (node_4) is true
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] Applying table 'tbl_intgtptransit297'
+[16:18:58.922] [bmv2] [D] [thread 333] [28.0] [cxt 0] Looking up key:
+
+[16:18:58.922] [bmv2] [D] [thread 333] [28.0] [cxt 0] Table 'tbl_intgtptransit297': miss
+[16:18:58.922] [bmv2] [D] [thread 333] [28.0] [cxt 0] Action entry is intgtptransit297 -
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] Action intgtptransit297
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] int-gtp-transit.p4(297) Primitive hdr.int_md[1].setValid()
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] int-gtp-transit.p4(298) Primitive hdr.int_md[1].switch_id = meta.switch_id
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] int-gtp-transit.p4(299) Primitive hdr.int_md[1].ingress_port_id = (bit<16>)meta.ingress_port
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] int-gtp-transit.p4(300) Primitive hdr.int_md[1].ingress_timestamp = meta.ingress_ts
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] int-gtp-transit.p4(301) Primitive hdr.int_md[1].egress_port_id = 0
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] int-gtp-transit.p4(302) Primitive hdr.int_md[1].hop_latency = 0
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] int-gtp-transit.p4(303) Primitive hdr.int_md[1].egress_timestamp = 0
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] int-gtp-transit.p4(304) Primitive hdr.int_md[1].queue_occupancy = 0
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] int-gtp-transit.p4(305) Primitive hdr.int_md[1].congestion_notification = 0
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] int-gtp-transit.p4(306) Primitive hdr.int_md[1].reserved1 = 0
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] int-gtp-transit.p4(307) Primitive hdr.int_md[1].reserved2 = 0
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] int-gtp-transit.p4(309) Primitive hdr.int_header.remaining_hop_cnt = hdr.int_header.remaining_hop_cnt - 1
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] int-gtp-transit.p4(310) Primitive hdr.int_shim.length = hdr.int_shim.length + 32
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] int-gtp-transit.p4(314) Condition "hdr.ipv4_inner.isValid()" (node_6) is true
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:18:58.922] [bmv2] [D] [thread 333] [28.0] [cxt 0] Looking up key:
+* hdr.ipv4_inner.dstAddr: ac120014
+
+[16:18:58.922] [bmv2] [D] [thread 333] [28.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 0
+[16:18:58.922] [bmv2] [D] [thread 333] [28.0] [cxt 0] Dumping entry 0
+Match key:
+* hdr.ipv4_inner.dstAddr: LPM       ac120014/32
+Action entry: MyIngress.forward_action - 2,
+
+[16:18:58.922] [bmv2] [D] [thread 333] [28.0] [cxt 0] Action entry is MyIngress.forward_action - 2,
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] Action MyIngress.forward_action
+[16:18:58.922] [bmv2] [T] [thread 333] [28.0] [cxt 0] int-gtp-transit.p4(276) Primitive standard_metadata.egress_spec = egress_port
+[16:18:58.922] [bmv2] [D] [thread 333] [28.0] [cxt 0] Pipeline 'ingress': end
+[16:18:58.922] [bmv2] [D] [thread 333] [28.0] [cxt 0] Egress port is 2
+[16:18:58.922] [bmv2] [D] [thread 336] [28.0] [cxt 0] Pipeline 'egress': start
+[16:18:58.922] [bmv2] [T] [thread 336] [28.0] [cxt 0] int-gtp-transit.p4(326) Condition "hdr.int_shim.isValid()" (node_10) is true
+[16:18:58.922] [bmv2] [T] [thread 336] [28.0] [cxt 0] int-gtp-transit.p4(328) Condition "hdr.int_md[1].isValid() && hdr.int_md[1].egress_port_id == 0" (node_11) is true
+[16:18:58.922] [bmv2] [T] [thread 336] [28.0] [cxt 0] Applying table 'tbl_intgtptransit329'
+[16:18:58.922] [bmv2] [D] [thread 336] [28.0] [cxt 0] Looking up key:
+
+[16:18:58.922] [bmv2] [D] [thread 336] [28.0] [cxt 0] Table 'tbl_intgtptransit329': miss
+[16:18:58.922] [bmv2] [D] [thread 336] [28.0] [cxt 0] Action entry is intgtptransit329 -
+[16:18:58.922] [bmv2] [T] [thread 336] [28.0] [cxt 0] Action intgtptransit329
+[16:18:58.922] [bmv2] [T] [thread 336] [28.0] [cxt 0] int-gtp-transit.p4(329) Primitive hdr.int_md[1].egress_port_id = (bit<16>)standard_metadata.egress_port
+[16:18:58.922] [bmv2] [T] [thread 336] [28.0] [cxt 0] int-gtp-transit.p4(330) Primitive hdr.int_md[1].egress_timestamp = (bit<32>)standard_metadata.egress_global_timestamp
+[16:18:58.922] [bmv2] [T] [thread 336] [28.0] [cxt 0] int-gtp-transit.p4(331) Primitive hdr.int_md[1].hop_latency = hdr.int_md[1].egress_timestamp - hdr.int_md[1].ingress_timestamp
+[16:18:58.922] [bmv2] [T] [thread 336] [28.0] [cxt 0] int-gtp-transit.p4(332) Primitive hdr.int_md[1].queue_occupancy = (bit<32>)standard_metadata.enq_qdepth
+[16:18:58.923] [bmv2] [D] [thread 336] [28.0] [cxt 0] Pipeline 'egress': end
+[16:18:58.923] [bmv2] [D] [thread 336] [28.0] [cxt 0] Deparser 'deparser': start
+[16:18:58.923] [bmv2] [D] [thread 336] [28.0] [cxt 0] Deparsing header 'ethernet'
+[16:18:58.923] [bmv2] [D] [thread 336] [28.0] [cxt 0] Deparsing header 'int_shim'
+[16:18:58.923] [bmv2] [D] [thread 336] [28.0] [cxt 0] Deparsing header 'int_header'
+[16:18:58.923] [bmv2] [D] [thread 336] [28.0] [cxt 0] Deparsing header 'int_md[0]'
+[16:18:58.923] [bmv2] [D] [thread 336] [28.0] [cxt 0] Deparsing header 'int_md[1]'
+[16:18:58.923] [bmv2] [D] [thread 336] [28.0] [cxt 0] Deparsing header 'ipv4_inner'
+[16:18:58.923] [bmv2] [D] [thread 336] [28.0] [cxt 0] Deparsing header 'sctp'
+[16:18:58.923] [bmv2] [D] [thread 336] [28.0] [cxt 0] Deparsing header 'sctp_chunk'
+[16:18:58.923] [bmv2] [D] [thread 336] [28.0] [cxt 0] Deparser 'deparser': end
+[16:18:58.923] [bmv2] [D] [thread 338] [28.0] [cxt 0] Transmitting packet of size 151 out of port 2
+[16:19:02.034] [bmv2] [D] [thread 333] [29.0] [cxt 0] Processing packet received on port 2
+[16:19:02.034] [bmv2] [D] [thread 333] [29.0] [cxt 0] Parser 'parser': start
+[16:19:02.034] [bmv2] [D] [thread 333] [29.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:19:02.034] [bmv2] [D] [thread 333] [29.0] [cxt 0] Extracting header 'ethernet'
+[16:19:02.034] [bmv2] [D] [thread 333] [29.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (2)
+[16:19:02.034] [bmv2] [D] [thread 333] [29.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1094988019
+[16:19:02.034] [bmv2] [D] [thread 333] [29.0] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' to 0
+[16:19:02.034] [bmv2] [D] [thread 333] [29.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:19:02.034] [bmv2] [D] [thread 333] [29.0] [cxt 0] Parser state 'start': key is 0800
+[16:19:02.034] [bmv2] [T] [thread 333] [29.0] [cxt 0] Bytes parsed: 14
+[16:19:02.034] [bmv2] [D] [thread 333] [29.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[16:19:02.034] [bmv2] [D] [thread 333] [29.0] [cxt 0] Extracting header 'ipv4_inner'
+[16:19:02.034] [bmv2] [D] [thread 333] [29.0] [cxt 0] Parser state 'parse_ipv4': key is 01
+[16:19:02.034] [bmv2] [T] [thread 333] [29.0] [cxt 0] Bytes parsed: 34
+[16:19:02.034] [bmv2] [D] [thread 333] [29.0] [cxt 0] Parser 'parser': end
+[16:19:02.034] [bmv2] [D] [thread 333] [29.0] [cxt 0] Pipeline 'ingress': start
+[16:19:02.034] [bmv2] [T] [thread 333] [29.0] [cxt 0] Applying table 'tbl_intgtptransit292'
+[16:19:02.034] [bmv2] [D] [thread 333] [29.0] [cxt 0] Looking up key:
+
+[16:19:02.034] [bmv2] [D] [thread 333] [29.0] [cxt 0] Table 'tbl_intgtptransit292': miss
+[16:19:02.034] [bmv2] [D] [thread 333] [29.0] [cxt 0] Action entry is intgtptransit292 -
+[16:19:02.034] [bmv2] [T] [thread 333] [29.0] [cxt 0] Action intgtptransit292
+[16:19:02.034] [bmv2] [T] [thread 333] [29.0] [cxt 0] int-gtp-transit.p4(292) Primitive meta.switch_id = 2
+[16:19:02.034] [bmv2] [T] [thread 333] [29.0] [cxt 0] int-gtp-transit.p4(294) Condition "hdr.int_shim.isValid()" (node_3) is false
+[16:19:02.034] [bmv2] [T] [thread 333] [29.0] [cxt 0] int-gtp-transit.p4(314) Condition "hdr.ipv4_inner.isValid()" (node_6) is true
+[16:19:02.034] [bmv2] [T] [thread 333] [29.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:19:02.034] [bmv2] [D] [thread 333] [29.0] [cxt 0] Looking up key:
+* hdr.ipv4_inner.dstAddr: ac120a03
+
+[16:19:02.034] [bmv2] [D] [thread 333] [29.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 1
+[16:19:02.034] [bmv2] [D] [thread 333] [29.0] [cxt 0] Dumping entry 1
+Match key:
+* hdr.ipv4_inner.dstAddr: LPM       ac120a03/32
+Action entry: MyIngress.forward_action - 1,
+
+[16:19:02.035] [bmv2] [D] [thread 333] [29.0] [cxt 0] Action entry is MyIngress.forward_action - 1,
+[16:19:02.035] [bmv2] [T] [thread 333] [29.0] [cxt 0] Action MyIngress.forward_action
+[16:19:02.035] [bmv2] [T] [thread 333] [29.0] [cxt 0] int-gtp-transit.p4(276) Primitive standard_metadata.egress_spec = egress_port
+[16:19:02.035] [bmv2] [D] [thread 333] [29.0] [cxt 0] Pipeline 'ingress': end
+[16:19:02.035] [bmv2] [D] [thread 333] [29.0] [cxt 0] Egress port is 1
+[16:19:02.035] [bmv2] [D] [thread 335] [29.0] [cxt 0] Pipeline 'egress': start
+[16:19:02.035] [bmv2] [T] [thread 335] [29.0] [cxt 0] int-gtp-transit.p4(326) Condition "hdr.int_shim.isValid()" (node_10) is false
+[16:19:02.035] [bmv2] [D] [thread 335] [29.0] [cxt 0] Pipeline 'egress': end
+[16:19:02.035] [bmv2] [D] [thread 335] [29.0] [cxt 0] Deparser 'deparser': start
+[16:19:02.035] [bmv2] [D] [thread 335] [29.0] [cxt 0] Deparsing header 'ethernet'
+[16:19:02.035] [bmv2] [D] [thread 335] [29.0] [cxt 0] Deparsing header 'ipv4_inner'
+[16:19:02.035] [bmv2] [D] [thread 335] [29.0] [cxt 0] Deparser 'deparser': end
+[16:19:02.035] [bmv2] [D] [thread 338] [29.0] [cxt 0] Transmitting packet of size 110 out of port 1
+
+
+------SW3
+[16:19:19.403] [bmv2] [D] [thread 333] [116.0] [cxt 0] Processing packet received on port 2
+[16:19:19.403] [bmv2] [D] [thread 333] [116.0] [cxt 0] Parser 'parser': start
+[16:19:19.403] [bmv2] [D] [thread 333] [116.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:19:19.403] [bmv2] [D] [thread 333] [116.0] [cxt 0] Extracting header 'ethernet'
+[16:19:19.403] [bmv2] [D] [thread 333] [116.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (2)
+[16:19:19.403] [bmv2] [D] [thread 333] [116.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1102724654
+[16:19:19.403] [bmv2] [D] [thread 333] [116.0] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' to 0
+[16:19:19.403] [bmv2] [D] [thread 333] [116.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:19:19.403] [bmv2] [D] [thread 333] [116.0] [cxt 0] Parser state 'start': key is 00fa
+[16:19:19.403] [bmv2] [T] [thread 333] [116.0] [cxt 0] Bytes parsed: 14
+[16:19:19.403] [bmv2] [D] [thread 333] [116.0] [cxt 0] Parser 'parser' entering state 'parse_int_shim'
+[16:19:19.403] [bmv2] [D] [thread 333] [116.0] [cxt 0] Extracting header 'int_shim'
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 1
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Extracting header 'int_header'
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' from expression, new value is 251
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Extracting header 'int_md[0]'
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Extracting header 'int_md[1]'
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Parser state 'parse_int_shim': key is 0800
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] Bytes parsed: 83
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Parser 'parser' entering state 'parse_encapsulated_ipv4'
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Extracting header 'ipv4_inner'
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Parser state 'parse_encapsulated_ipv4': key is 84
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] Bytes parsed: 103
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Parser 'parser' entering state 'parse_encapsulated_sctp_common'
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Extracting header 'sctp'
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Extracting header 'sctp_chunk'
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Parser state 'parse_encapsulated_sctp_common': key is 01
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] Bytes parsed: 119
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Parser 'parser': end
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Pipeline 'ingress': start
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] Applying table 'tbl_intgtpdestinationv2l310'
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Looking up key:
+
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Table 'tbl_intgtpdestinationv2l310': miss
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Action entry is intgtpdestinationv2l310 -
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] Action intgtpdestinationv2l310
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] int-gtp-destination-v2.p4(310) Primitive meta.switch_id = 3
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] int-gtp-destination-v2.p4(312) Condition "hdr.ethernet.isValid()" (node_3) is true
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] int-gtp-destination-v2.p4(313) Condition "hdr.int_shim.isValid()" (node_4) is true
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] int-gtp-destination-v2.p4(315) Condition "hdr.int_header.remaining_hop_cnt > 0" (node_5) is true
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] Applying table 'tbl_intgtpdestinationv2l316'
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Looking up key:
+
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Table 'tbl_intgtpdestinationv2l316': miss
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Action entry is intgtpdestinationv2l316 -
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] Action intgtpdestinationv2l316
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] int-gtp-destination-v2.p4(316) Primitive hdr.int_md[2].setValid()
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] int-gtp-destination-v2.p4(317) Primitive hdr.int_md[2].switch_id = meta.switch_id
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] int-gtp-destination-v2.p4(318) Primitive hdr.int_md[2].ingress_port_id = (bit<16>)meta.ingress_port
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] int-gtp-destination-v2.p4(319) Primitive hdr.int_md[2].ingress_timestamp = meta.ingress_ts
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] int-gtp-destination-v2.p4(320) Primitive hdr.int_md[2].egress_port_id = 0
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] int-gtp-destination-v2.p4(321) Primitive hdr.int_md[2].hop_latency = 0
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] int-gtp-destination-v2.p4(322) Primitive hdr.int_md[2].egress_timestamp = 0
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] int-gtp-destination-v2.p4(323) Primitive hdr.int_md[2].queue_occupancy = 0
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] int-gtp-destination-v2.p4(324) Primitive hdr.int_md[2].congestion_notification = 0
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] int-gtp-destination-v2.p4(325) Primitive hdr.int_md[2].reserved1 = 0
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] int-gtp-destination-v2.p4(326) Primitive hdr.int_md[2].reserved2 = 0
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] int-gtp-destination-v2.p4(328) Primitive hdr.int_header.remaining_hop_cnt = hdr.int_header.remaining_hop_cnt - 1
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] int-gtp-destination-v2.p4(329) Primitive hdr.int_shim.length = hdr.int_shim.length + 32
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] Applying table 'MyIngress.int_sink_table'
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Looking up key:
+* hdr.int_shim.$valid$: 01
+
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Table 'MyIngress.int_sink_table': hit with handle 0
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Dumping entry 0
+Match key:
+* hdr.int_shim.$valid$: EXACT     01
+Action entry: MyIngress.int_sink_action -
+
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Action entry is MyIngress.int_sink_action -
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] Action MyIngress.int_sink_action
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] int-gtp-destination-v2.p4(277) Primitive meta.clone_port = 9
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] int-gtp-destination-v2.p4(278) Primitive clone_preserving_field_list(CloneType.I2E, 99, 99)
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] int-gtp-destination-v2.p4(337) Condition "hdr.ipv4_inner.isValid()" (node_8) is true
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Looking up key:
+* hdr.ipv4_inner.dstAddr: ac120014
+
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 0
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Dumping entry 0
+Match key:
+* hdr.ipv4_inner.dstAddr: LPM       ac120014/32
+Action entry: MyIngress.forward_action - 1,
+
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Action entry is MyIngress.forward_action - 1,
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] Action MyIngress.forward_action
+[16:19:19.404] [bmv2] [T] [thread 333] [116.0] [cxt 0] int-gtp-destination-v2.p4(282) Primitive standard_metadata.egress_spec = egress_port
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Pipeline 'ingress': end
+[16:19:19.404] [bmv2] [D] [thread 333] [116.0] [cxt 0] Cloning packet at ingress
+[16:19:19.404] [bmv2] [D] [thread 333] [116.1] [cxt 0] Parser 'parser': start
+[16:19:19.404] [bmv2] [D] [thread 333] [116.1] [cxt 0] Parser 'parser' entering state 'start'
+[16:19:19.404] [bmv2] [D] [thread 333] [116.1] [cxt 0] Extracting header 'ethernet'
+[16:19:19.404] [bmv2] [D] [thread 333] [116.1] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (2)
+[16:19:19.405] [bmv2] [D] [thread 333] [116.1] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 0
+[16:19:19.405] [bmv2] [D] [thread 333] [116.1] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' to 0
+[16:19:19.405] [bmv2] [D] [thread 333] [116.1] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:19:19.405] [bmv2] [D] [thread 333] [116.1] [cxt 0] Parser state 'start': key is 00fa
+[16:19:19.405] [bmv2] [T] [thread 333] [116.1] [cxt 0] Bytes parsed: 14
+[16:19:19.405] [bmv2] [D] [thread 333] [116.1] [cxt 0] Parser 'parser' entering state 'parse_int_shim'
+[16:19:19.405] [bmv2] [D] [thread 333] [116.1] [cxt 0] Extracting header 'int_shim'
+[16:19:19.405] [bmv2] [D] [thread 333] [116.1] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 1
+[16:19:19.405] [bmv2] [D] [thread 333] [116.1] [cxt 0] Extracting header 'int_header'
+[16:19:19.405] [bmv2] [D] [thread 333] [116.1] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' from expression, new value is 251
+[16:19:19.405] [bmv2] [D] [thread 333] [116.1] [cxt 0] Extracting header 'int_md[0]'
+[16:19:19.405] [bmv2] [D] [thread 333] [116.1] [cxt 0] Extracting header 'int_md[1]'
+[16:19:19.405] [bmv2] [D] [thread 333] [116.1] [cxt 0] Parser state 'parse_int_shim': key is 0800
+[16:19:19.405] [bmv2] [T] [thread 333] [116.1] [cxt 0] Bytes parsed: 83
+[16:19:19.405] [bmv2] [D] [thread 333] [116.1] [cxt 0] Parser 'parser' entering state 'parse_encapsulated_ipv4'
+[16:19:19.405] [bmv2] [D] [thread 333] [116.1] [cxt 0] Extracting header 'ipv4_inner'
+[16:19:19.405] [bmv2] [D] [thread 333] [116.1] [cxt 0] Parser state 'parse_encapsulated_ipv4': key is 84
+[16:19:19.405] [bmv2] [T] [thread 333] [116.1] [cxt 0] Bytes parsed: 103
+[16:19:19.405] [bmv2] [D] [thread 333] [116.1] [cxt 0] Parser 'parser' entering state 'parse_encapsulated_sctp_common'
+[16:19:19.405] [bmv2] [D] [thread 333] [116.1] [cxt 0] Extracting header 'sctp'
+[16:19:19.405] [bmv2] [D] [thread 333] [116.1] [cxt 0] Extracting header 'sctp_chunk'
+[16:19:19.405] [bmv2] [D] [thread 333] [116.1] [cxt 0] Parser state 'parse_encapsulated_sctp_common': key is 01
+[16:19:19.405] [bmv2] [T] [thread 333] [116.1] [cxt 0] Bytes parsed: 119
+[16:19:19.405] [bmv2] [D] [thread 333] [116.1] [cxt 0] Parser 'parser': end
+[16:19:19.405] [bmv2] [D] [thread 333] [116.0] [cxt 0] Cloning packet to egress port 9
+[16:19:19.405] [bmv2] [D] [thread 333] [116.0] [cxt 0] Egress port is 1
+[16:19:19.405] [bmv2] [D] [thread 335] [116.1] [cxt 0] Pipeline 'egress': start
+[16:19:19.405] [bmv2] [T] [thread 335] [116.1] [cxt 0] int-gtp-destination-v2.p4(399) Condition "hdr.int_shim.isValid()" (node_12) is true
+[16:19:19.405] [bmv2] [T] [thread 335] [116.1] [cxt 0] Applying table 'tbl_update_int_metadata'
+[16:19:19.405] [bmv2] [D] [thread 335] [116.1] [cxt 0] Looking up key:
+
+[16:19:19.405] [bmv2] [D] [thread 335] [116.1] [cxt 0] Table 'tbl_update_int_metadata': miss
+[16:19:19.405] [bmv2] [D] [thread 335] [116.1] [cxt 0] Action entry is MyEgress.update_int_metadata -
+[16:19:19.405] [bmv2] [T] [thread 335] [116.1] [cxt 0] Action MyEgress.update_int_metadata
+[16:19:19.405] [bmv2] [T] [thread 335] [116.1] [cxt 0] int-gtp-destination-v2.p4(350) Primitive if
+[16:19:19.405] [bmv2] [T] [thread 335] [116.1] [cxt 0] int-gtp-destination-v2.p4(351) Primitive hdr.int_md[2].setValid()
+[16:19:19.405] [bmv2] [T] [thread 335] [116.1] [cxt 0] int-gtp-destination-v2.p4(352) Primitive hdr.int_md[2].switch_id = meta.switch_id
+[16:19:19.405] [bmv2] [T] [thread 335] [116.1] [cxt 0] int-gtp-destination-v2.p4(353) Primitive hdr.int_md[2].ingress_port_id = (bit<16>)meta.ingress_port
+[16:19:19.405] [bmv2] [T] [thread 335] [116.1] [cxt 0] int-gtp-destination-v2.p4(354) Primitive hdr.int_md[2].ingress_timestamp = meta.ingress_ts
+[16:19:19.405] [bmv2] [T] [thread 335] [116.1] [cxt 0] int-gtp-destination-v2.p4(359) Primitive hdr.int_md[2].congestion_notification = 0
+[16:19:19.405] [bmv2] [T] [thread 335] [116.1] [cxt 0] int-gtp-destination-v2.p4(360) Primitive hdr.int_md[2].reserved1 = 0
+[16:19:19.405] [bmv2] [T] [thread 335] [116.1] [cxt 0] int-gtp-destination-v2.p4(361) Primitive hdr.int_md[2].reserved2 = 0
+[16:19:19.405] [bmv2] [T] [thread 335] [116.1] [cxt 0] int-gtp-destination-v2.p4(365) Primitive hdr.int_md[2].egress_port_id = (bit<16>)standard_metadata.egress_port
+[16:19:19.406] [bmv2] [T] [thread 335] [116.1] [cxt 0] int-gtp-destination-v2.p4(366) Primitive hdr.int_md[2].egress_timestamp = (bit<32>)standard_metadata.egress_global_timestamp
+[16:19:19.406] [bmv2] [T] [thread 335] [116.1] [cxt 0] int-gtp-destination-v2.p4(367) Primitive hdr.int_md[2].hop_latency = hdr.int_md[2].egress_timestamp - hdr.int_md[2].ingress_timestamp
+[16:19:19.406] [bmv2] [T] [thread 335] [116.1] [cxt 0] int-gtp-destination-v2.p4(368) Primitive hdr.int_md[2].queue_occupancy = (bit<32>)standard_metadata.enq_qdepth
+[16:19:19.406] [bmv2] [T] [thread 335] [116.1] [cxt 0] int-gtp-destination-v2.p4(405) Condition "standard_metadata.instance_type == 1 || standard_metadata.egress_port == 9" (node_14) is true
+[16:19:19.406] [bmv2] [D] [thread 335] [116.1] [cxt 0] Pipeline 'egress': end
+[16:19:19.406] [bmv2] [D] [thread 335] [116.1] [cxt 0] Deparser 'deparser': start
+[16:19:19.406] [bmv2] [D] [thread 335] [116.1] [cxt 0] Deparsing header 'ethernet'
+[16:19:19.406] [bmv2] [D] [thread 335] [116.1] [cxt 0] Deparsing header 'int_shim'
+[16:19:19.406] [bmv2] [D] [thread 335] [116.1] [cxt 0] Deparsing header 'int_header'
+[16:19:19.406] [bmv2] [D] [thread 335] [116.1] [cxt 0] Deparsing header 'int_md[0]'
+[16:19:19.406] [bmv2] [D] [thread 335] [116.1] [cxt 0] Deparsing header 'int_md[1]'
+[16:19:19.406] [bmv2] [D] [thread 335] [116.1] [cxt 0] Deparsing header 'int_md[2]'
+[16:19:19.406] [bmv2] [D] [thread 335] [116.1] [cxt 0] Deparsing header 'ipv4_inner'
+[16:19:19.406] [bmv2] [D] [thread 335] [116.1] [cxt 0] Deparsing header 'sctp'
+[16:19:19.406] [bmv2] [D] [thread 335] [116.1] [cxt 0] Deparsing header 'sctp_chunk'
+[16:19:19.406] [bmv2] [D] [thread 335] [116.1] [cxt 0] Deparser 'deparser': end
+[16:19:19.406] [bmv2] [D] [thread 335] [116.0] [cxt 0] Pipeline 'egress': start
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] int-gtp-destination-v2.p4(399) Condition "hdr.int_shim.isValid()" (node_12) is true
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] Applying table 'tbl_update_int_metadata'
+[16:19:19.406] [bmv2] [D] [thread 335] [116.0] [cxt 0] Looking up key:
+
+[16:19:19.406] [bmv2] [D] [thread 335] [116.0] [cxt 0] Table 'tbl_update_int_metadata': miss
+[16:19:19.406] [bmv2] [D] [thread 338] [116.1] [cxt 0] Transmitting packet of size 179 out of port 9
+[16:19:19.406] [bmv2] [D] [thread 335] [116.0] [cxt 0] Action entry is MyEgress.update_int_metadata -
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] Action MyEgress.update_int_metadata
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] int-gtp-destination-v2.p4(350) Primitive if
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] int-gtp-destination-v2.p4(350) Primitive if
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] int-gtp-destination-v2.p4(365) Primitive hdr.int_md[2].egress_port_id = (bit<16>)standard_metadata.egress_port
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] int-gtp-destination-v2.p4(366) Primitive hdr.int_md[2].egress_timestamp = (bit<32>)standard_metadata.egress_global_timestamp
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] int-gtp-destination-v2.p4(367) Primitive hdr.int_md[2].hop_latency = hdr.int_md[2].egress_timestamp - hdr.int_md[2].ingress_timestamp
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] int-gtp-destination-v2.p4(368) Primitive hdr.int_md[2].queue_occupancy = (bit<32>)standard_metadata.enq_qdepth
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] int-gtp-destination-v2.p4(405) Condition "standard_metadata.instance_type == 1 || standard_metadata.egress_port == 9" (node_14) is false
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] Applying table 'MyEgress.egress_control'
+[16:19:19.406] [bmv2] [D] [thread 335] [116.0] [cxt 0] Looking up key:
+* standard_metadata.egress_port: 0001
+
+[16:19:19.406] [bmv2] [D] [thread 335] [116.0] [cxt 0] Table 'MyEgress.egress_control': hit with handle 0
+[16:19:19.406] [bmv2] [D] [thread 335] [116.0] [cxt 0] Dumping entry 0
+Match key:
+* standard_metadata.egress_port: EXACT     0001
+Action entry: MyEgress.strip_int_headers -
+
+[16:19:19.406] [bmv2] [D] [thread 335] [116.0] [cxt 0] Action entry is MyEgress.strip_int_headers -
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] Action MyEgress.strip_int_headers
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] int-gtp-destination-v2.p4(372) Primitive hdr.ethernet.etherType = hdr.int_shim.next_proto
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] int-gtp-destination-v2.p4(373) Primitive hdr.int_shim.setInvalid()
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] int-gtp-destination-v2.p4(374) Primitive hdr.int_header.setInvalid()
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] int-gtp-destination-v2.p4(376) Primitive hdr.int_md[0].setInvalid()
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] int-gtp-destination-v2.p4(377) Primitive hdr.int_md[1].setInvalid()
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] int-gtp-destination-v2.p4(378) Primitive hdr.int_md[2].setInvalid()
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] int-gtp-destination-v2.p4(379) Primitive hdr.int_md[3].setInvalid()
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] int-gtp-destination-v2.p4(380) Primitive hdr.int_md[4].setInvalid()
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] int-gtp-destination-v2.p4(381) Primitive hdr.int_md[5].setInvalid()
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] int-gtp-destination-v2.p4(382) Primitive hdr.int_md[6].setInvalid()
+[16:19:19.406] [bmv2] [T] [thread 335] [116.0] [cxt 0] int-gtp-destination-v2.p4(383) Primitive hdr.int_md[7].setInvalid()
+[16:19:19.406] [bmv2] [D] [thread 335] [116.0] [cxt 0] Pipeline 'egress': end
+[16:19:19.406] [bmv2] [D] [thread 335] [116.0] [cxt 0] Deparser 'deparser': start
+[16:19:19.406] [bmv2] [D] [thread 335] [116.0] [cxt 0] Deparsing header 'ethernet'
+[16:19:19.406] [bmv2] [D] [thread 335] [116.0] [cxt 0] Deparsing header 'ipv4_inner'
+[16:19:19.406] [bmv2] [D] [thread 335] [116.0] [cxt 0] Deparsing header 'sctp'
+[16:19:19.406] [bmv2] [D] [thread 335] [116.0] [cxt 0] Deparsing header 'sctp_chunk'
+[16:19:19.406] [bmv2] [D] [thread 335] [116.0] [cxt 0] Deparser 'deparser': end
+[16:19:19.406] [bmv2] [D] [thread 338] [116.0] [cxt 0] Transmitting packet of size 82 out of port 1
+[16:19:22.516] [bmv2] [D] [thread 333] [117.0] [cxt 0] Processing packet received on port 1
+[16:19:22.516] [bmv2] [D] [thread 333] [117.0] [cxt 0] Parser 'parser': start
+[16:19:22.516] [bmv2] [D] [thread 333] [117.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:19:22.516] [bmv2] [D] [thread 333] [117.0] [cxt 0] Extracting header 'ethernet'
+[16:19:22.516] [bmv2] [D] [thread 333] [117.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (1)
+[16:19:22.516] [bmv2] [D] [thread 333] [117.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1105837681
+[16:19:22.516] [bmv2] [D] [thread 333] [117.0] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' to 0
+[16:19:22.516] [bmv2] [D] [thread 333] [117.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:19:22.516] [bmv2] [D] [thread 333] [117.0] [cxt 0] Parser state 'start': key is 0800
+[16:19:22.516] [bmv2] [T] [thread 333] [117.0] [cxt 0] Bytes parsed: 14
+[16:19:22.516] [bmv2] [D] [thread 333] [117.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[16:19:22.516] [bmv2] [D] [thread 333] [117.0] [cxt 0] Extracting header 'ipv4_inner'
+[16:19:22.516] [bmv2] [D] [thread 333] [117.0] [cxt 0] Parser state 'parse_ipv4': key is 01
+[16:19:22.516] [bmv2] [T] [thread 333] [117.0] [cxt 0] Bytes parsed: 34
+[16:19:22.516] [bmv2] [D] [thread 333] [117.0] [cxt 0] Parser 'parser': end
+[16:19:22.516] [bmv2] [D] [thread 333] [117.0] [cxt 0] Pipeline 'ingress': start
+[16:19:22.516] [bmv2] [T] [thread 333] [117.0] [cxt 0] Applying table 'tbl_intgtpdestinationv2l310'
+[16:19:22.517] [bmv2] [D] [thread 333] [117.0] [cxt 0] Looking up key:
+
+[16:19:22.517] [bmv2] [D] [thread 333] [117.0] [cxt 0] Table 'tbl_intgtpdestinationv2l310': miss
+[16:19:22.517] [bmv2] [D] [thread 333] [117.0] [cxt 0] Action entry is intgtpdestinationv2l310 -
+[16:19:22.517] [bmv2] [T] [thread 333] [117.0] [cxt 0] Action intgtpdestinationv2l310
+[16:19:22.517] [bmv2] [T] [thread 333] [117.0] [cxt 0] int-gtp-destination-v2.p4(310) Primitive meta.switch_id = 3
+[16:19:22.517] [bmv2] [T] [thread 333] [117.0] [cxt 0] int-gtp-destination-v2.p4(312) Condition "hdr.ethernet.isValid()" (node_3) is true
+[16:19:22.517] [bmv2] [T] [thread 333] [117.0] [cxt 0] int-gtp-destination-v2.p4(313) Condition "hdr.int_shim.isValid()" (node_4) is false
+[16:19:22.517] [bmv2] [T] [thread 333] [117.0] [cxt 0] int-gtp-destination-v2.p4(337) Condition "hdr.ipv4_inner.isValid()" (node_8) is true
+[16:19:22.517] [bmv2] [T] [thread 333] [117.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:19:22.517] [bmv2] [D] [thread 333] [117.0] [cxt 0] Looking up key:
+* hdr.ipv4_inner.dstAddr: ac120a03
+
+[16:19:22.517] [bmv2] [D] [thread 333] [117.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 2
+[16:19:22.517] [bmv2] [D] [thread 333] [117.0] [cxt 0] Dumping entry 2
+Match key:
+* hdr.ipv4_inner.dstAddr: LPM       ac120a03/32
+Action entry: MyIngress.forward_action - 2,
+
+[16:19:22.517] [bmv2] [D] [thread 333] [117.0] [cxt 0] Action entry is MyIngress.forward_action - 2,
+[16:19:22.517] [bmv2] [T] [thread 333] [117.0] [cxt 0] Action MyIngress.forward_action
+[16:19:22.517] [bmv2] [T] [thread 333] [117.0] [cxt 0] int-gtp-destination-v2.p4(282) Primitive standard_metadata.egress_spec = egress_port
+[16:19:22.517] [bmv2] [D] [thread 333] [117.0] [cxt 0] Pipeline 'ingress': end
+[16:19:22.517] [bmv2] [D] [thread 333] [117.0] [cxt 0] Egress port is 2
+[16:19:22.517] [bmv2] [D] [thread 336] [117.0] [cxt 0] Pipeline 'egress': start
+[16:19:22.517] [bmv2] [T] [thread 336] [117.0] [cxt 0] int-gtp-destination-v2.p4(399) Condition "hdr.int_shim.isValid()" (node_12) is false
+[16:19:22.517] [bmv2] [D] [thread 336] [117.0] [cxt 0] Pipeline 'egress': end
+[16:19:22.517] [bmv2] [D] [thread 336] [117.0] [cxt 0] Deparser 'deparser': start
+[16:19:22.517] [bmv2] [D] [thread 336] [117.0] [cxt 0] Deparsing header 'ethernet'
+[16:19:22.517] [bmv2] [D] [thread 336] [117.0] [cxt 0] Deparsing header 'ipv4_inner'
+[16:19:22.517] [bmv2] [D] [thread 336] [117.0] [cxt 0] Deparser 'deparser': end
+[16:19:22.517] [bmv2] [D] [thread 338] [117.0] [cxt 0] Transmitting packet of size 110 out of port 2
+[16:19:22.611] [bmv2] [D] [thread 333] [118.0] [cxt 0] Processing packet received on port 1
+[16:19:22.611] [bmv2] [D] [thread 333] [118.0] [cxt 0] Parser 'parser': start
+[16:19:22.611] [bmv2] [D] [thread 333] [118.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:19:22.611] [bmv2] [D] [thread 333] [118.0] [cxt 0] Extracting header 'ethernet'
+[16:19:22.611] [bmv2] [D] [thread 333] [118.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (1)
+[16:19:22.611] [bmv2] [D] [thread 333] [118.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1105932352
+[16:19:22.611] [bmv2] [D] [thread 333] [118.0] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' to 0
+[16:19:22.611] [bmv2] [D] [thread 333] [118.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:19:22.611] [bmv2] [D] [thread 333] [118.0] [cxt 0] Parser state 'start': key is 9000
+[16:19:22.611] [bmv2] [T] [thread 333] [118.0] [cxt 0] Bytes parsed: 14
+[16:19:22.611] [bmv2] [D] [thread 333] [118.0] [cxt 0] Parser 'parser': end
+[16:19:22.611] [bmv2] [D] [thread 333] [118.0] [cxt 0] Pipeline 'ingress': start
+[16:19:22.611] [bmv2] [T] [thread 333] [118.0] [cxt 0] Applying table 'tbl_intgtpdestinationv2l310'
+[16:19:22.611] [bmv2] [D] [thread 333] [118.0] [cxt 0] Looking up key:
+
+[16:19:22.611] [bmv2] [D] [thread 333] [118.0] [cxt 0] Table 'tbl_intgtpdestinationv2l310': miss
+[16:19:22.611] [bmv2] [D] [thread 333] [118.0] [cxt 0] Action entry is intgtpdestinationv2l310 -
+[16:19:22.611] [bmv2] [T] [thread 333] [118.0] [cxt 0] Action intgtpdestinationv2l310
+[16:19:22.611] [bmv2] [T] [thread 333] [118.0] [cxt 0] int-gtp-destination-v2.p4(310) Primitive meta.switch_id = 3
+[16:19:22.611] [bmv2] [T] [thread 333] [118.0] [cxt 0] int-gtp-destination-v2.p4(312) Condition "hdr.ethernet.isValid()" (node_3) is true
+[16:19:22.611] [bmv2] [T] [thread 333] [118.0] [cxt 0] int-gtp-destination-v2.p4(313) Condition "hdr.int_shim.isValid()" (node_4) is false
+[16:19:22.611] [bmv2] [T] [thread 333] [118.0] [cxt 0] int-gtp-destination-v2.p4(337) Condition "hdr.ipv4_inner.isValid()" (node_8) is false
+[16:19:22.611] [bmv2] [D] [thread 333] [118.0] [cxt 0] Pipeline 'ingress': end
+[16:19:22.611] [bmv2] [D] [thread 333] [118.0] [cxt 0] Egress port is 0
+[16:19:22.611] [bmv2] [D] [thread 334] [118.0] [cxt 0] Pipeline 'egress': start
+[16:19:22.611] [bmv2] [T] [thread 334] [118.0] [cxt 0] int-gtp-destination-v2.p4(399) Condition "hdr.int_shim.isValid()" (node_12) is false
+[16:19:22.611] [bmv2] [D] [thread 334] [118.0] [cxt 0] Pipeline 'egress': end
+[16:19:22.611] [bmv2] [D] [thread 334] [118.0] [cxt 0] Deparser 'deparser': start
+[16:19:22.611] [bmv2] [D] [thread 334] [118.0] [cxt 0] Deparsing header 'ethernet'
+[16:19:22.611] [bmv2] [D] [thread 334] [118.0] [cxt 0] Deparser 'deparser': end
+[16:19:22.612] [bmv2] [D] [thread 338] [118.0] [cxt 0] Transmitting packet of size 60 out of port 0
+[16:19:23.462] [bmv2] [D] [thread 333] [119.0] [cxt 0] Processing packet received on port 1
+[16:19:23.462] [bmv2] [D] [thread 333] [119.0] [cxt 0] Parser 'parser': start
+[16:19:23.462] [bmv2] [D] [thread 333] [119.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:19:23.462] [bmv2] [D] [thread 333] [119.0] [cxt 0] Extracting header 'ethernet'
+[16:19:23.462] [bmv2] [D] [thread 333] [119.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (1)
+[16:19:23.462] [bmv2] [D] [thread 333] [119.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1106783565
+[16:19:23.462] [bmv2] [D] [thread 333] [119.0] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' to 0
+[16:19:23.462] [bmv2] [D] [thread 333] [119.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:19:23.462] [bmv2] [D] [thread 333] [119.0] [cxt 0] Parser state 'start': key is 0153
+[16:19:23.462] [bmv2] [T] [thread 333] [119.0] [cxt 0] Bytes parsed: 14
+[16:19:23.462] [bmv2] [D] [thread 333] [119.0] [cxt 0] Parser 'parser': end
+[16:19:23.462] [bmv2] [D] [thread 333] [119.0] [cxt 0] Pipeline 'ingress': start
+[16:19:23.462] [bmv2] [T] [thread 333] [119.0] [cxt 0] Applying table 'tbl_intgtpdestinationv2l310'
+[16:19:23.462] [bmv2] [D] [thread 333] [119.0] [cxt 0] Looking up key:
+
+[16:19:23.462] [bmv2] [D] [thread 333] [119.0] [cxt 0] Table 'tbl_intgtpdestinationv2l310': miss
+[16:19:23.462] [bmv2] [D] [thread 333] [119.0] [cxt 0] Action entry is intgtpdestinationv2l310 -
+[16:19:23.462] [bmv2] [T] [thread 333] [119.0] [cxt 0] Action intgtpdestinationv2l310
+[16:19:23.462] [bmv2] [T] [thread 333] [119.0] [cxt 0] int-gtp-destination-v2.p4(310) Primitive meta.switch_id = 3
+[16:19:23.462] [bmv2] [T] [thread 333] [119.0] [cxt 0] int-gtp-destination-v2.p4(312) Condition "hdr.ethernet.isValid()" (node_3) is true
+[16:19:23.462] [bmv2] [T] [thread 333] [119.0] [cxt 0] int-gtp-destination-v2.p4(313) Condition "hdr.int_shim.isValid()" (node_4) is false
+[16:19:23.462] [bmv2] [T] [thread 333] [119.0] [cxt 0] int-gtp-destination-v2.p4(337) Condition "hdr.ipv4_inner.isValid()" (node_8) is false
+[16:19:23.462] [bmv2] [D] [thread 333] [119.0] [cxt 0] Pipeline 'ingress': end
+[16:19:23.462] [bmv2] [D] [thread 333] [119.0] [cxt 0] Egress port is 0
+[16:19:23.463] [bmv2] [D] [thread 334] [119.0] [cxt 0] Pipeline 'egress': start
+[16:19:23.463] [bmv2] [T] [thread 334] [119.0] [cxt 0] int-gtp-destination-v2.p4(399) Condition "hdr.int_shim.isValid()" (node_12) is false
+[16:19:23.463] [bmv2] [D] [thread 334] [119.0] [cxt 0] Pipeline 'egress': end
+[16:19:23.463] [bmv2] [D] [thread 334] [119.0] [cxt 0] Deparser 'deparser': start
+[16:19:23.463] [bmv2] [D] [thread 334] [119.0] [cxt 0] Deparsing header 'ethernet'
+[16:19:23.463] [bmv2] [D] [thread 334] [119.0] [cxt 0] Deparser 'deparser': end
+[16:19:23.463] [bmv2] [D] [thread 338] [119.0] [cxt 0] Transmitting packet of size 353 out of port 0
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Processing packet received on port 2
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Parser 'parser': start
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Extracting header 'ethernet'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (2)
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1112965405
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' to 0
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Parser state 'start': key is 00fa
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] Bytes parsed: 14
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Parser 'parser' entering state 'parse_int_shim'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Extracting header 'int_shim'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 1
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Extracting header 'int_header'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' from expression, new value is 251
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Extracting header 'int_md[0]'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Extracting header 'int_md[1]'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Parser state 'parse_int_shim': key is 0800
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] Bytes parsed: 83
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Parser 'parser' entering state 'parse_encapsulated_ipv4'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Extracting header 'ipv4_inner'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Parser state 'parse_encapsulated_ipv4': key is 84
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] Bytes parsed: 103
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Parser 'parser' entering state 'parse_encapsulated_sctp_common'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Extracting header 'sctp'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Extracting header 'sctp_chunk'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Parser state 'parse_encapsulated_sctp_common': key is 01
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] Bytes parsed: 119
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Parser 'parser': end
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Pipeline 'ingress': start
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] Applying table 'tbl_intgtpdestinationv2l310'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Looking up key:
+
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Table 'tbl_intgtpdestinationv2l310': miss
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Action entry is intgtpdestinationv2l310 -
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] Action intgtpdestinationv2l310
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] int-gtp-destination-v2.p4(310) Primitive meta.switch_id = 3
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] int-gtp-destination-v2.p4(312) Condition "hdr.ethernet.isValid()" (node_3) is true
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] int-gtp-destination-v2.p4(313) Condition "hdr.int_shim.isValid()" (node_4) is true
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] int-gtp-destination-v2.p4(315) Condition "hdr.int_header.remaining_hop_cnt > 0" (node_5) is true
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] Applying table 'tbl_intgtpdestinationv2l316'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Looking up key:
+
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Table 'tbl_intgtpdestinationv2l316': miss
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Action entry is intgtpdestinationv2l316 -
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] Action intgtpdestinationv2l316
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] int-gtp-destination-v2.p4(316) Primitive hdr.int_md[2].setValid()
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] int-gtp-destination-v2.p4(317) Primitive hdr.int_md[2].switch_id = meta.switch_id
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] int-gtp-destination-v2.p4(318) Primitive hdr.int_md[2].ingress_port_id = (bit<16>)meta.ingress_port
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] int-gtp-destination-v2.p4(319) Primitive hdr.int_md[2].ingress_timestamp = meta.ingress_ts
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] int-gtp-destination-v2.p4(320) Primitive hdr.int_md[2].egress_port_id = 0
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] int-gtp-destination-v2.p4(321) Primitive hdr.int_md[2].hop_latency = 0
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] int-gtp-destination-v2.p4(322) Primitive hdr.int_md[2].egress_timestamp = 0
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] int-gtp-destination-v2.p4(323) Primitive hdr.int_md[2].queue_occupancy = 0
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] int-gtp-destination-v2.p4(324) Primitive hdr.int_md[2].congestion_notification = 0
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] int-gtp-destination-v2.p4(325) Primitive hdr.int_md[2].reserved1 = 0
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] int-gtp-destination-v2.p4(326) Primitive hdr.int_md[2].reserved2 = 0
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] int-gtp-destination-v2.p4(328) Primitive hdr.int_header.remaining_hop_cnt = hdr.int_header.remaining_hop_cnt - 1
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] int-gtp-destination-v2.p4(329) Primitive hdr.int_shim.length = hdr.int_shim.length + 32
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] Applying table 'MyIngress.int_sink_table'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Looking up key:
+* hdr.int_shim.$valid$: 01
+
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Table 'MyIngress.int_sink_table': hit with handle 0
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Dumping entry 0
+Match key:
+* hdr.int_shim.$valid$: EXACT     01
+Action entry: MyIngress.int_sink_action -
+
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Action entry is MyIngress.int_sink_action -
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] Action MyIngress.int_sink_action
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] int-gtp-destination-v2.p4(277) Primitive meta.clone_port = 9
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] int-gtp-destination-v2.p4(278) Primitive clone_preserving_field_list(CloneType.I2E, 99, 99)
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] int-gtp-destination-v2.p4(337) Condition "hdr.ipv4_inner.isValid()" (node_8) is true
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Looking up key:
+* hdr.ipv4_inner.dstAddr: ac120014
+
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 0
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Dumping entry 0
+Match key:
+* hdr.ipv4_inner.dstAddr: LPM       ac120014/32
+Action entry: MyIngress.forward_action - 1,
+
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Action entry is MyIngress.forward_action - 1,
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] Action MyIngress.forward_action
+[16:19:29.644] [bmv2] [T] [thread 333] [120.0] [cxt 0] int-gtp-destination-v2.p4(282) Primitive standard_metadata.egress_spec = egress_port
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Pipeline 'ingress': end
+[16:19:29.644] [bmv2] [D] [thread 333] [120.0] [cxt 0] Cloning packet at ingress
+[16:19:29.644] [bmv2] [D] [thread 333] [120.1] [cxt 0] Parser 'parser': start
+[16:19:29.644] [bmv2] [D] [thread 333] [120.1] [cxt 0] Parser 'parser' entering state 'start'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.1] [cxt 0] Extracting header 'ethernet'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.1] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (2)
+[16:19:29.644] [bmv2] [D] [thread 333] [120.1] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 0
+[16:19:29.644] [bmv2] [D] [thread 333] [120.1] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' to 0
+[16:19:29.644] [bmv2] [D] [thread 333] [120.1] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:19:29.644] [bmv2] [D] [thread 333] [120.1] [cxt 0] Parser state 'start': key is 00fa
+[16:19:29.644] [bmv2] [T] [thread 333] [120.1] [cxt 0] Bytes parsed: 14
+[16:19:29.644] [bmv2] [D] [thread 333] [120.1] [cxt 0] Parser 'parser' entering state 'parse_int_shim'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.1] [cxt 0] Extracting header 'int_shim'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.1] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 1
+[16:19:29.644] [bmv2] [D] [thread 333] [120.1] [cxt 0] Extracting header 'int_header'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.1] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' from expression, new value is 251
+[16:19:29.644] [bmv2] [D] [thread 333] [120.1] [cxt 0] Extracting header 'int_md[0]'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.1] [cxt 0] Extracting header 'int_md[1]'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.1] [cxt 0] Parser state 'parse_int_shim': key is 0800
+[16:19:29.644] [bmv2] [T] [thread 333] [120.1] [cxt 0] Bytes parsed: 83
+[16:19:29.644] [bmv2] [D] [thread 333] [120.1] [cxt 0] Parser 'parser' entering state 'parse_encapsulated_ipv4'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.1] [cxt 0] Extracting header 'ipv4_inner'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.1] [cxt 0] Parser state 'parse_encapsulated_ipv4': key is 84
+[16:19:29.644] [bmv2] [T] [thread 333] [120.1] [cxt 0] Bytes parsed: 103
+[16:19:29.644] [bmv2] [D] [thread 333] [120.1] [cxt 0] Parser 'parser' entering state 'parse_encapsulated_sctp_common'
+[16:19:29.644] [bmv2] [D] [thread 333] [120.1] [cxt 0] Extracting header 'sctp'
+[16:19:29.645] [bmv2] [D] [thread 333] [120.1] [cxt 0] Extracting header 'sctp_chunk'
+[16:19:29.645] [bmv2] [D] [thread 333] [120.1] [cxt 0] Parser state 'parse_encapsulated_sctp_common': key is 01
+[16:19:29.645] [bmv2] [T] [thread 333] [120.1] [cxt 0] Bytes parsed: 119
+[16:19:29.645] [bmv2] [D] [thread 333] [120.1] [cxt 0] Parser 'parser': end
+[16:19:29.645] [bmv2] [D] [thread 333] [120.0] [cxt 0] Cloning packet to egress port 9
+[16:19:29.645] [bmv2] [D] [thread 333] [120.0] [cxt 0] Egress port is 1
+[16:19:29.645] [bmv2] [D] [thread 335] [120.1] [cxt 0] Pipeline 'egress': start
+[16:19:29.645] [bmv2] [T] [thread 335] [120.1] [cxt 0] int-gtp-destination-v2.p4(399) Condition "hdr.int_shim.isValid()" (node_12) is true
+[16:19:29.645] [bmv2] [T] [thread 335] [120.1] [cxt 0] Applying table 'tbl_update_int_metadata'
+[16:19:29.645] [bmv2] [D] [thread 335] [120.1] [cxt 0] Looking up key:
+
+[16:19:29.645] [bmv2] [D] [thread 335] [120.1] [cxt 0] Table 'tbl_update_int_metadata': miss
+[16:19:29.645] [bmv2] [D] [thread 335] [120.1] [cxt 0] Action entry is MyEgress.update_int_metadata -
+[16:19:29.645] [bmv2] [T] [thread 335] [120.1] [cxt 0] Action MyEgress.update_int_metadata
+[16:19:29.645] [bmv2] [T] [thread 335] [120.1] [cxt 0] int-gtp-destination-v2.p4(350) Primitive if
+[16:19:29.645] [bmv2] [T] [thread 335] [120.1] [cxt 0] int-gtp-destination-v2.p4(351) Primitive hdr.int_md[2].setValid()
+[16:19:29.645] [bmv2] [T] [thread 335] [120.1] [cxt 0] int-gtp-destination-v2.p4(352) Primitive hdr.int_md[2].switch_id = meta.switch_id
+[16:19:29.645] [bmv2] [T] [thread 335] [120.1] [cxt 0] int-gtp-destination-v2.p4(353) Primitive hdr.int_md[2].ingress_port_id = (bit<16>)meta.ingress_port
+[16:19:29.645] [bmv2] [T] [thread 335] [120.1] [cxt 0] int-gtp-destination-v2.p4(354) Primitive hdr.int_md[2].ingress_timestamp = meta.ingress_ts
+[16:19:29.645] [bmv2] [T] [thread 335] [120.1] [cxt 0] int-gtp-destination-v2.p4(359) Primitive hdr.int_md[2].congestion_notification = 0
+[16:19:29.645] [bmv2] [T] [thread 335] [120.1] [cxt 0] int-gtp-destination-v2.p4(360) Primitive hdr.int_md[2].reserved1 = 0
+[16:19:29.645] [bmv2] [T] [thread 335] [120.1] [cxt 0] int-gtp-destination-v2.p4(361) Primitive hdr.int_md[2].reserved2 = 0
+[16:19:29.645] [bmv2] [T] [thread 335] [120.1] [cxt 0] int-gtp-destination-v2.p4(365) Primitive hdr.int_md[2].egress_port_id = (bit<16>)standard_metadata.egress_port
+[16:19:29.645] [bmv2] [T] [thread 335] [120.1] [cxt 0] int-gtp-destination-v2.p4(366) Primitive hdr.int_md[2].egress_timestamp = (bit<32>)standard_metadata.egress_global_timestamp
+[16:19:29.645] [bmv2] [T] [thread 335] [120.1] [cxt 0] int-gtp-destination-v2.p4(367) Primitive hdr.int_md[2].hop_latency = hdr.int_md[2].egress_timestamp - hdr.int_md[2].ingress_timestamp
+[16:19:29.645] [bmv2] [T] [thread 335] [120.1] [cxt 0] int-gtp-destination-v2.p4(368) Primitive hdr.int_md[2].queue_occupancy = (bit<32>)standard_metadata.enq_qdepth
+[16:19:29.645] [bmv2] [T] [thread 335] [120.1] [cxt 0] int-gtp-destination-v2.p4(405) Condition "standard_metadata.instance_type == 1 || standard_metadata.egress_port == 9" (node_14) is true
+[16:19:29.645] [bmv2] [D] [thread 335] [120.1] [cxt 0] Pipeline 'egress': end
+[16:19:29.645] [bmv2] [D] [thread 335] [120.1] [cxt 0] Deparser 'deparser': start
+[16:19:29.645] [bmv2] [D] [thread 335] [120.1] [cxt 0] Deparsing header 'ethernet'
+[16:19:29.645] [bmv2] [D] [thread 335] [120.1] [cxt 0] Deparsing header 'int_shim'
+[16:19:29.645] [bmv2] [D] [thread 335] [120.1] [cxt 0] Deparsing header 'int_header'
+[16:19:29.645] [bmv2] [D] [thread 335] [120.1] [cxt 0] Deparsing header 'int_md[0]'
+[16:19:29.645] [bmv2] [D] [thread 335] [120.1] [cxt 0] Deparsing header 'int_md[1]'
+[16:19:29.645] [bmv2] [D] [thread 335] [120.1] [cxt 0] Deparsing header 'int_md[2]'
+[16:19:29.645] [bmv2] [D] [thread 335] [120.1] [cxt 0] Deparsing header 'ipv4_inner'
+[16:19:29.645] [bmv2] [D] [thread 335] [120.1] [cxt 0] Deparsing header 'sctp'
+[16:19:29.645] [bmv2] [D] [thread 335] [120.1] [cxt 0] Deparsing header 'sctp_chunk'
+[16:19:29.645] [bmv2] [D] [thread 335] [120.1] [cxt 0] Deparser 'deparser': end
+[16:19:29.645] [bmv2] [D] [thread 335] [120.0] [cxt 0] Pipeline 'egress': start
+[16:19:29.645] [bmv2] [D] [thread 338] [120.1] [cxt 0] Transmitting packet of size 179 out of port 9
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] int-gtp-destination-v2.p4(399) Condition "hdr.int_shim.isValid()" (node_12) is true
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] Applying table 'tbl_update_int_metadata'
+[16:19:29.645] [bmv2] [D] [thread 335] [120.0] [cxt 0] Looking up key:
+
+[16:19:29.645] [bmv2] [D] [thread 335] [120.0] [cxt 0] Table 'tbl_update_int_metadata': miss
+[16:19:29.645] [bmv2] [D] [thread 335] [120.0] [cxt 0] Action entry is MyEgress.update_int_metadata -
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] Action MyEgress.update_int_metadata
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] int-gtp-destination-v2.p4(350) Primitive if
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] int-gtp-destination-v2.p4(350) Primitive if
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] int-gtp-destination-v2.p4(365) Primitive hdr.int_md[2].egress_port_id = (bit<16>)standard_metadata.egress_port
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] int-gtp-destination-v2.p4(366) Primitive hdr.int_md[2].egress_timestamp = (bit<32>)standard_metadata.egress_global_timestamp
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] int-gtp-destination-v2.p4(367) Primitive hdr.int_md[2].hop_latency = hdr.int_md[2].egress_timestamp - hdr.int_md[2].ingress_timestamp
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] int-gtp-destination-v2.p4(368) Primitive hdr.int_md[2].queue_occupancy = (bit<32>)standard_metadata.enq_qdepth
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] int-gtp-destination-v2.p4(405) Condition "standard_metadata.instance_type == 1 || standard_metadata.egress_port == 9" (node_14) is false
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] Applying table 'MyEgress.egress_control'
+[16:19:29.645] [bmv2] [D] [thread 335] [120.0] [cxt 0] Looking up key:
+* standard_metadata.egress_port: 0001
+
+[16:19:29.645] [bmv2] [D] [thread 335] [120.0] [cxt 0] Table 'MyEgress.egress_control': hit with handle 0
+[16:19:29.645] [bmv2] [D] [thread 335] [120.0] [cxt 0] Dumping entry 0
+Match key:
+* standard_metadata.egress_port: EXACT     0001
+Action entry: MyEgress.strip_int_headers -
+
+[16:19:29.645] [bmv2] [D] [thread 335] [120.0] [cxt 0] Action entry is MyEgress.strip_int_headers -
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] Action MyEgress.strip_int_headers
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] int-gtp-destination-v2.p4(372) Primitive hdr.ethernet.etherType = hdr.int_shim.next_proto
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] int-gtp-destination-v2.p4(373) Primitive hdr.int_shim.setInvalid()
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] int-gtp-destination-v2.p4(374) Primitive hdr.int_header.setInvalid()
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] int-gtp-destination-v2.p4(376) Primitive hdr.int_md[0].setInvalid()
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] int-gtp-destination-v2.p4(377) Primitive hdr.int_md[1].setInvalid()
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] int-gtp-destination-v2.p4(378) Primitive hdr.int_md[2].setInvalid()
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] int-gtp-destination-v2.p4(379) Primitive hdr.int_md[3].setInvalid()
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] int-gtp-destination-v2.p4(380) Primitive hdr.int_md[4].setInvalid()
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] int-gtp-destination-v2.p4(381) Primitive hdr.int_md[5].setInvalid()
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] int-gtp-destination-v2.p4(382) Primitive hdr.int_md[6].setInvalid()
+[16:19:29.645] [bmv2] [T] [thread 335] [120.0] [cxt 0] int-gtp-destination-v2.p4(383) Primitive hdr.int_md[7].setInvalid()
+[16:19:29.645] [bmv2] [D] [thread 335] [120.0] [cxt 0] Pipeline 'egress': end
+[16:19:29.645] [bmv2] [D] [thread 335] [120.0] [cxt 0] Deparser 'deparser': start
+[16:19:29.645] [bmv2] [D] [thread 335] [120.0] [cxt 0] Deparsing header 'ethernet'
+[16:19:29.645] [bmv2] [D] [thread 335] [120.0] [cxt 0] Deparsing header 'ipv4_inner'
+[16:19:29.645] [bmv2] [D] [thread 335] [120.0] [cxt 0] Deparsing header 'sctp'
+[16:19:29.645] [bmv2] [D] [thread 335] [120.0] [cxt 0] Deparsing header 'sctp_chunk'
+[16:19:29.645] [bmv2] [D] [thread 335] [120.0] [cxt 0] Deparser 'deparser': end
+[16:19:29.645] [bmv2] [D] [thread 338] [120.0] [cxt 0] Transmitting packet of size 82 out of port 1
+[16:19:32.610] [bmv2] [D] [thread 333] [121.0] [cxt 0] Processing packet received on port 1
+[16:19:32.610] [bmv2] [D] [thread 333] [121.0] [cxt 0] Parser 'parser': start
+[16:19:32.610] [bmv2] [D] [thread 333] [121.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:19:32.610] [bmv2] [D] [thread 333] [121.0] [cxt 0] Extracting header 'ethernet'
+[16:19:32.610] [bmv2] [D] [thread 333] [121.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (1)
+[16:19:32.610] [bmv2] [D] [thread 333] [121.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1115931782
+[16:19:32.610] [bmv2] [D] [thread 333] [121.0] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' to 0
+[16:19:32.610] [bmv2] [D] [thread 333] [121.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:19:32.610] [bmv2] [D] [thread 333] [121.0] [cxt 0] Parser state 'start': key is 9000
+[16:19:32.610] [bmv2] [T] [thread 333] [121.0] [cxt 0] Bytes parsed: 14
+[16:19:32.610] [bmv2] [D] [thread 333] [121.0] [cxt 0] Parser 'parser': end
+[16:19:32.611] [bmv2] [D] [thread 333] [121.0] [cxt 0] Pipeline 'ingress': start
+[16:19:32.611] [bmv2] [T] [thread 333] [121.0] [cxt 0] Applying table 'tbl_intgtpdestinationv2l310'
+[16:19:32.611] [bmv2] [D] [thread 333] [121.0] [cxt 0] Looking up key:
+
+[16:19:32.611] [bmv2] [D] [thread 333] [121.0] [cxt 0] Table 'tbl_intgtpdestinationv2l310': miss
+[16:19:32.611] [bmv2] [D] [thread 333] [121.0] [cxt 0] Action entry is intgtpdestinationv2l310 -
+[16:19:32.611] [bmv2] [T] [thread 333] [121.0] [cxt 0] Action intgtpdestinationv2l310
+[16:19:32.611] [bmv2] [T] [thread 333] [121.0] [cxt 0] int-gtp-destination-v2.p4(310) Primitive meta.switch_id = 3
+[16:19:32.611] [bmv2] [T] [thread 333] [121.0] [cxt 0] int-gtp-destination-v2.p4(312) Condition "hdr.ethernet.isValid()" (node_3) is true
+[16:19:32.611] [bmv2] [T] [thread 333] [121.0] [cxt 0] int-gtp-destination-v2.p4(313) Condition "hdr.int_shim.isValid()" (node_4) is false
+[16:19:32.611] [bmv2] [T] [thread 333] [121.0] [cxt 0] int-gtp-destination-v2.p4(337) Condition "hdr.ipv4_inner.isValid()" (node_8) is false
+[16:19:32.611] [bmv2] [D] [thread 333] [121.0] [cxt 0] Pipeline 'ingress': end
+[16:19:32.611] [bmv2] [D] [thread 333] [121.0] [cxt 0] Egress port is 0
+[16:19:32.611] [bmv2] [D] [thread 334] [121.0] [cxt 0] Pipeline 'egress': start
+[16:19:32.611] [bmv2] [T] [thread 334] [121.0] [cxt 0] int-gtp-destination-v2.p4(399) Condition "hdr.int_shim.isValid()" (node_12) is false
+[16:19:32.611] [bmv2] [D] [thread 334] [121.0] [cxt 0] Pipeline 'egress': end
+[16:19:32.611] [bmv2] [D] [thread 334] [121.0] [cxt 0] Deparser 'deparser': start
+[16:19:32.611] [bmv2] [D] [thread 334] [121.0] [cxt 0] Deparsing header 'ethernet'
+[16:19:32.611] [bmv2] [D] [thread 334] [121.0] [cxt 0] Deparser 'deparser': end
+[16:19:32.611] [bmv2] [D] [thread 338] [121.0] [cxt 0] Transmitting packet of size 60 out of port 0
+[16:19:32.646] [bmv2] [D] [thread 333] [122.0] [cxt 0] Processing packet received on port 2
+[16:19:32.646] [bmv2] [D] [thread 333] [122.0] [cxt 0] Parser 'parser': start
+[16:19:32.646] [bmv2] [D] [thread 333] [122.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:19:32.646] [bmv2] [D] [thread 333] [122.0] [cxt 0] Extracting header 'ethernet'
+[16:19:32.646] [bmv2] [D] [thread 333] [122.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (2)
+[16:19:32.646] [bmv2] [D] [thread 333] [122.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1115967480
+[16:19:32.646] [bmv2] [D] [thread 333] [122.0] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' to 0
+[16:19:32.646] [bmv2] [D] [thread 333] [122.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:19:32.646] [bmv2] [D] [thread 333] [122.0] [cxt 0] Parser state 'start': key is 00fa
+[16:19:32.646] [bmv2] [T] [thread 333] [122.0] [cxt 0] Bytes parsed: 14
+[16:19:32.646] [bmv2] [D] [thread 333] [122.0] [cxt 0] Parser 'parser' entering state 'parse_int_shim'
+[16:19:32.646] [bmv2] [D] [thread 333] [122.0] [cxt 0] Extracting header 'int_shim'
+[16:19:32.646] [bmv2] [D] [thread 333] [122.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 1
+[16:19:32.646] [bmv2] [D] [thread 333] [122.0] [cxt 0] Extracting header 'int_header'
+[16:19:32.646] [bmv2] [D] [thread 333] [122.0] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' from expression, new value is 251
+[16:19:32.646] [bmv2] [D] [thread 333] [122.0] [cxt 0] Extracting header 'int_md[0]'
+[16:19:32.646] [bmv2] [D] [thread 333] [122.0] [cxt 0] Extracting header 'int_md[1]'
+[16:19:32.646] [bmv2] [D] [thread 333] [122.0] [cxt 0] Parser state 'parse_int_shim': key is 0800
+[16:19:32.646] [bmv2] [T] [thread 333] [122.0] [cxt 0] Bytes parsed: 83
+[16:19:32.646] [bmv2] [D] [thread 333] [122.0] [cxt 0] Parser 'parser' entering state 'parse_encapsulated_ipv4'
+[16:19:32.646] [bmv2] [D] [thread 333] [122.0] [cxt 0] Extracting header 'ipv4_inner'
+[16:19:32.646] [bmv2] [D] [thread 333] [122.0] [cxt 0] Parser state 'parse_encapsulated_ipv4': key is 84
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] Bytes parsed: 103
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Parser 'parser' entering state 'parse_encapsulated_sctp_common'
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Extracting header 'sctp'
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Extracting header 'sctp_chunk'
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Parser state 'parse_encapsulated_sctp_common': key is 01
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] Bytes parsed: 119
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Parser 'parser': end
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Pipeline 'ingress': start
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] Applying table 'tbl_intgtpdestinationv2l310'
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Looking up key:
+
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Table 'tbl_intgtpdestinationv2l310': miss
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Action entry is intgtpdestinationv2l310 -
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] Action intgtpdestinationv2l310
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] int-gtp-destination-v2.p4(310) Primitive meta.switch_id = 3
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] int-gtp-destination-v2.p4(312) Condition "hdr.ethernet.isValid()" (node_3) is true
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] int-gtp-destination-v2.p4(313) Condition "hdr.int_shim.isValid()" (node_4) is true
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] int-gtp-destination-v2.p4(315) Condition "hdr.int_header.remaining_hop_cnt > 0" (node_5) is true
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] Applying table 'tbl_intgtpdestinationv2l316'
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Looking up key:
+
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Table 'tbl_intgtpdestinationv2l316': miss
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Action entry is intgtpdestinationv2l316 -
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] Action intgtpdestinationv2l316
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] int-gtp-destination-v2.p4(316) Primitive hdr.int_md[2].setValid()
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] int-gtp-destination-v2.p4(317) Primitive hdr.int_md[2].switch_id = meta.switch_id
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] int-gtp-destination-v2.p4(318) Primitive hdr.int_md[2].ingress_port_id = (bit<16>)meta.ingress_port
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] int-gtp-destination-v2.p4(319) Primitive hdr.int_md[2].ingress_timestamp = meta.ingress_ts
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] int-gtp-destination-v2.p4(320) Primitive hdr.int_md[2].egress_port_id = 0
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] int-gtp-destination-v2.p4(321) Primitive hdr.int_md[2].hop_latency = 0
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] int-gtp-destination-v2.p4(322) Primitive hdr.int_md[2].egress_timestamp = 0
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] int-gtp-destination-v2.p4(323) Primitive hdr.int_md[2].queue_occupancy = 0
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] int-gtp-destination-v2.p4(324) Primitive hdr.int_md[2].congestion_notification = 0
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] int-gtp-destination-v2.p4(325) Primitive hdr.int_md[2].reserved1 = 0
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] int-gtp-destination-v2.p4(326) Primitive hdr.int_md[2].reserved2 = 0
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] int-gtp-destination-v2.p4(328) Primitive hdr.int_header.remaining_hop_cnt = hdr.int_header.remaining_hop_cnt - 1
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] int-gtp-destination-v2.p4(329) Primitive hdr.int_shim.length = hdr.int_shim.length + 32
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] Applying table 'MyIngress.int_sink_table'
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Looking up key:
+* hdr.int_shim.$valid$: 01
+
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Table 'MyIngress.int_sink_table': hit with handle 0
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Dumping entry 0
+Match key:
+* hdr.int_shim.$valid$: EXACT     01
+Action entry: MyIngress.int_sink_action -
+
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Action entry is MyIngress.int_sink_action -
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] Action MyIngress.int_sink_action
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] int-gtp-destination-v2.p4(277) Primitive meta.clone_port = 9
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] int-gtp-destination-v2.p4(278) Primitive clone_preserving_field_list(CloneType.I2E, 99, 99)
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] int-gtp-destination-v2.p4(337) Condition "hdr.ipv4_inner.isValid()" (node_8) is true
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Looking up key:
+* hdr.ipv4_inner.dstAddr: ac120014
+
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 0
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Dumping entry 0
+Match key:
+* hdr.ipv4_inner.dstAddr: LPM       ac120014/32
+Action entry: MyIngress.forward_action - 1,
+
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Action entry is MyIngress.forward_action - 1,
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] Action MyIngress.forward_action
+[16:19:32.647] [bmv2] [T] [thread 333] [122.0] [cxt 0] int-gtp-destination-v2.p4(282) Primitive standard_metadata.egress_spec = egress_port
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Pipeline 'ingress': end
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Cloning packet at ingress
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Parser 'parser': start
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Parser 'parser' entering state 'start'
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Extracting header 'ethernet'
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (2)
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 0
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' to 0
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Parser state 'start': key is 00fa
+[16:19:32.647] [bmv2] [T] [thread 333] [122.1] [cxt 0] Bytes parsed: 14
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Parser 'parser' entering state 'parse_int_shim'
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Extracting header 'int_shim'
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 1
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Extracting header 'int_header'
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' from expression, new value is 251
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Extracting header 'int_md[0]'
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Extracting header 'int_md[1]'
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Parser state 'parse_int_shim': key is 0800
+[16:19:32.647] [bmv2] [T] [thread 333] [122.1] [cxt 0] Bytes parsed: 83
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Parser 'parser' entering state 'parse_encapsulated_ipv4'
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Extracting header 'ipv4_inner'
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Parser state 'parse_encapsulated_ipv4': key is 84
+[16:19:32.647] [bmv2] [T] [thread 333] [122.1] [cxt 0] Bytes parsed: 103
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Parser 'parser' entering state 'parse_encapsulated_sctp_common'
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Extracting header 'sctp'
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Extracting header 'sctp_chunk'
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Parser state 'parse_encapsulated_sctp_common': key is 01
+[16:19:32.647] [bmv2] [T] [thread 333] [122.1] [cxt 0] Bytes parsed: 119
+[16:19:32.647] [bmv2] [D] [thread 333] [122.1] [cxt 0] Parser 'parser': end
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Cloning packet to egress port 9
+[16:19:32.647] [bmv2] [D] [thread 333] [122.0] [cxt 0] Egress port is 1
+[16:19:32.648] [bmv2] [D] [thread 335] [122.1] [cxt 0] Pipeline 'egress': start
+[16:19:32.648] [bmv2] [T] [thread 335] [122.1] [cxt 0] int-gtp-destination-v2.p4(399) Condition "hdr.int_shim.isValid()" (node_12) is true
+[16:19:32.648] [bmv2] [T] [thread 335] [122.1] [cxt 0] Applying table 'tbl_update_int_metadata'
+[16:19:32.648] [bmv2] [D] [thread 335] [122.1] [cxt 0] Looking up key:
+
+[16:19:32.648] [bmv2] [D] [thread 335] [122.1] [cxt 0] Table 'tbl_update_int_metadata': miss
+[16:19:32.648] [bmv2] [D] [thread 335] [122.1] [cxt 0] Action entry is MyEgress.update_int_metadata -
+[16:19:32.648] [bmv2] [T] [thread 335] [122.1] [cxt 0] Action MyEgress.update_int_metadata
+[16:19:32.648] [bmv2] [T] [thread 335] [122.1] [cxt 0] int-gtp-destination-v2.p4(350) Primitive if
+[16:19:32.648] [bmv2] [T] [thread 335] [122.1] [cxt 0] int-gtp-destination-v2.p4(351) Primitive hdr.int_md[2].setValid()
+[16:19:32.648] [bmv2] [T] [thread 335] [122.1] [cxt 0] int-gtp-destination-v2.p4(352) Primitive hdr.int_md[2].switch_id = meta.switch_id
+[16:19:32.648] [bmv2] [T] [thread 335] [122.1] [cxt 0] int-gtp-destination-v2.p4(353) Primitive hdr.int_md[2].ingress_port_id = (bit<16>)meta.ingress_port
+[16:19:32.648] [bmv2] [T] [thread 335] [122.1] [cxt 0] int-gtp-destination-v2.p4(354) Primitive hdr.int_md[2].ingress_timestamp = meta.ingress_ts
+[16:19:32.648] [bmv2] [T] [thread 335] [122.1] [cxt 0] int-gtp-destination-v2.p4(359) Primitive hdr.int_md[2].congestion_notification = 0
+[16:19:32.648] [bmv2] [T] [thread 335] [122.1] [cxt 0] int-gtp-destination-v2.p4(360) Primitive hdr.int_md[2].reserved1 = 0
+[16:19:32.648] [bmv2] [T] [thread 335] [122.1] [cxt 0] int-gtp-destination-v2.p4(361) Primitive hdr.int_md[2].reserved2 = 0
+[16:19:32.648] [bmv2] [T] [thread 335] [122.1] [cxt 0] int-gtp-destination-v2.p4(365) Primitive hdr.int_md[2].egress_port_id = (bit<16>)standard_metadata.egress_port
+[16:19:32.648] [bmv2] [T] [thread 335] [122.1] [cxt 0] int-gtp-destination-v2.p4(366) Primitive hdr.int_md[2].egress_timestamp = (bit<32>)standard_metadata.egress_global_timestamp
+[16:19:32.648] [bmv2] [T] [thread 335] [122.1] [cxt 0] int-gtp-destination-v2.p4(367) Primitive hdr.int_md[2].hop_latency = hdr.int_md[2].egress_timestamp - hdr.int_md[2].ingress_timestamp
+[16:19:32.648] [bmv2] [T] [thread 335] [122.1] [cxt 0] int-gtp-destination-v2.p4(368) Primitive hdr.int_md[2].queue_occupancy = (bit<32>)standard_metadata.enq_qdepth
+[16:19:32.648] [bmv2] [T] [thread 335] [122.1] [cxt 0] int-gtp-destination-v2.p4(405) Condition "standard_metadata.instance_type == 1 || standard_metadata.egress_port == 9" (node_14) is true
+[16:19:32.648] [bmv2] [D] [thread 335] [122.1] [cxt 0] Pipeline 'egress': end
+[16:19:32.648] [bmv2] [D] [thread 335] [122.1] [cxt 0] Deparser 'deparser': start
+[16:19:32.648] [bmv2] [D] [thread 335] [122.1] [cxt 0] Deparsing header 'ethernet'
+[16:19:32.648] [bmv2] [D] [thread 335] [122.1] [cxt 0] Deparsing header 'int_shim'
+[16:19:32.648] [bmv2] [D] [thread 335] [122.1] [cxt 0] Deparsing header 'int_header'
+[16:19:32.648] [bmv2] [D] [thread 335] [122.1] [cxt 0] Deparsing header 'int_md[0]'
+[16:19:32.648] [bmv2] [D] [thread 335] [122.1] [cxt 0] Deparsing header 'int_md[1]'
+[16:19:32.648] [bmv2] [D] [thread 335] [122.1] [cxt 0] Deparsing header 'int_md[2]'
+[16:19:32.648] [bmv2] [D] [thread 335] [122.1] [cxt 0] Deparsing header 'ipv4_inner'
+[16:19:32.648] [bmv2] [D] [thread 335] [122.1] [cxt 0] Deparsing header 'sctp'
+[16:19:32.648] [bmv2] [D] [thread 335] [122.1] [cxt 0] Deparsing header 'sctp_chunk'
+[16:19:32.648] [bmv2] [D] [thread 335] [122.1] [cxt 0] Deparser 'deparser': end
+[16:19:32.648] [bmv2] [D] [thread 335] [122.0] [cxt 0] Pipeline 'egress': start
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] int-gtp-destination-v2.p4(399) Condition "hdr.int_shim.isValid()" (node_12) is true
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] Applying table 'tbl_update_int_metadata'
+[16:19:32.648] [bmv2] [D] [thread 335] [122.0] [cxt 0] Looking up key:
+
+[16:19:32.648] [bmv2] [D] [thread 335] [122.0] [cxt 0] Table 'tbl_update_int_metadata': miss
+[16:19:32.648] [bmv2] [D] [thread 335] [122.0] [cxt 0] Action entry is MyEgress.update_int_metadata -
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] Action MyEgress.update_int_metadata
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] int-gtp-destination-v2.p4(350) Primitive if
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] int-gtp-destination-v2.p4(350) Primitive if
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] int-gtp-destination-v2.p4(365) Primitive hdr.int_md[2].egress_port_id = (bit<16>)standard_metadata.egress_port
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] int-gtp-destination-v2.p4(366) Primitive hdr.int_md[2].egress_timestamp = (bit<32>)standard_metadata.egress_global_timestamp
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] int-gtp-destination-v2.p4(367) Primitive hdr.int_md[2].hop_latency = hdr.int_md[2].egress_timestamp - hdr.int_md[2].ingress_timestamp
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] int-gtp-destination-v2.p4(368) Primitive hdr.int_md[2].queue_occupancy = (bit<32>)standard_metadata.enq_qdepth
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] int-gtp-destination-v2.p4(405) Condition "standard_metadata.instance_type == 1 || standard_metadata.egress_port == 9" (node_14) is false
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] Applying table 'MyEgress.egress_control'
+[16:19:32.648] [bmv2] [D] [thread 338] [122.1] [cxt 0] Transmitting packet of size 179 out of port 9
+[16:19:32.648] [bmv2] [D] [thread 335] [122.0] [cxt 0] Looking up key:
+* standard_metadata.egress_port: 0001
+
+[16:19:32.648] [bmv2] [D] [thread 335] [122.0] [cxt 0] Table 'MyEgress.egress_control': hit with handle 0
+[16:19:32.648] [bmv2] [D] [thread 335] [122.0] [cxt 0] Dumping entry 0
+Match key:
+* standard_metadata.egress_port: EXACT     0001
+Action entry: MyEgress.strip_int_headers -
+
+[16:19:32.648] [bmv2] [D] [thread 335] [122.0] [cxt 0] Action entry is MyEgress.strip_int_headers -
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] Action MyEgress.strip_int_headers
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] int-gtp-destination-v2.p4(372) Primitive hdr.ethernet.etherType = hdr.int_shim.next_proto
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] int-gtp-destination-v2.p4(373) Primitive hdr.int_shim.setInvalid()
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] int-gtp-destination-v2.p4(374) Primitive hdr.int_header.setInvalid()
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] int-gtp-destination-v2.p4(376) Primitive hdr.int_md[0].setInvalid()
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] int-gtp-destination-v2.p4(377) Primitive hdr.int_md[1].setInvalid()
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] int-gtp-destination-v2.p4(378) Primitive hdr.int_md[2].setInvalid()
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] int-gtp-destination-v2.p4(379) Primitive hdr.int_md[3].setInvalid()
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] int-gtp-destination-v2.p4(380) Primitive hdr.int_md[4].setInvalid()
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] int-gtp-destination-v2.p4(381) Primitive hdr.int_md[5].setInvalid()
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] int-gtp-destination-v2.p4(382) Primitive hdr.int_md[6].setInvalid()
+[16:19:32.648] [bmv2] [T] [thread 335] [122.0] [cxt 0] int-gtp-destination-v2.p4(383) Primitive hdr.int_md[7].setInvalid()
+[16:19:32.648] [bmv2] [D] [thread 335] [122.0] [cxt 0] Pipeline 'egress': end
+[16:19:32.648] [bmv2] [D] [thread 335] [122.0] [cxt 0] Deparser 'deparser': start
+[16:19:32.648] [bmv2] [D] [thread 335] [122.0] [cxt 0] Deparsing header 'ethernet'
+[16:19:32.648] [bmv2] [D] [thread 335] [122.0] [cxt 0] Deparsing header 'ipv4_inner'
+[16:19:32.648] [bmv2] [D] [thread 335] [122.0] [cxt 0] Deparsing header 'sctp'
+[16:19:32.648] [bmv2] [D] [thread 335] [122.0] [cxt 0] Deparsing header 'sctp_chunk'
+[16:19:32.648] [bmv2] [D] [thread 335] [122.0] [cxt 0] Deparser 'deparser': end
+[16:19:32.649] [bmv2] [D] [thread 338] [122.0] [cxt 0] Transmitting packet of size 82 out of port 1
+[16:19:32.755] [bmv2] [D] [thread 333] [123.0] [cxt 0] Processing packet received on port 1
+[16:19:32.755] [bmv2] [D] [thread 333] [123.0] [cxt 0] Parser 'parser': start
+[16:19:32.756] [bmv2] [D] [thread 333] [123.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:19:32.756] [bmv2] [D] [thread 333] [123.0] [cxt 0] Extracting header 'ethernet'
+[16:19:32.756] [bmv2] [D] [thread 333] [123.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (1)
+[16:19:32.756] [bmv2] [D] [thread 333] [123.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1116076792
+[16:19:32.756] [bmv2] [D] [thread 333] [123.0] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' to 0
+[16:19:32.756] [bmv2] [D] [thread 333] [123.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:19:32.756] [bmv2] [D] [thread 333] [123.0] [cxt 0] Parser state 'start': key is 0800
+[16:19:32.756] [bmv2] [T] [thread 333] [123.0] [cxt 0] Bytes parsed: 14
+[16:19:32.756] [bmv2] [D] [thread 333] [123.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[16:19:32.756] [bmv2] [D] [thread 333] [123.0] [cxt 0] Extracting header 'ipv4_inner'
+[16:19:32.756] [bmv2] [D] [thread 333] [123.0] [cxt 0] Parser state 'parse_ipv4': key is 01
+[16:19:32.756] [bmv2] [T] [thread 333] [123.0] [cxt 0] Bytes parsed: 34
+[16:19:32.756] [bmv2] [D] [thread 333] [123.0] [cxt 0] Parser 'parser': end
+[16:19:32.756] [bmv2] [D] [thread 333] [123.0] [cxt 0] Pipeline 'ingress': start
+[16:19:32.756] [bmv2] [T] [thread 333] [123.0] [cxt 0] Applying table 'tbl_intgtpdestinationv2l310'
+[16:19:32.756] [bmv2] [D] [thread 333] [123.0] [cxt 0] Looking up key:
+
+[16:19:32.756] [bmv2] [D] [thread 333] [123.0] [cxt 0] Table 'tbl_intgtpdestinationv2l310': miss
+[16:19:32.756] [bmv2] [D] [thread 333] [123.0] [cxt 0] Action entry is intgtpdestinationv2l310 -
+[16:19:32.756] [bmv2] [T] [thread 333] [123.0] [cxt 0] Action intgtpdestinationv2l310
+[16:19:32.756] [bmv2] [T] [thread 333] [123.0] [cxt 0] int-gtp-destination-v2.p4(310) Primitive meta.switch_id = 3
+[16:19:32.756] [bmv2] [T] [thread 333] [123.0] [cxt 0] int-gtp-destination-v2.p4(312) Condition "hdr.ethernet.isValid()" (node_3) is true
+[16:19:32.756] [bmv2] [T] [thread 333] [123.0] [cxt 0] int-gtp-destination-v2.p4(313) Condition "hdr.int_shim.isValid()" (node_4) is false
+[16:19:32.756] [bmv2] [T] [thread 333] [123.0] [cxt 0] int-gtp-destination-v2.p4(337) Condition "hdr.ipv4_inner.isValid()" (node_8) is true
+[16:19:32.756] [bmv2] [T] [thread 333] [123.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:19:32.756] [bmv2] [D] [thread 333] [123.0] [cxt 0] Looking up key:
+* hdr.ipv4_inner.dstAddr: ac120a03
+
+[16:19:32.756] [bmv2] [D] [thread 333] [123.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 2
+[16:19:32.756] [bmv2] [D] [thread 333] [123.0] [cxt 0] Dumping entry 2
+Match key:
+* hdr.ipv4_inner.dstAddr: LPM       ac120a03/32
+Action entry: MyIngress.forward_action - 2,
+
+[16:19:32.756] [bmv2] [D] [thread 333] [123.0] [cxt 0] Action entry is MyIngress.forward_action - 2,
+[16:19:32.756] [bmv2] [T] [thread 333] [123.0] [cxt 0] Action MyIngress.forward_action
+[16:19:32.756] [bmv2] [T] [thread 333] [123.0] [cxt 0] int-gtp-destination-v2.p4(282) Primitive standard_metadata.egress_spec = egress_port
+[16:19:32.756] [bmv2] [D] [thread 333] [123.0] [cxt 0] Pipeline 'ingress': end
+[16:19:32.756] [bmv2] [D] [thread 333] [123.0] [cxt 0] Egress port is 2
+[16:19:32.756] [bmv2] [D] [thread 336] [123.0] [cxt 0] Pipeline 'egress': start
+[16:19:32.756] [bmv2] [T] [thread 336] [123.0] [cxt 0] int-gtp-destination-v2.p4(399) Condition "hdr.int_shim.isValid()" (node_12) is false
+[16:19:32.756] [bmv2] [D] [thread 336] [123.0] [cxt 0] Pipeline 'egress': end
+[16:19:32.756] [bmv2] [D] [thread 336] [123.0] [cxt 0] Deparser 'deparser': start
+[16:19:32.756] [bmv2] [D] [thread 336] [123.0] [cxt 0] Deparsing header 'ethernet'
+[16:19:32.756] [bmv2] [D] [thread 336] [123.0] [cxt 0] Deparsing header 'ipv4_inner'
+[16:19:32.756] [bmv2] [D] [thread 336] [123.0] [cxt 0] Deparser 'deparser': end
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Processing packet received on port 1
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Parser 'parser': start
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Extracting header 'ethernet'
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (1)
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1116076823
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' to 0
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Parser state 'start': key is 0800
+[16:19:32.756] [bmv2] [T] [thread 333] [124.0] [cxt 0] Bytes parsed: 14
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Extracting header 'ipv4_inner'
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Parser state 'parse_ipv4': key is 01
+[16:19:32.756] [bmv2] [T] [thread 333] [124.0] [cxt 0] Bytes parsed: 34
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Parser 'parser': end
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Pipeline 'ingress': start
+[16:19:32.756] [bmv2] [T] [thread 333] [124.0] [cxt 0] Applying table 'tbl_intgtpdestinationv2l310'
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Looking up key:
+
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Table 'tbl_intgtpdestinationv2l310': miss
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Action entry is intgtpdestinationv2l310 -
+[16:19:32.756] [bmv2] [T] [thread 333] [124.0] [cxt 0] Action intgtpdestinationv2l310
+[16:19:32.756] [bmv2] [T] [thread 333] [124.0] [cxt 0] int-gtp-destination-v2.p4(310) Primitive meta.switch_id = 3
+[16:19:32.756] [bmv2] [T] [thread 333] [124.0] [cxt 0] int-gtp-destination-v2.p4(312) Condition "hdr.ethernet.isValid()" (node_3) is true
+[16:19:32.756] [bmv2] [T] [thread 333] [124.0] [cxt 0] int-gtp-destination-v2.p4(313) Condition "hdr.int_shim.isValid()" (node_4) is false
+[16:19:32.756] [bmv2] [T] [thread 333] [124.0] [cxt 0] int-gtp-destination-v2.p4(337) Condition "hdr.ipv4_inner.isValid()" (node_8) is true
+[16:19:32.756] [bmv2] [T] [thread 333] [124.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Looking up key:
+* hdr.ipv4_inner.dstAddr: ac120a03
+
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 2
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Dumping entry 2
+Match key:
+* hdr.ipv4_inner.dstAddr: LPM       ac120a03/32
+Action entry: MyIngress.forward_action - 2,
+
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Action entry is MyIngress.forward_action - 2,
+[16:19:32.756] [bmv2] [T] [thread 333] [124.0] [cxt 0] Action MyIngress.forward_action
+[16:19:32.756] [bmv2] [T] [thread 333] [124.0] [cxt 0] int-gtp-destination-v2.p4(282) Primitive standard_metadata.egress_spec = egress_port
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Pipeline 'ingress': end
+[16:19:32.756] [bmv2] [D] [thread 333] [124.0] [cxt 0] Egress port is 2
+[16:19:32.756] [bmv2] [D] [thread 336] [124.0] [cxt 0] Pipeline 'egress': start
+[16:19:32.756] [bmv2] [T] [thread 336] [124.0] [cxt 0] int-gtp-destination-v2.p4(399) Condition "hdr.int_shim.isValid()" (node_12) is false
+[16:19:32.756] [bmv2] [D] [thread 336] [124.0] [cxt 0] Pipeline 'egress': end
+[16:19:32.756] [bmv2] [D] [thread 336] [124.0] [cxt 0] Deparser 'deparser': start
+[16:19:32.756] [bmv2] [D] [thread 336] [124.0] [cxt 0] Deparsing header 'ethernet'
+[16:19:32.756] [bmv2] [D] [thread 336] [124.0] [cxt 0] Deparsing header 'ipv4_inner'
+[16:19:32.756] [bmv2] [D] [thread 336] [124.0] [cxt 0] Deparser 'deparser': end
+[16:19:32.756] [bmv2] [D] [thread 338] [123.0] [cxt 0] Transmitting packet of size 110 out of port 2
+[16:19:32.756] [bmv2] [D] [thread 338] [124.0] [cxt 0] Transmitting packet of size 110 out of port 2
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Processing packet received on port 2
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Parser 'parser': start
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Extracting header 'ethernet'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (2)
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1122181177
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' to 0
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Parser state 'start': key is 00fa
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] Bytes parsed: 14
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Parser 'parser' entering state 'parse_int_shim'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Extracting header 'int_shim'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 1
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Extracting header 'int_header'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' from expression, new value is 251
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Extracting header 'int_md[0]'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Extracting header 'int_md[1]'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Parser state 'parse_int_shim': key is 0800
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] Bytes parsed: 83
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Parser 'parser' entering state 'parse_encapsulated_ipv4'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Extracting header 'ipv4_inner'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Parser state 'parse_encapsulated_ipv4': key is 84
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] Bytes parsed: 103
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Parser 'parser' entering state 'parse_encapsulated_sctp_common'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Extracting header 'sctp'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Extracting header 'sctp_chunk'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Parser state 'parse_encapsulated_sctp_common': key is 01
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] Bytes parsed: 119
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Parser 'parser': end
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Pipeline 'ingress': start
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] Applying table 'tbl_intgtpdestinationv2l310'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Looking up key:
+
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Table 'tbl_intgtpdestinationv2l310': miss
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Action entry is intgtpdestinationv2l310 -
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] Action intgtpdestinationv2l310
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] int-gtp-destination-v2.p4(310) Primitive meta.switch_id = 3
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] int-gtp-destination-v2.p4(312) Condition "hdr.ethernet.isValid()" (node_3) is true
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] int-gtp-destination-v2.p4(313) Condition "hdr.int_shim.isValid()" (node_4) is true
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] int-gtp-destination-v2.p4(315) Condition "hdr.int_header.remaining_hop_cnt > 0" (node_5) is true
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] Applying table 'tbl_intgtpdestinationv2l316'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Looking up key:
+
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Table 'tbl_intgtpdestinationv2l316': miss
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Action entry is intgtpdestinationv2l316 -
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] Action intgtpdestinationv2l316
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] int-gtp-destination-v2.p4(316) Primitive hdr.int_md[2].setValid()
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] int-gtp-destination-v2.p4(317) Primitive hdr.int_md[2].switch_id = meta.switch_id
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] int-gtp-destination-v2.p4(318) Primitive hdr.int_md[2].ingress_port_id = (bit<16>)meta.ingress_port
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] int-gtp-destination-v2.p4(319) Primitive hdr.int_md[2].ingress_timestamp = meta.ingress_ts
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] int-gtp-destination-v2.p4(320) Primitive hdr.int_md[2].egress_port_id = 0
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] int-gtp-destination-v2.p4(321) Primitive hdr.int_md[2].hop_latency = 0
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] int-gtp-destination-v2.p4(322) Primitive hdr.int_md[2].egress_timestamp = 0
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] int-gtp-destination-v2.p4(323) Primitive hdr.int_md[2].queue_occupancy = 0
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] int-gtp-destination-v2.p4(324) Primitive hdr.int_md[2].congestion_notification = 0
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] int-gtp-destination-v2.p4(325) Primitive hdr.int_md[2].reserved1 = 0
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] int-gtp-destination-v2.p4(326) Primitive hdr.int_md[2].reserved2 = 0
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] int-gtp-destination-v2.p4(328) Primitive hdr.int_header.remaining_hop_cnt = hdr.int_header.remaining_hop_cnt - 1
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] int-gtp-destination-v2.p4(329) Primitive hdr.int_shim.length = hdr.int_shim.length + 32
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] Applying table 'MyIngress.int_sink_table'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Looking up key:
+* hdr.int_shim.$valid$: 01
+
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Table 'MyIngress.int_sink_table': hit with handle 0
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Dumping entry 0
+Match key:
+* hdr.int_shim.$valid$: EXACT     01
+Action entry: MyIngress.int_sink_action -
+
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Action entry is MyIngress.int_sink_action -
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] Action MyIngress.int_sink_action
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] int-gtp-destination-v2.p4(277) Primitive meta.clone_port = 9
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] int-gtp-destination-v2.p4(278) Primitive clone_preserving_field_list(CloneType.I2E, 99, 99)
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] int-gtp-destination-v2.p4(337) Condition "hdr.ipv4_inner.isValid()" (node_8) is true
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Looking up key:
+* hdr.ipv4_inner.dstAddr: ac120014
+
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 0
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Dumping entry 0
+Match key:
+* hdr.ipv4_inner.dstAddr: LPM       ac120014/32
+Action entry: MyIngress.forward_action - 1,
+
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Action entry is MyIngress.forward_action - 1,
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] Action MyIngress.forward_action
+[16:19:38.860] [bmv2] [T] [thread 333] [125.0] [cxt 0] int-gtp-destination-v2.p4(282) Primitive standard_metadata.egress_spec = egress_port
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Pipeline 'ingress': end
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Cloning packet at ingress
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Parser 'parser': start
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Parser 'parser' entering state 'start'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Extracting header 'ethernet'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (2)
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1116076792
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' to 0
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Parser state 'start': key is 00fa
+[16:19:38.860] [bmv2] [T] [thread 333] [125.1] [cxt 0] Bytes parsed: 14
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Parser 'parser' entering state 'parse_int_shim'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Extracting header 'int_shim'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 1
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Extracting header 'int_header'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' from expression, new value is 251
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Extracting header 'int_md[0]'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Extracting header 'int_md[1]'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Parser state 'parse_int_shim': key is 0800
+[16:19:38.860] [bmv2] [T] [thread 333] [125.1] [cxt 0] Bytes parsed: 83
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Parser 'parser' entering state 'parse_encapsulated_ipv4'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Extracting header 'ipv4_inner'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Parser state 'parse_encapsulated_ipv4': key is 84
+[16:19:38.860] [bmv2] [T] [thread 333] [125.1] [cxt 0] Bytes parsed: 103
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Parser 'parser' entering state 'parse_encapsulated_sctp_common'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Extracting header 'sctp'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Extracting header 'sctp_chunk'
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Parser state 'parse_encapsulated_sctp_common': key is 01
+[16:19:38.860] [bmv2] [T] [thread 333] [125.1] [cxt 0] Bytes parsed: 119
+[16:19:38.860] [bmv2] [D] [thread 333] [125.1] [cxt 0] Parser 'parser': end
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Cloning packet to egress port 9
+[16:19:38.860] [bmv2] [D] [thread 333] [125.0] [cxt 0] Egress port is 1
+[16:19:38.860] [bmv2] [D] [thread 335] [125.1] [cxt 0] Pipeline 'egress': start
+[16:19:38.860] [bmv2] [T] [thread 335] [125.1] [cxt 0] int-gtp-destination-v2.p4(399) Condition "hdr.int_shim.isValid()" (node_12) is true
+[16:19:38.860] [bmv2] [T] [thread 335] [125.1] [cxt 0] Applying table 'tbl_update_int_metadata'
+[16:19:38.860] [bmv2] [D] [thread 335] [125.1] [cxt 0] Looking up key:
+
+[16:19:38.860] [bmv2] [D] [thread 335] [125.1] [cxt 0] Table 'tbl_update_int_metadata': miss
+[16:19:38.860] [bmv2] [D] [thread 335] [125.1] [cxt 0] Action entry is MyEgress.update_int_metadata -
+[16:19:38.860] [bmv2] [T] [thread 335] [125.1] [cxt 0] Action MyEgress.update_int_metadata
+[16:19:38.860] [bmv2] [T] [thread 335] [125.1] [cxt 0] int-gtp-destination-v2.p4(350) Primitive if
+[16:19:38.860] [bmv2] [T] [thread 335] [125.1] [cxt 0] int-gtp-destination-v2.p4(351) Primitive hdr.int_md[2].setValid()
+[16:19:38.860] [bmv2] [T] [thread 335] [125.1] [cxt 0] int-gtp-destination-v2.p4(352) Primitive hdr.int_md[2].switch_id = meta.switch_id
+[16:19:38.861] [bmv2] [T] [thread 335] [125.1] [cxt 0] int-gtp-destination-v2.p4(353) Primitive hdr.int_md[2].ingress_port_id = (bit<16>)meta.ingress_port
+[16:19:38.861] [bmv2] [T] [thread 335] [125.1] [cxt 0] int-gtp-destination-v2.p4(354) Primitive hdr.int_md[2].ingress_timestamp = meta.ingress_ts
+[16:19:38.861] [bmv2] [T] [thread 335] [125.1] [cxt 0] int-gtp-destination-v2.p4(359) Primitive hdr.int_md[2].congestion_notification = 0
+[16:19:38.861] [bmv2] [T] [thread 335] [125.1] [cxt 0] int-gtp-destination-v2.p4(360) Primitive hdr.int_md[2].reserved1 = 0
+[16:19:38.861] [bmv2] [T] [thread 335] [125.1] [cxt 0] int-gtp-destination-v2.p4(361) Primitive hdr.int_md[2].reserved2 = 0
+[16:19:38.861] [bmv2] [T] [thread 335] [125.1] [cxt 0] int-gtp-destination-v2.p4(365) Primitive hdr.int_md[2].egress_port_id = (bit<16>)standard_metadata.egress_port
+[16:19:38.861] [bmv2] [T] [thread 335] [125.1] [cxt 0] int-gtp-destination-v2.p4(366) Primitive hdr.int_md[2].egress_timestamp = (bit<32>)standard_metadata.egress_global_timestamp
+[16:19:38.861] [bmv2] [T] [thread 335] [125.1] [cxt 0] int-gtp-destination-v2.p4(367) Primitive hdr.int_md[2].hop_latency = hdr.int_md[2].egress_timestamp - hdr.int_md[2].ingress_timestamp
+[16:19:38.861] [bmv2] [T] [thread 335] [125.1] [cxt 0] int-gtp-destination-v2.p4(368) Primitive hdr.int_md[2].queue_occupancy = (bit<32>)standard_metadata.enq_qdepth
+[16:19:38.861] [bmv2] [T] [thread 335] [125.1] [cxt 0] int-gtp-destination-v2.p4(405) Condition "standard_metadata.instance_type == 1 || standard_metadata.egress_port == 9" (node_14) is true
+[16:19:38.861] [bmv2] [D] [thread 335] [125.1] [cxt 0] Pipeline 'egress': end
+[16:19:38.861] [bmv2] [D] [thread 335] [125.1] [cxt 0] Deparser 'deparser': start
+[16:19:38.861] [bmv2] [D] [thread 335] [125.1] [cxt 0] Deparsing header 'ethernet'
+[16:19:38.861] [bmv2] [D] [thread 335] [125.1] [cxt 0] Deparsing header 'int_shim'
+[16:19:38.861] [bmv2] [D] [thread 335] [125.1] [cxt 0] Deparsing header 'int_header'
+[16:19:38.861] [bmv2] [D] [thread 335] [125.1] [cxt 0] Deparsing header 'int_md[0]'
+[16:19:38.861] [bmv2] [D] [thread 335] [125.1] [cxt 0] Deparsing header 'int_md[1]'
+[16:19:38.861] [bmv2] [D] [thread 335] [125.1] [cxt 0] Deparsing header 'int_md[2]'
+[16:19:38.861] [bmv2] [D] [thread 335] [125.1] [cxt 0] Deparsing header 'ipv4_inner'
+[16:19:38.861] [bmv2] [D] [thread 335] [125.1] [cxt 0] Deparsing header 'sctp'
+[16:19:38.861] [bmv2] [D] [thread 335] [125.1] [cxt 0] Deparsing header 'sctp_chunk'
+[16:19:38.861] [bmv2] [D] [thread 335] [125.1] [cxt 0] Deparser 'deparser': end
+[16:19:38.861] [bmv2] [D] [thread 335] [125.0] [cxt 0] Pipeline 'egress': start
+[16:19:38.861] [bmv2] [D] [thread 338] [125.1] [cxt 0] Transmitting packet of size 179 out of port 9
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] int-gtp-destination-v2.p4(399) Condition "hdr.int_shim.isValid()" (node_12) is true
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] Applying table 'tbl_update_int_metadata'
+[16:19:38.861] [bmv2] [D] [thread 335] [125.0] [cxt 0] Looking up key:
+
+[16:19:38.861] [bmv2] [D] [thread 335] [125.0] [cxt 0] Table 'tbl_update_int_metadata': miss
+[16:19:38.861] [bmv2] [D] [thread 335] [125.0] [cxt 0] Action entry is MyEgress.update_int_metadata -
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] Action MyEgress.update_int_metadata
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] int-gtp-destination-v2.p4(350) Primitive if
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] int-gtp-destination-v2.p4(350) Primitive if
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] int-gtp-destination-v2.p4(365) Primitive hdr.int_md[2].egress_port_id = (bit<16>)standard_metadata.egress_port
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] int-gtp-destination-v2.p4(366) Primitive hdr.int_md[2].egress_timestamp = (bit<32>)standard_metadata.egress_global_timestamp
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] int-gtp-destination-v2.p4(367) Primitive hdr.int_md[2].hop_latency = hdr.int_md[2].egress_timestamp - hdr.int_md[2].ingress_timestamp
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] int-gtp-destination-v2.p4(368) Primitive hdr.int_md[2].queue_occupancy = (bit<32>)standard_metadata.enq_qdepth
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] int-gtp-destination-v2.p4(405) Condition "standard_metadata.instance_type == 1 || standard_metadata.egress_port == 9" (node_14) is false
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] Applying table 'MyEgress.egress_control'
+[16:19:38.861] [bmv2] [D] [thread 335] [125.0] [cxt 0] Looking up key:
+* standard_metadata.egress_port: 0001
+
+[16:19:38.861] [bmv2] [D] [thread 335] [125.0] [cxt 0] Table 'MyEgress.egress_control': hit with handle 0
+[16:19:38.861] [bmv2] [D] [thread 335] [125.0] [cxt 0] Dumping entry 0
+Match key:
+* standard_metadata.egress_port: EXACT     0001
+Action entry: MyEgress.strip_int_headers -
+
+[16:19:38.861] [bmv2] [D] [thread 335] [125.0] [cxt 0] Action entry is MyEgress.strip_int_headers -
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] Action MyEgress.strip_int_headers
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] int-gtp-destination-v2.p4(372) Primitive hdr.ethernet.etherType = hdr.int_shim.next_proto
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] int-gtp-destination-v2.p4(373) Primitive hdr.int_shim.setInvalid()
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] int-gtp-destination-v2.p4(374) Primitive hdr.int_header.setInvalid()
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] int-gtp-destination-v2.p4(376) Primitive hdr.int_md[0].setInvalid()
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] int-gtp-destination-v2.p4(377) Primitive hdr.int_md[1].setInvalid()
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] int-gtp-destination-v2.p4(378) Primitive hdr.int_md[2].setInvalid()
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] int-gtp-destination-v2.p4(379) Primitive hdr.int_md[3].setInvalid()
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] int-gtp-destination-v2.p4(380) Primitive hdr.int_md[4].setInvalid()
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] int-gtp-destination-v2.p4(381) Primitive hdr.int_md[5].setInvalid()
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] int-gtp-destination-v2.p4(382) Primitive hdr.int_md[6].setInvalid()
+[16:19:38.861] [bmv2] [T] [thread 335] [125.0] [cxt 0] int-gtp-destination-v2.p4(383) Primitive hdr.int_md[7].setInvalid()
+[16:19:38.861] [bmv2] [D] [thread 335] [125.0] [cxt 0] Pipeline 'egress': end
+[16:19:38.861] [bmv2] [D] [thread 335] [125.0] [cxt 0] Deparser 'deparser': start
+[16:19:38.861] [bmv2] [D] [thread 335] [125.0] [cxt 0] Deparsing header 'ethernet'
+[16:19:38.861] [bmv2] [D] [thread 335] [125.0] [cxt 0] Deparsing header 'ipv4_inner'
+[16:19:38.861] [bmv2] [D] [thread 335] [125.0] [cxt 0] Deparsing header 'sctp'
+[16:19:38.861] [bmv2] [D] [thread 335] [125.0] [cxt 0] Deparsing header 'sctp_chunk'
+[16:19:38.861] [bmv2] [D] [thread 335] [125.0] [cxt 0] Deparser 'deparser': end
+[16:19:38.861] [bmv2] [D] [thread 338] [125.0] [cxt 0] Transmitting packet of size 82 out of port 1
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Processing packet received on port 1
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Parser 'parser': start
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Extracting header 'ethernet'
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (1)
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1125354612
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' to 0
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Parser state 'start': key is 0800
+[16:19:42.033] [bmv2] [T] [thread 333] [126.0] [cxt 0] Bytes parsed: 14
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Extracting header 'ipv4_inner'
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Parser state 'parse_ipv4': key is 01
+[16:19:42.033] [bmv2] [T] [thread 333] [126.0] [cxt 0] Bytes parsed: 34
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Parser 'parser': end
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Pipeline 'ingress': start
+[16:19:42.033] [bmv2] [T] [thread 333] [126.0] [cxt 0] Applying table 'tbl_intgtpdestinationv2l310'
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Looking up key:
+
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Table 'tbl_intgtpdestinationv2l310': miss
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Action entry is intgtpdestinationv2l310 -
+[16:19:42.033] [bmv2] [T] [thread 333] [126.0] [cxt 0] Action intgtpdestinationv2l310
+[16:19:42.033] [bmv2] [T] [thread 333] [126.0] [cxt 0] int-gtp-destination-v2.p4(310) Primitive meta.switch_id = 3
+[16:19:42.033] [bmv2] [T] [thread 333] [126.0] [cxt 0] int-gtp-destination-v2.p4(312) Condition "hdr.ethernet.isValid()" (node_3) is true
+[16:19:42.033] [bmv2] [T] [thread 333] [126.0] [cxt 0] int-gtp-destination-v2.p4(313) Condition "hdr.int_shim.isValid()" (node_4) is false
+[16:19:42.033] [bmv2] [T] [thread 333] [126.0] [cxt 0] int-gtp-destination-v2.p4(337) Condition "hdr.ipv4_inner.isValid()" (node_8) is true
+[16:19:42.033] [bmv2] [T] [thread 333] [126.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Looking up key:
+* hdr.ipv4_inner.dstAddr: ac120a03
+
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 2
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Dumping entry 2
+Match key:
+* hdr.ipv4_inner.dstAddr: LPM       ac120a03/32
+Action entry: MyIngress.forward_action - 2,
+
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Action entry is MyIngress.forward_action - 2,
+[16:19:42.033] [bmv2] [T] [thread 333] [126.0] [cxt 0] Action MyIngress.forward_action
+[16:19:42.033] [bmv2] [T] [thread 333] [126.0] [cxt 0] int-gtp-destination-v2.p4(282) Primitive standard_metadata.egress_spec = egress_port
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Pipeline 'ingress': end
+[16:19:42.033] [bmv2] [D] [thread 333] [126.0] [cxt 0] Egress port is 2
+[16:19:42.033] [bmv2] [D] [thread 336] [126.0] [cxt 0] Pipeline 'egress': start
+[16:19:42.033] [bmv2] [T] [thread 336] [126.0] [cxt 0] int-gtp-destination-v2.p4(399) Condition "hdr.int_shim.isValid()" (node_12) is false
+[16:19:42.033] [bmv2] [D] [thread 336] [126.0] [cxt 0] Pipeline 'egress': end
+[16:19:42.033] [bmv2] [D] [thread 336] [126.0] [cxt 0] Deparser 'deparser': start
+[16:19:42.033] [bmv2] [D] [thread 336] [126.0] [cxt 0] Deparsing header 'ethernet'
+[16:19:42.033] [bmv2] [D] [thread 336] [126.0] [cxt 0] Deparsing header 'ipv4_inner'
+[16:19:42.034] [bmv2] [D] [thread 336] [126.0] [cxt 0] Deparser 'deparser': end
+[16:19:42.034] [bmv2] [D] [thread 338] [126.0] [cxt 0] Transmitting packet of size 110 out of port 2
+[16:19:42.625] [bmv2] [D] [thread 333] [127.0] [cxt 0] Processing packet received on port 1
+[16:19:42.625] [bmv2] [D] [thread 333] [127.0] [cxt 0] Parser 'parser': start
+[16:19:42.625] [bmv2] [D] [thread 333] [127.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:19:42.625] [bmv2] [D] [thread 333] [127.0] [cxt 0] Extracting header 'ethernet'
+[16:19:42.625] [bmv2] [D] [thread 333] [127.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (1)
+[16:19:42.625] [bmv2] [D] [thread 333] [127.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1125946430
+[16:19:42.625] [bmv2] [D] [thread 333] [127.0] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' to 0
+[16:19:42.625] [bmv2] [D] [thread 333] [127.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:19:42.625] [bmv2] [D] [thread 333] [127.0] [cxt 0] Parser state 'start': key is 9000
+[16:19:42.625] [bmv2] [T] [thread 333] [127.0] [cxt 0] Bytes parsed: 14
+[16:19:42.625] [bmv2] [D] [thread 333] [127.0] [cxt 0] Parser 'parser': end
+[16:19:42.625] [bmv2] [D] [thread 333] [127.0] [cxt 0] Pipeline 'ingress': start
+[16:19:42.625] [bmv2] [T] [thread 333] [127.0] [cxt 0] Applying table 'tbl_intgtpdestinationv2l310'
+[16:19:42.625] [bmv2] [D] [thread 333] [127.0] [cxt 0] Looking up key:
+
+[16:19:42.625] [bmv2] [D] [thread 333] [127.0] [cxt 0] Table 'tbl_intgtpdestinationv2l310': miss
+[16:19:42.625] [bmv2] [D] [thread 333] [127.0] [cxt 0] Action entry is intgtpdestinationv2l310 -
+[16:19:42.625] [bmv2] [T] [thread 333] [127.0] [cxt 0] Action intgtpdestinationv2l310
+[16:19:42.625] [bmv2] [T] [thread 333] [127.0] [cxt 0] int-gtp-destination-v2.p4(310) Primitive meta.switch_id = 3
+[16:19:42.625] [bmv2] [T] [thread 333] [127.0] [cxt 0] int-gtp-destination-v2.p4(312) Condition "hdr.ethernet.isValid()" (node_3) is true
+[16:19:42.625] [bmv2] [T] [thread 333] [127.0] [cxt 0] int-gtp-destination-v2.p4(313) Condition "hdr.int_shim.isValid()" (node_4) is false
+[16:19:42.625] [bmv2] [T] [thread 333] [127.0] [cxt 0] int-gtp-destination-v2.p4(337) Condition "hdr.ipv4_inner.isValid()" (node_8) is false
+[16:19:42.625] [bmv2] [D] [thread 333] [127.0] [cxt 0] Pipeline 'ingress': end
+[16:19:42.625] [bmv2] [D] [thread 333] [127.0] [cxt 0] Egress port is 0
+[16:19:42.625] [bmv2] [D] [thread 334] [127.0] [cxt 0] Pipeline 'egress': start
+[16:19:42.625] [bmv2] [T] [thread 334] [127.0] [cxt 0] int-gtp-destination-v2.p4(399) Condition "hdr.int_shim.isValid()" (node_12) is false
+[16:19:42.625] [bmv2] [D] [thread 334] [127.0] [cxt 0] Pipeline 'egress': end
+[16:19:42.625] [bmv2] [D] [thread 334] [127.0] [cxt 0] Deparser 'deparser': start
+[16:19:42.625] [bmv2] [D] [thread 334] [127.0] [cxt 0] Deparsing header 'ethernet'
+[16:19:42.625] [bmv2] [D] [thread 334] [127.0] [cxt 0] Deparser 'deparser': end
+[16:19:42.626] [bmv2] [D] [thread 338] [127.0] [cxt 0] Transmitting packet of size 60 out of port 0
+[16:19:49.097] [bmv2] [D] [thread 333] [128.0] [cxt 0] Processing packet received on port 2
+[16:19:49.097] [bmv2] [D] [thread 333] [128.0] [cxt 0] Parser 'parser': start
+[16:19:49.097] [bmv2] [D] [thread 333] [128.0] [cxt 0] Parser 'parser' entering state 'start'
+[16:19:49.097] [bmv2] [D] [thread 333] [128.0] [cxt 0] Extracting header 'ethernet'
+[16:19:49.097] [bmv2] [D] [thread 333] [128.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_port' from field 'standard_metadata.ingress_port' (2)
+[16:19:49.097] [bmv2] [D] [thread 333] [128.0] [cxt 0] Parser set: setting field 'scalars.metadata.ingress_ts' from expression, new value is 1132418738
+[16:19:49.097] [bmv2] [D] [thread 333] [128.0] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' to 0
+[16:19:49.097] [bmv2] [D] [thread 333] [128.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 0
+[16:19:49.097] [bmv2] [D] [thread 333] [128.0] [cxt 0] Parser state 'start': key is 00fa
+[16:19:49.097] [bmv2] [T] [thread 333] [128.0] [cxt 0] Bytes parsed: 14
+[16:19:49.097] [bmv2] [D] [thread 333] [128.0] [cxt 0] Parser 'parser' entering state 'parse_int_shim'
+[16:19:49.097] [bmv2] [D] [thread 333] [128.0] [cxt 0] Extracting header 'int_shim'
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Parser set: setting field 'scalars.metadata.is_int_packet' to 1
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Extracting header 'int_header'
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Parser set: setting field 'scalars.metadata.md_blocks_extracted' from expression, new value is 251
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Extracting header 'int_md[0]'
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Extracting header 'int_md[1]'
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Parser state 'parse_int_shim': key is 0800
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] Bytes parsed: 83
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Parser 'parser' entering state 'parse_encapsulated_ipv4'
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Extracting header 'ipv4_inner'
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Parser state 'parse_encapsulated_ipv4': key is 84
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] Bytes parsed: 103
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Parser 'parser' entering state 'parse_encapsulated_sctp_common'
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Extracting header 'sctp'
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Extracting header 'sctp_chunk'
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Parser state 'parse_encapsulated_sctp_common': key is 01
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] Bytes parsed: 119
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Parser 'parser': end
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Pipeline 'ingress': start
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] Applying table 'tbl_intgtpdestinationv2l310'
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Looking up key:
+
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Table 'tbl_intgtpdestinationv2l310': miss
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Action entry is intgtpdestinationv2l310 -
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] Action intgtpdestinationv2l310
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] int-gtp-destination-v2.p4(310) Primitive meta.switch_id = 3
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] int-gtp-destination-v2.p4(312) Condition "hdr.ethernet.isValid()" (node_3) is true
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] int-gtp-destination-v2.p4(313) Condition "hdr.int_shim.isValid()" (node_4) is true
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] int-gtp-destination-v2.p4(315) Condition "hdr.int_header.remaining_hop_cnt > 0" (node_5) is true
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] Applying table 'tbl_intgtpdestinationv2l316'
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Looking up key:
+
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Table 'tbl_intgtpdestinationv2l316': miss
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Action entry is intgtpdestinationv2l316 -
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] Action intgtpdestinationv2l316
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] int-gtp-destination-v2.p4(316) Primitive hdr.int_md[2].setValid()
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] int-gtp-destination-v2.p4(317) Primitive hdr.int_md[2].switch_id = meta.switch_id
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] int-gtp-destination-v2.p4(318) Primitive hdr.int_md[2].ingress_port_id = (bit<16>)meta.ingress_port
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] int-gtp-destination-v2.p4(319) Primitive hdr.int_md[2].ingress_timestamp = meta.ingress_ts
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] int-gtp-destination-v2.p4(320) Primitive hdr.int_md[2].egress_port_id = 0
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] int-gtp-destination-v2.p4(321) Primitive hdr.int_md[2].hop_latency = 0
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] int-gtp-destination-v2.p4(322) Primitive hdr.int_md[2].egress_timestamp = 0
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] int-gtp-destination-v2.p4(323) Primitive hdr.int_md[2].queue_occupancy = 0
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] int-gtp-destination-v2.p4(324) Primitive hdr.int_md[2].congestion_notification = 0
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] int-gtp-destination-v2.p4(325) Primitive hdr.int_md[2].reserved1 = 0
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] int-gtp-destination-v2.p4(326) Primitive hdr.int_md[2].reserved2 = 0
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] int-gtp-destination-v2.p4(328) Primitive hdr.int_header.remaining_hop_cnt = hdr.int_header.remaining_hop_cnt - 1
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] int-gtp-destination-v2.p4(329) Primitive hdr.int_shim.length = hdr.int_shim.length + 32
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] Applying table 'MyIngress.int_sink_table'
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Looking up key:
+* hdr.int_shim.$valid$: 01
+
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Table 'MyIngress.int_sink_table': hit with handle 0
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Dumping entry 0
+Match key:
+* hdr.int_shim.$valid$: EXACT     01
+Action entry: MyIngress.int_sink_action -
+
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Action entry is MyIngress.int_sink_action -
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] Action MyIngress.int_sink_action
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] int-gtp-destination-v2.p4(277) Primitive meta.clone_port = 9
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] int-gtp-destination-v2.p4(278) Primitive clone_preserving_field_list(CloneType.I2E, 99, 99)
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] int-gtp-destination-v2.p4(337) Condition "hdr.ipv4_inner.isValid()" (node_8) is true
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] Applying table 'MyIngress.ipv4_lpm'
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Looking up key:
+* hdr.ipv4_inner.dstAddr: ac120014
+
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Table 'MyIngress.ipv4_lpm': hit with handle 0
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Dumping entry 0
+Match key:
+* hdr.ipv4_inner.dstAddr: LPM       ac120014/32
+Action entry: MyIngress.forward_action - 1,
+
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Action entry is MyIngress.forward_action - 1,
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] Action MyIngress.forward_action
+[16:19:49.098] [bmv2] [T] [thread 333] [128.0] [cxt 0] int-gtp-destination-v2.p4(282) Primitive standard_metadata.egress_spec = egress_port
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Pipeline 'ingress': end
+[16:19:49.098] [bmv2] [D] [thread 333] [128.0] [cxt 0] Cloning packet at ingress
+[16:19:49.098] [bmv2] [D] [thread 333] [1
+
+-------------------------------------------
+packet before being proccess in the switches:
+Frame 365: Packet, 82 bytes on wire (656 bits), 82 bytes captured (656 bits) on interface -, id 0
+    Section number: 1
+    Interface id: 0 (-)
+        Interface name: -
+        Interface description: Standard input
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Dec 21, 2025 17:22:21.662746000 Romance Standard Time
+    UTC Arrival Time: Dec 21, 2025 16:22:21.662746000 UTC
+    Epoch Arrival Time: 1766334141.662746000
+    [Time shift for this packet: 0.000000000 seconds]
+    [Time delta from previous captured frame: 2.909799000 seconds]
+    [Time delta from previous displayed frame: 2.909799000 seconds]
+    [Time since reference or first frame: 12 minutes, 46.944724000 seconds]
+    Frame Number: 365
+    Frame Length: 82 bytes (656 bits)
+    Capture Length: 82 bytes (656 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:sctp]
+    Character encoding: ASCII (0)
+Ethernet II, Src: ca:01:43:79:00:1c (ca:01:43:79:00:1c), Dst: ca:02:4c:8c:00:08 (ca:02:4c:8c:00:08)
+    Destination: ca:02:4c:8c:00:08 (ca:02:4c:8c:00:08)
+        .... ..1. .... .... .... .... = LG bit: Locally administered address (this is NOT the factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Source: ca:01:43:79:00:1c (ca:01:43:79:00:1c)
+        .... ..1. .... .... .... .... = LG bit: Locally administered address (this is NOT the factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Type: IPv4 (0x0800)
+    [Stream index: 0]
+Internet Protocol Version 4, Src: 172.18.10.3, Dst: 172.18.0.20
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0x02 (DSCP: CS0, ECN: ECT(0))
+        0000 00.. = Differentiated Services Codepoint: Default (0)
+        .... ..10 = Explicit Congestion Notification: ECN-Capable Transport codepoint '10' (2)
+    Total Length: 68
+    Identification: 0x001e (30)
+    010. .... = Flags: 0x2, Don't fragment
+        0... .... = Reserved bit: Not set
+        .1.. .... = Don't fragment: Set
+        ..0. .... = More fragments: Not set
+    ...0 0000 0000 0000 = Fragment Offset: 0
+    Time to Live: 63
+    Protocol: SCTP (132)
+    Header Checksum: 0xd8da [validation disabled]
+    [Header checksum status: Unverified]
+    Source Address: 172.18.10.3
+    Destination Address: 172.18.0.20
+    [Stream index: 1]
+Stream Control Transmission Protocol, Src Port: 52137 (52137), Dst Port: 38412 (38412)
+    Source port: 52137
+    Destination port: 38412
+    Verification tag: 0x00000000
+    [Association index: disabled (enable in preferences)]
+    Checksum: 0xa4e440c5 [unverified]
+    [Checksum Status: Unverified]
+    INIT chunk (Outbound streams: 10, inbound streams: 10)
+        Chunk type: INIT (1)
+            0... .... = Bit: Stop processing of the packet
+            .0.. .... = Bit: Do not report
+        Chunk flags: 0x00
+        Chunk length: 36
+        Initiate tag: 0xb8dd48a7
+        Advertised receiver window credit (a_rwnd): 106496
+        Number of outbound streams: 10
+        Number of inbound streams: 10
+        Initial TSN: 1555289313
+        Supported address types parameter (Supported types: IPv4)
+            Parameter type: Supported address types (0x000c)
+                0... .... .... .... = Bit: Stop processing of chunk
+                .0.. .... .... .... = Bit: Do not report
+            Parameter length: 6
+            Supported address type: IPv4 address (5)
+            Parameter padding: 0000
+        ECN parameter
+            Parameter type: ECN (0x8000)
+                1... .... .... .... = Bit: Skip parameter and continue processing of the chunk
+                .0.. .... .... .... = Bit: Do not report
+            Parameter length: 4
+        Forward TSN supported parameter
+            Parameter type: Forward TSN supported (0xc000)
+                1... .... .... .... = Bit: Skip parameter and continue processing of the chunk
+                .1.. .... .... .... = Bit: Do report
+            Parameter length: 4
+
+
+
+---------------------------------------
+packet captured on wireshark in the int-collector server:
+
+Frame 1: Packet, 179 bytes on wire (1432 bits), 179 bytes captured (1432 bits) on interface -, id 0
+    Section number: 1
+    Interface id: 0 (-)
+        Interface name: -
+        Interface description: Standard input
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Dec 21, 2025 17:21:40.708272000 Romance Standard Time
+    UTC Arrival Time: Dec 21, 2025 16:21:40.708272000 UTC
+    Epoch Arrival Time: 1766334100.708272000
+    [Time shift for this packet: 0.000000000 seconds]
+    [Time since reference or first frame: 0.000000000 seconds]
+    Frame Number: 1
+    Frame Length: 179 bytes (1432 bits)
+    Capture Length: 179 bytes (1432 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:data]
+    Character encoding: ASCII (0)
+IEEE 802.3 Ethernet 
+    Destination: ca:02:4c:8c:00:08 (ca:02:4c:8c:00:08)
+        .... ..1. .... .... .... .... = LG bit: Locally administered address (this is NOT the factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Source: ca:01:43:79:00:1c (ca:01:43:79:00:1c)
+        .... ..1. .... .... .... .... = LG bit: Locally administered address (this is NOT the factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Length: 250
+        [Expert Info (Error/Malformed): Length field value goes past the end of the payload]
+            [Length field value goes past the end of the payload]
+            [Severity level: Error]
+            [Group: Malformed]
+    [Stream index: 0]
+Data (165 bytes)
+    Data […]: 0100004c080010080100ff00060000000100010002000004b2000000004b6519604b651e1200000000000000020001000200000465000000004ab94cb34ab951180000000000000000000000094a265ce300000000000000004a265ce30000000045020044001a40003f84d8deac120a03a
+    [Length: 165]
+

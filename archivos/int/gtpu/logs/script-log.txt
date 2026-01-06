@@ -1,0 +1,311 @@
+edinsonm@report-server:~/script$ sudo python3 int_report.py 
+[sudo] password for edinsonm: 
+=== INT Telemetry Report Server ===
+MULTI-HOP FIXED VERSION - WITH MS CONVERSION
+Conversion factor: 1 ms = 1,000 µs
+==================================================
+InfluxDB: Connected ✓
+Listening on interface: ens4
+Waiting for INT telemetry packets...
+Press Ctrl+C to stop
+
+================================================================================
+No valid INT metadata found
+================================================================================
+No valid INT metadata found
+================================================================================
+No valid INT metadata found
+================================================================================
+
+[INT] New packet: ca:01:43:79:00:1c -> ca:02:4c:8c:00:08, length: 179 bytes
+[INT] IEEE 802.3 frame, Length: 250
+[DEBUG] First data byte: 0x01
+[INT] Shim: type=1, length=76, next_proto=0x0800
+[DEBUG] Raw INT header (hex): 10080100ff000600
+[INT] Header: version=0, d=1, q=0, m=8, hop_ml=1, instruction=0x00ff, remaining_hops=0
+[INT] Extracting 1 metadata blocks (hop_ml=1, remaining=0)
+[DEBUG] Metadata block 1 (hex): 000001000100020000062000000000096664b509666ad5000000000000000200
+[DEBUG] Raw fields: [8-11]=2098688 (2098.688ms), [12-15]=150994944 (150994.944ms), [16-19]=162882662 (162882.662ms), [20-23]=13986406 (13986.406ms)
+[DEBUG] Hop 1: switch=1, ingress=1, egress=2, latency=2098.688ms (2098688µs), queue=150994944 packets, ingress_ts=13986.406ms, egress_ts=162882.662ms
+ Switch 1 (Hop 1): Port 1->2, Latency 148896.256ms (148896256µs) (calculated), Queue 150994944 packets
+ Processing 1 metadata blocks
+ PATH: SW1
+ Saved to DB: Switch 1, Hop 1, Latency: 148896.256ms
+================================================================================
+
+[INT] New packet: ca:01:43:79:00:1c -> ca:02:4c:8c:00:08, length: 375 bytes
+[INT] IEEE 802.3 frame, Length: 250
+[DEBUG] First data byte: 0x01
+[INT] Shim: type=1, length=76, next_proto=0x0800
+[DEBUG] Raw INT header (hex): 10080100ff000600
+[INT] Header: version=0, d=1, q=0, m=8, hop_ml=1, instruction=0x00ff, remaining_hops=0
+[INT] Extracting 1 metadata blocks (hop_ml=1, remaining=0)
+[DEBUG] Metadata block 1 (hex): 0000010001000200001106000000000967044209671548000000000000000200
+[DEBUG] Raw fields: [8-11]=397568 (397.568ms), [12-15]=150994944 (150994.944ms), [16-19]=155321447 (155321.447ms), [20-23]=4724071 (4724.071ms)
+[DEBUG] Hop 1: switch=1, ingress=1, egress=2, latency=397.568ms (397568µs), queue=150994944 packets, ingress_ts=4724.071ms, egress_ts=155321.447ms
+ Switch 1 (Hop 1): Port 1->2, Latency 150597.376ms (150597376µs) (calculated), Queue 150994944 packets
+ Processing 1 metadata blocks
+ PATH: SW1
+ Saved to DB: Switch 1, Hop 1, Latency: 150597.376ms
+================================================================================
+
+[INT] New packet: ca:01:43:79:00:1c -> ca:02:4c:8c:00:08, length: 239 bytes
+[INT] IEEE 802.3 frame, Length: 250
+[DEBUG] First data byte: 0x01
+[INT] Shim: type=1, length=76, next_proto=0x0800
+[DEBUG] Raw INT header (hex): 10080100ff000600
+[INT] Header: version=0, d=1, q=0, m=8, hop_ml=1, instruction=0x00ff, remaining_hops=0
+[INT] Extracting 1 metadata blocks (hop_ml=1, remaining=0)
+[DEBUG] Metadata block 1 (hex): 00000100010002000003e0000000000967f5310967f911000000000000000200
+[DEBUG] Raw fields: [8-11]=14680832 (14680.832ms), [12-15]=150994944 (150994.944ms), [16-19]=154269031 (154269.031ms), [20-23]=1177959 (1177.959ms)
+[DEBUG] Hop 1: switch=1, ingress=1, egress=2, latency=14680.832ms (14680832µs), queue=150994944 packets, ingress_ts=1177.959ms, egress_ts=154269.031ms
+ Switch 1 (Hop 1): Port 1->2, Latency 153091.072ms (153091072µs) (calculated), Queue 150994944 packets
+ Processing 1 metadata blocks
+ PATH: SW1
+ Saved to DB: Switch 1, Hop 1, Latency: 153091.072ms
+================================================================================
+
+[INT] New packet: ca:01:43:79:00:1c -> ca:02:4c:8c:00:08, length: 159 bytes
+[INT] IEEE 802.3 frame, Length: 250
+[DEBUG] First data byte: 0x01
+[INT] Shim: type=1, length=76, next_proto=0x0800
+[DEBUG] Raw INT header (hex): 10080100ff000600
+[INT] Header: version=0, d=1, q=0, m=8, hop_ml=1, instruction=0x00ff, remaining_hops=0
+[INT] Extracting 1 metadata blocks (hop_ml=1, remaining=0)
+[DEBUG] Metadata block 1 (hex): 00000100010002000004ec000000000968bc750968c161000000000000000200
+[DEBUG] Raw fields: [8-11]=15467520 (15467.520ms), [12-15]=150994944 (150994.944ms), [16-19]=158710888 (158710.888ms), [20-23]=6406504 (6406.504ms)
+[DEBUG] Hop 1: switch=1, ingress=1, egress=2, latency=15467.520ms (15467520µs), queue=150994944 packets, ingress_ts=6406.504ms, egress_ts=158710.888ms
+ Switch 1 (Hop 1): Port 1->2, Latency 152304.384ms (152304384µs) (calculated), Queue 150994944 packets
+ Processing 1 metadata blocks
+ PATH: SW1
+ Saved to DB: Switch 1, Hop 1, Latency: 152304.384ms
+================================================================================
+
+[INT] New packet: ca:01:43:79:00:1c -> ca:02:4c:8c:00:08, length: 235 bytes
+[INT] IEEE 802.3 frame, Length: 250
+[DEBUG] First data byte: 0x01
+[INT] Shim: type=1, length=76, next_proto=0x0800
+[DEBUG] Raw INT header (hex): 10080100ff000600
+[INT] Header: version=0, d=1, q=0, m=8, hop_ml=1, instruction=0x00ff, remaining_hops=0
+[INT] Extracting 1 metadata blocks (hop_ml=1, remaining=0)
+[DEBUG] Metadata block 1 (hex): 0000010001000200000553000000000a731aec0a73203f000000000000000200
+[DEBUG] Raw fields: [8-11]=5440768 (5440.768ms), [12-15]=167772160 (167772.160ms), [16-19]=183245427 (183245.427ms), [20-23]=4137075 (4137.075ms)
+[DEBUG] Hop 1: switch=1, ingress=1, egress=2, latency=5440.768ms (5440768µs), queue=167772160 packets, ingress_ts=4137.075ms, egress_ts=183245.427ms
+ Switch 1 (Hop 1): Port 1->2, Latency 179108.352ms (179108352µs) (calculated), Queue 167772160 packets
+ Processing 1 metadata blocks
+ PATH: SW1
+ Saved to DB: Switch 1, Hop 1, Latency: 179108.352ms
+================================================================================
+
+[INT] New packet: ca:01:43:79:00:1c -> ca:02:4c:8c:00:08, length: 243 bytes
+[INT] IEEE 802.3 frame, Length: 250
+[DEBUG] First data byte: 0x01
+[INT] Shim: type=1, length=76, next_proto=0x0800
+[DEBUG] Raw INT header (hex): 10080100ff000600
+[INT] Header: version=0, d=1, q=0, m=8, hop_ml=1, instruction=0x00ff, remaining_hops=0
+[INT] Extracting 1 metadata blocks (hop_ml=1, remaining=0)
+[DEBUG] Metadata block 1 (hex): 0000010001000200000c7d000000000a76e99e0a76f61b000000000000000200
+[DEBUG] Raw fields: [8-11]=8195072 (8195.072ms), [12-15]=167772160 (167772.160ms), [16-19]=178186614 (178186.614ms), [20-23]=1832566 (1832.566ms)
+[DEBUG] Hop 1: switch=1, ingress=1, egress=2, latency=8195.072ms (8195072µs), queue=167772160 packets, ingress_ts=1832.566ms, egress_ts=178186.614ms
+ Switch 1 (Hop 1): Port 1->2, Latency 176354.048ms (176354048µs) (calculated), Queue 167772160 packets
+ Processing 1 metadata blocks
+ PATH: SW1
+ Saved to DB: Switch 1, Hop 1, Latency: 176354.048ms
+================================================================================
+
+[INT] New packet: ca:01:43:79:00:1c -> ca:02:4c:8c:00:08, length: 279 bytes
+[INT] IEEE 802.3 frame, Length: 250
+[DEBUG] First data byte: 0x01
+[INT] Shim: type=1, length=76, next_proto=0x0800
+[DEBUG] Raw INT header (hex): 10080100ff000600
+[INT] Header: version=0, d=1, q=0, m=8, hop_ml=1, instruction=0x00ff, remaining_hops=0
+[INT] Extracting 1 metadata blocks (hop_ml=1, remaining=0)
+[DEBUG] Metadata block 1 (hex): 00000100010002000004ff000000000a7978fb0a797dfa000000000000000200
+[DEBUG] Raw fields: [8-11]=16712704 (16712.704ms), [12-15]=167772160 (167772.160ms), [16-19]=184252537 (184252.537ms), [20-23]=16416121 (16416.121ms)
+[DEBUG] Hop 1: switch=1, ingress=1, egress=2, latency=16712.704ms (16712704µs), queue=167772160 packets, ingress_ts=16416.121ms, egress_ts=184252.537ms
+ Switch 1 (Hop 1): Port 1->2, Latency 167836.416ms (167836416µs) (calculated), Queue 167772160 packets
+ Processing 1 metadata blocks
+ PATH: SW1
+ Saved to DB: Switch 1, Hop 1, Latency: 167836.416ms
+================================================================================
+
+[INT] New packet: ca:01:43:79:00:1c -> ca:02:4c:8c:00:08, length: 195 bytes
+[INT] IEEE 802.3 frame, Length: 250
+[DEBUG] First data byte: 0x01
+[INT] Shim: type=1, length=76, next_proto=0x0800
+[DEBUG] Raw INT header (hex): 10080100ff000600
+[INT] Header: version=0, d=1, q=0, m=8, hop_ml=1, instruction=0x00ff, remaining_hops=0
+[INT] Extracting 1 metadata blocks (hop_ml=1, remaining=0)
+[DEBUG] Metadata block 1 (hex): 000001000100020000088e000000000a7cb45e0a7cbcec000000000000000200
+[DEBUG] Raw fields: [8-11]=9308160 (9308.160ms), [12-15]=167772160 (167772.160ms), [16-19]=173978748 (173978.748ms), [20-23]=15514748 (15514.748ms)
+[DEBUG] Hop 1: switch=1, ingress=1, egress=2, latency=9308.160ms (9308160µs), queue=167772160 packets, ingress_ts=15514.748ms, egress_ts=173978.748ms
+ Switch 1 (Hop 1): Port 1->2, Latency 158464.000ms (158464000µs) (calculated), Queue 167772160 packets
+ Processing 1 metadata blocks
+ PATH: SW1
+ Saved to DB: Switch 1, Hop 1, Latency: 158464.000ms
+================================================================================
+
+[INT] New packet: ca:01:43:79:00:1c -> ca:02:4c:8c:00:08, length: 459 bytes
+[INT] IEEE 802.3 frame, Length: 250
+[DEBUG] First data byte: 0x01
+[INT] Shim: type=1, length=76, next_proto=0x0800
+[DEBUG] Raw INT header (hex): 10080100ff000600
+[INT] Header: version=0, d=1, q=0, m=8, hop_ml=1, instruction=0x00ff, remaining_hops=0
+[INT] Extracting 1 metadata blocks (hop_ml=1, remaining=0)
+[DEBUG] Metadata block 1 (hex): 0000010001000200000541000000000a80abe70a80b128000000000000000200
+[DEBUG] Raw fields: [8-11]=4261120 (4261.120ms), [12-15]=167772160 (167772.160ms), [16-19]=182954880 (182954.880ms), [20-23]=2666880 (2666.880ms)
+[DEBUG] Hop 1: switch=1, ingress=1, egress=2, latency=4261.120ms (4261120µs), queue=167772160 packets, ingress_ts=2666.880ms, egress_ts=182954.880ms
+ Switch 1 (Hop 1): Port 1->2, Latency 180288.000ms (180288000µs) (calculated), Queue 167772160 packets
+ Processing 1 metadata blocks
+ PATH: SW1
+ Saved to DB: Switch 1, Hop 1, Latency: 180288.000ms
+================================================================================
+
+[INT] New packet: ca:01:43:79:00:1c -> ca:02:4c:8c:00:08, length: 163 bytes
+[INT] IEEE 802.3 frame, Length: 250
+[DEBUG] First data byte: 0x01
+[INT] Shim: type=1, length=76, next_proto=0x0800
+[DEBUG] Raw INT header (hex): 10080100ff000600
+[INT] Header: version=0, d=1, q=0, m=8, hop_ml=1, instruction=0x00ff, remaining_hops=0
+[INT] Extracting 1 metadata blocks (hop_ml=1, remaining=0)
+[DEBUG] Metadata block 1 (hex): 00000100010002000005be000000000a89b7950a89bd53000000000000000200
+[DEBUG] Raw fields: [8-11]=12453120 (12453.120ms), [12-15]=167772160 (167772.160ms), [16-19]=177584009 (177584.009ms), [20-23]=5488009 (5488.009ms)
+[DEBUG] Hop 1: switch=1, ingress=1, egress=2, latency=12453.120ms (12453120µs), queue=167772160 packets, ingress_ts=5488.009ms, egress_ts=177584.009ms
+ Switch 1 (Hop 1): Port 1->2, Latency 172096.000ms (172096000µs) (calculated), Queue 167772160 packets
+ Processing 1 metadata blocks
+ PATH: SW1
+ Saved to DB: Switch 1, Hop 1, Latency: 172096.000ms
+================================================================================
+
+[INT] New packet: ca:01:43:79:00:1c -> ca:02:4c:8c:00:08, length: 203 bytes
+[INT] IEEE 802.3 frame, Length: 250
+[DEBUG] First data byte: 0x01
+[INT] Shim: type=1, length=76, next_proto=0x0800
+[DEBUG] Raw INT header (hex): 10080100ff000600
+[INT] Header: version=0, d=1, q=0, m=8, hop_ml=1, instruction=0x00ff, remaining_hops=0
+[INT] Extracting 1 metadata blocks (hop_ml=1, remaining=0)
+[DEBUG] Metadata block 1 (hex): 000001000100020000048b000000000a8d0afc0a8d0f87000000000000000200
+[DEBUG] Raw fields: [8-11]=9110528 (9110.528ms), [12-15]=167772160 (167772.160ms), [16-19]=184289933 (184289.933ms), [20-23]=8851341 (8851.341ms)
+[DEBUG] Hop 1: switch=1, ingress=1, egress=2, latency=9110.528ms (9110528µs), queue=167772160 packets, ingress_ts=8851.341ms, egress_ts=184289.933ms
+ Switch 1 (Hop 1): Port 1->2, Latency 175438.592ms (175438592µs) (calculated), Queue 167772160 packets
+ Processing 1 metadata blocks
+ PATH: SW1
+ Saved to DB: Switch 1, Hop 1, Latency: 175438.592ms
+================================================================================
+
+[INT] New packet: ca:01:43:79:00:1c -> ca:02:4c:8c:00:08, length: 243 bytes
+[INT] IEEE 802.3 frame, Length: 250
+[DEBUG] First data byte: 0x01
+[INT] Shim: type=1, length=76, next_proto=0x0800
+[DEBUG] Raw INT header (hex): 10080100ff000600
+[INT] Header: version=0, d=1, q=0, m=8, hop_ml=1, instruction=0x00ff, remaining_hops=0
+[INT] Extracting 1 metadata blocks (hop_ml=1, remaining=0)
+[DEBUG] Metadata block 1 (hex): 0000010001000200000983000000000a9267c30a927146000000000000000200
+[DEBUG] Raw fields: [8-11]=8587520 (8587.520ms), [12-15]=167772160 (167772.160ms), [16-19]=180578194 (180578.194ms), [20-23]=4616594 (4616.594ms)
+[DEBUG] Hop 1: switch=1, ingress=1, egress=2, latency=8587.520ms (8587520µs), queue=167772160 packets, ingress_ts=4616.594ms, egress_ts=180578.194ms
+ Switch 1 (Hop 1): Port 1->2, Latency 175961.600ms (175961600µs) (calculated), Queue 167772160 packets
+ Processing 1 metadata blocks
+ PATH: SW1
+ Saved to DB: Switch 1, Hop 1, Latency: 175961.600ms
+================================================================================
+
+[INT] New packet: ca:01:43:79:00:1c -> ca:02:4c:8c:00:08, length: 243 bytes
+[INT] IEEE 802.3 frame, Length: 250
+[DEBUG] First data byte: 0x01
+[INT] Shim: type=1, length=76, next_proto=0x0800
+[DEBUG] Raw INT header (hex): 10080100ff000600
+[INT] Header: version=0, d=1, q=0, m=8, hop_ml=1, instruction=0x00ff, remaining_hops=0
+[INT] Extracting 1 metadata blocks (hop_ml=1, remaining=0)
+[DEBUG] Metadata block 1 (hex): 00000100010002000003d0000000000a9a38760a9a3c46000000000000000200
+[DEBUG] Raw fields: [8-11]=13632256 (13632.256ms), [12-15]=167772160 (167772.160ms), [16-19]=175519898 (175519.898ms), [20-23]=4603034 (4603.034ms)
+[DEBUG] Hop 1: switch=1, ingress=1, egress=2, latency=13632.256ms (13632256µs), queue=167772160 packets, ingress_ts=4603.034ms, egress_ts=175519.898ms
+ Switch 1 (Hop 1): Port 1->2, Latency 170916.864ms (170916864µs) (calculated), Queue 167772160 packets
+ Processing 1 metadata blocks
+ PATH: SW1
+ Saved to DB: Switch 1, Hop 1, Latency: 170916.864ms
+================================================================================
+
+[INT] New packet: ca:01:43:79:00:1c -> ca:02:4c:8c:00:08, length: 239 bytes
+[INT] IEEE 802.3 frame, Length: 250
+[DEBUG] First data byte: 0x01
+[INT] Shim: type=1, length=76, next_proto=0x0800
+[DEBUG] Raw INT header (hex): 10080100ff000600
+[INT] Header: version=0, d=1, q=0, m=8, hop_ml=1, instruction=0x00ff, remaining_hops=0
+[INT] Extracting 1 metadata blocks (hop_ml=1, remaining=0)
+[DEBUG] Metadata block 1 (hex): 00000100010002000003b2000000000b79814a0b7984fc000000000000000200
+[DEBUG] Raw fields: [8-11]=11666176 (11666.176ms), [12-15]=184549376 (184549.376ms), [16-19]=189432185 (189432.185ms), [20-23]=16548985 (16548.985ms)
+[DEBUG] Hop 1: switch=1, ingress=1, egress=2, latency=11666.176ms (11666176µs), queue=184549376 packets, ingress_ts=16548.985ms, egress_ts=189432.185ms
+ Switch 1 (Hop 1): Port 1->2, Latency 172883.200ms (172883200µs) (calculated), Queue 184549376 packets
+ Processing 1 metadata blocks
+ PATH: SW1
+ Saved to DB: Switch 1, Hop 1, Latency: 172883.200ms
+================================================================================
+
+[INT] New packet: ca:01:43:79:00:1c -> ca:02:4c:8c:00:08, length: 239 bytes
+[INT] IEEE 802.3 frame, Length: 250
+[DEBUG] First data byte: 0x01
+[INT] Shim: type=1, length=76, next_proto=0x0800
+[DEBUG] Raw INT header (hex): 10080100ff000600
+[INT] Header: version=0, d=1, q=0, m=8, hop_ml=1, instruction=0x00ff, remaining_hops=0
+[INT] Extracting 1 metadata blocks (hop_ml=1, remaining=0)
+[DEBUG] Metadata block 1 (hex): 000001000100020000048f000000000b898f6c0b8993fb000000000000000200
+[DEBUG] Raw fields: [8-11]=9372672 (9372.672ms), [12-15]=184549376 (184549.376ms), [16-19]=191664009 (191664.009ms), [20-23]=16487305 (16487.305ms)
+[DEBUG] Hop 1: switch=1, ingress=1, egress=2, latency=9372.672ms (9372672µs), queue=184549376 packets, ingress_ts=16487.305ms, egress_ts=191664.009ms
+ Switch 1 (Hop 1): Port 1->2, Latency 175176.704ms (175176704µs) (calculated), Queue 184549376 packets
+ Processing 1 metadata blocks
+ PATH: SW1
+ Saved to DB: Switch 1, Hop 1, Latency: 175176.704ms
+================================================================================
+
+[INT] New packet: ca:01:43:79:00:1c -> ca:02:4c:8c:00:08, length: 239 bytes
+[INT] IEEE 802.3 frame, Length: 250
+[DEBUG] First data byte: 0x01
+[INT] Shim: type=1, length=76, next_proto=0x0800
+[DEBUG] Raw INT header (hex): 10080100ff000600
+[INT] Header: version=0, d=1, q=0, m=8, hop_ml=1, instruction=0x00ff, remaining_hops=0
+[INT] Extracting 1 metadata blocks (hop_ml=1, remaining=0)
+[DEBUG] Metadata block 1 (hex): 00000100010002000003dd000000000b993e4b0b994228000000000000000200
+[DEBUG] Raw fields: [8-11]=14484224 (14484.224ms), [12-15]=184549376 (184549.376ms), [16-19]=189480601 (189480.601ms), [20-23]=2638489 (2638.489ms)
+[DEBUG] Hop 1: switch=1, ingress=1, egress=2, latency=14484.224ms (14484224µs), queue=184549376 packets, ingress_ts=2638.489ms, egress_ts=189480.601ms
+ Switch 1 (Hop 1): Port 1->2, Latency 186842.112ms (186842112µs) (calculated), Queue 184549376 packets
+ Processing 1 metadata blocks
+ PATH: SW1
+ Saved to DB: Switch 1, Hop 1, Latency: 186842.112ms
+================================================================================
+
+[INT] New packet: ca:01:43:79:00:1c -> ca:02:4c:8c:00:08, length: 239 bytes
+[INT] IEEE 802.3 frame, Length: 250
+[DEBUG] First data byte: 0x01
+[INT] Shim: type=1, length=76, next_proto=0x0800
+[DEBUG] Raw INT header (hex): 10080100ff000600
+[INT] Header: version=0, d=1, q=0, m=8, hop_ml=1, instruction=0x00ff, remaining_hops=0
+[INT] Extracting 1 metadata blocks (hop_ml=1, remaining=0)
+[DEBUG] Metadata block 1 (hex): 00000100010002000003e3000000000ba8c1ac0ba8c58f000000000000000200
+[DEBUG] Raw fields: [8-11]=14877440 (14877.440ms), [12-15]=184549376 (184549.376ms), [16-19]=195871144 (195871.144ms), [20-23]=9422248 (9422.248ms)
+[DEBUG] Hop 1: switch=1, ingress=1, egress=2, latency=14877.440ms (14877440µs), queue=184549376 packets, ingress_ts=9422.248ms, egress_ts=195871.144ms
+ Switch 1 (Hop 1): Port 1->2, Latency 186448.896ms (186448896µs) (calculated), Queue 184549376 packets
+ Processing 1 metadata blocks
+ PATH: SW1
+ Saved to DB: Switch 1, Hop 1, Latency: 186448.896ms
+================================================================================
+
+[INT] New packet: ca:01:43:79:00:1c -> ca:02:4c:8c:00:08, length: 239 bytes
+[INT] IEEE 802.3 frame, Length: 250
+[DEBUG] First data byte: 0x01
+[INT] Shim: type=1, length=76, next_proto=0x0800
+[DEBUG] Raw INT header (hex): 10080100ff000600
+[INT] Header: version=0, d=1, q=0, m=8, hop_ml=1, instruction=0x00ff, remaining_hops=0
+[INT] Extracting 1 metadata blocks (hop_ml=1, remaining=0)
+[DEBUG] Metadata block 1 (hex): 00000100010002000006ac000000000bb8786a0bb87f16000000000000000200
+[DEBUG] Raw fields: [8-11]=11273728 (11273.728ms), [12-15]=184549376 (184549.376ms), [16-19]=191527096 (191527.096ms), [20-23]=1474488 (1474.488ms)
+[DEBUG] Hop 1: switch=1, ingress=1, egress=2, latency=11273.728ms (11273728µs), queue=184549376 packets, ingress_ts=1474.488ms, egress_ts=191527.096ms
+ Switch 1 (Hop 1): Port 1->2, Latency 190052.608ms (190052608µs) (calculated), Queue 184549376 packets
+ Processing 1 metadata blocks
+ PATH: SW1
+ Saved to DB: Switch 1, Hop 1, Latency: 190052.608ms
+================================================================================
+
+[INT] New packet: ca:01:43:79:00:1c -> ca:02:4c:8c:00:08, length: 239 bytes
+[INT] IEEE 802.3 frame, Length: 250
+[DEBUG] First data byte: 0x01
+[INT] Shim: type=1, length=76, next_proto=
