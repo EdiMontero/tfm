@@ -22,7 +22,7 @@ def parse_int_metadata_correct(md_data, hop_number):
     Parse one INT metadata block (32 bytes).
 
     IMPORTANT:
-    - In this project, INT-MD fields are emitted in little-endian byte order.
+    - In this project, INT-MD fields are emitted in network byte order (big-endian).
     - Offsets must match the P4 `int_md_t` layout exactly.
     """
     
@@ -37,7 +37,7 @@ def parse_int_metadata_correct(md_data, hop_number):
         ingress_port_id = struct.unpack('>H', md_data[4:6])[0]
         egress_port_id = struct.unpack('>H', md_data[6:8])[0]
 
-        hop_latency = struct.unpack('>I', md_data[8:12])[0]
+        hop_latency_field = struct.unpack('>I', md_data[8:12])[0]
         queue_occupancy = struct.unpack('>I', md_data[12:16])[0]
         ingress_timestamp = struct.unpack('>I', md_data[16:20])[0]
         egress_timestamp = struct.unpack('>I', md_data[20:24])[0]
@@ -49,18 +49,46 @@ def parse_int_metadata_correct(md_data, hop_number):
         if ingress_timestamp != 0 and egress_timestamp != 0:
             ts_latency = (egress_timestamp - ingress_timestamp) & 0xFFFFFFFF
 
-        hop_latency_used = ts_latency if ts_latency is not None else hop_latency
+        # Heuristic recovery for a common failure mode seen on some hops:
+        # - hop_latency_field == 0
+        # - egress_timestamp == 0
+        # - queue_occupancy looks like a timestamp close to ingress_timestamp
+        recovered = False
+        if (
+            hop_latency_field == 0
+            and egress_timestamp == 0
+            and ingress_timestamp > 1_000_000
+            and queue_occupancy > 1_000_000
+        ):
+            candidate_delta = (ingress_timestamp - queue_occupancy) & 0xFFFFFFFF
+            if candidate_delta < 1_000_000:
+                ingress_timestamp, egress_timestamp = queue_occupancy, ingress_timestamp
+                queue_occupancy = 0
+                ts_latency = (egress_timestamp - ingress_timestamp) & 0xFFFFFFFF
+                recovered = True
+
+        hop_latency_used = ts_latency if ts_latency is not None else hop_latency_field
 
         hop_latency_ms = hop_latency_used / US_TO_MS
         ingress_timestamp_ms = ingress_timestamp / US_TO_MS
         egress_timestamp_ms = egress_timestamp / US_TO_MS
+
+        flags = []
+        if ts_latency is not None:
+            flags.append("ts")
+        if recovered:
+            flags.append("recovered")
+        if queue_occupancy > 1_000_000:
+            flags.append("queue_suspicious")
+
+        flags_str = f" [{'|'.join(flags)}]" if flags else ""
 
         print(
             f"[DEBUG] Hop {hop_number}: switch={switch_id}, "
             f"ingress={ingress_port_id}, egress={egress_port_id}, "
             f"queue={queue_occupancy} packets, "
             f"ingress_ts={ingress_timestamp_ms:.3f}ms, egress_ts={egress_timestamp_ms:.3f}ms, "
-            f"latency={hop_latency_ms:.3f}ms ({hop_latency_used}µs){' (from ts)' if ts_latency is not None else ''}"
+            f"latency={hop_latency_ms:.3f}ms ({hop_latency_used}µs){flags_str}"
         )
 
         return {
@@ -76,6 +104,7 @@ def parse_int_metadata_correct(md_data, hop_number):
             "egress_timestamp_ms": egress_timestamp_ms,
             "congestion_notification": congestion_notification,
             "hop_number": hop_number,
+            "hop_latency_field": hop_latency_field,
         }
         
     except Exception as e:
