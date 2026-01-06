@@ -222,16 +222,14 @@ def parse_int_packet(pkt):
                     f"Queue {md_info['queue_occupancy']} packets"
                 )
         
-        # Calculate end-to-end latency across all switches
-        if len(metadata_blocks) >= 2:
-            first_hop = metadata_blocks[0]
-            last_hop = metadata_blocks[-1]
-            
-            if first_hop["ingress_timestamp"] > 0 and last_hop["egress_timestamp"] > 0:
-                end_to_end_latency = last_hop["egress_timestamp"] - first_hop["ingress_timestamp"]
-                end_to_end_latency_ms = end_to_end_latency / US_TO_MS  # Convert µs to ms
-                print(f" END-TO-END LATENCY: {end_to_end_latency_ms:.3f}ms ({end_to_end_latency}µs) "
-                      f"(SW{first_hop['switch_id']} ingress -> SW{last_hop['switch_id']} egress)")
+        # End-to-end latency:
+        # Do NOT subtract timestamps across different switches unless clocks are synchronized.
+        # In BMv2 each switch instance has its own timestamp domain, so cross-switch subtraction
+        # can be negative or meaningless. Use the sum of per-hop latencies instead.
+        if len(metadata_blocks) >= 1:
+            e2e_latency_us = sum(md["hop_latency"] for md in metadata_blocks)
+            e2e_latency_ms = e2e_latency_us / US_TO_MS
+            print(f" END-TO-END LATENCY (sum of hops): {e2e_latency_ms:.3f}ms ({e2e_latency_us}µs)")
         
         return metadata_blocks
         
@@ -304,39 +302,35 @@ def handle_packet(pkt):
             except Exception as e:
                 print(f" DB Error: {e}")
         
-        # Store aggregated path information
-        if len(metadata_blocks) >= 2:
+        # Store aggregated path information (sum of per-hop latencies)
+        if len(metadata_blocks) >= 1:
+            e2e_latency_us = sum(md["hop_latency"] for md in metadata_blocks)
+            e2e_latency_ms = e2e_latency_us / US_TO_MS
+
             first_hop = metadata_blocks[0]
             last_hop = metadata_blocks[-1]
-            
-            if first_hop["ingress_timestamp"] > 0 and last_hop["egress_timestamp"] > 0:
-                end_to_end_latency = last_hop["egress_timestamp"] - first_hop["ingress_timestamp"]
-                end_to_end_latency_ms = end_to_end_latency / US_TO_MS  # Convert µs to ms
-                
-                path_json_body = [{
-                    "measurement": "int_path_metrics",
-                    "tags": {
-                        "path": path_str,
-                        "hop_count": len(metadata_blocks)
-                    },
-                    "fields": {
-                        # End-to-end latency in microseconds (original)
-                        "end_to_end_latency_us": end_to_end_latency,
-                        # End-to-end latency in milliseconds (converted)
-                        "end_to_end_latency_ms": end_to_end_latency_ms,
-                        "total_hops": len(metadata_blocks),
-                        "first_switch": first_hop["switch_id"],
-                        "last_switch": last_hop["switch_id"]
-                    },
-                    "time": int(time.time() * 1e9)
-                }]
-                
-                try:
-                    client.write_points(path_json_body)
-                    print(f" Saved path to DB: {path_str}, "
-                          f"E2E latency: {end_to_end_latency_ms:.3f}ms ({end_to_end_latency}µs)")
-                except Exception as e:
-                    print(f" Path DB Error: {e}")
+
+            path_json_body = [{
+                "measurement": "int_path_metrics",
+                "tags": {
+                    "path": path_str,
+                    "hop_count": len(metadata_blocks)
+                },
+                "fields": {
+                    "end_to_end_latency_us": e2e_latency_us,
+                    "end_to_end_latency_ms": e2e_latency_ms,
+                    "total_hops": len(metadata_blocks),
+                    "first_switch": first_hop["switch_id"],
+                    "last_switch": last_hop["switch_id"],
+                },
+                "time": int(time.time() * 1e9)
+            }]
+
+            try:
+                client.write_points(path_json_body)
+                print(f" Saved path to DB: {path_str}, E2E latency (sum): {e2e_latency_ms:.3f}ms ({e2e_latency_us}µs)")
+            except Exception as e:
+                print(f" Path DB Error: {e}")
                 
     except Exception as e:
         print(f" Packet handling failed: {e}")
