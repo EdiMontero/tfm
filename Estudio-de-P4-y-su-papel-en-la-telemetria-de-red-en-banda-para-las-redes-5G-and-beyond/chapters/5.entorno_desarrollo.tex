@@ -695,6 +695,33 @@ El diseño de la red de transporte se se encuentra en la grafica \ref{sec:topolo
 \end{figure}
 
 \section{Despliegue de switches BMv2 con INT-MD}
+Los switches BMv2 se han desplegado utilizando GNS3, los cuales se han configurado para que actúen como switches INT Source, Transit y Sink. El codigo completo de cada uno se encuentra en los anexos, a continuacion se explicarán las partes relevantes de cada Switch y su funcionalidad.
+\subsection{Switch INT Source}
+Flow in SW3 (int-gtp-destination):
+Ingress Pipeline:
+✅ Adds SW3's own data to int_md[2] (lines 311-325)
+✅ Triggers cloning via int_sink_table.apply() (line 330) → creates a clone that will go to port 9
+Egress Pipeline (runs for BOTH packets):
+For the CLONED packet (instance_type=1, going to port 9):
+
+✅ Updates int_md[2] with egress timestamps/latency (lines 348-369)
+✅ Keeps ALL INT headers intact (line 412-413)
+✅ Packet sent to port 9 with complete INT data
+For the ORIGINAL packet (instance_type=0, going to port 1):
+
+✅ Updates int_md[2] with egress data (same as clone)
+✅ Strips INT headers via egress_control.apply() (line 416)
+✅ Packet sent to destination (port 1) without INT headers
+Summary:
+Clone → Port 9: Full INT packet with SW1 + SW2 + SW3 metadata
+Original → Destination: Clean packet without INT headers
+The implementation is exactly what you need! Make sure you:
+
+Recompile the updated P4 code
+Configure the tables correctly (especially mirroring_add 99 9)
+The egress_control table should have entry for port 1 to strip headers
+\subsection{Switch INT Transit}
+\subsection{Switch INT Sink}
 
 \section{INT como extensión de SCTP}
 \subsection{Formato de metadatos INT-MD para SCTP}
