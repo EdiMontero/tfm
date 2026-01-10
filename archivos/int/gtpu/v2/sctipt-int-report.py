@@ -14,8 +14,82 @@ INFLUX_DB = "int_telemetry"
 # BMv2 timestamps are in MICROSECONDS (µs), not nanoseconds
 US_TO_MS = 1000.0  # 1 ms = 1,000 µs
 
+# INT metadata block size in this project.
+# P4 `int_md_t` here is 224 bits => 28 bytes on wire.
+INT_MD_LEN = 28
+
 # --- Connect to InfluxDB ---
 client = InfluxDBClient(host=INFLUX_HOST, port=INFLUX_PORT, database=INFLUX_DB)
+
+# Bump this when changing on-wire parsing so you can filter series in InfluxDB.
+PARSER_VERSION = "v3-md28-endian-autodetect"
+
+def _score_int_md(values):
+    """Heuristic scoring to pick the most plausible endianness.
+
+    In your logs, switch_id/ports are very small (1..9). When byte order is
+    wrong, they often become 256, 512, etc. Queue depth also becomes
+    suspicious powers of 2^24 (e.g. 0x09000000).
+    """
+
+    score = 0
+
+    switch_id = values["switch_id"]
+    ingress_port_id = values["ingress_port_id"]
+    egress_port_id = values["egress_port_id"]
+    queue_occupancy = values["queue_occupancy"]
+
+    # Switch ids in this project are small positive integers.
+    if 1 <= switch_id <= 32:
+        score += 5
+    elif switch_id in (256, 512, 768, 1024):
+        score -= 5
+
+    # Ports are also small.
+    for port in (ingress_port_id, egress_port_id):
+        if 0 <= port <= 64:
+            score += 2
+        elif port in (256, 512, 768, 1024, 2048):
+            score -= 2
+
+    # enq_qdepth should not look like a shifted single byte (0xNN000000).
+    if queue_occupancy <= 200_000:
+        score += 2
+    if (queue_occupancy & 0x00FFFFFF) == 0 and queue_occupancy >= 0x01000000:
+        score -= 6
+
+    return score
+
+def _decode_int_md(md_data, endian):
+    """Decode INT metadata block (32 bytes) using endian '<' or '>'."""
+
+    padding_switch = struct.unpack(f'{endian}H', md_data[0:2])[0]
+    switch_id = struct.unpack(f'{endian}H', md_data[2:4])[0]
+    ingress_port_id = struct.unpack(f'{endian}H', md_data[4:6])[0]
+    egress_port_id = struct.unpack(f'{endian}H', md_data[6:8])[0]
+
+    hop_latency_field = struct.unpack(f'{endian}I', md_data[8:12])[0]
+    queue_occupancy = struct.unpack(f'{endian}I', md_data[12:16])[0]
+    ingress_timestamp = struct.unpack(f'{endian}I', md_data[16:20])[0]
+    egress_timestamp = struct.unpack(f'{endian}I', md_data[20:24])[0]
+
+    congestion_notification = md_data[24]
+    reserved1 = md_data[25]
+    reserved2 = struct.unpack(f'{endian}H', md_data[26:28])[0]
+
+    return {
+        "padding_switch": padding_switch,
+        "switch_id": switch_id,
+        "ingress_port_id": ingress_port_id,
+        "egress_port_id": egress_port_id,
+        "hop_latency_field": hop_latency_field,
+        "queue_occupancy": queue_occupancy,
+        "ingress_timestamp": ingress_timestamp,
+        "egress_timestamp": egress_timestamp,
+        "congestion_notification": congestion_notification,
+        "reserved1": reserved1,
+        "reserved2": reserved2,
+    }
 
 def parse_int_metadata_correct(md_data, hop_number):
     """
@@ -26,24 +100,30 @@ def parse_int_metadata_correct(md_data, hop_number):
     - Offsets must match the P4 `int_md_t` layout exactly.
     """
     
-    if len(md_data) < 32:
+    if len(md_data) < INT_MD_LEN:
         print(f"[ERROR] Metadata block too short: {len(md_data)} bytes")
         return None
     
     try:
-        # INT-MD on the wire is network byte order (big-endian)
-        padding = struct.unpack('>H', md_data[0:2])[0]
-        switch_id = struct.unpack('>H', md_data[2:4])[0]
-        ingress_port_id = struct.unpack('>H', md_data[4:6])[0]
-        egress_port_id = struct.unpack('>H', md_data[6:8])[0]
+        # NOTE: Despite the intent of network byte order, in practice the
+        # captured bytes in your logs match little-endian for multi-byte fields
+        # (e.g. switch_id bytes 01 00 => 1). We auto-detect per block.
+        be = _decode_int_md(md_data, '>')
+        le = _decode_int_md(md_data, '<')
+        be_score = _score_int_md(be)
+        le_score = _score_int_md(le)
+        chosen = le if le_score >= be_score else be
+        endian_used = 'le' if chosen is le else 'be'
 
-        hop_latency_field = struct.unpack('>I', md_data[8:12])[0]
-        queue_occupancy = struct.unpack('>I', md_data[12:16])[0]
+        switch_id = chosen["switch_id"]
+        ingress_port_id = chosen["ingress_port_id"]
+        egress_port_id = chosen["egress_port_id"]
+        hop_latency_field = chosen["hop_latency_field"]
+        queue_occupancy = chosen["queue_occupancy"]
         queue_occupancy_raw = queue_occupancy
-        ingress_timestamp = struct.unpack('>I', md_data[16:20])[0]
-        egress_timestamp = struct.unpack('>I', md_data[20:24])[0]
-
-        congestion_notification = md_data[24]
+        ingress_timestamp = chosen["ingress_timestamp"]
+        egress_timestamp = chosen["egress_timestamp"]
+        congestion_notification = chosen["congestion_notification"]
 
         # Prefer deriving latency from timestamps if present (wrap-safe).
         ts_latency = None
@@ -81,6 +161,7 @@ def parse_int_metadata_correct(md_data, hop_number):
             flags.append("recovered")
         if queue_occupancy > 1_000_000:
             flags.append("queue_suspicious")
+        flags.append(endian_used)
 
         flags_str = f" [{'|'.join(flags)}]" if flags else ""
 
@@ -109,6 +190,7 @@ def parse_int_metadata_correct(md_data, hop_number):
             "hop_number": hop_number,
             "hop_latency_field": hop_latency_field,
             "recovered": recovered,
+            "endian": endian_used,
         }
         
     except Exception as e:
@@ -154,40 +236,56 @@ def parse_int_packet(pkt):
         offset += 6
         
         # Parse INT Header.
-        # IMPORTANT: In your P4, `int_header_t` is 56 bits (7 bytes), not 8 bytes.
-        # Layout:
-        #   version(4) | d(2) | q(2)
-        #   m(5) | reserved1(3)
-        #   hop_ml(8)
-        #   instruction(16)
-        #   reserved2(8)
-        #   remaining_hop_cnt(8)
-        INT_HEADER_LEN = 7
-        if len(raw_data) < offset + INT_HEADER_LEN:
+        # In theory this header is 56 bits (7 bytes) per the P4 definition.
+        # In practice, some traces/builds look like there is 1 padding byte
+        # before metadata starts (8-byte aligned). To avoid field misalignment
+        # (e.g., egress_port looking like hop latency), we auto-detect whether
+        # metadata starts after 7 or 8 bytes by scoring the first metadata block.
+        INT_HEADER_MIN_LEN = 7
+        if len(raw_data) < offset + INT_HEADER_MIN_LEN:
             return None
-            
-        header_data = raw_data[offset:offset+INT_HEADER_LEN]
-        print(f"[DEBUG] Raw INT header (hex): {binascii.hexlify(header_data).decode()}")
+        header_data_7 = raw_data[offset:offset+INT_HEADER_MIN_LEN]
+        print(f"[DEBUG] Raw INT header (first 7B hex): {binascii.hexlify(header_data_7).decode()}")
 
-        b0 = header_data[0]
-        b1 = header_data[1]
+        b0 = header_data_7[0]
+        b1 = header_data_7[1]
         version = (b0 >> 4) & 0x0F
         d = (b0 >> 2) & 0x03
         q = b0 & 0x03
         m = (b1 >> 3) & 0x1F
         reserved1 = b1 & 0x07
-        hop_ml = header_data[2]
-        instruction = struct.unpack('>H', header_data[3:5])[0]
-        reserved2 = header_data[5]
-        remaining_hop_cnt = header_data[6]
+        hop_ml = header_data_7[2]
+        instruction = struct.unpack('>H', header_data_7[3:5])[0]
+        reserved2 = header_data_7[5]
+        remaining_hop_cnt = header_data_7[6]
         
         print(f"[INT] Header: version={version}, d={d}, q={q}, m={m}, hop_ml={hop_ml}, "
               f"instruction=0x{instruction:04x}, remaining_hops={remaining_hop_cnt}")
 
-        offset += INT_HEADER_LEN
+        # Decide if metadata starts after 7 or 8 bytes.
+        candidate_header_lens = [7, 8]
+        best_header_len = 7
+        best_score = -10**9
+        for cand_len in candidate_header_lens:
+            if len(raw_data) < offset + cand_len + INT_MD_LEN:
+                continue
+            cand_md0 = raw_data[offset + cand_len: offset + cand_len + INT_MD_LEN]
+            try:
+                be0 = _decode_int_md(cand_md0, '>')
+                le0 = _decode_int_md(cand_md0, '<')
+                cand_score = max(_score_int_md(be0), _score_int_md(le0))
+            except Exception:
+                cand_score = -10**9
+            if cand_score > best_score:
+                best_score = cand_score
+                best_header_len = cand_len
 
-        # Compute number of 32-byte metadata blocks from shim.length.
-        # In this project, SW1 sets shim.length = 12 + 32*N and each hop increases it by 32.
+        if best_header_len != 7:
+            print(f"[DEBUG] INT header padding detected: using {best_header_len} bytes before metadata")
+        offset += best_header_len
+
+        # Compute number of metadata blocks from shim.length.
+        # Here shim.length is accounted in 32B increments, while each on-wire int_md_t is 28B.
         base_overhead = 12
         if shim_length < base_overhead:
             num_blocks = 0
@@ -204,18 +302,18 @@ def parse_int_packet(pkt):
         # Extract metadata blocks
         metadata_blocks = []
         for i in range(num_blocks):
-            if len(raw_data) < offset + 32:
+            if len(raw_data) < offset + INT_MD_LEN:
                 print(f"[WARNING] Not enough data for metadata block {i+1}")
                 break
                 
-            md_block_data = raw_data[offset:offset+32]
+            md_block_data = raw_data[offset:offset+INT_MD_LEN]
             print(f"[DEBUG] Metadata block {i+1} (hex): {binascii.hexlify(md_block_data).decode()}")
             
             md_info = parse_int_metadata_correct(md_block_data, i + 1)
             if md_info:
                 metadata_blocks.append(md_info)
 
-            offset += 32
+            offset += INT_MD_LEN
             
         # Calculate actual hop latency from timestamps if available
             if md_info:
@@ -278,14 +376,19 @@ def handle_packet(pkt):
                     "ingress_port": md_block["ingress_port_id"],
                     "egress_port": md_block["egress_port_id"],
                     "hop_number": md_block["hop_number"],
-                    "path_position": f"hop_{md_block['hop_number']}"
+                    "path_position": f"hop_{md_block['hop_number']}",
+                    "parser_version": PARSER_VERSION,
+                    "parser_endian": md_block.get("endian", "unknown"),
                 },
                 "fields": {
                     # Latency in microseconds (original)
                     "hop_latency_us": actual_latency,
                     # Latency in milliseconds (converted)
                     "hop_latency_ms": actual_latency_ms,
-                    # Queue occupancy in packets (not time!)
+                    # Queue depth at enqueue time (BMv2 v1model: enq_qdepth).
+                    # Units are target-specific; treat as "queue depth" unless
+                    # you have confirmed it is packets/bytes for your build.
+                    "queue_depth_enq": md_block["queue_occupancy"],
                     "queue_occupancy_packets": md_block["queue_occupancy"],
                     "queue_occupancy_raw": md_block.get("queue_occupancy_raw", md_block["queue_occupancy"]),
                     "parser_recovered": 1 if md_block.get("recovered") else 0,
@@ -320,7 +423,8 @@ def handle_packet(pkt):
                 "measurement": "int_path_metrics",
                 "tags": {
                     "path": path_str,
-                    "hop_count": len(metadata_blocks)
+                    "hop_count": len(metadata_blocks),
+                    "parser_version": PARSER_VERSION,
                 },
                 "fields": {
                     "end_to_end_latency_us": e2e_latency_us,

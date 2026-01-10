@@ -1,0 +1,119 @@
+sudo docker cp ~/tfm/archivos/int/gtpu/int-gtp-source/int-gtp-source-2.json 617b30e967a9:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/int-gtp-source/int-gtp-source-2.json a72ba05af5d7:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/int-gtp-source/int-gtp-source-2.json 01c5aed35665:/behavioral-model
+# Add the int-gtp-transit.json file to the containers
+sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-transit/int-gtp-transit.json 617b30e967a9:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-transit/int-gtp-transit.json a72ba05af5d7:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-transit/int-gtp-transit.json 01c5aed35665:/behavioral-model
+# Add the int-gtp-sink.json file to the containers
+sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-destination/int-gtp-destination.json 617b30e967a9:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-destination/int-gtp-destination.json a72ba05af5d7:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-destination/int-gtp-destination.json 01c5aed35665:/behavioral-model
+
+==========INT-MD Switch Runtime Commands==========
+
+# bmv2-1
+simple_switch --thrift-port 9090 --log-console -i 1@eth1 -i 2@eth2 -i 9@eth9 int-gtp-source.json
+# bmv2-2
+simple_switch --thrift-port 9091 --log-console -i 1@eth1 -i 2@eth2  int-gtp-transit.json
+# bmv2-3
+simple_switch --thrift-port 9092 --log-console -i 1@eth1 -i 2@eth2 -i 9@eth9 int-gtp-destination-v2.json
+
+========
+
+# Connect to SW1
+simple_switch_CLI --thrift-port 9090
+
+# Clear existing tables first
+table_clear MyIngress.ipv4_lpm
+table_clear MyIngress.int_source_table
+table_clear MyIngress.int_sink_table
+
+# Add correct forwarding rules
+ # To R1 and gNB
+table_add MyIngress.ipv4_lpm forward_action 172.18.10.2/32 => 1
+table_add MyIngress.ipv4_lpm forward_action 172.18.10.3/32 => 1
+ # Default route to SW2
+table_add MyIngress.ipv4_lpm forward_action 0.0.0.0/0 => 2
+
+# Add gNodeB IP to INT monitoring list
+table_add int_source_ip_table int_source_action 172.18.10.3/32 =>
+
+# Configure which traffic types to monitor
+table_add int_traffic_type_table int_source_action 1 =>  # NGAP
+table_add int_traffic_type_table int_source_action 2 =>  # GTP-U
+
+# Add INT source rule for NGAP traffic (traffic_type = 1)
+#table_add MyIngress.int_source_table int_source_action 1 =>
+
+# Add INT source rule for GTP-U traffic (traffic_type = 2)  
+#table_add MyIngress.int_source_table int_source_action 2 =>
+
+# Verify tables
+table_dump MyIngress.ipv4_lpm
+table_dump MyIngress.int_source_table
+#
+
+
+'SW2 Configuration (Transit)'
+# ---------------------------------------------------- Connect to SW2
+# Connect to SW2
+simple_switch_CLI --thrift-port 9091
+
+# Clear existing tables
+table_clear MyIngress.ipv4_lpm
+
+# Add forwarding rules for your topology
+ # To AMF
+table_add MyIngress.ipv4_lpm forward_action 172.18.0.20/32 => 2 
+ # To RAN
+table_add MyIngress.ipv4_lpm forward_action 172.18.10.3/32 => 1  
+table_add MyIngress.ipv4_lpm forward_action 0.0.0.0/0 => 2      
+# --------------------------------------------------------------------------------------------------
+
+'SW3 int-gtp-destination Configuration (Sink)'
+---------------------------------------------------------------------------
+# Connect to SW3
+simple_switch_CLI --thrift-port 9092
+
+# Clear existing tables
+table_clear MyIngress.ipv4_lpm
+table_clear MyIngress.int_sink_table
+table_clear MyEgress.egress_control
+
+# Add forwarding rules
+# To AMF (is on port 1)
+table_add MyIngress.ipv4_lpm forward_action 172.18.0.20/32 => 1
+# To UPF (is on port 1) 
+table_add MyIngress.ipv4_lpm forward_action 172.18.0.24/32 => 1
+# To gNB/RAN (back to SW2 on port 2)
+table_add MyIngress.ipv4_lpm forward_action 172.18.10.3/32 => 2
+# Default route (to destination hosts)
+table_add MyIngress.ipv4_lpm forward_action 0.0.0.0/0 => 1
+
+# Add INT sink rule - activate cloning for INT packets (key: int_shim.isValid() = 1)
+table_add MyIngress.int_sink_table int_sink_action 1 =>
+
+# Add egress control to strip INT headers when forwarding to destination hosts (port 1)
+table_add MyEgress.egress_control strip_int_headers 1 =>
+
+# Configure mirroring session 99 to send cloned packets to port 9 (INT collector)
+mirroring_add 99 9
+
+# Verify tables
+table_dump MyIngress.ipv4_lpm
+table_dump MyIngress.int_sink_table
+table_dump MyEgress.egress_control
+
+# Verify mirroring configuration
+mirroring_get 99
+
+# Enable logging (optional for debugging)
+# logging_level set debug
+
+
+
+==========ueransim - INT-GTPU Switch Runtime Commands==========
+sudo docker exec -it ueransim bash
+ping -I uesimtun0 -i 0.0001 -c 10000 10.50.50.1
+===============================================================
