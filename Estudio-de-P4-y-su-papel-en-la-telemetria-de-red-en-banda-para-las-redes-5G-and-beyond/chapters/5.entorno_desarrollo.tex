@@ -1898,18 +1898,535 @@ En la figura \ref{fig:influxdb-creation} se muestran los comandos ejecutados par
 Una vez que Grafana e InfluxDB están instalados, se procede a configurar Grafana para que utilice InfluxDB como fuente de datos. Para realizar esta configuración, se accede a la interfaz web de Grafana http://localhost:3000, con el usuario y contraseña por defecto (admin/admin).
 Una vez dentro de Grafana, en la sección de conexión de fuentes de datos se conecta a InfluxDB como se muestra en la figura \ref{fig:grafana-configuration}.
 
-En la figura \ref{fig:grafana-configuration} se muestra la pantalla de configuración de la fuente de datos en Grafana.
+En la figura \ref{fig:grafana-configuration} y  \ref{fig:grafana-configuration-2} se muestra la pantalla de configuración de la fuente de datos en Grafana.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.1\textwidth]{images/configuracion-grafana.png}
+    \includegraphics[width=1.1\textwidth]{images/influxdb-connection.png}
     \caption{Configuración de la fuente de datos InfluxDB en Grafana}
     \label{fig:grafana-configuration}
 \end{figure}
 
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.1\textwidth]{images/influxdb-connection-2.png}
+    \caption{Configuración de la fuente de datos InfluxDB en Grafana - Parte 2}
+    \label{fig:grafana-configuration-2}
+\end{figure}
 
 \subsection{Captura y procesamiento de paquetes INT}
+Para la captura y procesamiento de los paquetes INT, se ha desarrollado un script en Python denominado \texttt{script-int-report.py} que utiliza la librería Scapy para capturar los paquetes directamente desde la interfaz de red conectada al switch INT-Sink. El script extrae los metadatos INT-MD de cada paquete y los almacena en la base de datos InfluxDB para su posterior análisis y visualización en Grafana.
 
+Este script implementa un parser personalizado para el protocolo INT debido a que las herramientas estándar de análisis de paquetes (como Wireshark o tcpdump) no reconocen nativamente el EtherType 0x00FA utilizado por INT. El script opera en tiempo real, procesando cada paquete clonado que envía el switch INT-Sink al servidor de recolección.
+
+\subsubsection{Configuración y dependencias}
+El script comienza con la configuración de los parámetros esenciales para la conexión a InfluxDB y la captura de paquetes. Las principales dependencias utilizadas son:
+
+\begin{itemize}
+    \item \textbf{Scapy}: Librería de Python para manipulación y análisis de paquetes de red a bajo nivel
+    \item \textbf{InfluxDB Python Client}: Cliente oficial para conectarse a la base de datos de series temporales InfluxDB
+    \item \textbf{struct}: Módulo de Python para conversión entre tipos de datos binarios y Python
+    \item \textbf{binascii}: Para debugging y visualización de datos hexadecimales
+\end{itemize}
+
+\begin{lstlisting}[language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue!70!black}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{red!80!black},
+    numbers=left,
+    numberstyle=\tiny\color{gray!70},
+    stepnumber=1,
+    numbersep=10pt,
+    backgroundcolor=\color{gray!5},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    frameround=tttt,
+    rulecolor=\color{gray!30},
+    captionpos=b,
+    tabsize=4,
+    xleftmargin=15pt,
+    framexleftmargin=12pt,
+    literate=
+      {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+      {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+      {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
+    caption={Configuración inicial del script de captura INT}, 
+    label=lst:int-script-config]
+from scapy.all import sniff
+from influxdb import InfluxDBClient
+import struct
+import time
+
+# --- Configuración ---
+IFACE = "ens4"              # Interfaz de red conectada al INT-Sink
+INFLUX_HOST = "localhost"
+INFLUX_PORT = 8086
+INFLUX_DB = "int_telemetry"
+
+# --- Constantes ---
+US_TO_MS = 1000.0          # Conversión microsegundos a milisegundos
+INT_MD_LEN = 28            # Tamaño del bloque de metadatos INT-MD (28 bytes)
+
+# Conectar a InfluxDB
+client = InfluxDBClient(host=INFLUX_HOST, port=INFLUX_PORT, 
+                       database=INFLUX_DB)
+
+PARSER_VERSION = "v3-md28-endian-autodetect"
+\end{lstlisting}
+
+Un aspecto importante a destacar es que el tamaño del bloque de metadatos INT-MD es de \textbf{28 bytes en el wire} (224 bits), aunque el protocolo contabiliza en incrementos de 32 bytes (4-byte aligned) en el campo \texttt{int\_shim.length}. Esta discrepancia se debe al padding y alineación de memoria en la implementación P4 de BMv2.
+
+\subsubsection{Detección automática de endianness}
+Uno de los desafíos más complejos en el parsing de paquetes INT es determinar el orden de bytes (endianness) correcto. Aunque el protocolo INT especifica big-endian (network byte order), en la práctica diferentes implementaciones de BMv2 pueden emitir los campos en little-endian debido a diferencias en la arquitectura del sistema.
+
+El script implementa un sistema de \textbf{auto-detección heurística} que evalúa ambos órdenes de bytes y selecciona el más plausible mediante un sistema de puntuación:
+
+\begin{lstlisting}[language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue!70!black}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{red!80!black},
+    numbers=left,
+    numberstyle=\tiny\color{gray!70},
+    stepnumber=1,
+    numbersep=10pt,
+    backgroundcolor=\color{gray!5},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    frameround=tttt,
+    rulecolor=\color{gray!30},
+    captionpos=b,
+    tabsize=4,
+    xleftmargin=15pt,
+    framexleftmargin=12pt,
+    literate=
+      {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+      {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+      {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
+    caption={Sistema de auto-detección de endianness}, 
+    label=lst:int-script-endian]
+def _score_int_md(values):
+    """Heurística para determinar el endianness más plausible.
+    
+    Los switch_id y ports son enteros pequeños (1..9). Cuando el orden
+    de bytes es incorrecto, se convierten en valores como 256, 512, etc.
+    """
+    score = 0
+    
+    switch_id = values["switch_id"]
+    ingress_port_id = values["ingress_port_id"]
+    egress_port_id = values["egress_port_id"]
+    queue_occupancy = values["queue_occupancy"]
+    
+    # Switch IDs son enteros pequeños en este proyecto
+    if 1 <= switch_id <= 32:
+        score += 5
+    elif switch_id in (256, 512, 768, 1024):
+        score -= 5
+    
+    # Puertos también son pequeños
+    for port in (ingress_port_id, egress_port_id):
+        if 0 <= port <= 64:
+            score += 2
+        elif port in (256, 512, 768, 1024, 2048):
+            score -= 2
+    
+    # enq_qdepth no debe parecer un byte desplazado (0xNN000000)
+    if queue_occupancy <= 200_000:
+        score += 2
+    if (queue_occupancy & 0x00FFFFFF) == 0 and queue_occupancy >= 0x01000000:
+        score -= 6
+    
+    return score
+
+def _decode_int_md(md_data, endian):
+    """Decodificar bloque INT-MD usando endian '<' o '>'."""
+    switch_id = struct.unpack(f'{endian}H', md_data[2:4])[0]
+    ingress_port_id = struct.unpack(f'{endian}H', md_data[4:6])[0]
+    egress_port_id = struct.unpack(f'{endian}H', md_data[6:8])[0]
+    hop_latency_field = struct.unpack(f'{endian}I', md_data[8:12])[0]
+    queue_occupancy = struct.unpack(f'{endian}I', md_data[12:16])[0]
+    ingress_timestamp = struct.unpack(f'{endian}I', md_data[16:20])[0]
+    egress_timestamp = struct.unpack(f'{endian}I', md_data[20:24])[0]
+    # ... extracción de otros campos ...
+    
+    return {
+        "switch_id": switch_id,
+        "ingress_port_id": ingress_port_id,
+        "egress_port_id": egress_port_id,
+        "hop_latency_field": hop_latency_field,
+        "queue_occupancy": queue_occupancy,
+        "ingress_timestamp": ingress_timestamp,
+        "egress_timestamp": egress_timestamp,
+        # ...
+    }
+\end{lstlisting}
+
+El sistema de puntuación evalúa la plausibilidad de los valores decodificados. Por ejemplo, si al decodificar con big-endian obtenemos \texttt{switch\_id = 256} pero con little-endian obtenemos \texttt{switch\_id = 1}, el sistema asignará mayor puntuación a little-endian, ya que es más razonable tener un switch con ID 1 que con ID 256 en una topología pequeña.
+
+\subsubsection{Parsing de cabeceras INT}
+El parsing de paquetes INT comienza con la extracción manual de la cabecera Ethernet, seguida de la verificación del EtherType 0x00FA que identifica paquetes INT. Posteriormente, se extraen las cabeceras INT Shim e INT Header:
+
+\begin{lstlisting}[language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue!70!black}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{red!80!black},
+    numbers=left,
+    numberstyle=\tiny\color{gray!70},
+    stepnumber=1,
+    numbersep=10pt,
+    backgroundcolor=\color{gray!5},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    frameround=tttt,
+    rulecolor=\color{gray!30},
+    captionpos=b,
+    tabsize=4,
+    xleftmargin=15pt,
+    framexleftmargin=12pt,
+    literate=
+      {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+      {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+      {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
+    caption={Parsing de cabeceras Ethernet e INT}, 
+    label=lst:int-script-headers]
+def parse_int_packet(pkt):
+    """Parsear paquete INT desde bytes L2.
+    
+    Nota: INT usa EtherType 0x00FA que es < 0x0600, por lo que
+    muchas herramientas lo clasifican como IEEE 802.3 length.
+    Debemos parsear los bytes directamente.
+    """
+    raw_data = bytes(pkt)
+    if len(raw_data) < 14:
+        return None
+    
+    # Extraer cabecera Ethernet (14 bytes)
+    dst_mac = ':'.join(f"{b:02x}" for b in raw_data[0:6])
+    src_mac = ':'.join(f"{b:02x}" for b in raw_data[6:12])
+    type_or_len = struct.unpack('>H', raw_data[12:14])[0]
+    
+    # Verificar EtherType INT
+    if type_or_len != 0x00FA:
+        return None
+    
+    offset = 14
+    
+    # Parsear INT Shim Header (6 bytes) - big-endian
+    shim_data = raw_data[offset:offset+6]
+    shim_type, shim_reserved, shim_length, shim_next_proto = \
+        struct.unpack('>BBHH', shim_data)
+    print(f"[INT] Shim: type={shim_type}, length={shim_length}, "
+          f"next_proto=0x{shim_next_proto:04x}")
+    offset += 6
+    
+    # Parsear INT Header (7 bytes en teoría, pero puede tener padding)
+    header_data = raw_data[offset:offset+7]
+    b0 = header_data[0]
+    b1 = header_data[1]
+    version = (b0 >> 4) & 0x0F
+    hop_ml = header_data[2]
+    instruction = struct.unpack('>H', header_data[3:5])[0]
+    remaining_hop_cnt = header_data[6]
+    
+    print(f"[INT] Header: version={version}, hop_ml={hop_ml}, "
+          f"instruction=0x{instruction:04x}, remaining_hops={remaining_hop_cnt}")
+    
+    # Detectar padding automáticamente (7 u 8 bytes antes de metadatos)
+    # ... lógica de auto-detección ...
+    
+    # Calcular número de bloques de metadatos desde shim.length
+    base_overhead = 12
+    num_blocks = (shim_length - base_overhead) // 32 if shim_length >= base_overhead else 0
+    num_blocks = min(num_blocks, 8)  # MAX_HOP_COUNT
+    
+    print(f"[INT] Extrayendo {num_blocks} bloques de metadatos")
+    # ...
+\end{lstlisting}
+
+El script implementa detección automática de padding entre la cabecera INT Header y los bloques de metadatos. Aunque la especificación indica 7 bytes (56 bits) para el INT Header, algunas implementaciones añaden 1 byte de padding para alineación a 8 bytes. El script prueba ambas configuraciones y selecciona la que produce valores más coherentes en el primer bloque de metadatos.
+
+\subsubsection{Extracción y validación de metadatos}
+La extracción de metadatos INT-MD es el componente más crítico del script. Cada bloque de 28 bytes contiene información de telemetría de un switch en la ruta. El script implementa validación robusta y recuperación de errores:
+
+\begin{lstlisting}[language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue!70!black}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{red!80!black},
+    numbers=left,
+    numberstyle=\tiny\color{gray!70},
+    stepnumber=1,
+    numbersep=10pt,
+    backgroundcolor=\color{gray!5},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    frameround=tttt,
+    rulecolor=\color{gray!30},
+    captionpos=b,
+    tabsize=4,
+    xleftmargin=15pt,
+    framexleftmargin=12pt,
+    literate=
+      {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+      {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+      {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
+    caption={Extracción y validación de metadatos INT-MD}, 
+    label=lst:int-script-metadata]
+def parse_int_metadata_correct(md_data, hop_number):
+    """Parsear un bloque de metadatos INT (28 bytes).
+    
+    Implementa auto-detección de endianness y recuperación
+    heurística de errores comunes.
+    """
+    if len(md_data) < INT_MD_LEN:
+        print(f"[ERROR] Bloque de metadatos muy corto: {len(md_data)} bytes")
+        return None
+    
+    # Auto-detectar endianness
+    be = _decode_int_md(md_data, '>')  # Big-endian
+    le = _decode_int_md(md_data, '<')  # Little-endian
+    be_score = _score_int_md(be)
+    le_score = _score_int_md(le)
+    chosen = le if le_score >= be_score else be
+    endian_used = 'le' if chosen is le else 'be'
+    
+    switch_id = chosen["switch_id"]
+    ingress_port_id = chosen["ingress_port_id"]
+    egress_port_id = chosen["egress_port_id"]
+    hop_latency_field = chosen["hop_latency_field"]
+    queue_occupancy = chosen["queue_occupancy"]
+    ingress_timestamp = chosen["ingress_timestamp"]
+    egress_timestamp = chosen["egress_timestamp"]
+    
+    # Calcular latencia desde timestamps si están disponibles
+    ts_latency = None
+    if ingress_timestamp != 0 and egress_timestamp != 0:
+        ts_latency = (egress_timestamp - ingress_timestamp) & 0xFFFFFFFF
+    
+    # Recuperación heurística de errores comunes
+    # En algunos casos, los campos se desplazan debido a errores
+    # de alineación: hop_latency=0, egress_ts=0, pero queue_occupancy
+    # contiene un timestamp válido
+    recovered = False
+    if (hop_latency_field == 0 and egress_timestamp == 0 
+        and ingress_timestamp > 1_000_000 
+        and queue_occupancy > 1_000_000):
+        # Intercambiar campos desplazados
+        candidate_delta = (ingress_timestamp - queue_occupancy) & 0xFFFFFFFF
+        if candidate_delta < 1_000_000:
+            ingress_timestamp, egress_timestamp = queue_occupancy, ingress_timestamp
+            queue_occupancy = 0
+            ts_latency = (egress_timestamp - ingress_timestamp) & 0xFFFFFFFF
+            recovered = True
+    
+    # Usar timestamp-derived latency si está disponible
+    hop_latency_used = ts_latency if ts_latency is not None else hop_latency_field
+    
+    # Convertir microsegundos a milisegundos
+    hop_latency_ms = hop_latency_used / US_TO_MS
+    ingress_timestamp_ms = ingress_timestamp / US_TO_MS
+    egress_timestamp_ms = egress_timestamp / US_TO_MS
+    
+    print(f"[DEBUG] Hop {hop_number}: switch={switch_id}, "
+          f"ingress={ingress_port_id}, egress={egress_port_id}, "
+          f"queue={queue_occupancy} packets, latency={hop_latency_ms:.3f}ms "
+          f"[{endian_used}]")
+    
+    return {
+        "switch_id": switch_id,
+        "ingress_port_id": ingress_port_id,
+        "egress_port_id": egress_port_id,
+        "hop_latency": hop_latency_used,
+        "hop_latency_ms": hop_latency_ms,
+        "queue_occupancy": queue_occupancy,
+        "ingress_timestamp": ingress_timestamp,
+        "egress_timestamp": egress_timestamp,
+        "hop_number": hop_number,
+        "endian": endian_used,
+        "recovered": recovered
+    }
+\end{lstlisting}
+
+La recuperación heurística de errores es particularmente importante cuando se detectan anomalías en los datos. Por ejemplo, si \texttt{hop\_latency\_field = 0} y \texttt{egress\_timestamp = 0} pero \texttt{queue\_occupancy} contiene un valor que parece un timestamp, el script intenta intercambiar los campos para recuperar los valores correctos.
+
+\subsubsection{Almacenamiento en InfluxDB}
+Una vez extraídos y validados los metadatos de todos los saltos, el script almacena la información en InfluxDB utilizando dos mediciones (measurements) diferentes:
+
+\begin{enumerate}
+    \item \textbf{int\_metrics}: Almacena metadatos individuales de cada salto (por-hop)
+    \item \textbf{int\_path\_metrics}: Almacena métricas agregadas de toda la ruta (end-to-end)
+\end{enumerate}
+
+\begin{lstlisting}[language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue!70!black}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{red!80!black},
+    numbers=left,
+    numberstyle=\tiny\color{gray!70},
+    stepnumber=1,
+    numbersep=10pt,
+    backgroundcolor=\color{gray!5},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    frameround=tttt,
+    rulecolor=\color{gray!30},
+    captionpos=b,
+    tabsize=4,
+    xleftmargin=15pt,
+    framexleftmargin=12pt,
+    literate=
+      {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+      {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+      {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
+    caption={Almacenamiento de metadatos en InfluxDB}, 
+    label=lst:int-script-influx]
+def handle_packet(pkt):
+    """Manejar paquetes INT entrantes"""
+    metadata_blocks = parse_int_packet(pkt)
+    
+    if not metadata_blocks:
+        return
+    
+    # Construir representación de la ruta
+    switch_ids = [f"SW{md['switch_id']}" for md in metadata_blocks]
+    path_str = " -> ".join(switch_ids)
+    print(f" PATH: {path_str}")
+    
+    # Almacenar cada bloque en InfluxDB
+    for md_block in metadata_blocks:
+        json_body = [{
+            "measurement": "int_metrics",
+            "tags": {
+                "switch_id": md_block["switch_id"],
+                "ingress_port": md_block["ingress_port_id"],
+                "egress_port": md_block["egress_port_id"],
+                "hop_number": md_block["hop_number"],
+                "parser_version": PARSER_VERSION,
+                "parser_endian": md_block["endian"],
+            },
+            "fields": {
+                "hop_latency_us": md_block["hop_latency"],
+                "hop_latency_ms": md_block["hop_latency_ms"],
+                "queue_occupancy_packets": md_block["queue_occupancy"],
+                "ingress_timestamp_us": md_block["ingress_timestamp"],
+                "egress_timestamp_us": md_block["egress_timestamp"],
+                "ingress_timestamp_ms": md_block["ingress_timestamp_ms"],
+                "egress_timestamp_ms": md_block["egress_timestamp_ms"],
+            },
+            "time": int(time.time() * 1e9)  # Nanosegundos
+        }]
+        client.write_points(json_body)
+    
+    # Calcular y almacenar latencia end-to-end
+    # IMPORTANTE: No restar timestamps entre switches diferentes
+    # porque cada BMv2 tiene su propio dominio de tiempo.
+    # En su lugar, sumar las latencias individuales de cada salto.
+    e2e_latency_us = sum(md["hop_latency"] for md in metadata_blocks)
+    e2e_latency_ms = e2e_latency_us / US_TO_MS
+    
+    path_json_body = [{
+        "measurement": "int_path_metrics",
+        "tags": {
+            "path": path_str,
+            "hop_count": len(metadata_blocks),
+        },
+        "fields": {
+            "end_to_end_latency_us": e2e_latency_us,
+            "end_to_end_latency_ms": e2e_latency_ms,
+            "total_hops": len(metadata_blocks),
+        },
+        "time": int(time.time() * 1e9)
+    }]
+    client.write_points(path_json_body)
+    
+    print(f" E2E latency (sum): {e2e_latency_ms:.3f}ms ({e2e_latency_us}µs)")
+\end{lstlisting}
+
+Un aspecto crucial a destacar es el cálculo de la latencia end-to-end. Dado que cada instancia de BMv2 (cada switch) tiene su propio dominio de tiempo independiente, \textbf{no es válido restar timestamps entre switches diferentes}. Por ejemplo, \texttt{SW3.ingress\_timestamp - SW1.ingress\_timestamp} puede resultar en valores negativos o sin sentido. Por ello, la latencia end-to-end se calcula como la \textbf{suma de las latencias individuales} de cada salto, que es la métrica correcta para medir el tiempo total que el paquete pasó en la infraestructura de red.
+
+\subsubsection{Ejecución y monitoreo}
+El script se ejecuta como un proceso en segundo plano que escucha continuamente en la interfaz de red especificada. La función principal inicializa la conexión a InfluxDB y comienza la captura de paquetes:
+
+\begin{lstlisting}[language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue!70!black}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{red!80!black},
+    numbers=left,
+    numberstyle=\tiny\color{gray!70},
+    stepnumber=1,
+    numbersep=10pt,
+    backgroundcolor=\color{gray!5},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    frameround=tttt,
+    rulecolor=\color{gray!30},
+    captionpos=b,
+    tabsize=4,
+    xleftmargin=15pt,
+    framexleftmargin=12pt,
+    literate=
+      {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+      {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+      {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
+    caption={Función principal y ejecución del script}, 
+    label=lst:int-script-main]
+def main():
+    print("=== INT Telemetry Report Server ===")
+    print(f"Conversión: 1 ms = {US_TO_MS:,.0f} µs")
+    print("=" * 50)
+    
+    # Verificar conexión a InfluxDB
+    if not test_influxdb():
+        return
+    
+    print(f"Escuchando en interfaz: {IFACE}")
+    print("Esperando paquetes de telemetría INT...")
+    print("Presiona Ctrl+C para detener\n")
+    
+    try:
+        # Captura continua de paquetes
+        sniff(iface=IFACE, prn=handle_packet, store=False)
+    except KeyboardInterrupt:
+        print("\n Detenido por el usuario")
+    except Exception as e:
+        print(f"Error: {e}")
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+El script genera salida de debugging detallada que permite monitorear en tiempo real el procesamiento de paquetes INT:
+
+\begin{verbatim}
+[INT] New packet: aa:bb:cc:dd:ee:ff -> 11:22:33:44:55:66, length: 198 bytes
+[INT] Shim: type=1, length=108, next_proto=0x0800
+[INT] Header: version=1, hop_ml=3, instruction=0x00ff, remaining_hops=0
+[INT] Extrayendo 3 bloques de metadatos
+[DEBUG] Hop 1: switch=1, ingress=1, egress=2, queue=0 packets, 
+        latency=0.245ms [le]
+[DEBUG] Hop 2: switch=2, ingress=1, egress=2, queue=0 packets, 
+        latency=0.187ms [le]
+[DEBUG] Hop 3: switch=3, ingress=1, egress=9, queue=0 packets, 
+        latency=0.156ms [le]
+ PATH: SW1 -> SW2 -> SW3
+ E2E latency (sum): 0.588ms (588µs)
+ Saved to DB: Switch 1, Hop 1, Latency: 0.245ms
+ Saved to DB: Switch 2, Hop 2, Latency: 0.187ms
+ Saved to DB: Switch 3, Hop 3, Latency: 0.156ms
+ Saved path to DB: SW1 -> SW2 -> SW3, E2E latency: 0.588ms
+\end{verbatim}
+
+Este nivel de detalle facilita el debugging y permite verificar que el parsing se está realizando correctamente, mostrando información como el endianness detectado, la ruta completa del paquete, y las métricas individuales de cada salto. 
 
 
 

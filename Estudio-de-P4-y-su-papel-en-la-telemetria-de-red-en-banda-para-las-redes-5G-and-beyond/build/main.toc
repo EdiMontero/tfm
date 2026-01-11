@@ -1,143 +1,149 @@
-\contentsline {chapter}{Dedicatoria}{5}{}%
-\contentsline {chapter}{Acrónimos}{6}{}%
-\contentsline {chapter}{\numberline {1}Introducción}{10}{}%
-\contentsline {section}{\numberline {1.1}Contexto general de las redes 5G y beyond}{10}{}%
-\contentsline {section}{\numberline {1.2}Motivación del estudio}{10}{}%
-\contentsline {section}{\numberline {1.3}Problemática en la visibilidad y monitoreo de redes 5G y beyond}{11}{}%
-\contentsline {section}{\numberline {1.4}Hipótesis y preguntas de investigación}{11}{}%
-\contentsline {section}{\numberline {1.5}Objetivos generales y específicos}{12}{}%
-\contentsline {section}{\numberline {1.6}Metodología de trabajo}{12}{}%
-\contentsline {section}{\numberline {1.7}Estructura del documento}{13}{}%
-\contentsline {section}{\numberline {1.8}Resumen de capítulos}{13}{}%
-\contentsline {chapter}{\numberline {2}Fundamentos de las Redes 5G y Beyond}{15}{}%
-\contentsline {section}{\numberline {2.1}Evolución de tecnologías móviles}{15}{}%
-\contentsline {subsection}{\numberline {2.1.1}De 1G a 6G: Hitos clave}{15}{}%
-\contentsline {section}{\numberline {2.2}Arquitectura NR en 5G}{16}{}%
-\contentsline {section}{\numberline {2.3}Arquitectura 5G Non Standalone (NSA) }{17}{}%
-\contentsline {section}{\numberline {2.4}Arquitectura 5G Standalone (SA)}{19}{}%
-\contentsline {subsection}{\numberline {2.4.1}Visión general de la arquitectura 5G SA}{19}{}%
-\contentsline {subsection}{\numberline {2.4.2}Arquitectura basada en servicios (SBA)}{20}{}%
-\contentsline {subsection}{\numberline {2.4.3}Interfaces HTTP REST}{21}{}%
-\contentsline {subsection}{\numberline {2.4.4}Componentes de 5G Core (5GC)}{22}{}%
-\contentsline {subsection}{\numberline {2.4.5}Componentes principales de 5GC}{22}{}%
-\contentsline {subsection}{\numberline {2.4.6}Pila de protocolos del plano de control y plano de usuario}{24}{}%
-\contentsline {subsubsection}{\numberline {2.4.6.1}Plano de Control}{24}{}%
-\contentsline {subsubsection}{\numberline {2.4.6.2}Plano de Usuario}{25}{}%
-\contentsline {subsection}{\numberline {2.4.7}Interfaces clave en 5GC}{25}{}%
-\contentsline {subsection}{\numberline {2.4.8}Tendencias emergentes en redes beyond 5G}{26}{}%
-\contentsline {chapter}{\numberline {3}Telemetría y QoS en 5G}{28}{}%
-\contentsline {section}{\numberline {3.1}Desafíos de Telemetría en Redes 5G}{29}{}%
-\contentsline {subsection}{\numberline {3.1.1}Limitaciones de mecanismos tradicionales (SNMP, NetFlow, sFlow)}{29}{}%
-\contentsline {subsection}{\numberline {3.1.2}Requisitos de visibilidad en URLLC, eMBB y mMTC}{29}{}%
-\contentsline {section}{\numberline {3.2}In-Band Network Telemetry (INT)}{29}{}%
-\contentsline {subsection}{\numberline {3.2.1}Concepto y motivación}{29}{}%
-\contentsline {subsection}{\numberline {3.2.2}Arquitectura INT: source, transit y sink}{29}{}%
-\contentsline {subsection}{\numberline {3.2.3}Metadatos INT-MD y su estructura}{29}{}%
-\contentsline {subsection}{\numberline {3.2.4}INT vs telemetría out-of-band}{29}{}%
-\contentsline {section}{\numberline {3.3}Calidad de Servicio en 5G}{29}{}%
-\contentsline {section}{\numberline {3.4}QoS basado en 5G Flujo}{29}{}%
-\contentsline {subsection}{\numberline {3.4.1}Definición de flujo en 5G}{29}{}%
-\contentsline {subsection}{\numberline {3.4.2}Identificación y clasificación de flujos}{29}{}%
-\contentsline {subsection}{\numberline {3.4.3}Mecanismos de gestión de QoS por flujo}{29}{}%
-\contentsline {section}{\numberline {3.5}Señalización de QoS en 5G}{29}{}%
-\contentsline {section}{\numberline {3.6}Caracteristicas de QoS en 5G}{29}{}%
-\contentsline {chapter}{\numberline {4}Fundamentos de P4 y Programación del Plano de Datos}{30}{}%
-\contentsline {section}{\numberline {4.1}Introducción a P4}{30}{}%
-\contentsline {subsection}{\numberline {4.1.1}Historia y evolución}{30}{}%
-\contentsline {subsection}{\numberline {4.1.2}Modelo de arquitectura PISA}{30}{}%
-\contentsline {subsection}{\numberline {4.1.3}P4\_14 vs P4\_16}{30}{}%
-\contentsline {section}{\numberline {4.2}Herramientas y ecosistema P4}{30}{}%
-\contentsline {subsection}{\numberline {4.2.1}BMv2 como switch software}{30}{}%
-\contentsline {subsection}{\numberline {4.2.2}P4C: compilador}{30}{}%
-\contentsline {subsection}{\numberline {4.2.3}P4Runtime: control del data plane}{30}{}%
-\contentsline {section}{\numberline {4.3}Implementación de INT en P4}{30}{}%
-\contentsline {subsection}{\numberline {4.3.1}Definición de cabeceras INT}{30}{}%
-\contentsline {subsection}{\numberline {4.3.2}Parsing y deparsing en BMv2}{30}{}%
-\contentsline {subsection}{\numberline {4.3.3}Inyección hop-by-hop de metadatos}{30}{}%
-\contentsline {subsection}{\numberline {4.3.4}Limitaciones del pipeline P4}{30}{}%
-\contentsline {chapter}{\numberline {5}Entorno de Desarrollo Implementado}{31}{}%
-\contentsline {section}{\numberline {5.1}Arquitectura general del sistema}{31}{}%
-\contentsline {subsection}{\numberline {5.1.1}Diseño de la red 5G SA}{32}{}%
-\contentsline {subsubsection}{\numberline {5.1.1.1}Diseño de alto nivel (HLD)}{33}{}%
-\contentsline {subsubsection}{\numberline {5.1.1.2}Diseño de bajo nivel (LLD)}{33}{}%
-\contentsline {section}{\numberline {5.2}Despliegue del Core 5G SA}{34}{}%
-\contentsline {subsection}{\numberline {5.2.1}Configuracion de Core-Host}{34}{}%
-\contentsline {subsubsection}{\numberline {5.2.1.1}Obtención del código fuente 5GC}{34}{}%
-\contentsline {subsubsection}{\numberline {5.2.1.2}Configuracion de Docker Compose}{36}{}%
-\contentsline {paragraph}{\numberline {5.2.1.2.1}DB}{36}{}%
-\contentsline {paragraph}{\numberline {5.2.1.2.2}NRF}{37}{}%
-\contentsline {paragraph}{\numberline {5.2.1.2.3}AUSF}{38}{}%
-\contentsline {paragraph}{\numberline {5.2.1.2.4}NSSF}{38}{}%
-\contentsline {paragraph}{\numberline {5.2.1.2.5}PCF}{39}{}%
-\contentsline {paragraph}{\numberline {5.2.1.2.6}UDM}{39}{}%
-\contentsline {paragraph}{\numberline {5.2.1.2.7}UDR}{40}{}%
-\contentsline {paragraph}{\numberline {5.2.1.2.8}Despliegue del CHF}{41}{}%
-\contentsline {paragraph}{\numberline {5.2.1.2.9}Despliegue del NEF}{42}{}%
-\contentsline {paragraph}{\numberline {5.2.1.2.10}Despliegue del WebUI}{42}{}%
-\contentsline {paragraph}{\numberline {5.2.1.2.11}Configuracion de Red y Volumenes}{43}{}%
-\contentsline {subsubsection}{\numberline {5.2.1.3}Construccion y despliegue}{43}{}%
-\contentsline {subsection}{\numberline {5.2.2}Configuración de AMF}{45}{}%
-\contentsline {subsubsection}{\numberline {5.2.2.1}Construcción de la imagen Docker del AMF}{46}{}%
-\contentsline {subsubsection}{\numberline {5.2.2.2}Despliegue del contenedor AMF}{46}{}%
-\contentsline {subsubsection}{\numberline {5.2.2.3}Registro del AMF en el NRF}{47}{}%
-\contentsline {subsection}{\numberline {5.2.3}Configuración de SMF}{49}{}%
-\contentsline {subsubsection}{\numberline {5.2.3.1}Instalacion del modulo GTP}{49}{}%
-\contentsline {subsubsection}{\numberline {5.2.3.2}Obtención e instalación del código fuente SMF}{55}{}%
-\contentsline {subsubsection}{\numberline {5.2.3.3}Configuración de Docker Compose}{55}{}%
-\contentsline {subsubsection}{\numberline {5.2.3.4}Registro del SMF en el NRF y conexión N4 con UPF}{56}{}%
-\contentsline {subsection}{\numberline {5.2.4}Configuración de UPF}{58}{}%
-\contentsline {subsubsection}{\numberline {5.2.4.1}Configuración de Docker Compose}{58}{}%
-\contentsline {subsubsection}{\numberline {5.2.4.2}Registro del UPF en el NRF}{59}{}%
-\contentsline {subsubsection}{\numberline {5.2.4.3} Conección N4 con SMF}{60}{}%
-\contentsline {section}{\numberline {5.3}Implementación Red de Transporte con INT}{61}{}%
-\contentsline {section}{\numberline {5.4}Despliegue de switches BMv2 con INT-MD}{62}{}%
-\contentsline {subsection}{\numberline {5.4.1}Switch INT Source}{63}{}%
-\contentsline {subsubsection}{\numberline {5.4.1.1}Definición de Constantes}{63}{}%
-\contentsline {subsubsection}{\numberline {5.4.1.2}Definición de Cabeceras}{63}{}%
-\contentsline {subsubsection}{\numberline {5.4.1.3} Parser}{65}{}%
-\contentsline {subsubsection}{\numberline {5.4.1.4}Ingress}{67}{}%
-\contentsline {subsubsection}{\numberline {5.4.1.5}Egress}{70}{}%
-\contentsline {subsubsection}{\numberline {5.4.1.6}Deparser}{71}{}%
-\contentsline {subsection}{\numberline {5.4.2}Switch INT Transit}{72}{}%
-\contentsline {subsubsection}{\numberline {5.4.2.1}Parser}{72}{}%
-\contentsline {subsubsection}{\numberline {5.4.2.2}Ingress}{74}{}%
-\contentsline {subsubsection}{\numberline {5.4.2.3}Egress}{75}{}%
-\contentsline {subsubsection}{\numberline {5.4.2.4}Deparser}{76}{}%
-\contentsline {subsection}{\numberline {5.4.3}Switch INT Sink}{77}{}%
-\contentsline {subsubsection}{\numberline {5.4.3.1}Parser}{77}{}%
-\contentsline {subsubsection}{\numberline {5.4.3.2}Ingress}{78}{}%
-\contentsline {subsubsection}{\numberline {5.4.3.3}Egress}{80}{}%
-\contentsline {subsubsection}{\numberline {5.4.3.4}Deparser}{83}{}%
-\contentsline {section}{\numberline {5.5}Servidor de recolección y análisis}{84}{}%
-\contentsline {subsection}{\numberline {5.5.1}Instalación Grafana y InfluxDB}{84}{}%
-\contentsline {subsection}{\numberline {5.5.2}Creacion de la base de datos InfluxDB}{84}{}%
-\contentsline {subsection}{\numberline {5.5.3}Configuration de Grafana}{85}{}%
-\contentsline {subsection}{\numberline {5.5.4}Captura y procesamiento de paquetes INT}{86}{}%
-\contentsline {chapter}{\numberline {6}Resultados Experimentales}{87}{}%
-\contentsline {section}{\numberline {6.1}Validación funcional}{87}{}%
-\contentsline {subsection}{\numberline {6.1.1}INT en tráfico N2}{87}{}%
-\contentsline {subsection}{\numberline {6.1.2}INT en tráfico N3}{87}{}%
-\contentsline {subsection}{\numberline {6.1.3}Recepción de metadatos en el servidor}{87}{}%
-\contentsline {section}{\numberline {6.2}Resultados cuantitativos}{87}{}%
-\contentsline {subsection}{\numberline {6.2.1}Latencia hop-by-hop}{87}{}%
-\contentsline {subsection}{\numberline {6.2.2}Carga adicional introducida por INT}{87}{}%
-\contentsline {subsection}{\numberline {6.2.3}Impacto en el plano de usuario}{87}{}%
-\contentsline {section}{\numberline {6.3}Resultados cualitativos}{87}{}%
-\contentsline {subsection}{\numberline {6.3.1}Dashboards obtenidos}{87}{}%
-\contentsline {subsection}{\numberline {6.3.2}Interpretación de tendencias}{87}{}%
-\contentsline {subsection}{\numberline {6.3.3}Problemas encontrados}{87}{}%
-\contentsline {chapter}{\numberline {7}Conclusiones y Trabajo Futuro}{88}{}%
-\contentsline {section}{\numberline {7.1}Conclusiones principales}{88}{}%
-\contentsline {section}{\numberline {7.2}Contribuciones del trabajo}{88}{}%
-\contentsline {section}{\numberline {7.3}Limitaciones del estudio}{88}{}%
-\contentsline {section}{\numberline {7.4}Líneas futuras de investigación}{88}{}%
-\contentsline {subsection}{\numberline {7.4.1}INT en 6G}{88}{}%
-\contentsline {subsection}{\numberline {7.4.2}UPF programable con P4}{88}{}%
-\contentsline {subsection}{\numberline {7.4.3}IA para análisis de telemetría}{88}{}%
-\contentsline {chapter}{\numberline {A}Apéndices}{89}{}%
-\contentsline {section}{\numberline {A.1}Código}{89}{}%
-\contentsline {section}{\numberline {A.2}Topologías de red}{89}{}%
-\contentsline {section}{\numberline {A.3}Configuraciones del core 5G}{89}{}%
-\contentsline {section}{\numberline {A.4}Capturas de tráfico}{89}{}%
-\contentsline {section}{\numberline {A.5}Dashboards de Grafana}{89}{}%
-\contentsline {section}{\numberline {A.6}Scripts y herramientas auxiliares}{89}{}%
+\contentsline {chapter}{Dedicatoria}{6}{}%
+\contentsline {chapter}{Acrónimos}{7}{}%
+\contentsline {chapter}{\numberline {1}Introducción}{11}{}%
+\contentsline {section}{\numberline {1.1}Contexto general de las redes 5G y beyond}{11}{}%
+\contentsline {section}{\numberline {1.2}Motivación del estudio}{11}{}%
+\contentsline {section}{\numberline {1.3}Problemática en la visibilidad y monitoreo de redes 5G y beyond}{12}{}%
+\contentsline {section}{\numberline {1.4}Hipótesis y preguntas de investigación}{12}{}%
+\contentsline {section}{\numberline {1.5}Objetivos generales y específicos}{13}{}%
+\contentsline {section}{\numberline {1.6}Metodología de trabajo}{13}{}%
+\contentsline {section}{\numberline {1.7}Estructura del documento}{14}{}%
+\contentsline {section}{\numberline {1.8}Resumen de capítulos}{14}{}%
+\contentsline {chapter}{\numberline {2}Fundamentos de las Redes 5G y Beyond}{16}{}%
+\contentsline {section}{\numberline {2.1}Evolución de tecnologías móviles}{16}{}%
+\contentsline {subsection}{\numberline {2.1.1}De 1G a 6G: Hitos clave}{16}{}%
+\contentsline {section}{\numberline {2.2}Arquitectura NR en 5G}{17}{}%
+\contentsline {section}{\numberline {2.3}Arquitectura 5G Non Standalone (NSA) }{18}{}%
+\contentsline {section}{\numberline {2.4}Arquitectura 5G Standalone (SA)}{20}{}%
+\contentsline {subsection}{\numberline {2.4.1}Visión general de la arquitectura 5G SA}{20}{}%
+\contentsline {subsection}{\numberline {2.4.2}Arquitectura basada en servicios (SBA)}{21}{}%
+\contentsline {subsection}{\numberline {2.4.3}Interfaces HTTP REST}{22}{}%
+\contentsline {subsection}{\numberline {2.4.4}Componentes de 5G Core (5GC)}{23}{}%
+\contentsline {subsection}{\numberline {2.4.5}Componentes principales de 5GC}{23}{}%
+\contentsline {subsection}{\numberline {2.4.6}Pila de protocolos del plano de control y plano de usuario}{25}{}%
+\contentsline {subsubsection}{\numberline {2.4.6.1}Plano de Control}{25}{}%
+\contentsline {subsubsection}{\numberline {2.4.6.2}Plano de Usuario}{26}{}%
+\contentsline {subsection}{\numberline {2.4.7}Interfaces clave en 5GC}{26}{}%
+\contentsline {subsection}{\numberline {2.4.8}Tendencias emergentes en redes beyond 5G}{27}{}%
+\contentsline {chapter}{\numberline {3}Telemetría y QoS en 5G}{29}{}%
+\contentsline {section}{\numberline {3.1}Desafíos de Telemetría en Redes 5G}{30}{}%
+\contentsline {subsection}{\numberline {3.1.1}Limitaciones de mecanismos tradicionales (SNMP, NetFlow, sFlow)}{30}{}%
+\contentsline {subsection}{\numberline {3.1.2}Requisitos de visibilidad en URLLC, eMBB y mMTC}{30}{}%
+\contentsline {section}{\numberline {3.2}In-Band Network Telemetry (INT)}{30}{}%
+\contentsline {subsection}{\numberline {3.2.1}Concepto y motivación}{30}{}%
+\contentsline {subsection}{\numberline {3.2.2}Arquitectura INT: source, transit y sink}{30}{}%
+\contentsline {subsection}{\numberline {3.2.3}Metadatos INT-MD y su estructura}{30}{}%
+\contentsline {subsection}{\numberline {3.2.4}INT vs telemetría out-of-band}{30}{}%
+\contentsline {section}{\numberline {3.3}Calidad de Servicio en 5G}{30}{}%
+\contentsline {section}{\numberline {3.4}QoS basado en 5G Flujo}{30}{}%
+\contentsline {subsection}{\numberline {3.4.1}Definición de flujo en 5G}{30}{}%
+\contentsline {subsection}{\numberline {3.4.2}Identificación y clasificación de flujos}{30}{}%
+\contentsline {subsection}{\numberline {3.4.3}Mecanismos de gestión de QoS por flujo}{30}{}%
+\contentsline {section}{\numberline {3.5}Señalización de QoS en 5G}{30}{}%
+\contentsline {section}{\numberline {3.6}Caracteristicas de QoS en 5G}{30}{}%
+\contentsline {chapter}{\numberline {4}Fundamentos de P4 y Programación del Plano de Datos}{31}{}%
+\contentsline {section}{\numberline {4.1}Introducción a P4}{31}{}%
+\contentsline {subsection}{\numberline {4.1.1}Historia y evolución}{31}{}%
+\contentsline {subsection}{\numberline {4.1.2}Modelo de arquitectura PISA}{31}{}%
+\contentsline {subsection}{\numberline {4.1.3}P4\_14 vs P4\_16}{31}{}%
+\contentsline {section}{\numberline {4.2}Herramientas y ecosistema P4}{31}{}%
+\contentsline {subsection}{\numberline {4.2.1}BMv2 como switch software}{31}{}%
+\contentsline {subsection}{\numberline {4.2.2}P4C: compilador}{31}{}%
+\contentsline {subsection}{\numberline {4.2.3}P4Runtime: control del data plane}{31}{}%
+\contentsline {section}{\numberline {4.3}Implementación de INT en P4}{31}{}%
+\contentsline {subsection}{\numberline {4.3.1}Definición de cabeceras INT}{31}{}%
+\contentsline {subsection}{\numberline {4.3.2}Parsing y deparsing en BMv2}{31}{}%
+\contentsline {subsection}{\numberline {4.3.3}Inyección hop-by-hop de metadatos}{31}{}%
+\contentsline {subsection}{\numberline {4.3.4}Limitaciones del pipeline P4}{31}{}%
+\contentsline {chapter}{\numberline {5}Entorno de Desarrollo Implementado}{32}{}%
+\contentsline {section}{\numberline {5.1}Arquitectura general del sistema}{32}{}%
+\contentsline {subsection}{\numberline {5.1.1}Diseño de la red 5G SA}{33}{}%
+\contentsline {subsubsection}{\numberline {5.1.1.1}Diseño de alto nivel (HLD)}{34}{}%
+\contentsline {subsubsection}{\numberline {5.1.1.2}Diseño de bajo nivel (LLD)}{34}{}%
+\contentsline {section}{\numberline {5.2}Despliegue del Core 5G SA}{35}{}%
+\contentsline {subsection}{\numberline {5.2.1}Configuracion de Core-Host}{35}{}%
+\contentsline {subsubsection}{\numberline {5.2.1.1}Obtención del código fuente 5GC}{35}{}%
+\contentsline {subsubsection}{\numberline {5.2.1.2}Configuracion de Docker Compose}{37}{}%
+\contentsline {paragraph}{\numberline {5.2.1.2.1}DB}{37}{}%
+\contentsline {paragraph}{\numberline {5.2.1.2.2}NRF}{38}{}%
+\contentsline {paragraph}{\numberline {5.2.1.2.3}AUSF}{39}{}%
+\contentsline {paragraph}{\numberline {5.2.1.2.4}NSSF}{39}{}%
+\contentsline {paragraph}{\numberline {5.2.1.2.5}PCF}{40}{}%
+\contentsline {paragraph}{\numberline {5.2.1.2.6}UDM}{40}{}%
+\contentsline {paragraph}{\numberline {5.2.1.2.7}UDR}{41}{}%
+\contentsline {paragraph}{\numberline {5.2.1.2.8}Despliegue del CHF}{42}{}%
+\contentsline {paragraph}{\numberline {5.2.1.2.9}Despliegue del NEF}{43}{}%
+\contentsline {paragraph}{\numberline {5.2.1.2.10}Despliegue del WebUI}{43}{}%
+\contentsline {paragraph}{\numberline {5.2.1.2.11}Configuracion de Red y Volumenes}{44}{}%
+\contentsline {subsubsection}{\numberline {5.2.1.3}Construccion y despliegue}{44}{}%
+\contentsline {subsection}{\numberline {5.2.2}Configuración de AMF}{46}{}%
+\contentsline {subsubsection}{\numberline {5.2.2.1}Construcción de la imagen Docker del AMF}{47}{}%
+\contentsline {subsubsection}{\numberline {5.2.2.2}Despliegue del contenedor AMF}{47}{}%
+\contentsline {subsubsection}{\numberline {5.2.2.3}Registro del AMF en el NRF}{48}{}%
+\contentsline {subsection}{\numberline {5.2.3}Configuración de SMF}{50}{}%
+\contentsline {subsubsection}{\numberline {5.2.3.1}Instalacion del modulo GTP}{50}{}%
+\contentsline {subsubsection}{\numberline {5.2.3.2}Obtención e instalación del código fuente SMF}{56}{}%
+\contentsline {subsubsection}{\numberline {5.2.3.3}Configuración de Docker Compose}{56}{}%
+\contentsline {subsubsection}{\numberline {5.2.3.4}Registro del SMF en el NRF y conexión N4 con UPF}{57}{}%
+\contentsline {subsection}{\numberline {5.2.4}Configuración de UPF}{59}{}%
+\contentsline {subsubsection}{\numberline {5.2.4.1}Configuración de Docker Compose}{59}{}%
+\contentsline {subsubsection}{\numberline {5.2.4.2}Registro del UPF en el NRF}{60}{}%
+\contentsline {subsubsection}{\numberline {5.2.4.3} Conección N4 con SMF}{61}{}%
+\contentsline {section}{\numberline {5.3}Implementación Red de Transporte con INT}{62}{}%
+\contentsline {section}{\numberline {5.4}Despliegue de switches BMv2 con INT-MD}{63}{}%
+\contentsline {subsection}{\numberline {5.4.1}Switch INT Source}{64}{}%
+\contentsline {subsubsection}{\numberline {5.4.1.1}Definición de Constantes}{64}{}%
+\contentsline {subsubsection}{\numberline {5.4.1.2}Definición de Cabeceras}{64}{}%
+\contentsline {subsubsection}{\numberline {5.4.1.3} Parser}{66}{}%
+\contentsline {subsubsection}{\numberline {5.4.1.4}Ingress}{68}{}%
+\contentsline {subsubsection}{\numberline {5.4.1.5}Egress}{71}{}%
+\contentsline {subsubsection}{\numberline {5.4.1.6}Deparser}{72}{}%
+\contentsline {subsection}{\numberline {5.4.2}Switch INT Transit}{73}{}%
+\contentsline {subsubsection}{\numberline {5.4.2.1}Parser}{73}{}%
+\contentsline {subsubsection}{\numberline {5.4.2.2}Ingress}{75}{}%
+\contentsline {subsubsection}{\numberline {5.4.2.3}Egress}{76}{}%
+\contentsline {subsubsection}{\numberline {5.4.2.4}Deparser}{77}{}%
+\contentsline {subsection}{\numberline {5.4.3}Switch INT Sink}{78}{}%
+\contentsline {subsubsection}{\numberline {5.4.3.1}Parser}{78}{}%
+\contentsline {subsubsection}{\numberline {5.4.3.2}Ingress}{79}{}%
+\contentsline {subsubsection}{\numberline {5.4.3.3}Egress}{81}{}%
+\contentsline {subsubsection}{\numberline {5.4.3.4}Deparser}{84}{}%
+\contentsline {section}{\numberline {5.5}Servidor de recolección y análisis}{85}{}%
+\contentsline {subsection}{\numberline {5.5.1}Instalación Grafana y InfluxDB}{85}{}%
+\contentsline {subsection}{\numberline {5.5.2}Creacion de la base de datos InfluxDB}{85}{}%
+\contentsline {subsection}{\numberline {5.5.3}Configuration de Grafana}{86}{}%
+\contentsline {subsection}{\numberline {5.5.4}Captura y procesamiento de paquetes INT}{88}{}%
+\contentsline {subsubsection}{\numberline {5.5.4.1}Configuración y dependencias}{89}{}%
+\contentsline {subsubsection}{\numberline {5.5.4.2}Detección automática de endianness}{90}{}%
+\contentsline {subsubsection}{\numberline {5.5.4.3}Parsing de cabeceras INT}{91}{}%
+\contentsline {subsubsection}{\numberline {5.5.4.4}Extracción y validación de metadatos}{93}{}%
+\contentsline {subsubsection}{\numberline {5.5.4.5}Almacenamiento en InfluxDB}{95}{}%
+\contentsline {subsubsection}{\numberline {5.5.4.6}Ejecución y monitoreo}{97}{}%
+\contentsline {chapter}{\numberline {6}Resultados Experimentales}{99}{}%
+\contentsline {section}{\numberline {6.1}Validación funcional}{99}{}%
+\contentsline {subsection}{\numberline {6.1.1}INT en tráfico N2}{99}{}%
+\contentsline {subsection}{\numberline {6.1.2}INT en tráfico N3}{99}{}%
+\contentsline {subsection}{\numberline {6.1.3}Recepción de metadatos en el servidor}{99}{}%
+\contentsline {section}{\numberline {6.2}Resultados cuantitativos}{99}{}%
+\contentsline {subsection}{\numberline {6.2.1}Latencia hop-by-hop}{99}{}%
+\contentsline {subsection}{\numberline {6.2.2}Carga adicional introducida por INT}{99}{}%
+\contentsline {subsection}{\numberline {6.2.3}Impacto en el plano de usuario}{99}{}%
+\contentsline {section}{\numberline {6.3}Resultados cualitativos}{99}{}%
+\contentsline {subsection}{\numberline {6.3.1}Dashboards obtenidos}{99}{}%
+\contentsline {subsection}{\numberline {6.3.2}Interpretación de tendencias}{99}{}%
+\contentsline {subsection}{\numberline {6.3.3}Problemas encontrados}{99}{}%
+\contentsline {chapter}{\numberline {7}Conclusiones y Trabajo Futuro}{100}{}%
+\contentsline {section}{\numberline {7.1}Conclusiones principales}{100}{}%
+\contentsline {section}{\numberline {7.2}Contribuciones del trabajo}{100}{}%
+\contentsline {section}{\numberline {7.3}Limitaciones del estudio}{100}{}%
+\contentsline {section}{\numberline {7.4}Líneas futuras de investigación}{100}{}%
+\contentsline {subsection}{\numberline {7.4.1}INT en 6G}{100}{}%
+\contentsline {subsection}{\numberline {7.4.2}UPF programable con P4}{100}{}%
+\contentsline {subsection}{\numberline {7.4.3}IA para análisis de telemetría}{100}{}%
+\contentsline {chapter}{\numberline {A}Apéndices}{101}{}%
+\contentsline {section}{\numberline {A.1}Código}{101}{}%
+\contentsline {section}{\numberline {A.2}Topologías de red}{101}{}%
+\contentsline {section}{\numberline {A.3}Configuraciones del core 5G}{101}{}%
+\contentsline {section}{\numberline {A.4}Capturas de tráfico}{101}{}%
+\contentsline {section}{\numberline {A.5}Dashboards de Grafana}{101}{}%
+\contentsline {section}{\numberline {A.6}Scripts y herramientas auxiliares}{101}{}%
