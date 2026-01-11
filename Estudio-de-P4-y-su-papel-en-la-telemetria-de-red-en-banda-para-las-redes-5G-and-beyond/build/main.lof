@@ -29,6 +29,8 @@
 \contentsline {figure}{\numberline {5.19}{\ignorespaces UPF registro y preparacion de interfaz N3}}{61}{}%
 \contentsline {figure}{\numberline {5.20}{\ignorespaces Topologia INT-MD}}{62}{}%
 \contentsline {figure}{\numberline {5.21}{\ignorespaces Pantalla de inicio de Grafana}}{84}{}%
+\contentsline {figure}{\numberline {5.22}{\ignorespaces Creación de la base de datos InfluxDB}}{85}{}%
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Configuración de la fuente de datos InfluxDB en Grafana}}{86}{}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
