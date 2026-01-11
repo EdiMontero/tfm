@@ -392,6 +392,13 @@ INPUT C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex\latex\listings\
 INPUT C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstmisc.sty
 INPUT C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstmisc.sty
 INPUT C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmitt10.tfm
+INPUT .\images\instalacion-grafana.png
+INPUT .\images\instalacion-grafana.png
+INPUT .\images\instalacion-grafana.png
+INPUT .\images\instalacion-grafana.png
+INPUT .\images\instalacion-grafana.png
+INPUT .\images\instalacion-grafana.png
+INPUT .\images\instalacion-grafana.png
 INPUT .\chapters\6.resultados.tex
 OUTPUT c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters\6.resultados.aux
 INPUT .\chapters\6.resultados.tex
