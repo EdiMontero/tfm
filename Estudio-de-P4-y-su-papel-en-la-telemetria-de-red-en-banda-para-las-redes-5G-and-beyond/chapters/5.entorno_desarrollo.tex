@@ -695,50 +695,1187 @@ El diseño de la red de transporte se se encuentra en la grafica \ref{sec:topolo
 \end{figure}
 
 \section{Despliegue de switches BMv2 con INT-MD}
-Los switches BMv2 se han desplegado utilizando GNS3, los cuales se han configurado para que actúen como switches INT Source, Transit y Sink. El codigo completo de cada uno se encuentra en los anexos, a continuacion se explicarán las partes relevantes de cada Switch y su funcionalidad.
+Los switches BMv2 se han desplegado utilizando GNS3, los ncuales manejaran el trafico SCTP y GTP-U entre el NGRAN (gNB) y el Core 5G (AMF y UPF) insertando metadatos INT-MD en los paquetes de datos. Estos metadatos reunen los siguienrtes parametros de telemetria de red:
+\begin{itemize}
+    \item Switch ID
+    \item Puerto de entrada
+    \item Puerto de salida
+    \item Latencia por salto
+    \item Ocupación de cola
+    \item Reporte de Congestión
+\end{itemize}
+
 \subsection{Switch INT Source}
-Flow in SW3 (int-gtp-destination):
-Ingress Pipeline:
-✅ Adds SW3's own data to int_md[2] (lines 311-325)
-✅ Triggers cloning via int_sink_table.apply() (line 330) → creates a clone that will go to port 9
-Egress Pipeline (runs for BOTH packets):
-For the CLONED packet (instance_type=1, going to port 9):
+El switch INT-Source (bmv2-1) fue construido para insertar metadatos INT-MD en el tráfico SCTP y GTP-U proveniente del NGRAN (gNB) hacia el Core 5G (AMF y UPF). Como el protocolo SCTP es quien transporta el protocolo NGAP en la interfaz N2, Todos los paquetes de attach por parte del usuario y el establecimiento de session con el AMF llevaran los metadatos INT-MD insertados por el switch INT-Source. De igual manera, todos los paquetes de datos del usuario transportados por GTP-U en la interfaz N3 entre el gNB y el UPF llevaran los metadatos INT-MD insertados por el switch INT-Source.
 
-✅ Updates int_md[2] with egress timestamps/latency (lines 348-369)
-✅ Keeps ALL INT headers intact (line 412-413)
-✅ Packet sent to port 9 with complete INT data
-For the ORIGINAL packet (instance_type=0, going to port 1):
+A continuación se detallan los bloques de codigo P4 implementados en el switch INT-Source para la inserción de metadatos INT-MD en el tráfico SCTP y GTP-U:
+\subsubsection{Definición de Constantes}
+ \begin{lstlisting}[language=C++,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue!70!black}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{red!80!black},
+    directivestyle=\color{blue!70!black}\bfseries,
+    numbers=left,
+    numberstyle=\tiny\color{gray!70},
+    stepnumber=1,
+    numbersep=10pt,
+    backgroundcolor=\color{gray!5},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    frameround=tttt,
+    rulecolor=\color{gray!30},
+    captionpos=b,
+    tabsize=4,
+    xleftmargin=15pt,
+    framexleftmargin=12pt,
+    caption={Constantes INT}, 
+    label=lst:int-constantes]
+#define MAX_HOP_COUNT 8
+#define INT_INSTRUCTIONS_MASK 0x00FF
+#define TYPE_INT 0xFA
+#define PROTOCOL_IPV4 0x0800
+#define PROTOCOL_SCTP 132
+#define PROTOCOL_UDP 17
+#define NGAP_PORT 38412
+#define PPID_NGAP 60
+#define GTP_U_PORT 2152
+\end{lstlisting}
 
-✅ Updates int_md[2] with egress data (same as clone)
-✅ Strips INT headers via egress_control.apply() (line 416)
-✅ Packet sent to destination (port 1) without INT headers
-Summary:
-Clone → Port 9: Full INT packet with SW1 + SW2 + SW3 metadata
-Original → Destination: Clean packet without INT headers
-The implementation is exactly what you need! Make sure you:
+Con estas constantes se definen los parámetros necesarios para la implementación de INT, para esta prueba de concepto se ha definido un máximo de 8 saltos. Especificando los protocolos y puertos utilizados para identificar el tráfico SCTP (NGAP) y GTP-U y el tipo de encabezado INT.
 
-Recompile the updated P4 code
-Configure the tables correctly (especially mirroring_add 99 9)
-The egress_control table should have entry for port 1 to strip headers
+\subsubsection{Definición de Cabeceras}
+ \begin{lstlisting}[language=C++,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue!70!black}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{red!80!black},
+    directivestyle=\color{purple!80!black},
+    numbers=left,
+    numberstyle=\tiny\color{gray!70},
+    stepnumber=1,
+    numbersep=10pt,
+    backgroundcolor=\color{gray!5},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    frameround=tttt,
+    rulecolor=\color{gray!30},
+    captionpos=b,
+    tabsize=4,
+    xleftmargin=15pt,
+    framexleftmargin=12pt,
+    literate=
+      {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+      {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+      {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
+    caption={Definición de Cabeceras P4 para INT}, 
+    label=lst:  ]
+/********** Cabeceras comunes **********/
+header ethernet_t {...}
+header ipv4_t {...}
+header udp_t {...}
+
+/***** Cabeceras Estandar GTP-U, SCTP y NGAP *****/
+header gtp_u_t {...}
+header sctp_common_t {...}
+header sctp_chunk_t {...}
+header sctp_data_chunk_t {...}
+
+/********** INT Shim **********/
+header int_shim_t {
+    bit<8>  type;
+    bit<8>  reserved;
+    bit<16> length;
+    bit<16> next_proto;
+}
+/**********  Cabecera INT **********/
+header int_header_t {
+    bit<4>  version;
+    bit<2>  d;
+    bit<2>  q;
+    bit<5>  m;
+    bit<3>  reserved1;
+    bit<8>  hop_ml;
+    bit<16> instruction;
+    bit<8>  reserved2;
+    bit<8>  remaining_hop_cnt;
+}
+
+/**********  Metadata por salto **********/
+header int_md_t {
+    bit<16> padding_switch;
+    bit<16> switch_id;
+    bit<16> ingress_port_id;
+    bit<16> egress_port_id;
+    bit<32> hop_latency;
+    bit<32> queue_occupancy;
+    bit<32> ingress_timestamp;
+    bit<32> egress_timestamp;
+    bit<8>  congestion_notification;
+    bit<8>  reserved1;
+    bit<16> reserved2;
+}
+/**********  Metadata interna del switch **********/
+struct metadata {
+    bit<32> switch_id;
+    bit<9>  ingress_port;
+    bit<32> ingress_ts;
+    bit<32> egress_ts;
+    bit<8>  is_int_packet;
+    bit<9>  clone_port;
+    bit<32> queue_occupancy;
+    bit<8>  should_insert_int;
+    bit<16> transport_src_port;
+    bit<16> transport_dst_port;
+    bit<8>  is_ngap_traffic;
+    bit<8>  is_gtp_u_traffic;
+    bit<8>  traffic_type; // 0=other, 1=NGAP, 2=GTP-U
+}
+/**********  Estructura de cabeceras **********/
+struct headers {
+    ethernet_t ethernet;
+    int_shim_t int_shim;
+    int_header_t int_header;
+    int_md_t  int_md;
+    ipv4_t     ipv4;
+    udp_t      udp;
+    gtp_u_t    gtp_u;
+    sctp_common_t sctp;
+    sctp_chunk_t sctp_chunk;
+    sctp_data_chunk_t sctp_data_chunk;
+}
+
+\end{lstlisting}
+ En el bloque de código \ref{lst:int-cabeceras} se definen las cabeceras de los protocolos a monitorear (SCTP y GTP-U) y las de INT, donde se puede apreciar la reserva de espacio para un máximo de 8 saltos en la cabecera INT-MD, los parametros de telemetría a recolectar en cada salto y el tipo de encabezado INT.
+ En la cabecera INT se define qué metadata se va a insertar en el paquete, cuántos saltos se han realizado, cuantos faltan y el modo INT; Es decir, si es Source, Transit o Sink.
+ 
+
+ La metadata por salto contiene los parámetros de telemetría que se van a recolectar en cada switch, como el ID del switch, latencia por salto, ocupación de cola, notificación de congestión, etc.
+ Mientras que la Metadata interna del switch no se envía en el paquete, sino que se utiliza clasificar el trafico. Si el tipo de trafico es 1 (NGAP), 2 (GTP-U) o 0 para el resto. Dependiendo del tipo de trafico decide si se insertan los metadatos INT-MD y almacena temporalmente los valores de telemetría antes de insertarlos en el paquete INT.
+
+\subsubsection{ Parser}
+ \begin{lstlisting}[language=C++,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue!70!black}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{red!80!black},
+    directivestyle=\color{purple!80!black},
+    numbers=left,
+    numberstyle=\tiny\color{gray!70},
+    stepnumber=1,
+    numbersep=10pt,
+    backgroundcolor=\color{gray!5},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    frameround=tttt,
+    rulecolor=\color{gray!30},
+    captionpos=b,
+    tabsize=4,
+    literate=
+      {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+      {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+      {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
+    xleftmargin=15pt,
+    framexleftmargin=12pt,
+    caption={Parser P4 para INT}, 
+    label=lst:int-parser]
+parser MyParser(packet_in packet,
+            out headers hdr,
+            inout metadata meta,
+            inout standard_metadata_t standard_metadata) {
+
+    state start {
+        packet.extract(hdr.ethernet);
+        // Inicializacion de metadata INT
+        meta.ingress_port = standard_metadata.ingress_port;
+        meta.ingress_ts = (bit<32>)standard_metadata.ingress_global_timestamp;
+        meta.is_int_packet = 0;
+        meta.is_ngap_traffic = 0;
+        meta.is_gtp_u_traffic = 0;
+        meta.traffic_type = 0;  // 0=other, 1=NGAP, 2=GTP-U
+        meta.should_insert_int = 0;
+        transition select(hdr.ethernet.etherType) {
+            0x0800: parse_ipv4;
+            default: accept;
+        }
+    }
+    // ... estados intermedios omitidos ...
+    state parse_udp {
+        packet.extract(hdr.udp);
+        meta.transport_src_port = hdr.udp.src_port;
+        meta.transport_dst_port = hdr.udp.dst_port;
+
+        // Deteccion de trafico GTP-U (interfaz N3)
+        transition select(hdr.udp.dst_port == GTP_U_PORT || 
+                          hdr.udp.src_port == GTP_U_PORT) {
+            true: parse_gtp_u;
+            false: accept;
+        }
+    }
+    state parse_gtp_u {
+        packet.extract(hdr.gtp_u);
+        meta.is_gtp_u_traffic = 1;
+        meta.traffic_type = 2;  // Tráfico GTP-U
+        transition accept;
+    }
+    state parse_sctp_common {
+        packet.extract(hdr.sctp);
+        meta.transport_src_port = hdr.sctp.src_port;
+        meta.transport_dst_port = hdr.sctp.dst_port;
+
+        // Deteccion de trafico NGAP (interfaz N2)
+        if (hdr.sctp.dst_port == NGAP_PORT) {
+            meta.is_ngap_traffic = 1;
+            meta.traffic_type = 1;  // Trafico de senalizacion
+        }
+        transition parse_sctp_chunk;
+    }
+
+    // ... resto de estados omitidos ...
+}
+\end{lstlisting}
+
+El bloque de código \ref{lst:int-parser} reune los estados mas relevantes del parser P4 implementado en el switch INT-Source. En el estado \textit{start}, se inicializan las variables de metadata interna del switch, como el puerto de ingreso, timestamp de ingreso y flags para identificar si el paquete es INT, NGAP o GTP-U. Luego, en el estado \textit{parse\_udp}, se extrae la cabecera UDP y se almacenan los puertos de origen y destino en la metadata interna del switch. Si el puerto de destino o origen coincide con el puerto GTP-U (2152), se transiciona al estado \textit{parse\_gtp\_u} para extraer la cabecera GTP-U y marcar el paquete como tráfico GTP-U en la metadata interna del switch. De manera similar, en el estado \textit{parse\_sctp\_common}, se extrae la cabecera SCTP y se verifica si el puerto de destino coincide con el puerto NGAP (38412), marcando el paquete como tráfico NGAP en la metadata interna del switch. En caso contrario, se acepta el paquete sin marcarlo como tráfico NGAP o GTP-U.
+
+\subsubsection{Ingress}
+  \begin{lstlisting}[language=C++,
+      basicstyle=\ttfamily\footnotesize,
+      keywordstyle=\color{blue!70!black}\bfseries,
+      commentstyle=\color{green!50!black}\itshape,
+      stringstyle=\color{red!80!black},
+      directivestyle=\color{purple!80!black},
+      numbers=left,
+      numberstyle=\tiny\color{gray!70},
+      stepnumber=1,
+      numbersep=10pt,
+      backgroundcolor=\color{gray!5},
+      showstringspaces=false,
+      breaklines=true,
+      frame=single,
+      frameround=tttt,
+      rulecolor=\color{gray!30},
+      captionpos=b,
+      tabsize=4,
+      xleftmargin=15pt,
+      framexleftmargin=12pt,
+      literate=
+        {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+        {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+        {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
+      caption={Ingress P4 para INT}, 
+      label=lst:int-ingress]
+control MyIngress(inout headers hdr,
+                  inout metadata meta,
+                  inout standard_metadata_t standard_metadata) {
+
+    action int_source_action() {
+        // Indica que se debe insertar INT
+        meta.should_insert_int = 1;
+    }
+
+    action do_insert_int() {
+        // Almacena el Ethernet type original
+        bit<16> original_ether_type = hdr.ethernet.etherType;
+
+        // Cambia el Ethernet type a INT
+        hdr.ethernet.etherType = TYPE_INT;
+
+        // Pone la cabecera INT shim
+        hdr.int_shim.setValid();
+        hdr.int_shim.type = 1;
+        hdr.int_shim.reserved = 0;
+        hdr.int_shim.length = 44;  // Será actualizado por switches de tránsito
+        hdr.int_shim.next_proto = original_ether_type;
+
+        // Pone la cabecera INT
+        hdr.int_header.setValid();
+        hdr.int_header.version = 1;
+        hdr.int_header.d = 0;
+        hdr.int_header.q = 0;
+        hdr.int_header.m = 1;
+        hdr.int_header.reserved1 = 0;
+        hdr.int_header.hop_ml = 1;
+        hdr.int_header.instruction = INT_INSTRUCTIONS_MASK;
+        hdr.int_header.reserved2 = 0;
+        hdr.int_header.remaining_hop_cnt = MAX_HOP_COUNT - 1;
+
+        // Agrega bloque de metadatos
+        hdr.int_md.setValid();
+        hdr.int_md.padding_switch = 0;
+        hdr.int_md.switch_id = (bit<16>)meta.switch_id;
+        hdr.int_md.ingress_port_id = (bit<16>)meta.ingress_port;
+        hdr.int_md.ingress_timestamp = meta.ingress_ts;
+        hdr.int_md.egress_port_id = 0;
+        hdr.int_md.hop_latency = 0;
+        hdr.int_md.egress_timestamp = 0;
+        hdr.int_md.queue_occupancy = 0;
+        hdr.int_md.congestion_notification = 0;
+        hdr.int_md.reserved1 = 0;
+        hdr.int_md.reserved2 = 0;
+    }
+
+    action forward_action(bit<9> egress_port) {
+        standard_metadata.egress_spec = egress_port;
+    }
+
+    // Tabla 1: Verifica si la IP origen está configurada para INT
+    table int_source_ip_table {
+        key = {
+            hdr.ipv4.srcAddr: lpm;
+        }
+        actions = {
+            int_source_action;
+            NoAction;
+        }
+        size = 1024;
+        default_action = NoAction();
+    }
+
+    // Tabla 2: Verifica el tipo de tráfico para las IP marcadas para INT
+    table int_traffic_type_table {
+        key = {
+            meta.traffic_type: exact;
+        }
+        actions = {
+            int_source_action;
+            NoAction;
+        }
+        size = 1024;
+        default_action = NoAction();
+    }
+
+    table ipv4_lpm {
+        key = {
+            hdr.ipv4.dstAddr: lpm;
+        }
+        actions = {
+            forward_action;
+            NoAction;
+        }
+        size = 1024;
+        default_action = NoAction();
+    }
+
+    apply {
+      //Aquí es donde empieza la magia
+        meta.switch_id = 1;
+        if (hdr.ethernet.isValid() && hdr.ipv4.isValid()) {
+            // Primero: Verifica si la IP origen está configurada para monitoreo INT y es válida.
+            if (hdr.ipv4.srcAddr != 0) {  
+                int_source_ip_table.apply();
+            }
+
+            // Segundo: Si la IP origen coincide, verifica si el tipo de tráfico es NGAP o GTP-U
+            if (meta.should_insert_int == 1) {
+                if ((hdr.ipv4.protocol == PROTOCOL_SCTP && hdr.sctp.isValid()) ||
+                    (hdr.ipv4.protocol == PROTOCOL_UDP && hdr.udp.isValid())) {
+                    int_traffic_type_table.apply();
+                } else {
+                    // Sí no es SCTP o GTP-U, limpia el flag INT
+                    meta.should_insert_int = 0;
+                }
+            }
+
+            // Aplica el reenvío
+            ipv4_lpm.apply();
+
+            // Inserta cabeceras INT si el flag está en 1
+            if (meta.should_insert_int == 1) {
+                do_insert_int();
+            }
+        }
+    }
+}      
+\end{lstlisting}
+Como el bloque de código \ref{lst:int-ingress} Contiene comentarios en cada sección, no es necesario detallar su funcionamiento. En su lugar, es preciso destacar que la razón por la que se decidió implementar una tabla para especificar las IPs de origen que se le va a aplicar INT y otra tabla para verificar el tipo de tráfico (NGAP o GTP-U) es para optimizar el rendimiento del switch. De esta manera, se reduce la cantidad de paquetes que pasan por la lógica de inserción INT, ya que solo los paquetes que cumplen ambos criterios serán procesados para la inserción de metadatos INT-MD. Esto mejora la eficiencia del switch aportando mas flexibilidad para agregar mas IP de gnb en el futuro sin afectar el rendimiento del switch.
+
+\subsubsection{Egress}
+  \begin{lstlisting}[language=C++,
+      basicstyle=\ttfamily\footnotesize,
+      keywordstyle=\color{blue!70!black}\bfseries,
+      commentstyle=\color{green!50!black}\itshape,
+      stringstyle=\color{red!80!black},
+      directivestyle=\color{purple!80!black},
+      numbers=left,
+      numberstyle=\tiny\color{gray!70},
+      stepnumber=1,
+      numbersep=10pt,
+      backgroundcolor=\color{gray!5},
+      showstringspaces=false,
+      breaklines=true,
+      frame=single,
+      frameround=tttt,
+      rulecolor=\color{gray!30},
+      captionpos=b,
+      tabsize=4,
+      xleftmargin=15pt,
+      framexleftmargin=12pt,
+      literate=
+        {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+        {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+        {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
+      caption={Egress P4 para INT}, 
+      label=lst:int-egress]
+control MyEgress(inout headers hdr,
+                 inout metadata meta,
+                 inout standard_metadata_t standard_metadata) {
+
+    action update_int_metadata() {
+        if (hdr.int_md.isValid()) {
+            hdr.int_md.egress_port_id = (bit<16>)standard_metadata.egress_port;
+            hdr.int_md.egress_timestamp = (bit<32>)standard_metadata.egress_global_timestamp;
+            hdr.int_md.hop_latency = hdr.int_md.egress_timestamp - hdr.int_md.ingress_timestamp;
+            hdr.int_md.queue_occupancy = (bit<32>)standard_metadata.enq_qdepth;
+        }
+    }
+
+    apply {
+        if (hdr.int_shim.isValid()) {
+            update_int_metadata();
+        }
+    }
+}
+\end{lstlisting}
+El bloque de código \ref{lst:int-egress} muestra el control Egress, donde se actualizan los campos de metadatos INT-MD con los valores correspondientes al egress port, egress timestamp, hop latency y queue occupancy antes de que el paquete salga del switch.
+
+\subsubsection{Deparser}
+  \begin{lstlisting}[language=C++,
+      basicstyle=\ttfamily\footnotesize,
+      keywordstyle=\color{blue!70!black}\bfseries,
+      commentstyle=\color{green!50!black}\itshape,
+      stringstyle=\color{red!80!black},
+      directivestyle=\color{purple!80!black},
+      numbers=left,
+      numberstyle=\tiny\color{gray!70},
+      stepnumber=1,
+      numbersep=10pt,
+      backgroundcolor=\color{gray!5},
+      showstringspaces=false,
+      breaklines=true,
+      frame=single,
+      frameround=tttt,
+      rulecolor=\color{gray!30},
+      captionpos=b,
+      tabsize=4,
+      xleftmargin=15pt,
+      framexleftmargin=12pt,
+      literate=
+        {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+        {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+        {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
+      caption={Deparser P4 para INT}, 
+      label=lst:int-deparser]
+control MyDeparser(packet_out packet, in headers hdr) {
+    apply {
+        // Always emit Ethernet
+        packet.emit(hdr.ethernet);
+
+        // Emit INT headers if valid
+        packet.emit(hdr.int_shim);
+        packet.emit(hdr.int_header);
+        packet.emit(hdr.int_md);
+
+        // Emit inner packet headers
+        packet.emit(hdr.ipv4);
+
+        // Emit transport layer headers - deparser only emits valid headers
+        packet.emit(hdr.udp);
+        packet.emit(hdr.gtp_u);
+        packet.emit(hdr.sctp);
+        packet.emit(hdr.sctp_chunk);
+        packet.emit(hdr.sctp_data_chunk);
+    }
+}
+\end{lstlisting}
+Finalmente, el bloque de código \ref{lst:int-deparser} muestra el deparser, el cual se encarga de reconstruir el paquete de salida, emitiendo primero la cabecera Ethernet, seguida de las cabeceras INT (si son válidas) y luego las cabeceras del paquete original (IPv4, UDP, GTP-U, SCTP, etc.).
+De esta manera, el paquete sale del switch con un tamaño mayor, especificamente \textbf{44 bytes} adicionales por la inserción de las cabeceras INT y los metadatos INT-MD. 
+estos 44 bytes adicionales se desglosan de la siguiente manera:
+\begin{itemize}
+    \item Cabecera INT Shim: 4 bytes
+    \item Cabecera INT: 8 bytes
+    \item Metadatos INT-MD: 32 bytes (para un máximo de 1 salto)
+    \item Total: 44 bytes
+\end{itemize} 
+
+%----------------------------------------------------------------------------------------------------------
 \subsection{Switch INT Transit}
+El INT-Transit (bmv2-2) fue construido para procesar los paquetes con metadatos INT-MD insertados por el switch INT-Source. Su función principal es actualizar los campos de metadatos INT-MD en cada salto, como el egress port, egress timestamp, hop latency y queue occupancy. 
+Teniendo en cuenta que los aspectos generales sobre la definición de constantes, cabeceras, parser, egress y deparser son similares a los del switch INT-Source, se detallan únicamente las diferencias clave en la implementación del switch INT-Transit.
+
+\subsubsection{Parser}
+A diferencia del switch INT-Source, el INT-Transit tiene la capacidad para procesar paquetes que ya contienen metadatos INT-MD insertados.
+
+\begin{lstlisting}[language=C++,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue!70!black}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{red!80!black},
+    directivestyle=\color{blue!70!black}\bfseries,
+    numbers=left,
+    numberstyle=\tiny\color{gray!70},
+    stepnumber=1,
+    numbersep=10pt,
+    backgroundcolor=\color{gray!5},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    frameround=tttt,
+    rulecolor=\color{gray!30},
+    captionpos=b,
+    tabsize=4,
+    xleftmargin=15pt,
+    framexleftmargin=12pt,
+    literate=
+      {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+      {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+      {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
+    caption={Parser INT-Transit}, 
+    label=lst:int-transit-parser]
+parser MyParser(packet_in packet,
+                out headers hdr,
+                inout metadata meta,
+                inout standard_metadata_t standard_metadata) {
+
+    state start {
+        packet.extract(hdr.ethernet);
+        meta.ingress_port = standard_metadata.ingress_port;
+        meta.ingress_ts = (bit<32>)standard_metadata.ingress_global_timestamp;
+        meta.md_blocks_extracted = 0;
+        meta.is_int_packet = 0;
+        transition select(hdr.ethernet.etherType) {
+            0x0800: parse_ipv4;        // IPv4 sin INT (no esperado en transit)
+            0xFA: parse_int_shim;      // Paquete con INT (esperado)
+            default: accept;
+        }
+    }
+
+    // Parsing de cabeceras INT
+    state parse_int_shim {
+        packet.extract(hdr.int_shim);
+        meta.is_int_packet = 1;        // Marcar como paquete INT
+        transition parse_int_header;
+    }
+
+    state parse_int_header {
+        packet.extract(hdr.int_header);
+        // Calcular cuántos bloques de metadatos extraer
+        meta.md_blocks_extracted = hdr.int_header.hop_ml - 
+                                   hdr.int_header.remaining_hop_cnt;
+        transition parse_int_metadata;
+    }
+
+    state parse_int_metadata {
+        // Extraer bloques de metadatos existentes
+        // SW1 envió 1 bloque, así que extraemos int_md[0]
+        packet.extract(hdr.int_md[0]);
+        transition parse_encapsulated_protocol;
+    }
+
+    state parse_encapsulated_protocol {
+        transition select(hdr.int_shim.next_proto) {
+            0x0800: parse_encapsulated_ipv4;  // IPv4 encapsulado
+            default: accept;
+        }
+    }
+
+    state parse_encapsulated_ipv4 {
+        packet.extract(hdr.ipv4_inner);
+        transition select(hdr.ipv4_inner.protocol) {
+            PROTOCOL_SCTP: parse_encapsulated_sctp_common;
+            PROTOCOL_UDP: parse_encapsulated_udp;
+            default: accept;
+        }
+    }
+
+    // ... estados adicionales para procesar UDP/GTP-U o SCTP omitidos ...
+}
+\end{lstlisting}
+
+Al recibir el paquete, el parser del switch INT-Transit primero verifica el EtherType. Si detecta que es \textbf{0xFA} (TYPE\_INT), extrae la cabecera INT Shim y marca el paquete como un paquete INT en la metadata interna del switch.
+Luego, extrae la cabecera INT Header y calcula cuántos bloques de metadatos ya han sido insertados por switches anteriores, almacenando este valor en la variable \texttt{md\_blocks\_extracted} de la metadata interna del switch.
+Una vez que se conocen los bloques existentes, el parser procede a extraer esos bloques de metadatos INT-MD. Finalmente, extrae el paquete original (IPv4, SCTP/UDP, GTP-U) que está encapsulado dentro de las cabeceras INT.
+
+\subsubsection{Ingress}
+
+
+\begin{lstlisting}[language=C++,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue!70!black}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{red!80!black},
+    directivestyle=\color{blue!70!black}\bfseries,
+    numbers=left,
+    numberstyle=\tiny\color{gray!70},
+    stepnumber=1,
+    numbersep=10pt,
+    backgroundcolor=\color{gray!5},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    frameround=tttt,
+    rulecolor=\color{gray!30},
+    captionpos=b,
+    tabsize=4,
+    xleftmargin=15pt,
+    framexleftmargin=12pt,
+    literate=
+      {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+      {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+      {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
+    caption={Ingress INT-Transit - Adición de metadatos INT a la pila existente}, 
+    label=lst:int-transit-ingress]
+control MyIngress(inout headers hdr,
+                  inout metadata meta,
+                  inout standard_metadata_t standard_metadata) {
+
+    action forward_action(bit<9> egress_port) {
+        standard_metadata.egress_spec = egress_port;
+    }
+
+    table ipv4_lpm {
+        key = {
+            hdr.ipv4_inner.dstAddr: lpm;  // IP del paquete encapsulado
+        }
+        actions = {
+            forward_action;
+            NoAction;
+        }
+        size = 1024;
+        default_action = NoAction();
+    }
+
+    apply {
+        meta.switch_id = 2;  // Identificador único del switch SW2
+
+        // Procesar paquetes con cabeceras INT válidas
+        if (hdr.int_shim.isValid()) {
+            // Verificar si hay espacio para añadir más metadatos
+            if (hdr.int_header.remaining_hop_cnt > 0) {
+                // SW1 usó int_md[0], SW2 añade en int_md[1]
+                hdr.int_md[1].setValid();
+                hdr.int_md[1].padding_switch = 0;
+                hdr.int_md[1].switch_id = (bit<16>)meta.switch_id;
+                hdr.int_md[1].ingress_port_id = (bit<16>)meta.ingress_port;
+                hdr.int_md[1].ingress_timestamp = meta.ingress_ts;
+                
+                // Campos que se actualizarán en Egress
+                hdr.int_md[1].egress_port_id = 0;
+                hdr.int_md[1].hop_latency = 0;
+                hdr.int_md[1].egress_timestamp = 0;
+                hdr.int_md[1].queue_occupancy = 0;
+                hdr.int_md[1].congestion_notification = 0;
+                hdr.int_md[1].reserved1 = 0;
+                hdr.int_md[1].reserved2 = 0;
+
+                // Actualizar contadores de la cabecera INT
+                hdr.int_header.remaining_hop_cnt = 
+                    hdr.int_header.remaining_hop_cnt - 1;
+                hdr.int_shim.length = hdr.int_shim.length + 32; // +32 bytes
+            }
+        }
+
+        // Forwarding basado en IP de destino del paquete encapsulado
+        if (hdr.ipv4_inner.isValid()) {
+            ipv4_lpm.apply();
+        }
+    }
+}
+\end{lstlisting}
+
+A este punto, el switch INT-Transit procesa todos los paquetes con cabeceras INT válidas, independientemente del protocolo encapsulado (NGAP o GTP-U). Antes de agregar un nuevo bloque, revisa si hay espacio disponible en la cabecera INT para insertar más metadatos, verificando el campo \texttt{remaining\_hop\_cnt}. Si este valor es mayor que cero, procede a insertar un nuevo bloque de metadatos INT-MD en la siguiente posición disponible del array \texttt{int\_md[]}.
+
+Un aspecto importante a destacar es que el switch INT-Transit añade \textbf{32 bytes adicionales} por cada salto procesado. Para fines de esta prueba de concepto, solo se cuenta con un switch INT-Transit (SW2).
+
+\subsubsection{Egress}
+El control Egress en el switch INT-Transit actualiza únicamente el bloque de metadatos que fue añadido por este switch en el Ingress. A diferencia del switch INT-Source, no actualiza todos los metadatos, sino solo el bloque correspondiente a su posición en la pila.
+
+\begin{lstlisting}[language=C++,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue!70!black}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{red!80!black},
+    directivestyle=\color{blue!70!black}\bfseries,
+    numbers=left,
+    numberstyle=\tiny\color{gray!70},
+    stepnumber=1,
+    numbersep=10pt,
+    backgroundcolor=\color{gray!5},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    frameround=tttt,
+    rulecolor=\color{gray!30},
+    captionpos=b,
+    tabsize=4,
+    xleftmargin=15pt,
+    framexleftmargin=12pt,
+    literate=
+      {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+      {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+      {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
+    caption={Egress INT-Transit}, 
+    label=lst:int-transit-egress]
+control MyEgress(inout headers hdr,
+                  inout metadata meta,
+                  inout standard_metadata_t standard_metadata) {
+
+    apply {
+        if (hdr.int_shim.isValid()) {
+            if (hdr.int_md[1].isValid() && 
+                hdr.int_md[1].egress_port_id == 0) {
+                
+                // Puerto de salida
+                hdr.int_md[1].egress_port_id = 
+                    (bit<16>)standard_metadata.egress_port;
+                
+                // Timestamp de salida
+                hdr.int_md[1].egress_timestamp = 
+                    (bit<32>)standard_metadata.egress_global_timestamp;
+                
+                // Latencia del salto (tiempo en el switch)
+                hdr.int_md[1].hop_latency = 
+                    hdr.int_md[1].egress_timestamp - 
+                    hdr.int_md[1].ingress_timestamp;
+                
+                // Ocupación de la cola
+                hdr.int_md[1].queue_occupancy = 
+                    (bit<32>)standard_metadata.enq_qdepth;
+            }
+        }
+    }
+}
+\end{lstlisting}
+
+
+\subsubsection{Deparser}
+El deparser del switch INT-Transit es similar al del switch INT-Source, pero con la particularidad de que debe emitir toda la pila de metadatos INT-MD que ha sido acumulada hasta ese punto.
+
+\begin{lstlisting}[language=C++,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue!70!black}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{red!80!black},
+    directivestyle=\color{blue!70!black}\bfseries,
+    numbers=left,
+    numberstyle=\tiny\color{gray!70},
+    stepnumber=1,
+    numbersep=10pt,
+    backgroundcolor=\color{gray!5},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    frameround=tttt,
+    rulecolor=\color{gray!30},
+    captionpos=b,
+    tabsize=4,
+    xleftmargin=15pt,
+    framexleftmargin=12pt,
+    literate=
+      {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+      {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+      {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
+    caption={Deparser INT-Transit - Emisión de toda la pila INT}, 
+    label=lst:int-transit-deparser]
+control MyDeparser(packet_out packet, in headers hdr) {
+    apply {
+        // Emitir cabecera Ethernet
+        packet.emit(hdr.ethernet);
+        
+        // Emitir cabeceras INT
+        packet.emit(hdr.int_shim);
+        packet.emit(hdr.int_header);
+
+        // Emitir TODOS los bloques de metadatos INT-MD
+        // Nota: packet.emit() solo emite cabeceras válidas
+        packet.emit(hdr.int_md[0]);  // Metadatos de SW1
+        packet.emit(hdr.int_md[1]);  // Metadatos de SW2 (este switch)
+        packet.emit(hdr.int_md[2]);  // Para switches posteriores
+        packet.emit(hdr.int_md[3]);
+        packet.emit(hdr.int_md[4]);
+        packet.emit(hdr.int_md[5]);
+        packet.emit(hdr.int_md[6]);
+        packet.emit(hdr.int_md[7]);  // MAX_HOP_COUNT = 8
+
+        // Emitir paquete encapsulado original
+        packet.emit(hdr.ipv4_inner);
+        packet.emit(hdr.udp);
+        packet.emit(hdr.gtp_u);
+        packet.emit(hdr.sctp);
+        packet.emit(hdr.sctp_chunk);
+        packet.emit(hdr.sctp_data_chunk);
+    }
+}
+\end{lstlisting}
+
+Es importante destacar que el método \texttt{packet.emit()} en P4 solo emite cabeceras que fueron marcadas como válidas mediante \texttt{setValid()}. Por lo tanto, aunque el deparser declara la emisión de los 8 posibles bloques de metadatos, solo se emitirán aquellos que fueron efectivamente añadidos por los switches en la ruta.
+
+
 \subsection{Switch INT Sink}
+El switch INT-Sink (bmv2-3) o INT-Destination, representa el último nodo en la ruta de telemetría INT, el cual se encarga de recibir los paquetes, clonarlos, enviar una copia al servidor de recolección y luego reenviar el paquete original hacia su destino final, que en este caso es el 5G Core a traves de los Routers Core.
 
-\section{INT como extensión de SCTP}
-\subsection{Formato de metadatos INT-MD para SCTP}
-\subsection{Estructura de metadatos INT-MD}
-\subsection{INT sobre tráfico NGAP (SCTP)}
+Para fines de optimizacion, se detallan solo los aspectos claves.
 
-\section{INT como extensión de GTP-U}
-\subsection{Formato de metadatos INT-MD para GTP-U}
-\subsection{Estructura de metadatos INT-MD}
-\subsection{INT sobre tráfico N3 (GTP-U)}
+\subsubsection{Parser}
+El parser del switch INT-Sink debe extraer todos los bloques de metadatos INT-MD que fueron insertados por los switches anteriores en la ruta. A diferencia del INT-Transit que solo necesita extraer los bloques anteriores, el INT-Sink debe procesar la pila completa para poder enviarla al servidor de recolección.
 
-\subsection{Formato de metadatos INT-MD para GTP-U}
-\subsection{Tablas y acciones configuradas}
-\subsection{Inserción INT-MD en tráfico N2 (SCTP)}
-\subsection{Inserción INT-MD en tráfico N3 (GTP-U)}
+Como se mostró en la topologia \ref{sec:topologia_int}, el parser del INT-Sink debe extraer:
+\begin{itemize}
+    \item \textbf{int\_md[0]}: Metadatos insertados por SW1 (INT-Source)
+    \item \textbf{int\_md[1]}: Metadatos insertados por SW2 (INT-Transit)
+    \item \textbf{int\_md[2]}: Metadatos que serán completados por SW3 (INT-Sink) en Ingress/Egress
+\end{itemize}
+
+\begin{lstlisting}[language=C++,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue!70!black}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{red!80!black},
+    directivestyle=\color{blue!70!black}\bfseries,
+    numbers=left,
+    numberstyle=\tiny\color{gray!70},
+    stepnumber=1,
+    numbersep=10pt,
+    backgroundcolor=\color{gray!5},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    frameround=tttt,
+    rulecolor=\color{gray!30},
+    captionpos=b,
+    tabsize=4,
+    xleftmargin=15pt,
+    framexleftmargin=12pt,
+    literate=
+      {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+      {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+      {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
+    caption={Parser INT-Sink - Extracción de metadatos completos}, 
+    label=lst:int-sink-parser]
+parser MyParser(packet_in packet,
+    // ... Condiciones detalladas anteriormente ...
+
+    state parse_int_metadata {
+        // Extrae todos los bloques de metadatos existentes
+        packet.extract(hdr.int_md[0]);  // Metadatos de SW1
+        packet.extract(hdr.int_md[1]);  // Metadatos de SW2
+        transition parse_encapsulated_protocol;
+    }
+
+    state parse_encapsulated_protocol {
+        transition select(hdr.int_shim.next_proto) {
+            0x0800: parse_encapsulated_ipv4;
+            default: accept;
+        }
+    }
+
+    // ... estados para procesar IPv4/UDP/GTP-U o SCTP encapsulados ...
+}
+\end{lstlisting}
+
+Se extrajeron los estados relevantes del parser en el bloque de código \ref{lst:int-sink-parser}. Aquí, el parser extrae los bloques de metadatos \texttt{int\_md[0]} y \texttt{int\_md[1]} que fueron insertados por los switches anteriores. Luego, procede a extraer el paquete original encapsulado.
+
+
+\subsubsection{Ingress}
+A diferencia de los switches anteriores, el control Ingress del INT-Sink tiene funcionalidades adicionales para clonar el paquete y enviarlo al servidor de recolección.
+
+\begin{lstlisting}[language=C++,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue!70!black}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{red!80!black},
+    directivestyle=\color{blue!70!black}\bfseries,
+    numbers=left,
+    numberstyle=\tiny\color{gray!70},
+    stepnumber=1,
+    numbersep=10pt,
+    backgroundcolor=\color{gray!5},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    frameround=tttt,
+    rulecolor=\color{gray!30},
+    captionpos=b,
+    tabsize=4,
+    xleftmargin=15pt,
+    framexleftmargin=12pt,
+    literate=
+      {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+      {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+      {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
+    caption={Ingress INT-Sink - Clonación y forwarding dual}, 
+    label=lst:int-sink-ingress]
+control MyIngress(inout headers hdr,
+                  inout metadata meta,
+                  inout standard_metadata_t standard_metadata) {
+
+    action int_sink_action() {
+        meta.clone_port = 9;  // Puerto hacia el servidor de recolección
+        // Clona paquete I2E preservando la field_list 99
+        clone_preserving_field_list(CloneType.I2E, 99, 99);
+    }
+
+    action forward_action(bit<9> egress_port) {
+        standard_metadata.egress_spec = egress_port;
+    }
+
+    table int_sink_table {
+        key = {
+            hdr.int_shim.isValid(): exact;  // Solo se activa para paquetes INT
+        }
+        actions = {
+            int_sink_action;
+            NoAction;
+        }
+        size = 1024;
+        default_action = NoAction();
+    }
+
+    table ipv4_lpm {
+        key = {
+            hdr.ipv4_inner.dstAddr: lpm;  // IP del paquete encapsulado
+        }
+        actions = {
+            forward_action;
+            NoAction;
+        }
+        size = 1024;
+        default_action = NoAction();
+    }
+
+    apply {
+        meta.switch_id = 3;  // Identificador de SW3
+
+        if (hdr.ethernet.isValid()) {
+            if (hdr.int_shim.isValid()) {
+                // Añadir metadatos de SW3 en int_md[2]
+                if (hdr.int_header.remaining_hop_cnt > 0) {
+                    hdr.int_md[2].setValid();
+                    hdr.int_md[2].padding_switch = 0;
+                    hdr.int_md[2].switch_id = (bit<16>)meta.switch_id;
+                    hdr.int_md[2].ingress_port_id = (bit<16>)meta.ingress_port;
+                    hdr.int_md[2].ingress_timestamp = meta.ingress_ts;
+                    
+                    // Campos que se actualizarán en Egress
+                    hdr.int_md[2].egress_port_id = 0;
+                    hdr.int_md[2].hop_latency = 0;
+                    hdr.int_md[2].egress_timestamp = 0;
+                    hdr.int_md[2].queue_occupancy = 0;
+                    hdr.int_md[2].congestion_notification = 0;
+                    hdr.int_md[2].reserved1 = 0;
+                    hdr.int_md[2].reserved2 = 0;
+
+                    // Actualizar contadores
+                    hdr.int_header.remaining_hop_cnt = 
+                        hdr.int_header.remaining_hop_cnt - 1;
+                    hdr.int_shim.length = hdr.int_shim.length + 32;
+                }
+
+                // Activa clonación para enviar al servidor de recolección
+                int_sink_table.apply();
+            }
+        }
+
+        // Forwarding del paquete original hacia su destino
+        if (hdr.ipv4_inner.isValid()) {
+            ipv4_lpm.apply();
+        }
+    }
+}
+\end{lstlisting}
+
+Como el Código \ref{lst:int-sink-ingress} se encuentra bien comentado, no hay necesidad de explicarlo en detalle.
+
+\subsubsection{Egress}
+El control Egress del switch INT-Sink implementa la lógica más compleja de todos los switches INT, debido a que procesa tres tipos de paquetes:
+
+\begin{enumerate}
+    \item \textbf{Paquete clonado} (\texttt{instance\_type == 1}): Destinado al servidor de recolección, debe mantener todas las cabeceras INT intactas.
+    \item \textbf{Paquete original hacia el servidor} (\texttt{egress\_port == 9}): También mantiene las cabeceras INT.
+    \item \textbf{Paquete original hacia el destino final}: Debe eliminar todas las cabeceras INT para restaurar el paquete a su formato original.
+\end{enumerate}
+
+La acción \texttt{strip\_int\_headers()} es exclusiva del INT-Sink y se encarga de eliminar todas las cabeceras INT, restaurando el EtherType original y desencapsulando el paquete.
+
+\begin{lstlisting}[language=C++,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue!70!black}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{red!80!black},
+    directivestyle=\color{blue!70!black}\bfseries,
+    numbers=left,
+    numberstyle=\tiny\color{gray!70},
+    stepnumber=1,
+    numbersep=10pt,
+    backgroundcolor=\color{gray!5},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    frameround=tttt,
+    rulecolor=\color{gray!30},
+    captionpos=b,
+    tabsize=4,
+    xleftmargin=15pt,
+    framexleftmargin=12pt,
+    literate=
+      {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+      {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+      {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
+    caption={Egress INT-Sink}, 
+    label=lst:int-sink-egress]
+control MyEgress(inout headers hdr,
+                 inout metadata meta,
+                 inout standard_metadata_t standard_metadata) {
+
+    action update_int_metadata() {
+        // Asegura que int_md[2] sea válido antes de actualizar
+        if (!hdr.int_md[2].isValid()) {
+            hdr.int_md[2].setValid();
+            hdr.int_md[2].padding_switch = 0;
+            hdr.int_md[2].switch_id = (bit<16>)meta.switch_id;
+            hdr.int_md[2].ingress_port_id = (bit<16>)meta.ingress_port;
+            hdr.int_md[2].ingress_timestamp = meta.ingress_ts;
+            // ... inicialización de otros campos ...
+        }
+
+        // Actualiza campos de egress
+        hdr.int_md[2].egress_port_id = 
+            (bit<16>)standard_metadata.egress_port;
+        hdr.int_md[2].egress_timestamp = 
+            (bit<32>)standard_metadata.egress_global_timestamp;
+        hdr.int_md[2].hop_latency = 
+            hdr.int_md[2].egress_timestamp - 
+            hdr.int_md[2].ingress_timestamp;
+        hdr.int_md[2].queue_occupancy = 
+            (bit<32>)standard_metadata.enq_qdepth;
+    }
+
+    action strip_int_headers() {
+        // Restaura EtherType original del paquete encapsulado
+        hdr.ethernet.etherType = hdr.int_shim.next_proto;
+        
+        // Invalida cabeceras INT
+        hdr.int_shim.setInvalid();
+        hdr.int_header.setInvalid();
+        
+        // Invalida todos los bloques de metadatos
+        hdr.int_md[0].setInvalid();
+        hdr.int_md[1].setInvalid();
+        hdr.int_md[2].setInvalid();
+        hdr.int_md[3].setInvalid();
+        hdr.int_md[4].setInvalid();
+        hdr.int_md[5].setInvalid();
+        hdr.int_md[6].setInvalid();
+        hdr.int_md[7].setInvalid();
+    }
+
+    table egress_control {
+        key = {
+            standard_metadata.egress_port: exact;
+        }
+        actions = {
+            strip_int_headers;
+            NoAction;
+        }
+        size = 16;
+        default_action = NoAction();
+    }
+
+    apply {
+        if (hdr.int_shim.isValid()) {
+            // actualiza metadatos de SW3 primero
+            update_int_metadata();
+
+            // Verifica tipo de paquete para su procesamiento
+            if (standard_metadata.instance_type == 1 || 
+                standard_metadata.egress_port == 9) {
+                // Paquete clonado o hacia servidor: mantiene INT intacto
+            } else {
+                // Paquete original hacia destino: elimina INT
+                egress_control.apply();
+            }
+        }
+    }
+}
+\end{lstlisting}
+
+La verificación \texttt{standard\_metadata.instance\_type == 1} identifica paquetes clonados (I2E clone), mientras que \texttt{egress\_port == 9} cubre casos donde el paquete original también va al servidor. Cualquier otro puerto de salida activa la eliminación de cabeceras INT.
+
+\subsubsection{Deparser}
+El deparser del switch INT-Sink es similar al del INT-Transit, emitiendo todas las cabeceras en orden. Sin embargo, su comportamiento varía según el procesamiento en Egress:
+
+\begin{itemize}
+    \item \textbf{Para paquetes hacia el servidor}: Emite Ethernet + INT Shim + INT Header + todos los bloques int\_md[] + paquete encapsulado.
+    \item \textbf{Para paquetes hacia el destino}: Emite solo Ethernet (con EtherType restaurado) + paquete original.
+\end{itemize}
+
+\begin{lstlisting}[language=C++,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue!70!black}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{red!80!black},
+    directivestyle=\color{blue!70!black}\bfseries,
+    numbers=left,
+    numberstyle=\tiny\color{gray!70},
+    stepnumber=1,
+    numbersep=10pt,
+    backgroundcolor=\color{gray!5},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    frameround=tttt,
+    rulecolor=\color{gray!30},
+    captionpos=b,
+    tabsize=4,
+    xleftmargin=15pt,
+    framexleftmargin=12pt,
+    literate=
+      {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+      {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+      {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
+    caption={Deparser INT-Sink - Emisión condicional de cabeceras}, 
+    label=lst:int-sink-deparser]
+control MyDeparser(packet_out packet, in headers hdr) {
+    apply {
+        // Emite cabecera Ethernet
+        packet.emit(hdr.ethernet);
+
+        // Emite cabeceras INT (solo si siguen válidas)
+        // BMv2 automáticamente omite cabeceras inválidas
+        packet.emit(hdr.int_shim);
+        packet.emit(hdr.int_header);
+
+        // Emite todos los bloques de metadatos
+        packet.emit(hdr.int_md[0]);  // SW1
+        packet.emit(hdr.int_md[1]);  // SW2
+        packet.emit(hdr.int_md[2]);  // SW3 (este switch)
+        packet.emit(hdr.int_md[3]);
+        packet.emit(hdr.int_md[4]);
+        packet.emit(hdr.int_md[5]);
+        packet.emit(hdr.int_md[6]);
+        packet.emit(hdr.int_md[7]);
+
+        // Emite paquete original
+        packet.emit(hdr.ipv4_inner);
+        packet.emit(hdr.udp);
+        packet.emit(hdr.gtp_u);
+        packet.emit(hdr.sctp);
+        packet.emit(hdr.sctp_chunk);
+        packet.emit(hdr.sctp_data_chunk);
+    }
+}
+\end{lstlisting}
+
+
 
 \section{Servidor de recolección y análisis}
+Para la recolección, analisis y visualización de los metadatos INT, se implementó un servidor (INT-Report) que captura los paquetes directamente de la interfaz de red conectada al switch INT-Sink 
+y los almacena en un InfluxDB para su posterior visualización en Grafana.
+A continuación, se describen los componentes principales del servidor de recolección.
+
+
 %\subsection{Implementación del sink INT}
 \subsection{Procesamiento y parsing de metadatos}
 \subsection{Modelo de base de datos}
@@ -748,6 +1885,43 @@ The egress_control table should have entry for port 1 to strip headers
 %\subsection{Docker / Docker Compose}
 %\subsection{GNS3 / GNS3 VM}
 %\subsection{Wireshark y herramientas auxiliares}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 %
