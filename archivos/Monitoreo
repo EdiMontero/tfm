@@ -1,0 +1,138 @@
+Perfecto 🚀. Vamos a armar un **pipeline básico** para que puedas visualizar tus datos de telemetría INT en **Grafana**. Te lo divido en pasos claros:
+
+---
+
+## 🔹 1. Instalar Grafana
+
+### Opción A: Docker (la más fácil)
+
+```bash
+docker run -d \
+  -p 192.168.219.132:3000:3000 \
+  --name=grafana \
+  grafana/grafana-oss
+
+```
+
+* Accedes en el navegador: [http://localhost:3000](http://localhost:3000)
+* Usuario/contraseña por defecto: `admin / admin`
+
+### Opción B: Ubuntu/Debian
+
+```bash
+sudo apt-get install -y apt-transport-https software-properties-common
+sudo apt-get install -y wget
+wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee /etc/apt/sources.list.d/grafana.list
+sudo apt-get update
+sudo apt-get install grafana -y
+sudo systemctl enable grafana-server
+sudo systemctl start grafana-server
+```
+
+---
+
+## 🔹 2. Definir dónde almacenarás los datos INT
+
+Para Grafana necesitas un **Data Source**. Los más usados con telemetría de red son:
+
+* **InfluxDB (recomendado)** → perfecto para métricas de tiempo real.
+* **Prometheus** → si ya tienes métricas en formato `time-series`.
+* **Elasticsearch** → si también quieres logs.
+
+👉 Te recomiendo **InfluxDB**, porque es sencillo de integrar con Grafana.
+
+---
+
+## 🔹 3. Instalar InfluxDB (para guardar métricas INT)
+
+### Docker
+
+```bash
+docker run -d \
+  -p 192.168.219.132:8086:8086 \
+  -v $PWD/influxdb:/var/lib/influxdb2 \
+  --name influxdb \
+  influxdb:2.7
+```
+
+Acceso en navegador: [http://localhost:8086](http://localhost:8086)
+
+* Crea un **bucket** (ej. `int_metrics`)
+* Crea un **token de acceso**
+
+---
+
+## 🔹 4. Enviar datos INT a InfluxDB
+
+Tienes varias formas:
+
+* Usar **scripts en Python** que capturen los reports INT (con `scapy` o `p4runtime`) y los inserten en InfluxDB.
+  Ejemplo básico con Python:
+
+  ```python
+  from influxdb_client import InfluxDBClient, Point, WritePrecision
+
+  token = "TOKEN_GENERADO"
+  org = "mi-org"
+  bucket = "int_metrics"
+
+  client = InfluxDBClient(url="http://localhost:8086", token=token, org=org)
+  write_api = client.write_api(write_options=SYNCHRONOUS)
+
+  # Ejemplo: latencia medida en INT
+  point = Point("latency") \
+      .tag("path", "gNB-UPF") \
+      .field("value_ms", 5.2) \
+      .time(datetime.utcnow(), WritePrecision.NS)
+
+  write_api.write(bucket=bucket, org=org, record=point)
+  ```
+
+* Alternativamente, puedes generar **exportadores Prometheus** si prefieres esa ruta.
+
+---
+
+## 🔹 5. Configurar Grafana para leer de InfluxDB
+
+1. En Grafana → **Configuration > Data Sources**
+2. Selecciona **InfluxDB**
+3. URL: `http://influxdb:8086`
+4. Token: el que creaste en InfluxDB
+5. Bucket: `int_metrics`
+
+---
+
+## 🔹 6. Crear Dashboards
+
+Ejemplos de paneles que puedes crear:
+
+* **Latencia por hop** → gráfica de línea (tiempo vs. ms).
+* **Packet loss %** → gauge o panel de indicador.
+* **Uso de cola en UPF** → heatmap.
+* **Mapa de red con métricas** → usando el plugin **Grafana Geomap** o **Topology Panel Plugin**.
+
+---
+
+## 🔹 7. Opcional: Alertas
+
+Grafana permite configurar alertas:
+
+* Ejemplo: “Si la latencia > 10ms entre gNB y UPF, enviar alerta por email o Slack”.
+
+---
+
+📌 Con esto ya tendrías un **pipeline funcional INT → InfluxDB → Grafana**.
+
+¿Quieres que te arme un **docker-compose listo** con **Grafana + InfluxDB** y un contenedor Python collector para que solo tengas que enchufar los datos INT?
+
+
+
+
+
+
+
+#---------------Dates
+API Token: eH3fAkFc9E5r1jGBpiBCJidxZvXftpK6QN6ET8-EDl68AjWbQyDmYyGicQW62I5VJVXrCr0nWrtmn7jD317s_A==
+
+
