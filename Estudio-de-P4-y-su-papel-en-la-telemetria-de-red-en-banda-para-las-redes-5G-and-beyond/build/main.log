@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.13)  11 JAN 2026 20:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.13)  11 JAN 2026 22:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -576,17 +576,22 @@ Overfull \hbox (40.30817pt too wide) in paragraph at lines 1388--1389
  []
 
 [75] [76] [77] [78] [79] [80] [81] [82] [83]
-<images/instalacion-grafana.png, id=329, 2055.68pt x 788.9475pt>
+<images/instalacion-grafana.png, id=329, 2055.68pt x 1162.3425pt>
 File: images/instalacion-grafana.png Graphic file (type png)
 <use images/instalacion-grafana.png>
 Package pdftex.def Info: images/instalacion-grafana.png  used on input line 1883.
-(pdftex.def)             Requested size: 312.00119pt x 119.73346pt.
-) [84 <./images/instalacion-grafana.png>]
+(pdftex.def)             Requested size: 429.00238pt x 242.5561pt.
+
+Overfull \hbox (39.00238pt too wide) in paragraph at lines 1883--1884
+ [][] 
+ []
+
+) [84 <./images/instalacion-grafana.png>] [85]
 \openout2 = `chapters/6.resultados.aux'.
 
  (chapters/6.resultados.tex
 Chapter 6.
-) [85
+) [86
 
 
 
@@ -596,7 +601,7 @@ Chapter 6.
 
  (chapters/7.conclusiones.tex
 Chapter 7.
-) [86
+) [87
 
 
 
@@ -606,12 +611,12 @@ Chapter 7.
 
  (chapters/apendices.tex
 Appendix A.
-) [87
+) [88
 
 
 
 
-] (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.bbl) [88
+] (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.bbl) [89
 
 
 
@@ -628,15 +633,15 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  5376 strings out of 467871
  101482 string characters out of 5413535
- 931477 words of memory out of 5000000
+ 931488 words of memory out of 5000000
  34122 multiletter control sequences out of 15000+600000
  634996 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,12n,79p,1779b,1946s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx6.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb>
-Output written on c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.pdf (89 pages, 6693557 bytes).
+Output written on c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.pdf (90 pages, 6767717 bytes).
 PDF statistics:
- 396 PDF objects out of 1000 (max. 8388607)
+ 399 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  131 words of extra memory for PDF output out of 10000 (max. 10000000)
 

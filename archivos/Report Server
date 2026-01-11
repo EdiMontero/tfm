@@ -32,7 +32,7 @@ Metrics Storage (InfluxDB) → stores hop-by-hop telemetry data.
 Visualization (Grafana) → real-time dashboard for latency, queue, etc.
 
 '⚙️ STEP 1 — Environment setup'
-1.1 Install dependencies
+Install dependencies
 sudo apt update
 sudo apt install python3-pip python3-scapy influxdb influxdb-client grafana -y
 
@@ -57,62 +57,7 @@ Create a file int_report_server.py:
 
 from scapy.all import sniff, Ether, IP
 from influxdb import InfluxDBClient
-import struct
-import time
-
-# --- Configuration ---
-IFACE = "eth1"  # Interface connected to BMv2 report port
-INFLUX_HOST = "localhost"
-INFLUX_PORT = 8086
-INFLUX_DB = "int_telemetry"
-
-# --- Connect to InfluxDB ---
-client = InfluxDBClient(host=INFLUX_HOST, port=INFLUX_PORT, database=INFLUX_DB)
-
-def parse_int_metadata(raw_bytes):
-    # Adjust this to your actual INT header layout
-    # Example: switch_id(16b), ingress_ts(32b), egress_ts(32b), queue_depth(32b)
-    if len(raw_bytes) < 14:
-        return None
-    switch_id, ingress_ts, egress_ts, qdepth = struct.unpack(">HIII", raw_bytes[:14])
-    hop_latency = egress_ts - ingress_ts
-    return {
-        "switch_id": switch_id,
-        "ingress_ts": ingress_ts,
-        "egress_ts": egress_ts,
-        "hop_latency": hop_latency,
-        "queue_depth": qdepth
-    }
-
-def handle_packet(pkt):
-    if not pkt.haslayer(Ether):
-        return
-
-    eth = pkt[Ether]
-    if eth.type == 0x0800 and pkt.haslayer(IP):
-        payload = bytes(pkt[IP].payload)
-        int_info = parse_int_metadata(payload)
-        if int_info:
-            json_body = [{
-                "measurement": "int_metrics",
-                "tags": {"switch_id": int_info["switch_id"]},
-                "fields": {
-                    "hop_latency": int_info["hop_latency"],
-                    "queue_depth": int_info["queue_depth"]
-                },
-                "time": int(time.time_ns())
-            }]
-            client.write_points(json_body)
-            print(f"[INT] switch={int_info['switch_id']} latency={int_info['hop_latency']} q={int_info['queue_depth']}")
-
-def main():
-    print(f"[*] Listening on {IFACE} for INT cloned packets...")
-    sniff(iface=IFACE, prn=handle_packet, store=False)
-
-if __name__ == "__main__":
-    main()
-
-
+def parse_int_metadata(packet):
     Run this command:
 
 sudo pip3 install influxdb
@@ -207,6 +152,7 @@ Instalar paquetes necesarios:
 Bash
 
 sudo apt install -y software-properties-common apt-transport-https wget
+
 Descargar e importar la clave GPG de Grafana:
 
 Bash

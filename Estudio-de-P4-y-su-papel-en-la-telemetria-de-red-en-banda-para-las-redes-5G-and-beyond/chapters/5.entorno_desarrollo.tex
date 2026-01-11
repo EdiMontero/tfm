@@ -1875,30 +1875,40 @@ Para la recolección, analisis y visualización de los metadatos INT, se impleme
 y los almacena en un InfluxDB para su posterior visualización en Grafana.
 A continuación, se describen los componentes principales del servidor de recolección.
 
-\subsection{Instalación Grafana}
-En la siguiente figura \ref{fig:grafana-installation} Se muestran los comandos ejecutados para la instalación de Grafana.
+\subsection{Instalación Grafana y InfluxDB}
+En la siguiente figura \ref{fig:grafana-installation} Se muestran los comandos ejecutados para la instalación de Grafana e InfluxDB en el servidor de recolección INT-Report.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{images/instalacion-grafana.png}
+    \includegraphics[width=1.1\textwidth]{images/instalacion-grafana.png}
     \caption{Pantalla de inicio de Grafana}
     \label{fig:grafana-installation}
 \end{figure}
 
-%\subsection{Implementación del sink INT}
-\subsection{Procesamiento y parsing de metadatos}
-\subsection{Modelo de base de datos}
-\subsection{Visualización en Grafana}
+\subsection{Creacion de la base de datos InfluxDB}
+En la figura \ref{fig:influxdb-creation} se muestran los comandos ejecutados para la creación de la base de datos \textit{int\_telemetry} en InfluxDB, la cual almacenará los metadatos recolectados.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.1\textwidth]{images/creacion-influxdb.png}
+    \caption{Creación de la base de datos InfluxDB}
+    \label{fig:influxdb-creation}
+\end{figure}
 
-%\section{Tecnologías empleadas}
-%\subsection{Docker / Docker Compose}
-%\subsection{GNS3 / GNS3 VM}
-%\subsection{Wireshark y herramientas auxiliares}
+\subsection{Configuration de Grafana}
+Una vez que Grafana e InfluxDB están instalados, se procede a configurar Grafana para que utilice InfluxDB como fuente de datos. Para realizar esta configuración, se accede a la interfaz web de Grafana http://localhost:3000, con el usuario y contraseña por defecto (admin/admin).
+Una vez dentro de Grafana, en la sección de conexión de fuentes de datos se conecta a InfluxDB como se muestra en la figura \ref{fig:grafana-configuration}.
+
+En la figura \ref{fig:grafana-configuration} se muestra la pantalla de configuración de la fuente de datos en Grafana.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.1\textwidth]{images/configuracion-grafana.png}
+    \caption{Configuración de la fuente de datos InfluxDB en Grafana}
+    \label{fig:grafana-configuration}
+\end{figure}
 
 
 
-
-
+\subsection{Captura y procesamiento de paquetes INT}
 
 
 
