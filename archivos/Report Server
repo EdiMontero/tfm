@@ -1,0 +1,229 @@
++---------------------+
+| P4 Switch (BMv2)    |
+| - clones INT pkt    |
+| - sends to port 9   |
++----------+----------+
+           |
+           v
++----------------------+
+| Report Server (Python)|
+| - sniffs port        |
+| - parses INT metadata|
+| - logs metrics       |
+| - pushes to Grafana  |
++----------+-----------+
+           |
+           v
++----------------------+
+| Grafana Dashboard    |
+| - visualize latency  |
+| - monitor queue      |
++----------------------+
+
+
+🧩 OVERVIEW
+
+We’ll build 3 layers:
+
+Collector (Python) → receives cloned INT packets from BMv2.
+
+Metrics Storage (InfluxDB) → stores hop-by-hop telemetry data.
+
+Visualization (Grafana) → real-time dashboard for latency, queue, etc.
+
+'⚙️ STEP 1 — Environment setup'
+1.1 Install dependencies
+sudo apt update
+sudo apt install python3-pip python3-scapy influxdb influxdb-client grafana -y
+
+
+Start the services:
+
+sudo systemctl enable influxdb --now
+sudo systemctl enable grafana-server --now
+
+'⚙️ STEP 2 — Configure InfluxDB'
+2.1 Create a database (InfluxDB v1 style)
+influx
+> CREATE DATABASE int_telemetry;
+> exit
+
+
+(If you’re using InfluxDB v2, we’ll adjust to tokens + org later.)
+
+⚙️ STEP 3 — Write your INT Report Server
+
+Create a file int_report_server.py:
+
+from scapy.all import sniff, Ether, IP
+from influxdb import InfluxDBClient
+import struct
+import time
+
+# --- Configuration ---
+IFACE = "eth1"  # Interface connected to BMv2 report port
+INFLUX_HOST = "localhost"
+INFLUX_PORT = 8086
+INFLUX_DB = "int_telemetry"
+
+# --- Connect to InfluxDB ---
+client = InfluxDBClient(host=INFLUX_HOST, port=INFLUX_PORT, database=INFLUX_DB)
+
+def parse_int_metadata(raw_bytes):
+    # Adjust this to your actual INT header layout
+    # Example: switch_id(16b), ingress_ts(32b), egress_ts(32b), queue_depth(32b)
+    if len(raw_bytes) < 14:
+        return None
+    switch_id, ingress_ts, egress_ts, qdepth = struct.unpack(">HIII", raw_bytes[:14])
+    hop_latency = egress_ts - ingress_ts
+    return {
+        "switch_id": switch_id,
+        "ingress_ts": ingress_ts,
+        "egress_ts": egress_ts,
+        "hop_latency": hop_latency,
+        "queue_depth": qdepth
+    }
+
+def handle_packet(pkt):
+    if not pkt.haslayer(Ether):
+        return
+
+    eth = pkt[Ether]
+    if eth.type == 0x0800 and pkt.haslayer(IP):
+        payload = bytes(pkt[IP].payload)
+        int_info = parse_int_metadata(payload)
+        if int_info:
+            json_body = [{
+                "measurement": "int_metrics",
+                "tags": {"switch_id": int_info["switch_id"]},
+                "fields": {
+                    "hop_latency": int_info["hop_latency"],
+                    "queue_depth": int_info["queue_depth"]
+                },
+                "time": int(time.time_ns())
+            }]
+            client.write_points(json_body)
+            print(f"[INT] switch={int_info['switch_id']} latency={int_info['hop_latency']} q={int_info['queue_depth']}")
+
+def main():
+    print(f"[*] Listening on {IFACE} for INT cloned packets...")
+    sniff(iface=IFACE, prn=handle_packet, store=False)
+
+if __name__ == "__main__":
+    main()
+
+
+    Run this command:
+
+sudo pip3 install influxdb
+
+
+If you are using InfluxDB v2, install instead:
+
+sudo pip3 install influxdb-client
+
+✅ Then re-run:
+sudo python3 int_report_server.py
+
+Run it:
+
+sudo python3 int_report_server.py
+
+
+✅ It will:
+
+Capture packets coming from BMv2 (clone port)
+
+Parse INT metadata
+
+Push data into InfluxDB
+
+Print info to the console
+
+⚙️ STEP 4 — Grafana dashboard
+4.1 Open Grafana
+
+Open your browser at:
+👉 http://<report_server_ip>:3000
+Default login:
+
+user: admin
+
+pass: admin
+
+4.2 Add data source
+
+Go to Connections → Add data source
+
+Choose InfluxDB
+
+URL: http://localhost:8086
+
+Database: int_telemetry
+
+Save & test ✅
+
+4.3 Create panels
+
+Go to Dashboards → New → Add visualization.
+
+Example queries:
+
+For latency:
+
+SELECT mean("hop_latency") FROM "int_metrics" WHERE $timeFilter GROUP BY time(5s), "switch_id"
+
+
+For queue depth:
+
+SELECT mean("queue_depth") FROM "int_metrics" WHERE $timeFilter GROUP BY time(5s), "switch_id"
+
+
+Add line or bar charts for both.
+
+🧠 OPTIONAL IMPROVEMENTS
+Feature	Tool	Purpose
+Prometheus Exporter	prometheus_client Python lib	Use Grafana with PromQL
+Persistent DB	InfluxDB v2	Auth, buckets, retention policies
+Live topology map	Grafana plugin or custom React dashboard	Show hop metrics per link
+Packet replay	tcpreplay or BMv2 pcap	Simulate INT traffic
+✅ Quick sanity check
+Check	Command	Expected
+INT packets arrive	sudo tcpdump -i eth1	See cloned INT packets
+Influx has data	influx -database int_telemetry -execute 'SELECT * FROM int_metrics LIMIT 5'	See metrics
+Grafana works	browser → :3000	Dashboard visible
+
+
+
+
+
+
+
+Usar APT mediante el repositorio de Grafana (Método tradicional)
+Si prefieres usar apt, debes agregar el repositorio oficial de Grafana. Los pasos típicos son:
+
+Instalar paquetes necesarios:
+
+Bash
+
+sudo apt install -y software-properties-common apt-transport-https wget
+Descargar e importar la clave GPG de Grafana:
+
+Bash
+
+wget -q -O - https://apt.grafana.com/gpg.key | sudo gpg --dearmor | sudo tee /usr/share/keyrings/grafana.gpg > /dev/null
+Agregar el repositorio de Grafana (para la versión OSS, Open Source):
+
+Bash
+
+echo "deb [signed-by=/usr/share/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee /etc/apt/sources.list.d/grafana.list
+Actualizar la lista de paquetes:
+
+Bash
+
+sudo apt update
+Instalar Grafana:
+
+Bash
+
+sudo apt install grafana
