@@ -1511,8 +1511,6 @@ control MyDeparser(packet_out packet, in headers hdr) {
 \end{lstlisting}
 
 Es importante destacar que el método \texttt{packet.emit()} en P4 solo emite cabeceras que fueron marcadas como válidas mediante \texttt{setValid()}. Por lo tanto, aunque el deparser declara la emisión de los 8 posibles bloques de metadatos, solo se emitirán aquellos que fueron efectivamente añadidos por los switches en la ruta.
-
-
 \subsection{Switch INT Sink}
 El switch INT-Sink (bmv2-3) o INT-Destination, representa el último nodo en la ruta de telemetría INT, el cual se encarga de recibir los paquetes, clonarlos, enviar una copia al servidor de recolección y luego reenviar el paquete original hacia su destino final, que en este caso es el 5G Core a traves de los Routers Core.
 
@@ -1867,7 +1865,78 @@ control MyDeparser(packet_out packet, in headers hdr) {
     }
 }
 \end{lstlisting}
+El deparser del INT-Sink emite todas las cabeceras en el orden correcto. Si las cabeceras INT fueron invalidadas en Egress, BMv2 automáticamente las omite durante la emisión, asegurando que el paquete final hacia el destino no contenga ninguna información de telemetría.
 
+\subsection{Configuración de los Switches INT}
+A continuación, se muestran los comandos ejecutados para la configuración de las tablas de forwarding en cada uno de los switches INT (Source, Transit y Sink).
+\begin{lstlisting}[language=bash,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue!70!black}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{red!80!black},
+    directivestyle=\color{blue!70!black}\bfseries,
+    numbers=left,
+    numberstyle=\tiny\color{gray!70},
+    stepnumber=1,
+    numbersep=10pt,
+    backgroundcolor=\color{gray!5},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    frameround=tttt,
+    rulecolor=\color{gray!30},
+    captionpos=b,
+    tabsize=4,
+    xleftmargin=15pt,
+    framexleftmargin=12pt,
+    literate=
+      {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+      {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+      {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
+    caption={Configuración de tablas de forwarding en switches INT}, 
+    label=lst:int-switch-configuration] 
+# Switch INT-Source
+simple_switch_CLI --thrift-port 9090
+
+table_clear MyIngress.ipv4_lpm
+table_clear MyIngress.int_source_table
+table_clear MyIngress.int_sink_table
+table_add MyIngress.ipv4_lpm forward_action 172.18.10.2/32 => 1
+table_add MyIngress.ipv4_lpm forward_action 172.18.10.3/32 => 1
+table_add MyIngress.ipv4_lpm forward_action 0.0.0.0/0 => 2 # GW SW2
+table_add int_source_ip_table int_source_action 172.18.10.3/32 => 
+table_add int_traffic_type_table int_source_action 1 =>  # NGAP
+table_add int_traffic_type_table int_source_action 2 =>  # GTP-U
+#table_add MyIngress.int_source_table int_source_action 1 => #NGAP
+#table_add MyIngress.int_source_table int_source_action 2 => #GTP-U
+
+# Switch INT-Transit
+simple_switch_CLI --thrift-port 9091
+table_clear MyIngress.ipv4_lpm
+table_add MyIngress.ipv4_lpm forward_action 172.18.0.20/32 => 2  
+table_add MyIngress.ipv4_lpm forward_action 172.18.10.3/32 => 1 # gNB/RAN
+table_add MyIngress.ipv4_lpm forward_action 0.0.0.0/0 => 2      
+
+# Switch INT-Sink
+simple_switch_CLI --thrift-port 9092
+table_clear MyIngress.ipv4_lpm
+table_clear MyIngress.int_sink_table
+table_clear MyEgress.egress_control
+table_add MyIngress.ipv4_lpm forward_action 172.18.0.20/32 => 1 # AMF
+table_add MyIngress.ipv4_lpm forward_action 172.18.0.24/32 => 1 # UPF
+table_add MyIngress.ipv4_lpm forward_action 172.18.10.3/32 => 2 # gNB/RAN
+table_add MyIngress.ipv4_lpm forward_action 0.0.0.0/0 => 1
+
+# Para Clonar los INT 
+table_add MyIngress.int_sink_table int_sink_action 1 =>
+
+# Para remover las cabeceras INT en el paquete original
+table_add MyEgress.egress_control strip_int_headers 1 =>
+
+# Enviar el paquete clonado al puerto 9 (servidor de recolección)
+mirroring_add 99 9
+
+\end{lstlisting}
 
 
 \section{Servidor de recolección y análisis}
@@ -2347,7 +2416,7 @@ def handle_packet(pkt):
     }]
     client.write_points(path_json_body)
     
-    print(f" E2E latency (sum): {e2e_latency_ms:.3f}ms ({e2e_latency_us}µs)")
+    print(f" E2E latency (sum): {e2e_latency_ms:.3f}ms ({e2e_latency_us}us)")
 \end{lstlisting}
 
 Un aspecto crucial a destacar es el cálculo de la latencia end-to-end. Dado que cada instancia de BMv2 (cada switch) tiene su propio dominio de tiempo independiente, \textbf{no es válido restar timestamps entre switches diferentes}. Por ejemplo, \texttt{SW3.ingress\_timestamp - SW1.ingress\_timestamp} puede resultar en valores negativos o sin sentido. Por ello, la latencia end-to-end se calcula como la \textbf{suma de las latencias individuales} de cada salto, que es la métrica correcta para medir el tiempo total que el paquete pasó en la infraestructura de red.
@@ -2382,7 +2451,7 @@ El script se ejecuta como un proceso en segundo plano que escucha continuamente 
     label=lst:int-script-main]
 def main():
     print("=== INT Telemetry Report Server ===")
-    print(f"Conversión: 1 ms = {US_TO_MS:,.0f} µs")
+    print(f"Conversion: 1 ms = {US_TO_MS:,.0f} us")
     print("=" * 50)
     
     # Verificar conexión a InfluxDB
@@ -2419,7 +2488,7 @@ El script genera salida de debugging detallada que permite monitorear en tiempo 
 [DEBUG] Hop 3: switch=3, ingress=1, egress=9, queue=0 packets, 
         latency=0.156ms [le]
  PATH: SW1 -> SW2 -> SW3
- E2E latency (sum): 0.588ms (588µs)
+ E2E latency (sum): 0.588ms (588us)
  Saved to DB: Switch 1, Hop 1, Latency: 0.245ms
  Saved to DB: Switch 2, Hop 2, Latency: 0.187ms
  Saved to DB: Switch 3, Hop 3, Latency: 0.156ms
@@ -2461,72 +2530,43 @@ Este nivel de detalle facilita el debugging y permite verificar que el parsing s
 
 
 %
-%\section{Despliegue del NGRAN con UERANSIM}
-%El NGRAN se ha desplegado utilizando la herramienta UERANSIM, la cual simula tanto el gNB como el UE en modo 5G Standalone (SA). UERANSIM se ha configurado para conectarse al Core 5G SA desplegado previamente, estableciendo el enlace N2 (SCTP) con el AMF y el enlace N3 (GTP-U) con el UPF.
-%\subsection{Despliegue de UERANSIM}
-%El despliegue de UERANSIM se realiza mediante Docker Compose, creando un archivo llamado \textit{docker-compose-build-ngran.yaml} que contiene la configuración tanto del gNB como del UE. El archivo Docker Compose se muestra en el siguiente código \ref{lst:docker-ueransim}.
-%\begin{lstlisting}[style=yamlstyle, caption={Configuración del Docker Compose UERANSIM}, label=lst:docker-ueransim]
-%version: "3.8"
-%services:
-%  ueransim:
-%    container_name: ueransim
-%    build:
-%      context: ./ueransim
-%    command: ./nr-gnb -c ./config/gnbcfg.yaml
-%    expose:
-%      - "38412"
-%    volumes:
-%      - ./config/gnbcfg.yaml:/ueransim/config/gnbcfg.yaml
-%      - ./config/uecfg.yaml:/ueransim/config/uecfg.yaml
-%    cap_add:
-%      - NET_ADMIN
-%    devices:
-%      - "/dev/net/tun"
-%    ports:
-%     - "38412:38412"
-%    networks:
-%      macvlan_net:
-%        ipv4_address: 172.18.10.3
-%        mac_address: f6:b8:eb:4d:0f:3c
-%        aliases:
-%          - gnb.free5gc.org
-%    extra_hosts:
-%      - "amf.free5gc.org:172.18.0.20"
-%      - "upf.free5gc.org:172.18.0.24"   
-%networks:
-%  macvlan_net:
-%   external: true
-%\end{lstlisting}
-%
-%\subsection{Configuración del gNB}
-%
+\section{Despliegue del NGRAN con UERANSIM}
+El NGRAN se ha desplegado utilizando la herramienta UERANSIM, la cual simula tanto el gNB como el UE en modo 5G Standalone (SA). UERANSIM se ha configurado para conectarse al Core 5G SA desplegado previamente, estableciendo el enlace N2 (SCTP) con el AMF y el enlace N3 (GTP-U) con el UPF.
+\subsection{Despliegue de UERANSIM}
+El despliegue de UERANSIM se realiza mediante Docker Compose, creando un archivo llamado \textit{docker-compose-build-ngran.yaml} que contiene la configuración tanto del gNB como del UE. El archivo Docker Compose se muestra en el siguiente código \ref{lst:docker-ueransim}.
+\begin{lstlisting}[style=yamlstyle, caption={Configuración del Docker Compose UERANSIM}, label=lst:docker-ueransim]
+version: "3.8"
+services:
+  ueransim:
+    container_name: ueransim
+    build:
+      context: ./ueransim
+    command: ./nr-gnb -c ./config/gnbcfg.yaml
+    expose:
+      - "38412"
+    volumes:
+      - ./config/gnbcfg.yaml:/ueransim/config/gnbcfg.yaml
+      - ./config/uecfg.yaml:/ueransim/config/uecfg.yaml
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - "/dev/net/tun"
+    ports:
+     - "38412:38412"
+    networks:
+      macvlan_net:
+        ipv4_address: 172.18.10.3
+        mac_address: f6:b8:eb:4d:0f:3c
+        aliases:
+          - gnb.free5gc.org
+    extra_hosts:
+      - "amf.free5gc.org:172.18.0.20"
+      - "upf.free5gc.org:172.18.0.24"   
+networks:
+  macvlan_net:
+   external: true
+\end{lstlisting}
 
+\subsection{Configuración del gNB}
 
-
-%La configuración del gNB se realiza mediante el archivo \textit{gnb.yaml}, donde se especifican los parámetros necesarios para la conexión con el Core 5G SA, como la dirección IP del AMF, el PLMN ID, y los parámetros de la interfaz N3. Un ejemplo de configuración del gNB se muestra en la figura \ref{fig:gnb-config}.
-%\begin{figure}[H]
-%    \centering
-%    \includegraphics[width=1.0\textwidth]{images/gnb-config.png}
-%    \caption{Configuración del gNB en UERANSIM}
-%    \label{fig:gnb-config}
-%\end{figure}
-%\subsection{Configuración del UE}
-%La configuración del UE se realiza mediante el archivo \textit{ue.yaml}, donde se especifican los parámetros necesarios para la conexión con el gNB, como el IMSI, la clave de seguridad, y los parámetros de la interfaz N1. Un ejemplo de configuración del UE se muestra en la figura \ref{fig:ue-config}.
-%\begin{figure}[H]
-%    \centering
-%    \includegraphics[width=1.0\textwidth]{images/ue-config.png}
-%    \caption{Configuración del UE en UERANSIM}
-%    \label{fig:ue-config} 
-%\end{figure}
-
-
-
-
-
-
-------------------------------------------------
-%\section{Implicación del código switch INT source}
-%
-%El programa P4 del switch INT source implementa la inserción de metadatos de telemetría en banda (INT-MD) específicamente para el tráfico NGAP transportado sobre SCTP en el enlace N2 entre el NG-RAN y el AMF. El parser del programa analiza secuencialmente las cabeceras Ethernet, IPv4, SCTP y los chunks SCTP, extrayendo información crítica como los puertos de origen y destino del protocolo SCTP. Cuando el parser detecta que el puerto de destino es 38412 (puerto estándar de NGAP), activa la bandera \texttt{is\_ngap\_traffic} en los metadatos internos del switch. Esta identificación selectiva es fundamental para aplicar la inserción INT únicamente al tráfico de señalización 5G, evitando la sobrecarga innecesaria en otros flujos de datos. El pipeline de ingreso consulta la tabla \texttt{int\_source\_table} que, al encontrar una coincidencia exacta con tráfico NGAP, marca el paquete para inserción INT mediante la acción \texttt{int\_source\_action}. Posteriormente, la función \texttt{do\_insert\_int()} modifica el \texttt{EtherType} original a 0xFA (indicando presencia de INT), inserta la cabecera INT shim que preserva el protocolo original en el campo \texttt{next\_proto}, y configura la cabecera INT con parámetros como el contador de saltos restantes (\texttt{remaining\_hop\_cnt}) inicializado a 7 (MAX\_HOP\_COUNT - 1) y la máscara de instrucciones que indica qué metadatos deben recolectarse en cada salto.
-%
-%La inserción del primer bloque de metadatos INT-MD se realiza creando una cabecera \texttt{int\_md\_t} que contiene información del switch fuente como el identificador único del switch (\texttt{switch\_id}), el puerto de entrada (\texttt{ingress\_port\_id}) y la marca temporal de ingreso (\texttt{ingress\_timestamp}) capturada desde el metadato estándar \texttt{ingress\_global\_timestamp}. Los campos relacionados con el egreso como \texttt{egress\_port\_id}, \texttt{hop\_latency} y \texttt{queue\_occupancy} se inicializan en cero durante la fase de ingreso, siendo actualizados posteriormente en el pipeline de egreso mediante la función \texttt{update\_int\_metadata()}. Esta actualización en egreso calcula la latencia del salto restando la marca temporal de ingreso de la marca temporal de egreso (\texttt{egress\_global\_timestamp}), y registra la ocupación de cola mediante el metadato \texttt{enq\_qdepth}, proporcionando visibilidad en tiempo real del comportamiento del switch. El deparser ensambla el paquete modificado emitiendo secuencialmente todas las cabeceras válidas: primero Ethernet con el nuevo EtherType INT, seguido de las cabeceras INT shim, INT header e INT metadata, y finalmente las cabeceras del paquete original (IPv4, SCTP y sus chunks), preservando así la integridad del payload mientras se añaden las capas de telemetría. Esta arquitectura permite que los switches downstream (transit nodes) procesen los metadatos INT existentes y agreguen sus propios bloques de metadatos, construyendo una traza completa del recorrido del paquete NGAP a través de la red de transporte 5G.
+La configuración del gNB se realiza mediante el archivo \textit{gnb.yaml} el cual se describirá mas a detalle en el capitulo se los resultados, donde se especifican los parámetros necesarios para la conexión con el Core 5G SA, como la dirección IP del AMF, el PLMN ID, y los parámetros de la interfaz N3. Un ejemplo de configuración del gNB se muestra en la figura \ref{fig:gnb-config}.

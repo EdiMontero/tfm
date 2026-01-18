@@ -105,39 +105,90 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.4.3} Conección N4 con SMF}{61}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5.19}{\ignorespaces  UPF registro y preparacion de interfaz N3}}{62}{}\protected@file@percent }
 \newlabel{fig:smf-upf-n4-connection}{{5.19}{62}{ Conección N4 con SMF}{figure.5.19}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.5}Integración con UERANSIM}{63}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Implementación de la red de distribución P4}{63}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Diseño de los programas P4}{63}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Tablas y acciones configuradas}{63}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}Inserción INT-MD en tráfico N2 (SCTP)}{63}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.4}Inserción INT-MD en tráfico N3 (GTP-U)}{63}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Servidor de recolección y análisis}{63}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Implementación del sink INT}{63}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Procesamiento y parsing de metadatos}{63}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}Modelo de base de datos}{63}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.4}Visualización en Grafana}{63}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Tecnologías empleadas}{63}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Docker / Docker Compose}{63}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}GNS3 / GNS3 VM}{63}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.3}Wireshark y herramientas auxiliares}{63}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.6}Despliegue del NGRAN con UERANSIM}{63}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.1}Despliegue de UERANSIM}{64}{}\protected@file@percent }
-\newlabel{lst:docker-ueransim}{{5.15}{64}{Despliegue de UERANSIM}{lstlisting.5.15}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.15}Configuración del Docker Compose UERANSIM}{64}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.2}Configuración del gNB}{64}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.20}{\ignorespaces Configuración del gNB en UERANSIM}}{65}{}\protected@file@percent }
-\newlabel{fig:gnb-config}{{5.20}{65}{Configuración del gNB}{figure.5.20}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.3}Configuración del UE}{65}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.21}{\ignorespaces Configuración del UE en UERANSIM}}{66}{}\protected@file@percent }
-\newlabel{fig:ue-config}{{5.21}{66}{Configuración del UE}{figure.5.21}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.7}codigo switch int source}{66}{}\protected@file@percent }
-\newlabel{lst:p4-int-source}{{5.16}{66}{codigo switch int source}{lstlisting.5.16}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.16}Código P4 del switch INT Source}{66}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.8}Implicación del código switch INT source}{73}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Implementación Red de Transporte con INT}{62}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.20}{\ignorespaces Topologia INT-MD}}{63}{}\protected@file@percent }
+\newlabel{sec:topologia_int}{{5.20}{63}{Implementación Red de Transporte con INT}{figure.5.20}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Despliegue de switches BMv2 con INT-MD}{63}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Switch INT Source}{64}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.1}Definición de Constantes}{64}{}\protected@file@percent }
+\newlabel{lst:int-constantes}{{5.15}{64}{Definición de Constantes}{lstlisting.5.15}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.15}Constantes INT}{64}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.2}Definición de Cabeceras}{64}{}\protected@file@percent }
+\newlabel{lst:}{{5.16}{64}{Definición de Cabeceras}{lstlisting.5.16}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.16}Definición de Cabeceras P4 para INT}{64}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.3} Parser}{66}{}\protected@file@percent }
+\newlabel{lst:int-parser}{{5.17}{66}{ Parser}{lstlisting.5.17}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.17}Parser P4 para INT}{66}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.4}Ingress}{68}{}\protected@file@percent }
+\newlabel{lst:int-ingress}{{5.18}{68}{Ingress}{lstlisting.5.18}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.18}Ingress P4 para INT}{68}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.5}Egress}{71}{}\protected@file@percent }
+\newlabel{lst:int-egress}{{5.19}{71}{Egress}{lstlisting.5.19}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.19}Egress P4 para INT}{71}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1.6}Deparser}{72}{}\protected@file@percent }
+\newlabel{lst:int-deparser}{{5.20}{72}{Deparser}{lstlisting.5.20}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.20}Deparser P4 para INT}{72}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Switch INT Transit}{73}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.2.1}Parser}{73}{}\protected@file@percent }
+\newlabel{lst:int-transit-parser}{{5.21}{73}{Parser}{lstlisting.5.21}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.21}Parser INT-Transit}{73}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.2.2}Ingress}{75}{}\protected@file@percent }
+\newlabel{lst:int-transit-ingress}{{5.22}{75}{Ingress}{lstlisting.5.22}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.22}Ingress INT-Transit - Adición de metadatos INT a la pila existente}{75}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.2.3}Egress}{76}{}\protected@file@percent }
+\newlabel{lst:int-transit-egress}{{5.23}{76}{Egress}{lstlisting.5.23}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.23}Egress INT-Transit}{76}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.2.4}Deparser}{77}{}\protected@file@percent }
+\newlabel{lst:int-transit-deparser}{{5.24}{77}{Deparser}{lstlisting.5.24}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.24}Deparser INT-Transit - Emisión de toda la pila INT}{77}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}Switch INT Sink}{78}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.3.1}Parser}{78}{}\protected@file@percent }
+\newlabel{lst:int-sink-parser}{{5.25}{79}{Parser}{lstlisting.5.25}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.25}Parser INT-Sink - Extracción de metadatos completos}{79}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.3.2}Ingress}{79}{}\protected@file@percent }
+\newlabel{lst:int-sink-ingress}{{5.26}{79}{Ingress}{lstlisting.5.26}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.26}Ingress INT-Sink - Clonación y forwarding dual}{79}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.3.3}Egress}{81}{}\protected@file@percent }
+\newlabel{lst:int-sink-egress}{{5.27}{82}{Egress}{lstlisting.5.27}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.27}Egress INT-Sink}{82}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.3.4}Deparser}{84}{}\protected@file@percent }
+\newlabel{lst:int-sink-deparser}{{5.28}{84}{Deparser}{lstlisting.5.28}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.28}Deparser INT-Sink - Emisión condicional de cabeceras}{84}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Servidor de recolección y análisis}{85}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Instalación Grafana y InfluxDB}{85}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.21}{\ignorespaces Pantalla de inicio de Grafana}}{85}{}\protected@file@percent }
+\newlabel{fig:grafana-installation}{{5.21}{85}{Instalación Grafana y InfluxDB}{figure.5.21}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Creacion de la base de datos InfluxDB}{85}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.22}{\ignorespaces Creación de la base de datos InfluxDB}}{86}{}\protected@file@percent }
+\newlabel{fig:influxdb-creation}{{5.22}{86}{Creacion de la base de datos InfluxDB}{figure.5.22}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.3}Configuration de Grafana}{86}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.23}{\ignorespaces Configuración de la fuente de datos InfluxDB en Grafana}}{87}{}\protected@file@percent }
+\newlabel{fig:grafana-configuration}{{5.23}{87}{Configuration de Grafana}{figure.5.23}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.24}{\ignorespaces Configuración de la fuente de datos InfluxDB en Grafana - Parte 2}}{88}{}\protected@file@percent }
+\newlabel{fig:grafana-configuration-2}{{5.24}{88}{Configuration de Grafana}{figure.5.24}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.4}Captura y procesamiento de paquetes INT}{88}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.4.1}Configuración y dependencias}{89}{}\protected@file@percent }
+\newlabel{lst:int-script-config}{{5.29}{89}{Configuración y dependencias}{lstlisting.5.29}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.29}Configuración inicial del script de captura INT}{89}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.4.2}Detección automática de endianness}{90}{}\protected@file@percent }
+\newlabel{lst:int-script-endian}{{5.30}{90}{Detección automática de endianness}{lstlisting.5.30}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.30}Sistema de auto-detección de endianness}{90}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.4.3}Parsing de cabeceras INT}{91}{}\protected@file@percent }
+\newlabel{lst:int-script-headers}{{5.31}{91}{Parsing de cabeceras INT}{lstlisting.5.31}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.31}Parsing de cabeceras Ethernet e INT}{91}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.4.4}Extracción y validación de metadatos}{93}{}\protected@file@percent }
+\newlabel{lst:int-script-metadata}{{5.32}{93}{Extracción y validación de metadatos}{lstlisting.5.32}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.32}Extracción y validación de metadatos INT-MD}{93}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.4.5}Almacenamiento en InfluxDB}{95}{}\protected@file@percent }
+\newlabel{lst:int-script-influx}{{5.33}{95}{Almacenamiento en InfluxDB}{lstlisting.5.33}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.33}Almacenamiento de metadatos en InfluxDB}{95}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.4.6}Ejecución y monitoreo}{97}{}\protected@file@percent }
+\newlabel{lst:int-script-main}{{5.34}{97}{Ejecución y monitoreo}{lstlisting.5.34}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.34}Función principal y ejecución del script}{97}{}\protected@file@percent }
 \@setckpt{chapters/5.entorno_desarrollo}{
-\setcounter{page}{75}
+\setcounter{page}{99}
 \setcounter{equation}{0}
-\setcounter{enumi}{0}
+\setcounter{enumi}{2}
 \setcounter{enumii}{0}
 \setcounter{enumiii}{0}
 \setcounter{enumiv}{0}
@@ -145,14 +196,14 @@
 \setcounter{mpfootnote}{0}
 \setcounter{part}{0}
 \setcounter{chapter}{5}
-\setcounter{section}{8}
-\setcounter{subsection}{0}
-\setcounter{subsubsection}{0}
+\setcounter{section}{5}
+\setcounter{subsection}{4}
+\setcounter{subsubsection}{6}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{21}
+\setcounter{figure}{24}
 \setcounter{table}{1}
 \setcounter{float@type}{8}
-\setcounter{lstnumber}{321}
-\setcounter{lstlisting}{16}
+\setcounter{lstnumber}{24}
+\setcounter{lstlisting}{34}
 }

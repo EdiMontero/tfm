@@ -108,9 +108,6 @@ table_dump MyEgress.egress_control
 # Verify mirroring configuration
 mirroring_get 99
 
-# Enable logging (optional for debugging)
-# logging_level set debug
-
 
 
 ==========ueransim - INT-GTPU Switch Runtime Commands==========

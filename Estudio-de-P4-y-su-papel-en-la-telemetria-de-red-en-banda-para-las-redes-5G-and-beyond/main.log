@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.13)  14 DEC 2025 17:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.13)  11 JAN 2026 23:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -197,8 +197,8 @@ eOfContents.aux) (preface/4.TableOfFigures.aux)
 (preface/5.TableOfTables.aux) (chapters/1.introduccion.aux)
 (chapters/2.redes_5g.aux) (chapters/3.telemetria.aux)
 (chapters/4.p4_fundamentos.aux) (chapters/5.entorno_desarrollo.aux)
-(chapters/6.resultados.aux) (chapters/7.discusion.aux)
-(chapters/8.conclusiones.aux) (chapters/apendices.aux))
+(chapters/6.resultados.aux) (chapters/7.conclusiones.aux)
+(chapters/apendices.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
@@ -452,11 +452,7 @@ Overfull \hbox (9.92625pt too wide) in paragraph at lines 5--5
 
 
 
-]
-Overfull \vbox (24.73347pt too high) has occurred while \output is active []
-
-
-[30]
+] [30]
 \openout2 = `chapters/4.p4_fundamentos.aux'.
 
  (chapters/4.p4_fundamentos.tex
@@ -626,77 +622,148 @@ Package pdftex.def Info: images/smf-upf-n4-connection.png  used on input line 6
 82.
 (pdftex.def)             Requested size: 390.0pt x 175.79189pt.
  [61 <./images/upf-up.png>]
-Overfull \hbox (0.50583pt too wide) in paragraph at lines 719--719
-|[]\OT1/cmr/bx/n/17.28 Despliegue del NGRAN con UER-AN-SIM| 
+<images/int-topologia.png, id=254, 613.54219pt x 420.06938pt>
+File: images/int-topologia.png Graphic file (type png)
+<use images/int-topologia.png>
+Package pdftex.def Info: images/int-topologia.png  used on input line 692.
+(pdftex.def)             Requested size: 390.0pt x 267.01671pt.
+ [62 <./images/smf-upf-n4-connection.png>]
+[63 <./images/int-topologia.png>]
+(C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstl
+ang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+)
+(C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstl
+ang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+)
+(C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstm
+isc.sty
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
+)
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 735.
+ [64] [65]
+
+LaTeX Warning: Reference `lst:int-cabeceras' on page 66 undefined on input line
+ 851.
+
+[66] [67] [68] [69] [70] [71] [72]
+Overfull \hbox (20.48463pt too wide) in paragraph at lines 1205--1207
+\OT1/cmr/m/n/12 El INT-Transit (bmv2-2) fue con-stru-ido para proce-sar los pa-
+que-tes con metadatos
  []
 
-[62 <./images/smf-upf-n4-connection.png>] [63]
-
-LaTeX Warning: File `images/gnb-config.png' not found on input line 760.
-
-
-! Package pdftex.def Error: File `images/gnb-config.png' not found: using draft
- setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.760 ...dth=1.0\textwidth]{images/gnb-config.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[64]
-
-LaTeX Warning: File `images/ue-config.png' not found on input line 768.
+[73] [74] [75]
+Overfull \hbox (12.2237pt too wide) in paragraph at lines 1388--1389
+[]\OT1/cmr/m/n/12 A este punto, el switch INT-Transit procesa to-dos los pa-que
+-tes con cabeceras
+ []
 
 
-! Package pdftex.def Error: File `images/ue-config.png' not found: using draft 
-setting.
+Overfull \hbox (40.30817pt too wide) in paragraph at lines 1388--1389
+\OT1/cmr/m/n/12 cabecera INT para in-ser-tar m^^Sas metadatos, ver-i-f-i-cando 
+el campo \OT1/cmtt/m/n/12 remaining[]hop[]cnt\OT1/cmr/m/n/12 .
+ []
 
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.768 ...idth=1.0\textwidth]{images/ue-config.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+[76] [77] [78] [79] [80] [81] [82] [83] [84]
+<images/instalacion-grafana.png, id=333, 2055.68pt x 1162.3425pt>
+File: images/instalacion-grafana.png Graphic file (type png)
+<use images/instalacion-grafana.png>
+Package pdftex.def Info: images/instalacion-grafana.png  used on input line 188
+3.
+(pdftex.def)             Requested size: 429.00238pt x 242.5561pt.
 
-[65] [66]
-LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 792.
- [67] [68] [69] [70] [71] [72] [73]) [74]
+Overfull \hbox (39.00238pt too wide) in paragraph at lines 1883--1884
+ [][] 
+ []
+
+<images/creacion-influxdb.png, id=334, 1553.805pt x 638.385pt>
+File: images/creacion-influxdb.png Graphic file (type png)
+<use images/creacion-influxdb.png>
+Package pdftex.def Info: images/creacion-influxdb.png  used on input line 1892.
+
+(pdftex.def)             Requested size: 429.00238pt x 176.25288pt.
+
+Overfull \hbox (39.00238pt too wide) in paragraph at lines 1892--1893
+ [][] 
+ []
+
+[85 <./images/instalacion-grafana.png>]
+<images/influxdb-connection.png, id=339, 566.71725pt x 413.74574pt>
+File: images/influxdb-connection.png Graphic file (type png)
+<use images/influxdb-connection.png>
+Package pdftex.def Info: images/influxdb-connection.png  used on input line 190
+4.
+(pdftex.def)             Requested size: 429.00238pt x 313.21895pt.
+
+Overfull \hbox (39.00238pt too wide) in paragraph at lines 1904--1905
+ [][] 
+ []
+
+[86 <./images/creacion-influxdb.png>]
+<images/influxdb-connection-2.png, id=344, 571.53525pt x 426.99525pt>
+File: images/influxdb-connection-2.png Graphic file (type png)
+<use images/influxdb-connection-2.png>
+Package pdftex.def Info: images/influxdb-connection-2.png  used on input line 1
+911.
+(pdftex.def)             Requested size: 429.00238pt x 320.50627pt.
+
+Overfull \hbox (39.00238pt too wide) in paragraph at lines 1911--1912
+ [][] 
+ []
+
+[87 <./images/influxdb-connection.png>] [88 <./images/influxdb-connection-2.png
+>]
+(C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstl
+ang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+)
+Overfull \hbox (6.16255pt too wide) in paragraph at lines 1978--1979
+[]\OT1/cmr/m/n/12 Un as-pecto im-por-tante a destacar es que el tama~no del blo
+que de metadatos
+ []
+
+
+Overfull \hbox (5.21788pt too wide) in paragraph at lines 1978--1979
+\OT1/cmr/m/n/12 liza en in-cre-men-tos de 32 bytes (4-byte aligned) en el campo
+ \OT1/cmtt/m/n/12 int[]shim.length\OT1/cmr/m/n/12 .
+ []
+
+[89] [90] [91] [92] [93] [94]
+Overfull \hbox (7.24171pt too wide) in paragraph at lines 2256--2257
+[]\OT1/cmr/m/n/12 La re-cu-peraci^^Son heur^^S^^Pstica de er-rores es par-tic-u
+-lar-mente im-por-tante cuando
+ []
+
+[95] [96] [97]
+Overfull \hbox (73.12523pt too wide) in paragraph at lines 2427--2427
+[]\OT1/cmtt/m/n/12 [INT] New packet: aa:bb:cc:dd:ee:ff -> 11:22:33:44:55:66, le
+ngth: 198 bytes[] 
+ []
+
+
+Overfull \hbox (48.42522pt too wide) in paragraph at lines 2427--2427
+[]\OT1/cmtt/m/n/12 [INT] Header: version=1, hop_ml=3, instruction=0x00ff, remai
+ning_hops=0[] 
+ []
+
+) [98]
 \openout2 = `chapters/6.resultados.aux'.
 
  (chapters/6.resultados.tex
 Chapter 6.
-) [75
+) [99
 
 
 
 
 ]
-Overfull \vbox (52.13351pt too high) has occurred while \output is active []
+\openout2 = `chapters/7.conclusiones.aux'.
 
-
-[76]
-\openout2 = `chapters/7.discusion.aux'.
-
- (chapters/7.discusion.tex
+ (chapters/7.conclusiones.tex
 Chapter 7.
-) [77
-
-
-
-
-]
-\openout2 = `chapters/8.conclusiones.aux'.
-
- (chapters/8.conclusiones.tex
-Chapter 8.
-) [78
+) [100
 
 
 
@@ -706,12 +773,12 @@ Chapter 8.
 
  (chapters/apendices.tex
 Appendix A.
-) [79
+) [101
 
 
 
 
-] (main.bbl) [80
+] (main.bbl) [102
 
 
 
@@ -721,8 +788,7 @@ Appendix A.
 (chapters/1.introduccion.aux) (chapters/2.redes_5g.aux)
 (chapters/3.telemetria.aux) (chapters/4.p4_fundamentos.aux)
 (chapters/5.entorno_desarrollo.aux) (chapters/6.resultados.aux)
-(chapters/7.discusion.aux) (chapters/8.conclusiones.aux)
-(chapters/apendices.aux))
+(chapters/7.conclusiones.aux) (chapters/apendices.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-11-06>
@@ -731,33 +797,32 @@ L3 programming layer <2025-11-06>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 5179 strings out of 467871
- 94874 string characters out of 5413535
- 709647 words of memory out of 5000000
- 33930 multiletter control sequences out of 15000+600000
- 634828 words of font info for 64 fonts, out of 8000000 for 9000
+ 5710 strings out of 467871
+ 101833 string characters out of 5413535
+ 993036 words of memory out of 5000000
+ 34458 multiletter control sequences out of 15000+600000
+ 634996 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,12n,79p,1703b,1908s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,12n,79p,1676b,1975s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
 pi600\tcrm1200.pk><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/edinson.montero/AppData/Local/Pr
 ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx6.pfb><C:/Users/edinson.monter
-o/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Us
-ers/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmr17.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmr6.pfb><C:/Users/edinson.montero/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/edinson.montero/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/ed
-inson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt
-12.pfb>
-Output written on main.pdf (81 pages, 6491470 bytes).
+o/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/
+Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmr12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmr17.pfb><C:/Users/edinson.montero/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/edinson.montero/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/e
+dinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmt
+t10.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmtt12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb>
+Output written on main.pdf (103 pages, 7014480 bytes).
 PDF statistics:
- 357 PDF objects out of 1000 (max. 8388607)
+ 447 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 146 words of extra memory for PDF output out of 10000 (max. 10000000)
 
