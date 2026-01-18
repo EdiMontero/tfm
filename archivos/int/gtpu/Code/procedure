@@ -1,14 +1,14 @@
-sudo docker cp ~/tfm/archivos/int/gtpu/int-gtp-source/int-gtp-source-2.json 617b30e967a9:/behavioral-model
-sudo docker cp ~/tfm/archivos/int/gtpu/int-gtp-source/int-gtp-source-2.json a72ba05af5d7:/behavioral-model
-sudo docker cp ~/tfm/archivos/int/gtpu/int-gtp-source/int-gtp-source-2.json 01c5aed35665:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/int-gtp-source/int-gtp-source-2.json 095f24cdf728:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/int-gtp-source/int-gtp-source-2.json 21f32d9a02c6:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/int-gtp-source/int-gtp-source-2.json 6f741f06e613:/behavioral-model
 # Add the int-gtp-transit.json file to the containers
-sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-transit/int-gtp-transit.json 617b30e967a9:/behavioral-model
-sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-transit/int-gtp-transit.json a72ba05af5d7:/behavioral-model
-sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-transit/int-gtp-transit.json 01c5aed35665:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-transit/int-gtp-transit.json 095f24cdf728:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-transit/int-gtp-transit.json 21f32d9a02c6:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-transit/int-gtp-transit.json 6f741f06e613:/behavioral-model
 # Add the int-gtp-sink.json file to the containers
-sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-destination/int-gtp-destination.json 617b30e967a9:/behavioral-model
-sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-destination/int-gtp-destination.json a72ba05af5d7:/behavioral-model
-sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-destination/int-gtp-destination.json 01c5aed35665:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-destination/int-gtp-destination.json 095f24cdf728:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-destination/int-gtp-destination.json 21f32d9a02c6:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-destination/int-gtp-destination.json 6f741f06e613:/behavioral-model
 
 ==========INT-MD Switch Runtime Commands==========
 
@@ -40,8 +40,8 @@ table_add MyIngress.ipv4_lpm forward_action 0.0.0.0/0 => 2
 table_add int_source_ip_table int_source_action 172.18.10.3/32 =>
 
 # Configure which traffic types to monitor
-table_add int_traffic_type_table int_source_action 1 =>  # NGAP
-table_add int_traffic_type_table int_source_action 2 =>  # GTP-U
+table_add int_traffic_type_table int_source_action 1 =>
+table_add int_traffic_type_table int_source_action 2 =>
 
 # Add INT source rule for NGAP traffic (traffic_type = 1)
 #table_add MyIngress.int_source_table int_source_action 1 =>
@@ -52,7 +52,7 @@ table_add int_traffic_type_table int_source_action 2 =>  # GTP-U
 # Verify tables
 table_dump MyIngress.ipv4_lpm
 table_dump MyIngress.int_source_table
-#
+
 
 
 'SW2 Configuration (Transit)'
@@ -69,7 +69,7 @@ table_add MyIngress.ipv4_lpm forward_action 172.18.0.20/32 => 2
  # To RAN
 table_add MyIngress.ipv4_lpm forward_action 172.18.10.3/32 => 1  
 table_add MyIngress.ipv4_lpm forward_action 0.0.0.0/0 => 2      
-# --------------------------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------------------------
 
 'SW3 int-gtp-destination Configuration (Sink)'
 ---------------------------------------------------------------------------
