@@ -519,10 +519,13 @@ INPUT .\images\gnb-session-tunnel-ping.png
 INPUT .\images\gnb-session-tunnel-ping.png
 INPUT .\images\gnb-session-tunnel-ping.png
 INPUT .\images\gnb-session-tunnel-ping.png
-INPUT .\images\gnb-session-tunnel-ping.png
-INPUT .\images\gnb-session-tunnel-ping.png
-INPUT .\images\gnb-session-tunnel-ping.png
-INPUT .\images\gnb-session-tunnel-ping.png
+INPUT .\images\ping-int.png
+INPUT .\images\ping-int.png
+INPUT .\images\ping-int.png
+INPUT .\images\ping-int.png
+INPUT .\images\ping-int.png
+INPUT .\images\ping-int.png
+INPUT .\images\ping-int.png
 INPUT .\chapters\7.conclusiones.tex
 OUTPUT c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters\7.conclusiones.aux
 INPUT .\chapters\7.conclusiones.tex

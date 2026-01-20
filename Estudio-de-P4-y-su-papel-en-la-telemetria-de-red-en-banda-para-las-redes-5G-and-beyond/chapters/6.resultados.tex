@@ -99,19 +99,20 @@ Una vez que se establece el túnel GTP-U, el usuario posee 2 tuneles GTP-U, uno 
     \label{fig:log_ue_gtpu}
 \end{figure}
 
-Con el establecimiento de estos tuneles, el UE puede originar trafico hacia internet a traves de los mismos, como se puede apreciar en la figura \ref{fig:ping_internet}.
+Con el establecimiento de estos túneles, el UE puede originar tráfico hacia internet a través de los mismos, como se puede apreciar en la figura \ref{fig:ping_internet_int}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{images/gnb-session-tunnel-ping.png}
-    \caption{Ping a internet desde el UE}
-    \label{fig:ping_internet}
+    \caption{Ping con metadatos INT-MD}
+    \label{fig:ping_internet_int}
 \end{figure}
 
+En la próxima imagen se puede observar una captura de paquetes sobre el ping realizado por el UE, donde los ICMP Echo Request van con la cabecera INT.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{images/gnb-session-tunnel-ping.png}
-    \caption{Ping a internet desde el UE}
-    \label{fig:ping_internet}
+    \includegraphics[width=1.0\textwidth]{images/ping-int.png}
+    \caption{Ping con metadatos INT-MD}
+    \label{fig:ping_internet_int}
 \end{figure}
 
 
