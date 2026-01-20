@@ -51,11 +51,27 @@ Al recibir el paquete del switch INT-Source, el INT-Transit agrega sus propios p
 Una vez que el switch INT-Transit procesa el paquete, lo envia al switch INT-Sink. En la siguiente captura se resaltan los metadatos insertados por el switch INT-Source y el switch INT-Transit.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.3\textwidth]{images/s2-s3.png}
+    \includegraphics[width=1.0\textwidth]{images/s2-s3-cap.png}
     \caption{Captura de paquetes INT enviado a INT-Sink}
     \label{fig:captura_ngap_int_sink}
 \end{figure}
-Como se puede observar en la figura \ref{fig:captura_ngap_int_sink},
+
+\subsubsection{INT-Sink recepción de paquetes}
+Finalmente, el switch INT-Sink recibe los paquetes con los metadatos insertados por los switches anteriores, como se observa en la figura \ref{fig:log_s3_n2}.
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/s3-log.png}
+    \caption{Log del Switch INT-Sink}
+    \label{fig:log_s3_n2}
+\end{figure}
+
+Una vez procesado el paquete, el switch INT-Sink envía el paquete clonado al servidor de telemetría como se puede observar en la figura \ref{fig:log_s3_n2}, y luego envía el paquete original al AMF.
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/s3-log-2.png}
+    \caption{Paquete clonado}
+    \label{fig:log_s3_n2_2}
+\end{figure}
 
 
 \subsection{INT en tráfico N3}
