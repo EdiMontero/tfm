@@ -33,5 +33,10 @@
 \contentsline {figure}{\numberline {5.23}{\ignorespaces Configuración de la fuente de datos InfluxDB en Grafana}}{88}{}%
 \contentsline {figure}{\numberline {5.24}{\ignorespaces Configuración de la fuente de datos InfluxDB en Grafana - Parte 2}}{89}{}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Log del gNB}}{102}{}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Captura de paquete NGAP sin metadatos INT-MD}}{102}{}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Log del Switch INT-Source insertando metadatos INT-MD en paquetes NGAP}}{104}{}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Captura de paquete NGAP con metadatos INT-MD}}{105}{}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Captura de paquete NGAP con metadatos INT-MD en INT-Sink}}{106}{}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
