@@ -1,8 +1,55 @@
 \chapter{Resultados}
 
 \section{Validación funcional}
+En esta sección se presentan algunas capturas de pantalla, logs y capturas de paquetes que validan el funcionamiento correcto tanto de la red 5G como de la inserción de la telemetría  INT-MD para el trafico N2 (gNB) y N3 (UPF).
 
 \subsection{INT en tráfico N2}
+La interface N2 comprende la comunicación entre el gNB y el AMF. Esta comunicación se hace mediante el protocolo NGAP. Los detalles sobre la función de cada paquete se encuentran en el rfc 9950 \cite{rfc9950}.
+La imagen a continuación muestra el log del gNB donde se observa la inserción con el AMF y el intercambio de paquetes para el sincronismo entre ambos nodos.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/gnb-log.png}
+    \caption{Log del gNB}
+    \label{fig:log_gnb_ngap}
+\end{figure}
+\subsubsection{Trafico NGAP gNB a Switch INT-Source}
+En la siguiente imagen se muestra una captura de paquetes del trafico NGAP de la interface de entrada del switch INT-Source.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/Captura-n2.png}
+    \caption{Captura de paquete NGAP sin metadatos INT-MD}
+    \label{fig:captura_ngap_sin_int}
+\end{figure}
+
+como se puede observar en la figura \ref{fig:captura_ngap_sin_int}, el paquete NGAP no contiene metadatos INT, al recibir estos paquetes el switch INT-Source inserta los metadatos INT-MD correspondientes, como se observa en la figura \ref{fig:log_s1_n2}.
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/log-s1-n2-2.png}
+    \caption{Log del Switch INT-Source insertando metadatos INT-MD en paquetes NGAP}
+    \label{fig:log_s1_n2}
+\end{figure}
+Como se puede observar en la figura \ref{fig:log_s1_n2-2}, el switch INT-Source identifica el trafico NGAP y procede a insertar los metadatos INT-MD en los paquetes NGAP para posteriormente enviarlos al switch de transito (INT-Transit).
+\subsubsection{Tráfico de INT-Source a INT-Transit}
+En la siguiente imagen se puede apreciar una captura de paquetes del trafico NGAP con metadatos INT-MD desde el switch INT-Source hacia el switch INT-Transit. El traffico INT es interpretado por wireshark como LLC (Logical Link Control) debido a que wireshark no tiene soporte nativo para interpretar los metadatos INT-MD.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/Captura-n2-int-md.png}
+    \caption{Captura de paquete NGAP con metadatos INT-MD}
+    \label{fig:captura_ngap_con_int}
+\end{figure}
+Como se puede observar en la figura \ref{fig:captura_ngap_con_int}, el paquete NGAP contiene los metadatos INT-MD insertados por el switch INT-Source.
+
+\subsubsection{Tráfico desde INT-Transit a INT-Sink}
+En la siguiente captura de paquetes se puede observar la inssercion de los metadatos INT-MD y el envío hacia el switch INT-Sink.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.3\textwidth]{images/s2-s3.png}
+    \caption{Captura de paquete NGAP con metadatos INT-MD en INT-Sink}
+    \label{fig:captura_ngap_int_sink}
+\end{figure}
+Como se puede observar en la figura \ref{fig:captura_ngap_int_sink},
+
+
 \subsection{INT en tráfico N3}
 \subsection{Recepción de metadatos en el servidor}
 
