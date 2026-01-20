@@ -65,16 +65,56 @@ Finalmente, el switch INT-Sink recibe los paquetes con los metadatos insertados 
     \label{fig:log_s3_n2}
 \end{figure}
 
-Una vez procesado el paquete, el switch INT-Sink envía el paquete clonado al servidor de telemetría como se puede observar en la figura \ref{fig:log_s3_n2}, y luego envía el paquete original al AMF.
+Una vez procesado el paquete, el switch INT-Sink envía el paquete clonado al servidor de telemetría como se puede observar en la figura \ref{fig:s3-clone}, y luego envía el paquete original al AMF como se puede aprecia en la figura \ref{fig:s3-original}.
 \begin{figure}
     \centering
-    \includegraphics[width=1.0\textwidth]{images/s3-log-2.png}
+    \includegraphics[width=1.0\textwidth]{images/s3-clone.png}
     \caption{Paquete clonado}
-    \label{fig:log_s3_n2_2}
+    \label{fig:s3-clone}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/s3-original.png}
+    \caption{Paquete original}
+    \label{fig:s3-original}
+\end{figure}
+
+\subsection{INT en tráfico N3}
+Para la interface N3 (GTP-U) es practicamente el mismo procesamiento, por lo que se presentarán solo las capturas del establecimiento del tunel y la captura de paquetes con el trafico GTP-U con metadatos INT-MD.
+\subsubsection{Establecimiento del túnel GTP-U}
+En la siguiente imagen se observa el log del gNB donde se establece el túnel GTP-U entre el gNB y el UPF.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/gnb-session.png}
+    \caption{Log del gNB estableciendo túnel GTP-U}
+    \label{fig:log_gnb_gtpu}
+\end{figure}
+
+Una vez que se establece el túnel GTP-U, el usuario posee 2 tuneles GTP-U, uno para el trafico de subida (UL) y otro para el trafico de bajada (DL), como se observa en la figura \ref{fig:log_ue_gtpu}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/gnb-session-tunnel.png}
+    \caption{Tuneles en el UE}
+    \label{fig:log_ue_gtpu}
+\end{figure}
+
+Con el establecimiento de estos tuneles, el UE puede originar trafico hacia internet a traves de los mismos, como se puede apreciar en la figura \ref{fig:ping_internet}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/gnb-session-tunnel-ping.png}
+    \caption{Ping a internet desde el UE}
+    \label{fig:ping_internet}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/gnb-session-tunnel-ping.png}
+    \caption{Ping a internet desde el UE}
+    \label{fig:ping_internet}
 \end{figure}
 
 
-\subsection{INT en tráfico N3}
 \subsection{Recepción de metadatos en el servidor}
 
 \section{Presentación de resultados}
