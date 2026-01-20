@@ -147,5 +147,12 @@ Al enviar mas paquetes en menor tiempo, se puede observar un leve aumento en las
  Al incrementar la cantidad de paquetes enviados, la latencia P2P aumenta hasta los \textbf{12 ms}, mientras que la latencia por salto aumenta hasta los \textbf{6 ms} por salto.
 
 \subsubsection{Comparación de latencia en N3}
-En esta secci
+En esta sección se presenta una comparación de latencias en la interface N3 (GTP-U) con y sin telemetría INT-MD. Para esto, se agregaron nuevos routers en paralelo, los cuales intercambian las redes \textit{\textasciiacute{172.18.0/24}} y \textit{\textasciiacute{172.18.10.0/29}} mediante OSPF.
+a continuación se puede observar el diagrama de la red con los nuevos routers.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/hld-sin-int.png}
+    \caption{Diagrama de red para comparación de latencias en N3}
+    \label{fig:diagrama_red_comparacion}
+\end{figure}
 

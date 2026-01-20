@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.13)  20 JAN 2026 20:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.13)  20 JAN 2026 21:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -770,7 +770,18 @@ File: images/latencia-con-rafagas.png Graphic file (type png)
 <use images/latencia-con-rafagas.png>
 Package pdftex.def Info: images/latencia-con-rafagas.png  used on input line 143.
 (pdftex.def)             Requested size: 390.0pt x 129.21445pt.
- [113 <./images/grafana-latencias.png> <./images/ocupacion-cola.png>]) [114 <./images/latencia-con-rafagas.png>]
+ [113 <./images/grafana-latencias.png> <./images/ocupacion-cola.png>]
+<images/hld-sin-int.png, id=464, 707.0415pt x 368.577pt>
+File: images/hld-sin-int.png Graphic file (type png)
+<use images/hld-sin-int.png>
+Package pdftex.def Info: images/hld-sin-int.png  used on input line 154.
+(pdftex.def)             Requested size: 390.0pt x 203.30286pt.
+
+Overfull \hbox (36.7092pt too wide) in paragraph at lines 150--157
+\OT1/cmr/m/n/12 routers en par-alelo, los cuales in-ter-cam-bian las re-des \TS1/cmr/m/it/12 ´\OT1/cmr/m/it/12 172.18.0/24 \OT1/cmr/m/n/12 y \TS1/cmr/m/it/12 ´\OT1/cmr/m/it/12 172.18.10.0/29
+ []
+
+) [114 <./images/latencia-con-rafagas.png> <./images/hld-sin-int.png>]
 \openout2 = `chapters/7.conclusiones.aux'.
 
  (chapters/7.conclusiones.tex
@@ -808,17 +819,17 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6000 strings out of 467871
- 112245 string characters out of 5413535
- 995385 words of memory out of 5000000
- 34739 multiletter control sequences out of 15000+600000
+ 6008 strings out of 467871
+ 112477 string characters out of 5413535
+ 996445 words of memory out of 5000000
+ 34747 multiletter control sequences out of 15000+600000
  635373 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,12n,79p,1236b,2012s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti1200.pk> <C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx6.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb>
-Output written on c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.pdf (118 pages, 11993333 bytes).
+Output written on c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.pdf (118 pages, 12059958 bytes).
 PDF statistics:
- 532 PDF objects out of 1000 (max. 8388607)
+ 534 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 226 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 231 words of extra memory for PDF output out of 10000 (max. 10000000)
 
