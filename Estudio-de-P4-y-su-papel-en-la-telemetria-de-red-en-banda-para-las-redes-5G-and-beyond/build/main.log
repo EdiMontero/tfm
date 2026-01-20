@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.13)  20 JAN 2026 17:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.13)  20 JAN 2026 18:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -727,12 +727,40 @@ File: images/s3-original.png Graphic file (type png)
 <use images/s3-original.png>
 Package pdftex.def Info: images/s3-original.png  used on input line 78.
 (pdftex.def)             Requested size: 390.0pt x 125.36493pt.
-) [109 <./images/s3-log.png>] [110 <./images/s3-clone.png> <./images/s3-original.png>]
+ [109 <./images/s3-log.png>]
+<images/gnb-session.png, id=436, 707.0415pt x 466.1415pt>
+File: images/gnb-session.png Graphic file (type png)
+<use images/gnb-session.png>
+Package pdftex.def Info: images/gnb-session.png  used on input line 89.
+(pdftex.def)             Requested size: 390.0pt x 257.11833pt.
+ [110 <./images/s3-clone.png> <./images/s3-original.png>]
+
+LaTeX Warning: Reference `fig:log_ue_gtpu' on page 111 undefined on input line 94.
+
+<images/gnb-session-tunnel.png, id=442, 708.84825pt x 355.3275pt>
+File: images/gnb-session-tunnel.png Graphic file (type png)
+<use images/gnb-session-tunnel.png>
+Package pdftex.def Info: images/gnb-session-tunnel.png  used on input line 97.
+(pdftex.def)             Requested size: 390.0pt x 195.49577pt.
+
+LaTeX Warning: Reference `fig:ping_internet' on page 111 undefined on input line 102.
+
+<images/gnb-session-tunnel-ping.png, id=443, 508.90125pt x 141.52875pt>
+File: images/gnb-session-tunnel-ping.png Graphic file (type png)
+<use images/gnb-session-tunnel-ping.png>
+Package pdftex.def Info: images/gnb-session-tunnel-ping.png  used on input line 105.
+(pdftex.def)             Requested size: 390.0pt x 108.46565pt.
+[111 <./images/gnb-session.png> <./images/gnb-session-tunnel.png>]
+File: images/gnb-session-tunnel-ping.png Graphic file (type png)
+<use images/gnb-session-tunnel-ping.png>
+Package pdftex.def Info: images/gnb-session-tunnel-ping.png  used on input line 112.
+(pdftex.def)             Requested size: 390.0pt x 108.46565pt.
+) [112 <./images/gnb-session-tunnel-ping.png>]
 \openout2 = `chapters/7.conclusiones.aux'.
 
  (chapters/7.conclusiones.tex
 Chapter 7.
-) [111
+) [113
 
 
 
@@ -742,12 +770,12 @@ Chapter 7.
 
  (chapters/apendices.tex
 Appendix A.
-) [112
+) [114
 
 
 
 
-] (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.bbl) [113
+] (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.bbl) [115
 
 
 
@@ -760,19 +788,22 @@ L3 programming layer <2025-11-06>
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 5942 strings out of 467871
- 110408 string characters out of 5413535
+ 5966 strings out of 467871
+ 111201 string characters out of 5413535
  994991 words of memory out of 5000000
- 34682 multiletter control sequences out of 15000+600000
+ 34706 multiletter control sequences out of 15000+600000
  634996 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,12n,79p,1236b,2012s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx6.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb>
-Output written on c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.pdf (114 pages, 10585952 bytes).
+Output written on c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.pdf (116 pages, 11673925 bytes).
 PDF statistics:
- 500 PDF objects out of 1000 (max. 8388607)
+ 513 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 191 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 206 words of extra memory for PDF output out of 10000 (max. 10000000)
 
