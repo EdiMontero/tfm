@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.13)  20 JAN 2026 18:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.13)  20 JAN 2026 18:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -152,7 +152,11 @@ Package: titlesec 2025/01/04 v2.17 Sectioning titles
 ) (C:\Users\edinson.montero\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count297
-) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.aux (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/1.dedicatory.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/2.acronyms.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/3.TableOfContents.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/4.TableOfFigures.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/5.TableOfTables.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/1.introduccion.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/2.redes_5g.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/3.telemetria.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/4.p4_fundamentos.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/5.entorno_desarrollo.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/6.resultados.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/7.conclusiones.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/apendices.aux))
+) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.aux (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/1.dedicatory.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/2.acronyms.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/3.TableOfContents.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/4.TableOfFigures.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\preface/5.TableOfTables.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/1.introduccion.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/2.redes_5g.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/3.telemetria.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/4.p4_fundamentos.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/5.entorno_desarrollo.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/6.resultados.aux
+
+LaTeX Warning: Label `fig:ping_internet' multiply defined.
+
+) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/7.conclusiones.aux) (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\chapters/apendices.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
@@ -734,23 +738,17 @@ File: images/gnb-session.png Graphic file (type png)
 Package pdftex.def Info: images/gnb-session.png  used on input line 89.
 (pdftex.def)             Requested size: 390.0pt x 257.11833pt.
  [110 <./images/s3-clone.png> <./images/s3-original.png>]
-
-LaTeX Warning: Reference `fig:log_ue_gtpu' on page 111 undefined on input line 94.
-
 <images/gnb-session-tunnel.png, id=442, 708.84825pt x 355.3275pt>
 File: images/gnb-session-tunnel.png Graphic file (type png)
 <use images/gnb-session-tunnel.png>
 Package pdftex.def Info: images/gnb-session-tunnel.png  used on input line 97.
 (pdftex.def)             Requested size: 390.0pt x 195.49577pt.
-
-LaTeX Warning: Reference `fig:ping_internet' on page 111 undefined on input line 102.
-
 <images/gnb-session-tunnel-ping.png, id=443, 508.90125pt x 141.52875pt>
 File: images/gnb-session-tunnel-ping.png Graphic file (type png)
 <use images/gnb-session-tunnel-ping.png>
 Package pdftex.def Info: images/gnb-session-tunnel-ping.png  used on input line 105.
 (pdftex.def)             Requested size: 390.0pt x 108.46565pt.
-[111 <./images/gnb-session.png> <./images/gnb-session-tunnel.png>]
+ [111 <./images/gnb-session.png> <./images/gnb-session-tunnel.png>]
 File: images/gnb-session-tunnel-ping.png Graphic file (type png)
 <use images/gnb-session-tunnel-ping.png>
 Package pdftex.def Info: images/gnb-session-tunnel-ping.png  used on input line 112.
@@ -789,19 +787,19 @@ L3 programming layer <2025-11-06>
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
  5966 strings out of 467871
  111201 string characters out of 5413535
- 994991 words of memory out of 5000000
+ 996217 words of memory out of 5000000
  34706 multiletter control sequences out of 15000+600000
  634996 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,12n,79p,1236b,2012s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx6.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb>
-Output written on c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.pdf (116 pages, 11673925 bytes).
+Output written on c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.pdf (116 pages, 11674057 bytes).
 PDF statistics:
  513 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
