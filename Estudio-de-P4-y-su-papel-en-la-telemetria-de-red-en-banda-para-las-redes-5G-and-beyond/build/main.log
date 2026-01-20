@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.13)  20 JAN 2026 18:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.12.13)  20 JAN 2026 20:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -754,12 +754,28 @@ File: images/ping-int.png Graphic file (type png)
 <use images/ping-int.png>
 Package pdftex.def Info: images/ping-int.png  used on input line 113.
 (pdftex.def)             Requested size: 390.0pt x 130.0824pt.
-) [112 <./images/gnb-session-tunnel-ping.png> <./images/ping-int.png>]
+<images/grafana-latencias.png, id=450, 702.82574pt x 230.66174pt>
+File: images/grafana-latencias.png Graphic file (type png)
+<use images/grafana-latencias.png>
+Package pdftex.def Info: images/grafana-latencias.png  used on input line 125.
+(pdftex.def)             Requested size: 390.0pt x 127.99413pt.
+ [112 <./images/gnb-session-tunnel-ping.png> <./images/ping-int.png>]
+<images/ocupacion-cola.png, id=456, 697.4055pt x 231.86626pt>
+File: images/ocupacion-cola.png Graphic file (type png)
+<use images/ocupacion-cola.png>
+Package pdftex.def Info: images/ocupacion-cola.png  used on input line 135.
+(pdftex.def)             Requested size: 390.0pt x 129.66731pt.
+<images/latencia-con-rafagas.png, id=457, 699.8145pt x 231.86626pt>
+File: images/latencia-con-rafagas.png Graphic file (type png)
+<use images/latencia-con-rafagas.png>
+Package pdftex.def Info: images/latencia-con-rafagas.png  used on input line 143.
+(pdftex.def)             Requested size: 390.0pt x 129.21445pt.
+ [113 <./images/grafana-latencias.png> <./images/ocupacion-cola.png>]) [114 <./images/latencia-con-rafagas.png>]
 \openout2 = `chapters/7.conclusiones.aux'.
 
  (chapters/7.conclusiones.tex
 Chapter 7.
-) [113
+) [115
 
 
 
@@ -769,12 +785,12 @@ Chapter 7.
 
  (chapters/apendices.tex
 Appendix A.
-) [114
+) [116
 
 
 
 
-] (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.bbl) [115
+] (c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.bbl) [117
 
 
 
@@ -792,17 +808,17 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5973 strings out of 467871
- 111386 string characters out of 5413535
- 995217 words of memory out of 5000000
- 34713 multiletter control sequences out of 15000+600000
- 634996 words of font info for 65 fonts, out of 8000000 for 9000
+ 6000 strings out of 467871
+ 112245 string characters out of 5413535
+ 995385 words of memory out of 5000000
+ 34739 multiletter control sequences out of 15000+600000
+ 635373 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,12n,79p,1236b,2012s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx6.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb>
-Output written on c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.pdf (116 pages, 11719550 bytes).
+ <C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti1200.pk> <C:\Users\edinson.montero\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx6.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/edinson.montero/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/latxfont/lcircle1.pfb>
+Output written on c:\TFM\github\tfm\Estudio-de-P4-y-su-papel-en-la-telemetria-de-red-en-banda-para-las-redes-5G-and-beyond\build\main.pdf (118 pages, 11993214 bytes).
 PDF statistics:
- 515 PDF objects out of 1000 (max. 8388607)
+ 532 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 211 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 226 words of extra memory for PDF output out of 10000 (max. 10000000)
 

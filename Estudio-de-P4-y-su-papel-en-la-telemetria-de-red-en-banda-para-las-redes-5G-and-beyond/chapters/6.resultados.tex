@@ -115,7 +115,37 @@ En la próxima imagen se puede observar una captura de paquetes sobre el ping re
     \label{fig:ping_internet_int}
 \end{figure}
 
-
-\subsection{Recepción de metadatos en el servidor}
-
 \section{Presentación de resultados}
+Como se habia indicado anteriormente, los datos de telemetría recolectados por el servidor INT-Sink son almacenados en una base de datos InfluxDB, la cual es consultada por Grafana para la visualización de los datos.
+\subsection{Latencia}
+En la siguiente imagen, se muestran dos graficas de latencias, la latencia punto a punto (P2P) y la Latencia por salto (per hop latency).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/grafana-latencias.png}
+    \caption{Gráfica de latencias en Grafana}
+    \label{fig:grafana_latencias}
+\end{figure}
+De acuerdo con el histórico de latencias, se puede observar que la latencia P2P se encuentra alrededor de los \textbf{2 ms}, mientras que la latencia por salto se encuentra alrededor de los \textbf{0.5 ms} por salto.
+
+\subsection{Ocupación de la Cola y congestión}
+para poder lograr que la ocupacion de la cola aumente, se tuvo que incrementar la cantiddad de paquetes ICMP enviados por el UE, de esta forma: \textit{\textasciiacute{ping -I uesimtun0 -i 0.0001 -c 10000 10.50.50.1}}, indicando que se envíe un paquete cada 0.1 ms y un total de 10,000 paquetes.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/ocupacion-cola.png}
+    \caption{Gráfica de ocupación de la cola en Grafana}
+    \label{fig:grafana_queue_occupancy}
+\end{figure}
+En la gráfica de ocupación de la cola, se puede observar que la ocupación máxima de la cola llega hasta un  \textbf{5\%}, por lo que no se llega a presentar congestión en la red.
+Al enviar mas paquetes en menor tiempo, se puede observar un leve aumento en las latencias, como se observa en la figura \ref{fig:grafana_latencias_congestion}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/latencia-con-rafagas.png}
+    \caption{Gráfica de latencias en Grafana con mayor tráfico}
+    \label{fig:grafana_latencias_congestion}
+\end{figure}
+ Al incrementar la cantidad de paquetes enviados, la latencia P2P aumenta hasta los \textbf{12 ms}, mientras que la latencia por salto aumenta hasta los \textbf{6 ms} por salto.
+
+\subsubsection{Comparación de latencia en N3}
+En esta seccion 
+
