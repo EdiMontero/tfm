@@ -30,21 +30,29 @@ como se puede observar en la figura \ref{fig:captura_ngap_sin_int}, el paquete N
 \end{figure}
 Como se puede observar en la figura \ref{fig:log_s1_n2-2}, el switch INT-Source identifica el trafico NGAP y procede a insertar los metadatos INT-MD en los paquetes NGAP para posteriormente enviarlos al switch de transito (INT-Transit).
 \subsubsection{Tráfico de INT-Source a INT-Transit}
-En la siguiente imagen se puede apreciar una captura de paquetes del trafico NGAP con metadatos INT-MD desde el switch INT-Source hacia el switch INT-Transit. El traffico INT es interpretado por wireshark como LLC (Logical Link Control) debido a que wireshark no tiene soporte nativo para interpretar los metadatos INT-MD.
+En la siguiente imagen se puede apreciar una captura de paquetes del trafico NGAP con metadatos INT-MD desde el switch INT-Source hacia el switch INT-Transit. 
+El paquete que se detalla es un NGSetupRequest con la inserción de los metadatos INT-MD. Al tener la cabecera INT, el wireshark lo interpreta como LLC (Logical Link Control).
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{images/Captura-n2-int-md.png}
+    \includegraphics[width=1.0\textwidth]{images/s1-s2-details.png}
     \caption{Captura de paquete NGAP con metadatos INT-MD}
     \label{fig:captura_ngap_con_int}
 \end{figure}
-Como se puede observar en la figura \ref{fig:captura_ngap_con_int}, el paquete NGAP contiene los metadatos INT-MD insertados por el switch INT-Source.
 
 \subsubsection{Tráfico desde INT-Transit a INT-Sink}
-En la siguiente captura de paquetes se puede observar la inssercion de los metadatos INT-MD y el envío hacia el switch INT-Sink.
+Al recibir el paquete del switch INT-Source, el INT-Transit agrega sus propios parametros en otra posicion de la cabecera INT, como se puede observar en la figura \ref{fig:log_s2_n2}.
+\begin{figure}[H]  
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/s2-log.png}
+    \caption{Log del Switch INT-Transit}
+    \label{fig:log_s2_n2}
+\end{figure}
+
+Una vez que el switch INT-Transit procesa el paquete, lo envia al switch INT-Sink. En la siguiente captura se resaltan los metadatos insertados por el switch INT-Source y el switch INT-Transit.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.3\textwidth]{images/s2-s3.png}
-    \caption{Captura de paquete NGAP con metadatos INT-MD en INT-Sink}
+    \caption{Captura de paquetes INT enviado a INT-Sink}
     \label{fig:captura_ngap_int_sink}
 \end{figure}
 Como se puede observar en la figura \ref{fig:captura_ngap_int_sink},
