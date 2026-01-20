@@ -38,6 +38,6 @@
 \contentsline {figure}{\numberline {6.3}{\ignorespaces Log del Switch INT-Source insertando metadatos INT-MD en paquetes NGAP}}{105}{}%
 \contentsline {figure}{\numberline {6.4}{\ignorespaces Captura de paquete NGAP con metadatos INT-MD}}{106}{}%
 \contentsline {figure}{\numberline {6.5}{\ignorespaces Log del Switch INT-Transit}}{107}{}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Captura de paquete NGAP con metadatos INT-MD en INT-Sink}}{108}{}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Captura de paquetes INT enviado a INT-Sink}}{108}{}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
