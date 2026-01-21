@@ -147,7 +147,7 @@ Al enviar mas paquetes en menor tiempo, se puede observar un leve aumento en las
  Al incrementar la cantidad de paquetes enviados, la latencia P2P aumenta hasta los \textbf{12 ms}, mientras que la latencia por salto aumenta hasta los \textbf{6 ms} por salto.
 
 \subsubsection{Comparación de latencia en N3}
-En esta sección se presenta una comparación de latencias en la interface N3 (GTP-U) con y sin telemetría INT-MD. Para esto, se agregaron nuevos routers en paralelo, los cuales intercambian las redes \textit{\textasciiacute{172.18.0/24}} y \textit{\textasciiacute{172.18.10.0/29}} mediante OSPF.
+En esta sección se presenta una comparación de latencias en la interface N3 (GTP-U) con y sin telemetría INT-MD. Para esto, se agregaron nuevos routers en paralelo (R3-R4-R5), los cuales intercambian las redes \textbf{172.18.0/24} y \textbf{172.18.10.0/29} mediante OSPF.
 a continuación se puede observar el diagrama de la red con los nuevos routers.
 \begin{figure}[H]
     \centering
@@ -156,3 +156,11 @@ a continuación se puede observar el diagrama de la red con los nuevos routers.
     \label{fig:diagrama_red_comparacion}
 \end{figure}
 
+A continuación se muestra una captura que contiene una serie de pings realizados desde el UE hacia internet y al lado, una captura de pantalla de los paquetes ICMP Echo Request capturados en la interfaz entre R1 y R3, sin telemetría INT-MD.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/ping-sin-int.png}
+    \caption{Captura de paquetes ICMP sin telemetría INT-MD}
+    \label{fig:ping_sin_int}    
+\end{figure}
+Como se puede observar en la figura \ref{fig:ping_sin_int}, no existe una diferencia significativa en las latencias cuando el trafico esta pasando por los Switches INT y cuando es enviado a través de los los nuevos routers (R3-R4-R5) sin telemetría INT-MD.

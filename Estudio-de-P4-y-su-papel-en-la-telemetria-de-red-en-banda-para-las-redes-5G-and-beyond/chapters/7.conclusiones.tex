@@ -1,10 +1,102 @@
 \chapter{Conclusiones y Trabajo Futuro}
-
 \section{Conclusiones principales}
+
+AL desarrollar este TFM se ha demostrado el funcionamiento de INT-MD mediante P4, implementado en un entorno virtualizado de componentes de 5G SA. dichos componentes permiten la emulacion de una red 5G completa, con todos los protocolos y funciones claves en un entorno real.
+Al implementar la telemetría en banda (INT-MD) en las interfaces N2 y N3 del core 5G, se ha validado que es posible obtener métricas detalladas de rendimiento de la red en tiempo real, sin afectar significativamente la latencia o el rendimiento general de la red, y mas importante, sin afectar la percepción del usuario final con respecto a la calidad del servicio.
+
+Los resultados obtenidos indican que:
+\begin{itemize}
+    \item La latencia punto a punto (P2P) en condiciones normales de tráfico se mantiene alrededor de 2 ms, cumpliendo con los requisitos estrictos de latencia necesarios para servicios URLLC en redes 5G.
+    \item La latencia por salto se encuentra aproximadamente en 0.5 ms, permitiendo una trazabilidad precisa del comportamiento de cada nodo en la red de transporte.
+    \item Incluso bajo condiciones de mayor carga (10,000 paquetes ICMP con intervalos de 0.1 ms), la latencia P2P aumenta hasta 12 ms y la latencia por salto hasta 6 ms, manteniéndose dentro de rangos aceptables para la mayoría de los casos de uso 5G.
+    \item La ocupación máxima de las colas alcanza apenas un 5\%, indicando que la inserción de metadatos INT no genera congestión en la red.
+    \item No se pudo estresar la red lo suficiente como para generar congestión en la red.
+    \item No se observan diferencias significativas en latencia entre el tráfico que atraviesa switches programables P4 con INT y el tráfico que circula por routers tradicionales sin telemetría, validando que la sobrecarga introducida por INT es mínima.
+\end{itemize}
+
+La arquitectura implementada, basada en switches INT-Source, INT-Transit e INT-Sink, ha demostrado ser robusta y escalable. 
+El uso de switches BMv2 programados en P4 permite la inserción hop-by-hop de metadatos esenciales en la red, que deben ser cuidadosamente supervisados para garantizar la calidad del servicio (QoS) y la experiencia del usuario (QoE) en aplicaciones críticas como realidad aumentada, vehículos autónomos y telemedicina.
+Desde el punto de vista técnico, la implementación de parsers personalizados para SCTP y GTP-U en P4 ha sido un desafío superado con éxito, permitiendo el procesamiento adecuado de los protocolos específicos de 5G.
+
+En síntesis, este trabajo confirma la hipótesis inicial: la implementación de telemetría en banda utilizando P4 mejora significativamente la visibilidad y el monitoreo de las redes 5G y beyond, proporcionando datos precisos en tiempo real con un impacto mínimo en el rendimiento de la red. 
 \section{Contribuciones del trabajo}
+
+Las principales contribuciones de este trabajo de fin de máster son las siguientes:
+\begin{enumerate}
+    \item \textbf{Diseño e implementación de INT-MD para tráfico 5G}: Se ha desarrollado un prototipo funcional de telemetría en banda específicamente adaptado para las interfaces N2 (SCTP) y N3 (GTP-U) del core 5G SA. 
+
+    \item \textbf{Programas P4 especializados para INT en 5G}: Se han diseñado y validado tres programas P4 diferenciados (int-source.p4, int-transit.p4 e int-sink.p4) que implementan cada rol de la arquitectura INT. Estos programas incluyen parsers personalizados para SCTP y GTP-U, así como lógica específica para la inserción, actualización y extracción de metadatos INT-MD.
+    
+    \item \textbf{Integración de INT con core 5G SA open source}: Se ha logrado una integración exitosa entre switches P4 programables (BMv2) y un core 5G completo basado en free5gc, demostrando la compatibilidad de INT con implementaciones open source de 5G. Esta integración incluye la correcta interacción con UERANSIM para la generación de tráfico realista de UEs.
+    
+    \item \textbf{Entorno de desarrollo virtualizado completo}: Se ha diseñado y documentado una arquitectura de laboratorio basada en GNS3, VMware Workstation y Docker que permite replicar un entorno 5G SA funcional con capacidades INT. Esta contribución facilita futuras investigaciones y experimentaciones sin necesidad de hardware especializado.
+    
+    \item \textbf{Sistema de visualización en tiempo real}: Se ha implementado un pipeline completo de telemetría que abarca desde la captura de metadatos INT hasta su almacenamiento en InfluxDB y visualización en Grafana, proporcionando dashboards específicos para latencia P2P, latencia por salto y ocupación de colas.
+    
+    \item \textbf{Análisis comparativo de rendimiento}: Se ha realizado una evaluación cuantitativa del impacto de INT en las latencias de red, comparando escenarios con y sin telemetría en banda. Los resultados demuestran empíricamente que la sobrecarga introducida por INT muy mínima.
+    
+    \item \textbf{Metodología de trabajo replicable}: Se ha documentado detalladamente el proceso de diseño, implementación y validación, incluyendo configuraciones de red, archivos Docker Compose y parámetros de los switches P4. Esta metodología puede ser adaptada para investigaciones futuras en telemetría de redes móviles.
+\end{enumerate}
+
 \section{Limitaciones del estudio}
+
+A pesar de los resultados positivos obtenidos, es importante reconocer las limitaciones del presente estudio:
+
+\begin{enumerate}
+    \item \textbf{Entorno emulado vs. producción real}: Todo el trabajo se ha realizado en un entorno virtualizado, utilizando emuladores y simuladores (GNS3, VMware, Docker). Aunque se han replicado fielmente los protocolos y funciones de un core 5G SA, no se ha validado la solución en hardware real ni en una red de producción con tráfico real de usuarios. Las condiciones de red en entornos reales pueden diferir significativamente.
+    
+    \item \textbf{Escala reducida del testbed}: La topología implementada consta unicamente con 3 switches BMv2 en la capa de transporte, lo cual difiere de la red de transporte de un operador real, la cual posee multiples nodos con protocolos de enrutamiento de transporte como MPLS o Segment Routing. No se ha evaluado el comportamiento de INT en redes de mayor escala con múltiples saltos y rutas dinámicas. 
+    
+    \item \textbf{Tráfico sintético limitado}: Las pruebas se han realizado principalmente con tráfico ICMP generado artificialmente desde UERANSIM. No se han evaluado casos de uso reales con tráfico heterogéneo (vídeo streaming, VoIP, IoT masivo) ni se ha analizado el comportamiento de INT bajo patrones de tráfico complejos.
+    
+    \item \textbf{Ausencia de análisis de seguridad}: No se ha abordado en profundidad la problemática de seguridad asociada a INT. Los metadatos de telemetría podrían ser manipulados por atacantes o revelar información sensible sobre la topología y el estado de la red.
+    
+    \item \textbf{Falta de evaluación de escalabilidad}: No se ha evaluado el comportamiento de INT cuando el trafico esta siendo balanceado entre multiples rutas o cuando existen fallos en la red que requieran reruteo dinámico.
+    
+    \item \textbf{Compatibilidad con estándares}: Aunque se basa en conceptos de INT-MD definidos por el P4 Applications Working Group, la implementación no ha sido validada contra especificaciones formales de estandarización (3GPP, IETF) ni se ha probado la interoperabilidad con implementaciones INT de otros vendors.
+    
+    \item \textbf{Análisis económico ausente}: No se ha realizado un estudio de viabilidad económica que compare los costos de despliegue de INT (hardware P4, capacitación, integración) frente a soluciones tradicionales o comerciales de telemetría de red.
+\end{enumerate}
+
+Estas limitaciones no invalidan los resultados obtenidos, pero sí establecen el contexto y alcance de las conclusiones pero si ayuda para futuras lineas de investigación.
+
 \section{Líneas futuras de investigación}
+
+Los resultados y las limitaciones identificadas en este trabajo abren múltiples oportunidades para investigaciones futuras en el ámbito de la telemetría programable para redes móviles de nueva generación:
+
 \subsection{INT en 6G}
+
+Las redes 6G, cuyo despliegue se proyecta para la década de 2030, plantearán requisitos aún más estrictos que 5G en términos de latencia (sub-milisegundo), fiabilidad (99.9999\%), throughput (Tbps) y densidad de conexiones. La telemetría en banda jugará un papel crucial en la gestión de estas redes ultra-complejas. Líneas de investigación relevantes incluyen:
+
+\begin{itemize}
+    \item INT para comunicaciones THz
+    \item Telemetría para arquitecturas disaggregadas
+    \item INT en redes satelitales y no-terrestres
+    \item Quantum-safe INT
+    \item Telemetría holográfica
+\end{itemize}
+
 \subsection{UPF programable con P4}
+Como se definió en el capítulo 2, el UPF es un componente clave en la arquitectura 5G SA, responsable del encaminamiento y transporte de datos de usuario. La implementación de un UPF completamente programable utilizando P4 permitiría una flexibilidad sin precedentes en la gestión del plano de usuario. Líneas de investigación incluyen:
+
+\begin{itemize}
+    \item UPF completamente programable
+    \item Telemetría INT integrada en UPF-P4
+    \item Aceleración hardware
+    \item UPF multi-tenant con P4Runtime
+    \end{itemize}
+
 \subsection{IA para análisis de telemetría}
+
+El volumen de datos generados por INT en una red 5G de producción puede alcanzar terabytes por día. El análisis manual de estos datos es inviable, por lo que la inteligencia artificial y el machine learning son esenciales:
+
+\begin{itemize}
+    \item Detección de anomalías mediante ML
+    \item Predicción de congestión y fallos
+    \item Optimización de QoS con reinforcement learning
+    \item Root cause analysis automatizado
+    \item Sampling adaptativo con IA
+  \end{itemize}
+
+Estas líneas futuras de investigación no solo extienden el trabajo realizado, sino que también conectan la telemetría en banda con las tendencias emergentes en redes móviles, computación programable e inteligencia artificial, posicionando a P4 como un habilitador clave para las redes del futuro.
 

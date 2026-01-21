@@ -2,24 +2,67 @@
 En 5GC, la telemetria juega un papel crucial en la monitorización y gestión del rendimiento de la red, especialmente en el contexto de las demandas crecientes de servicios como URLLC (Ultra-Reliable Low-Latency Communications), eMBB (enhanced Mobile Broadband) y mMTC (massive Machine Type Communications). La telemetría en banda (In-Band Network Telemetry, INT) permite la recopilación de datos en tiempo real directamente desde los paquetes que atraviesan la red, proporcionando una visibilidad detallada del estado de la red y facilitando la detección y resolución de problemas.
 
 \section{Desafíos de Telemetría en Redes 5G}
-\subsection{Limitaciones de mecanismos tradicionales (SNMP, NetFlow, sFlow)}
 \subsection{Requisitos de visibilidad en URLLC, eMBB y mMTC}
-
+En 5G, los diferentes casos de uso presentan requisitos específicos de visibilidad y monitorización:
+\begin{itemize}
+    \item \textbf{URLLC}: Requiere latencias extremadamente bajas y alta fiabilidad. La telemetría debe proporcionar métricas en tiempo real sobre la latencia, jitter y pérdida de paquetes para garantizar el cumplimiento de los estrictos SLA.
+    \item \textbf{eMBB}: Enfocado en altas tasas de transferencia de datos, la telemetría debe monitorizar el throughput, la congestión de la red y la calidad de experiencia (QoE) del usuario final.
+    \item \textbf{mMTC}: Con millones de dispositivos conectados, la telemetría debe ser escalable y eficiente, proporcionando información sobre la densidad de conexiones, consumo de energía y patrones de tráfico.
+    \item \textbf{Desafíos comunes}: La diversidad de dispositivos y aplicaciones, la movilidad de los usuarios y la complejidad de la arquitectura 5G plantean desafíos significativos para la implementación efectiva de la telemetría.
+    \item \textbf{Requisitos de baja latencia}: La telemetría debe ser capaz de operar con latencias mínimas para no afectar el rendimiento de los servicios críticos.
+    \item \textbf{Escalabilidad}: La solución de telemetría debe ser escalable para manejar el gran volumen de datos generado por las redes 5G.
+\end{itemize}
 \section{In-Band Network Telemetry (INT)}
 \subsection{Concepto y motivación}
-\subsection{Arquitectura INT: source, transit y sink}
+La telemetría en banda (INT) es una técnica que permite la inserción de metadatos de telemetría directamente en los paquetes de datos que atraviesan la red. Esto proporciona una visibilidad detallada y en tiempo real del estado de la red, permitiendo a los operadores monitorizar el rendimiento, detectar anomalías y optimizar la gestión del tráfico.
+\section{Arquitectura y componentes de INT}
+En INT se utilizan tres componentes principales:
+\begin{itemize}
+    \item \textbf{Source (Fuente)}: El nodo que inserta los metadatos de telemetría en los paquetes. En 5G, esto podría ser un gNB o un UPF.
+    \item \textbf{Transit (Tránsito)}: Nodos intermedios que pueden actualizar o añadir información adicional a los metadatos INT mientras los paquetes atraviesan la red.
+    \item \textbf{Sink (Sumidero)}: El nodo que recibe los paquetes con metadatos INT y extrae la información para su análisis y procesamiento.
+\end{itemize}
 \subsection{Metadatos INT-MD y su estructura}
+Los metadatos INT-MD incluyen información clave como:
+\begin{itemize}
+    \item Identificador del flujo
+    \item Marca de tiempo
+    \item Latencia entre nodos
+    \item Estado de la cola
+    \item Información de ruta
+\end{itemize}
+
 \subsection{INT vs telemetría out-of-band}
-%\section{Telemetría aplicada en 5G}
-%\subsection{Relevancia de INT en el plano de control N2}
-%\subsection{Relevancia de INT en el plano de usuario N3}
-%\subsection{Métricas clave para tráfico GTP-U}
-%\subsection{Desafíos y limitaciones en redes móviles}
-%--- QoS en 5G ---
+La telemetría en banda (INT) ofrece varias ventajas sobre la telemetría fuera de banda (out-of-band):
+\begin{itemize}
+    \item \textbf{Visibilidad en tiempo real}: Al estar integrada en los paquetes de datos, INT proporciona información inmediata sobre el estado de la red.
+    \item \textbf{Menor sobrecarga}: No requiere canales de comunicación adicionales para la recopilación de datos, reduciendo la complejidad y el coste.
+    \item \textbf{Mayor precisión}: Permite una monitorización más precisa del rendimiento de la red al capturar datos directamente en el flujo de tráfico.
+    \item \textbf{Desafíos de implementación}: Requiere soporte en los dispositivos de red y puede introducir cierta sobrecarga en los paquetes debido a los metadatos adicionales.
+    \item \textbf{Impacto en el rendimiento}: La inserción de metadatos puede afectar el tamaño de los paquetes y, por ende, el rendimiento de la red si no se gestiona adecuadamente.
+\end{itemize}
+
 \section{Calidad de Servicio en 5G}
+La Calidad de Servicio (QoS) en 5G es fundamental para garantizar que los diferentes tipos de tráfico reciban el tratamiento adecuado según sus requisitos específicos. La arquitectura 5G introduce mecanismos avanzados para la gestión de QoS, permitiendo una asignación dinámica de recursos y una priorización eficiente del tráfico.
+
 \section{QoS basado en 5G Flujo}
 \subsection{Definición de flujo en 5G}
+En 5G, un flujo se define como una secuencia de paquetes que comparten características comunes, como la dirección IP de origen y destino, los puertos de origen y destino, y el protocolo de transporte. Cada flujo puede tener requisitos específicos de QoS que deben ser gestionados por la red para garantizar un rendimiento óptimo.
+
 \subsection{Identificación y clasificación de flujos}
+La identificación y clasificación de flujos en 5G se realiza mediante el uso de identificadores de flujo QoS (QoS Flow Identifiers, QFIs). Estos identificadores permiten a la red distinguir entre diferentes tipos de tráfico y aplicar las políticas de QoS correspondientes. Los flujos pueden clasificarse en varias categorías, como:
+\begin{itemize}
+    \item Flujos de alta prioridad (por ejemplo, URLLC)
+    \item Flujos de banda ancha (por ejemplo, eMBB)
+    \item Flujos de baja prioridad (por ejemplo, mMTC)
+    \item Flujos de control y señalización
+\end{itemize}
 \subsection{Mecanismos de gestión de QoS por flujo}
-\section{Señalización de QoS en 5G}
-\section{Caracteristicas de QoS en 5G}
+La gestión de QoS por flujo en 5G se basa en varios mecanismos clave:
+\begin{itemize}
+    \item \textbf{Asignación dinámica de recursos}: La red puede asignar recursos de manera dinámica según las necesidades de cada flujo, garantizando que los flujos críticos reciban la prioridad adecuada.
+    \item \textbf{Políticas de enrutamiento}: Los flujos pueden ser enrutados a través de diferentes caminos en la red según sus requisitos de QoS, optimizando el rendimiento y la eficiencia.
+    \item \textbf{Monitoreo y ajuste en tiempo real}: La telemetría en banda (INT) permite un monitoreo continuo del rendimiento de los flujos, facilitando ajustes en tiempo real para mantener los niveles de QoS deseados.
+    \item \textbf{Mecanismos de control de congestión}: Implementación de técnicas para gestionar la congestión en la red, asegurando que los flujos prioritarios no se vean afectados por el tráfico menos crítico.
+    \item \textbf{SLA y políticas de usuario}: Definición de acuerdos de nivel de servicio (SLA) específicos para diferentes tipos de flujos, permitiendo una gestión personalizada de la QoS según las necesidades del usuario o aplicación.
+\end{itemize}

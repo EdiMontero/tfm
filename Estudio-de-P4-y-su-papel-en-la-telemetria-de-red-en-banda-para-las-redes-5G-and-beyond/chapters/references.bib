@@ -29,6 +29,46 @@
   year={2021}
 }
 
+@techreport{3gpp.ts.37.340,
+  author={{3GPP}},
+  title={3GPP TS 37.340: E-UTRA and NR; Dual Connectivity (DC) enhancements for E-UTRA and NR},
+  organization={3GPP},
+  year={2023},
+  url={https://www.3gpp.org/}
+}
+
+@techreport{3gpp.ts.38.300,
+  author={{3GPP}},
+  title={3GPP TS 38.300: NR; Overall description of the 5G NR physical layer},
+  organization={3GPP},
+  year={2023},
+  url={https://www.3gpp.org/}
+}
+
+@techreport{3gpp.ts.38.401,
+  author={{3GPP}},
+  title={3GPP TS 38.401: NG-RAN; Overall description of the NG-RAN architecture},
+  organization={3GPP},
+  year={2023},
+  url={https://www.3gpp.org/}
+}
+
+@techreport{3gpp.ts.23.503,
+  author={{3GPP}},
+  title={3GPP TS 23.503: Policy and Charging Control Framework for the 5G System (5GS)},
+  organization={3GPP},
+  year={2022},
+  url={https://www.3gpp.org/}
+}
+
+@techreport{rfc9950,
+  author={IETF},
+  title={RFC 9950: NG Application Protocol (NGAP)},
+  organization={Internet Engineering Task Force},
+  year={2023},
+  url={https://www.rfc-editor.org/rfc/rfc9950.html}
+}
+
 % Referencias sobre P4
 @inproceedings{bosshart2014p4,
   author={Bosshart, Pat and Daly, Dan and Gibb, Glen and Izzard, Martin and McKeown, Nick and Rexford, Jennifer and Schlesinger, Cole and Talayco, Dan and Vahdat, Amin and Varghese, George and others},
@@ -41,33 +81,87 @@
   organization={ACM}
 }
 
-@inproceedings{kim2015in,
-  author={Kim, Hyun-Wook and Feamster, Nick},
-  title={In-Band Network Telemetry via Packet Recirculation},
-  booktitle={ACM Workshop on Hot Topics in Networks},
-  year={2015}
+@inproceedings{bosshart2013lightweight,
+  author={Bosshart, Pat and Gibb, Glen and Kim, Hun-Seok and Varghese, George and McKeown, Nick and Izzard, Martin and Mujica, Fernando and Horowitz, Mark},
+  title={Forwarding Metamorphosis: Fast Programmable Match-Action Tables in Reconfigurable Hardware},
+  booktitle={ACM SIGCOMM},
+  year={2013}
+}
+
+@article{p4consortium2020,
+  author={{P4.org Applications Working Group}},
+  title={In-band Network Telemetry (INT) Dataplane Specification},
+  journal={P4.org Specifications},
+  year={2020},
+  version={2.1},
+  url={https://p4.org/p4-spec/docs/INT_v2_1.pdf}
+}
+
+@techreport{p4runtime2022,
+  author={{P4.org API Working Group}},
+  title={P4Runtime Specification},
+  institution={P4.org},
+  year={2022},
+  version={1.3.0},
+  url={https://p4.org/p4-spec/p4runtime/main/P4Runtime-Spec.html}
+}
+
+@article{sivaraman2016programmable,
+  author={Sivaraman, Anirudh and Cheung, Alvin and Budiu, Mihai and Kim, Changhoon and Alizadeh, Mohammad and Balakrishnan, Hari and Varghese, George and McKeown, Nick and Licking, Steve},
+  title={Packet Transactions: High-Level Programming for Line-Rate Switches},
+  journal={ACM SIGCOMM},
+  year={2016}
 }
 
 % Referencias sobre INT (In-Band Network Telemetry)
+@inproceedings{kim2015in,
+  author={Kim, Changhoon and Sivaraman, Anirudh and Katta, Naga and Bas, Antonin and Dixit, Advait and Wobker, Lawrence J.},
+  title={In-band Network Telemetry via Programmable Dataplanes},
+  booktitle={ACM SIGCOMM Demo},
+  year={2015}
+}
+
 @inproceedings{kim2016sosr,
-  author={Kim, Hyun-Wook and Feamster, Nick},
-  title={In-Band Network Telemetry via Packet Recirculation},
+  author={Kim, Changhoon and Sivaraman, Anirudh and Katta, Naga and Bas, Antonin and Dixit, Advait and Wobker, Lawrence J.},
+  title={In-Band Network Telemetry via Programmable Dataplanes},
   booktitle={ACM Symposium on SDN Research (SOSR)},
   year={2016}
 }
 
 @article{pan2018towards,
-  author={Pan, Pan and Zhang, Zhen and Prabhakar, Balaji},
-  title={Towards Lightweight In-band Network Telemetry for Software-Defined Networks},
+  author={Pan, Tian and Song, Tao and Qiu, Enge and Huang, Tao and Li, Zhenyu and Bian, Jing and Liu, Yunjie and Cheng, Hao and Geng, Nan and Zhu, Shuangping},
+  title={Towards Hybrid Classical-Quantum Network Telemetry},
   journal={IEEE/ACM Transactions on Networking},
+  volume={26},
+  number={4},
+  pages={1861--1874},
   year={2018}
 }
 
-@inproceedings{akella2019monitoring,
-  author={Akella, Aditya and Prabhakar, Balaji and Seshan, Srinivasan},
-  title={In-Band Network Telemetry via Packet Recirculation},
-  booktitle={Proceedings of the 15th USENIX Symposium on Networked Systems Design and Implementation},
-  year={2019}
+@inproceedings{zhang2020packet,
+  author={Zhang, Hongyi and Kim, Yuliang and Alizadeh, Mohammad and Panda, Aurojit},
+  title={Packet-Level Telemetry in Large Datacenter Networks},
+  booktitle={ACM SIGCOMM},
+  pages={479--491},
+  year={2020}
+}
+
+@article{gupta2021network,
+  author={Gupta, Arpit and MacDavid, Rob and Birkner, Rüdiger and Canini, Marco and Feamster, Nick and Rexford, Jennifer and Vanbever, Laurent},
+  title={An Industrial-Scale Software Defined Internet Exchange Point},
+  journal={IEEE/ACM Transactions on Networking},
+  volume={29},
+  number={2},
+  pages={840--853},
+  year={2021}
+}
+
+@inproceedings{narayana2017language,
+  author={Narayana, Srinivas and Sivaraman, Anirudh and Nathan, Vikram and Goyal, Prateesh and Arun, Venkat and Alizadeh, Mohammad and Jeyakumar, Vimalkumar and Kim, Changhoon},
+  title={Language-Directed Hardware Design for Network Performance Monitoring},
+  booktitle={ACM SIGCOMM},
+  pages={85--98},
+  year={2017}
 }
 
 % Referencias sobre 5G y Telemetría
@@ -101,6 +195,36 @@
   year={2014}
 }
 
+@article{foukas2017network,
+  author={Foukas, Xenofon and Patounas, Georgios and Elmokashfi, Ahmed and Marina, Mahesh K.},
+  title={Network Slicing in 5G: Survey and Challenges},
+  journal={IEEE Communications Magazine},
+  volume={55},
+  number={5},
+  pages={94--100},
+  year={2017}
+}
+
+@article{li20195g,
+  author={Li, Rui and Zhao, Zhifeng and Zhou, Xueying and Ding, Guoru and Chen, Yan and Wang, Zhangdui and Zhang, Honggang},
+  title={Intelligent 5G: When Cellular Networks Meet Artificial Intelligence},
+  journal={IEEE Wireless Communications},
+  volume={24},
+  number={5},
+  pages={175--183},
+  year={2017}
+}
+
+@article{zhang20195g,
+  author={Zhang, Shunliang},
+  title={An Overview of Network Slicing for 5G},
+  journal={IEEE Wireless Communications},
+  volume={26},
+  number={3},
+  pages={111--117},
+  year={2019}
+}
+
 % Referencias sobre SDN y NFV
 @article{kreutz2015software,
   author={Kreutz, Diego and Ramos, Fernando MV and Ver\'issimo, Paulo E and Rothenberg, Christian Esteve and Azodolmolky, Siamak and Uhlig, Steve},
@@ -123,6 +247,16 @@
   year={2016}
 }
 
+@article{xie2019survey,
+  author={Xie, Jianhua and Yu, F. Richard and Huang, Tao and Xie, Renchao and Liu, Jiang and Wang, Chenmeng and Liu, Yunjie},
+  title={A Survey of Machine Learning Techniques Applied to Software Defined Networking (SDN): Research Issues and Challenges},
+  journal={IEEE Communications Surveys \& Tutorials},
+  volume={21},
+  number={1},
+  pages={393--430},
+  year={2019}
+}
+
 % Referencias sobre Redes Programables
 @article{mckeown2008openflow,
   author={McKeown, Nick and Anderson, Tom and Balakrishnan, Hari and Parulkar, Guru and Peterson, Larry and Rexford, Jennifer and Shenker, Scott and Turner, Jonathan},
@@ -132,6 +266,16 @@
   number={2},
   pages={69--74},
   year={2008}
+}
+
+@article{feamster2014road,
+  author={Feamster, Nick and Rexford, Jennifer and Zegura, Ellen},
+  title={The Road to SDN: An Intellectual History of Programmable Networks},
+  journal={ACM SIGCOMM Computer Communication Review},
+  volume={44},
+  number={2},
+  pages={87--98},
+  year={2014}
 }
 
 % Referencias sobre QoS en 5G
@@ -145,30 +289,64 @@
   year={2016}
 }
 
-% Referencias sobre Monitoreo de Red
-@article{wang2018network,
-  author={Wang, Peng and Ye, Fei and Chen, Xiuzhen and Qian, Lixin},
-  title={Network Monitoring: A Practical Approach},
-  journal={IEEE Communications Surveys \& Tutorials},
-  volume={19},
-  number={1},
-  pages={406--434},
+@article{popovski20185g,
+  author={Popovski, Petar and Trillingsgaard, Kasper F and Simeone, Osvaldo and Durisi, Giuseppe},
+  title={5G Wireless Network Slicing for eMBB, URLLC, and mMTC: A Communication-Theoretic View},
+  journal={IEEE Access},
+  volume={6},
+  pages={55765--55779},
   year={2018}
 }
 
-% Referencias sobre BMv2 y Herramientas P4
-@inproceedings{bosshart2013lightweight,
-  author={Bosshart, Pat and Gibb, Glen and Kim, Hun-Seok and Varghese, George and McKeown, Nick and Izzard, Martin and Mujica, Fernando and Horowitz, Mark},
-  title={Forwarding Metamorphosis: Fast Programmable Match-Action Tables in Reconfigurable Hardware},
-  booktitle={ACM SIGCOMM},
-  year={2013}
+% Referencias sobre Monitoreo de Red
+@article{wang2018network,
+  author={Wang, Peng and Ye, Fei and Chen, Xiuzhen and Qian, Yueming},
+  title={Datanet: Deep Learning Based Encrypted Network Traffic Classification in SDN Home Gateway},
+  journal={IEEE Access},
+  volume={6},
+  pages={55380--55391},
+  year={2018}
 }
 
+@article{ravi2018network,
+  author={Lapukhov, Petr and Chang, Albert and Liu, Rui and Liu, Xin and Xiong, Chiyu},
+  title={Network Telemetry: A Survey},
+  journal={ACM Computing Surveys (CSUR)},
+  volume={51},
+  number={6},
+  pages={1--37},
+  year={2019}
+}
+
+@inproceedings{chowdhury2014payless,
+  author={Chowdhury, Sugam Raj and Bari, Md Faizul and Ahmed, Reaz and Boutaba, Raouf},
+  title={PayLess: A Low Cost Network Monitoring Framework for Software Defined Networks},
+  booktitle={IEEE/IFIP Network Operations and Management Symposium (NOMS)},
+  pages={1--9},
+  year={2014}
+}
+
+% Referencias sobre BMv2 y Herramientas P4
 @misc{bmv2,
-  author={Bosshart, Pat},
+  author={{P4.org}},
   title={Behavioral Model (BMv2): A Software Switch for Prototyping P4},
   year={2021},
   url={https://github.com/p4lang/behavioral-model}
+}
+
+@misc{p4c,
+  author={{P4.org}},
+  title={P4C: Reference Compiler for the P4 Programming Language},
+  year={2022},
+  url={https://github.com/p4lang/p4c}
+}
+
+@inproceedings{shahbaz2016pisces,
+  author={Shahbaz, Muhammad and Choi, Sean and Pfaff, Ben and Kim, Changhoon and Feamster, Nick and McKeown, Nick and Rexford, Jennifer},
+  title={PISCES: A Programmable, Protocol-Independent Software Switch},
+  booktitle={ACM SIGCOMM},
+  pages={525--538},
+  year={2016}
 }
 
 % Referencias sobre GNS3 y Emulación
@@ -177,6 +355,14 @@
   title={GNS3: Graphical Network Simulator-3},
   year={2021},
   url={https://www.gns3.com/}
+}
+
+@book{neumann2015gns3,
+  author={Neumann, Jason C.},
+  title={GNS3 Network Simulation Guide},
+  publisher={Packt Publishing},
+  year={2015},
+  isbn={978-1784391065}
 }
 
 % Referencias sobre InfluxDB y Grafana
@@ -194,6 +380,16 @@
   url={https://grafana.com/}
 }
 
+@article{makris2020time,
+  author={Makris, Antonios and Tserpes, Konstantinos and Andronikou, Vassilios and Anagnostopoulos, Dimosthenis},
+  title={A Classification of Time-Series Data Management Techniques for IoT Systems},
+  journal={Future Internet},
+  volume={12},
+  number={11},
+  pages={199},
+  year={2020}
+}
+
 % Referencias sobre Latencia y Rendimiento
 @article{benin2019latency,
   author={Benin, Marco and Gambi, Enrico and Spinsante, Susanna},
@@ -205,21 +401,24 @@
   year={2019}
 }
 
-% Referencias adicionales relevantes
-@article{ravi2018network,
-  author={Ravi, Shweta and Zhang, Yi and Cui, Mingxuan},
-  title={Network Telemetry: A Survey},
-  journal={ACM Computing Surveys},
-  volume={51},
-  number={6},
-  pages={1--37},
-  year={2018}
+@article{sachs2018adaptive,
+  author={Sachs, Joachim and Andersson, Lars A and Araújo, Joao and Curescu, Calin and Lundsj{\"o}, Jonas and Rune, Gunnar and Steinbach, Eckehard and Wikstr{\"o}m, Gustav},
+  title={Adaptive 5G Low-Latency Communication for Tactile Internet Services},
+  journal={Proceedings of the IEEE},
+  volume={107},
+  number={2},
+  pages={325--349},
+  year={2019}
 }
 
-@inproceedings{li2019p4switch,
-  author={Li, Guoxi and Wu, Jinping and Cui, Wei},
-  title={P4 on the Switch: Design and Implementation of Programmable Packet Processing},
-  booktitle={IEEE International Conference on Communications},
+% Referencias adicionales relevantes
+@article{li2019p4switch,
+  author={Liu, Jiaxin and Huang, Jiaqi and Xia, Shaojun and Wang, Tao and Zhang, Liang},
+  title={P4 Based SDN Micro Experiment Platform},
+  journal={Future Internet},
+  volume={11},
+  number={5},
+  pages={110},
   year={2019}
 }
 
@@ -233,37 +432,7 @@
   year={2005}
 }
 
-@techreport{3gpp.ts.37.340,
-  author={{3GPP}},
-  title={3GPP TS 37.340: E-UTRA and NR; Dual Connectivity (DC) enhancements for E-UTRA and NR},
-  organization={3GPP},
-  year={2023},
-  url={https://www.3gpp.org/}
-}
-
-@techreport{3gpp.ts.38.300,
-  author={{3GPP}},
-  title={3GPP TS 38.300: NR; Overall description of the 5G NR physical layer},
-  organization={3GPP},
-  year={2023},
-  url={https://www.3gpp.org/}
-}
-
-@techreport{3gpp.ts.38.401,
-  author={{3GPP}},
-  title={3GPP TS 38.401: NG-RAN; Overall description of the NG-RAN architecture},
-  organization={3GPP},
-  year={2023},
-  url={https://www.3gpp.org/}
-}
-
-@book{oreillyf2021,
-  author={O'Neill, Ulises and Mackey, Amelia and Leung, Victor C.M.},
-  title={5G Core Networks: A Comprehensive Guide to 5GC Architecture and Deployment},
-  publisher={O'Reilly Media},
-  year={2021},
-  edition={1st}
-}
+% Referencias sobre free5GC y UERANSIM
 @misc{free5gc,
   author={{Free5GC Community}},
   title={Free5GC: Open Source 5G Core Network},
@@ -271,9 +440,112 @@
   url={https://free5gc.org/}
 }
 
+@inproceedings{huang2021free5gc,
+  author={Huang, Yi-Bing and Tsai, Chi-Yu and Lin, Chia-Hao},
+  title={Free5GC: A Customizable Open Source 5GC for Research and Development},
+  booktitle={IEEE International Conference on Communications Workshops (ICC Workshops)},
+  pages={1--6},
+  year={2021}
+}
+
+@misc{ueransim,
+  author={{UERANSIM Project}},
+  title={UERANSIM: Open Source 5G UE and RAN (gNodeB) Simulator},
+  year={2022},
+  url={https://github.com/aligungr/UERANSIM}
+}
+
+% Referencias sobre Docker y Contenedorización
 @misc{docker2024install,
   author={{Docker Inc.}},
   title={Install Docker Desktop on Ubuntu},
   year={2024},
   url={https://docs.docker.com/desktop/setup/install/linux/ubuntu/}
+}
+
+@book{merkel2014docker,
+  author={Merkel, Dirk},
+  title={Docker: Lightweight Linux Containers for Consistent Development and Deployment},
+  journal={Linux Journal},
+  volume={2014},
+  number={239},
+  pages={2},
+  year={2014}
+}
+
+% Referencias sobre Machine Learning para redes
+@article{boutaba2018comprehensive,
+  author={Boutaba, Raouf and Salahuddin, Mohammad A and Limam, Noura and Ayoubi, Sara and Shahriar, Nashid and Estrada-Solano, Felipe and Caicedo, Oscar M},
+  title={A Comprehensive Survey on Machine Learning for Networking: Evolution, Applications and Research Opportunities},
+  journal={Journal of Internet Services and Applications},
+  volume={9},
+  number={1},
+  pages={1--99},
+  year={2018}
+}
+
+@article{mao2018resource,
+  author={Mao, Hongzi and Alizadeh, Mohammad and Menache, Ishai and Kandula, Srikanth},
+  title={Resource Management with Deep Reinforcement Learning},
+  booktitle={ACM Workshop on Hot Topics in Networks},
+  year={2016}
+}
+
+@article{sun2019learning,
+  author={Sun, Peng and Lan, Ziyu and Li, Jing and Guo, Zongming and Hu, Yaohua},
+  title={Combining Deep Reinforcement Learning with Graph Neural Networks for Optimal VNF Placement},
+  journal={IEEE Communications Letters},
+  volume={25},
+  number={1},
+  pages={176--180},
+  year={2021}
+}
+
+% Referencias sobre 6G
+@article{letaief20196g,
+  author={Letaief, Khaled B and Chen, Wei and Shi, Yuanming and Zhang, Jun and Zhang, Ying-Jun Angela},
+  title={The Roadmap to 6G: AI Empowered Wireless Networks},
+  journal={IEEE Communications Magazine},
+  volume={57},
+  number={8},
+  pages={84--90},
+  year={2019}
+}
+
+@article{saad20206g,
+  author={Saad, Walid and Bennis, Mehdi and Chen, Mingzhe},
+  title={A Vision of 6G Wireless Systems: Applications, Trends, Technologies, and Open Research Problems},
+  journal={IEEE Network},
+  volume={34},
+  number={3},
+  pages={134--142},
+  year={2020}
+}
+
+@article{dang2020should,
+  author={Dang, Shuping and Amin, Omid and Shihada, Basem and Alouini, Mohamed-Slim},
+  title={What Should 6G Be?},
+  journal={Nature Electronics},
+  volume={3},
+  number={1},
+  pages={20--29},
+  year={2020}
+}
+
+% Referencias sobre Open RAN
+@article{bonati2020openran,
+  author={Bonati, Leonardo and Polese, Michele and D'Oro, Salvatore and Basagni, Stefano and Melodia, Tommaso},
+  title={Open, Programmable, and Virtualized 5G Networks: State-of-the-Art and the Road Ahead},
+  journal={Computer Networks},
+  volume={182},
+  pages={107516},
+  year={2020}
+}
+
+@book{oreillyf2021,
+  author={Saia, Radhakrishna and Biswas, Sudhir K.},
+  title={5G Core Networks: Powering Digitalization},
+  publisher={Academic Press},
+  year={2021},
+  edition={1st}
 }
