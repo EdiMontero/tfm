@@ -1,19 +1,19 @@
 \chapter{Resultados}
 
 \section{Validación funcional}
-En esta sección se presentan algunas capturas de pantalla, logs y capturas de paquetes que validan el funcionamiento correcto tanto de la red 5G como de la inserción de la telemetría  INT-MD para el trafico N2 (gNB) y N3 (UPF).
+En esta sección se presentan algunas capturas de pantalla, logs y capturas de paquetes que validan el funcionamiento correcto tanto de la red 5G como de la inserción de la telemetría  INT-MD para el tráfico N2 (gNB) y N3 (UPF).
 
 \subsection{INT en tráfico N2}
-La interface N2 comprende la comunicación entre el gNB y el AMF. Esta comunicación se hace mediante el protocolo NGAP. Los detalles sobre la función de cada paquete se encuentran en el rfc 9950 \cite{rfc9950}.
-La imagen a continuación muestra el log del gNB donde se observa la inserción con el AMF y el intercambio de paquetes para el sincronismo entre ambos nodos.
+La interface N2 comprende la comunicación entre el gNB y el AMF. Esta comunicación se hace mediante el protocolo NGAP. Los detalles sobre la función de cada paquete se encuentran en la RFC 9950 \cite{rfc9950}.
+La imagen a continuación muestra el log del gNB donde se observa la interacción con el AMF y el intercambio de paquetes para el sincronismo entre ambos nodos.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{images/gnb-log.png}
     \caption{Log del gNB}
     \label{fig:log_gnb_ngap}
 \end{figure}
-\subsubsection{Trafico NGAP gNB a Switch INT-Source}
-En la siguiente imagen se muestra una captura de paquetes del trafico NGAP de la interface de entrada del switch INT-Source.
+\subsubsection{Tráfico NGAP gNB hacia Switch INT-Source}
+En la siguiente imagen se muestra una captura de paquetes del tráfico NGAP de la interface de entrada del switch INT-Source.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{images/Captura-n2.png}
@@ -21,17 +21,17 @@ En la siguiente imagen se muestra una captura de paquetes del trafico NGAP de la
     \label{fig:captura_ngap_sin_int}
 \end{figure}
 
-como se puede observar en la figura \ref{fig:captura_ngap_sin_int}, el paquete NGAP no contiene metadatos INT, al recibir estos paquetes el switch INT-Source inserta los metadatos INT-MD correspondientes, como se observa en la figura \ref{fig:log_s1_n2}.
+Como se puede observar en la figura \ref{fig:captura_ngap_sin_int}, el paquete NGAP no contiene metadatos INT, al recibir estos paquetes el switch INT-Source inserta los metadatos INT-MD correspondientes, como se observa en la figura \ref{fig:log_s1_n2} corespondiente al log dicho nodo.
 \begin{figure}[H]  
     \centering
     \includegraphics[width=1.0\textwidth]{images/log-s1-n2-2.png}
     \caption{Log del Switch INT-Source insertando metadatos INT-MD en paquetes NGAP}
     \label{fig:log_s1_n2}
 \end{figure}
-Como se puede observar en la figura \ref{fig:log_s1_n2-2}, el switch INT-Source identifica el trafico NGAP y procede a insertar los metadatos INT-MD en los paquetes NGAP para posteriormente enviarlos al switch de transito (INT-Transit).
-\subsubsection{Tráfico de INT-Source a INT-Transit}
-En la siguiente imagen se puede apreciar una captura de paquetes del trafico NGAP con metadatos INT-MD desde el switch INT-Source hacia el switch INT-Transit. 
-El paquete que se detalla es un NGSetupRequest con la inserción de los metadatos INT-MD. Al tener la cabecera INT, el wireshark lo interpreta como LLC (Logical Link Control).
+Como se puede observar en la figura \ref{fig:log_s1_n2}, el switch INT-Source identifica el tráfico NGAP y procede a insertar los metadatos INT-MD en los paquetes NGAP para posteriormente enviarlos al switch de tránsito (INT-Transit).
+\subsubsection{Tráfico desde INT-Source hacia INT-Transit}
+En la siguiente imagen se puede apreciar una captura de paquetes del tráfico NGAP con metadatos INT-MD desde el switch INT-Source hacia el switch INT-Transit. 
+El paquete que se detalla es un NGSetupRequest con la inserción de los metadatos INT-MD. Al tener la cabecera INT, el wireshark lo interpreta como IEEE 802.3 Ethernet.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{images/s1-s2-details.png}
@@ -40,7 +40,7 @@ El paquete que se detalla es un NGSetupRequest con la inserción de los metadato
 \end{figure}
 
 \subsubsection{Tráfico desde INT-Transit a INT-Sink}
-Al recibir el paquete del switch INT-Source, el INT-Transit agrega sus propios parametros en otra posicion de la cabecera INT, como se puede observar en la figura \ref{fig:log_s2_n2}.
+Al recibir el paquete del switch INT-Source, el INT-Transit agrega sus propios parámetros en otra posición de la cabecera INT, como se puede observar en la figura \ref{fig:log_s2_n2}.
 \begin{figure}[H]  
     \centering
     \includegraphics[width=1.0\textwidth]{images/s2-log.png}
@@ -48,7 +48,7 @@ Al recibir el paquete del switch INT-Source, el INT-Transit agrega sus propios p
     \label{fig:log_s2_n2}
 \end{figure}
 
-Una vez que el switch INT-Transit procesa el paquete, lo envia al switch INT-Sink. En la siguiente captura se resaltan los metadatos insertados por el switch INT-Source y el switch INT-Transit.
+Una vez que el switch INT-Transit procesa el paquete, lo envía al switch INT-Sink. En la siguiente captura se resaltan los metadatos insertados por el switch INT-Source y el switch INT-Transit.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{images/s2-s3-cap.png}
@@ -81,9 +81,9 @@ Una vez procesado el paquete, el switch INT-Sink envía el paquete clonado al se
 \end{figure}
 
 \subsection{INT en tráfico N3}
-Para la interface N3 (GTP-U) es practicamente el mismo procesamiento, por lo que se presentarán solo las capturas del establecimiento del tunel y la captura de paquetes con el trafico GTP-U con metadatos INT-MD.
+Para la interface N3 (GTP-U) es prácticamente el mismo procesamiento, por lo que se presentarán solo las capturas del establecimiento del túnel y la captura de paquetes con el tráfico GTP-U con metadatos INT-MD.
 \subsubsection{Establecimiento del túnel GTP-U}
-En la siguiente imagen se observa el log del gNB donde se establece el túnel GTP-U entre el gNB y el UPF.
+En la siguiente imagen se observa el log del intercambio de paquetes entre el UE y el gNB para el establecimiento del túnel GTP.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{images/gnb-session.png}
@@ -91,7 +91,7 @@ En la siguiente imagen se observa el log del gNB donde se establece el túnel GT
     \label{fig:log_gnb_gtpu}
 \end{figure}
 
-Una vez que se establece el túnel GTP-U, el usuario posee 2 tuneles GTP-U, uno para el trafico de subida (UL) y otro para el trafico de bajada (DL), como se observa en la figura \ref{fig:log_ue_gtpu}.
+Una vez que se establece el túnel GTP-U, el usuario posee 2 túneles GTP-U, uno para el tráfico de subida (UL) y otro para el tráfico de bajada (DL), como se observa en la figura \ref{fig:log_ue_gtpu}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{images/gnb-session-tunnel.png}
@@ -116,7 +116,7 @@ En la próxima imagen se puede observar una captura de paquetes sobre el ping re
 \end{figure}
 
 \section{Presentación de resultados}
-Como se habia indicado anteriormente, los datos de telemetría recolectados por el servidor INT-Sink son almacenados en una base de datos InfluxDB, la cual es consultada por Grafana para la visualización de los datos.
+Como se habia indicado anteriormente, los datos de telemetría recolectados por el servidor INT-Sink son almacenados en una base de datos InfluxDB \cite{influxdb}, la cual es consultada por Grafana \cite{grafana} para la visualización de los datos.
 \subsection{Latencia}
 En la siguiente imagen, se muestran dos graficas de latencias, la latencia punto a punto (P2P) y la Latencia por salto (per hop latency).
 

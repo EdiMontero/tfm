@@ -19,52 +19,50 @@ Reallocating 'name_of_file' (item size: 1) to 26 items.
 A level-1 auxiliary file: chapters/6.resultados.aux
 Reallocating 'name_of_file' (item size: 1) to 28 items.
 A level-1 auxiliary file: chapters/7.conclusiones.aux
-Reallocating 'name_of_file' (item size: 1) to 23 items.
-A level-1 auxiliary file: chapters/apendices.aux
 Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 20 items.
+Reallocating 'name_of_file' (item size: 1) to 23 items.
+A level-1 auxiliary file: chapters/apendices.aux
 Database file #1: chapters/references.bib
-Warning--empty institution in 3gpp.23.501
-You've used 4 entries,
+You've used 20 entries,
             2118 wiz_defined-function locations,
-            524 strings with 4579 characters,
-and the built_in function-call counts, 870 in all, are:
-= -- 78
-> -- 34
-< -- 0
-+ -- 14
-- -- 10
-* -- 37
-:= -- 157
-add.period$ -- 10
-call.type$ -- 4
-change.case$ -- 18
+            586 strings with 6372 characters,
+and the built_in function-call counts, 4998 in all, are:
+= -- 486
+> -- 220
+< -- 1
++ -- 92
+- -- 70
+* -- 270
+:= -- 895
+add.period$ -- 54
+call.type$ -- 20
+change.case$ -- 103
 chr.to.int$ -- 0
-cite$ -- 5
-duplicate$ -- 34
-empty$ -- 82
-format.name$ -- 10
-if$ -- 180
+cite$ -- 20
+duplicate$ -- 181
+empty$ -- 416
+format.name$ -- 70
+if$ -- 1023
 int.to.chr$ -- 0
-int.to.str$ -- 4
-missing$ -- 2
-newline$ -- 21
-num.names$ -- 8
-pop$ -- 30
+int.to.str$ -- 20
+missing$ -- 7
+newline$ -- 97
+num.names$ -- 40
+pop$ -- 115
 preamble$ -- 1
-purify$ -- 13
+purify$ -- 75
 quote$ -- 0
-skip$ -- 28
+skip$ -- 136
 stack$ -- 0
-substring$ -- 20
-swap$ -- 3
-text.length$ -- 0
+substring$ -- 212
+swap$ -- 18
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 14
-warning$ -- 1
-while$ -- 8
-width$ -- 5
-write$ -- 39
-(There was 1 warning)
+type$ -- 78
+warning$ -- 0
+while$ -- 51
+width$ -- 22
+write$ -- 204

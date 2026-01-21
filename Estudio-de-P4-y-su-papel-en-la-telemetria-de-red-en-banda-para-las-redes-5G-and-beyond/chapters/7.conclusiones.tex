@@ -1,8 +1,8 @@
 \chapter{Conclusiones y Trabajo Futuro}
 \section{Conclusiones principales}
 
-AL desarrollar este TFM se ha demostrado el funcionamiento de INT-MD mediante P4, implementado en un entorno virtualizado de componentes de 5G SA. dichos componentes permiten la emulacion de una red 5G completa, con todos los protocolos y funciones claves en un entorno real.
-Al implementar la telemetría en banda (INT-MD) en las interfaces N2 y N3 del core 5G, se ha validado que es posible obtener métricas detalladas de rendimiento de la red en tiempo real, sin afectar significativamente la latencia o el rendimiento general de la red, y mas importante, sin afectar la percepción del usuario final con respecto a la calidad del servicio.
+Al desarrollar este TFM se ha demostrado el funcionamiento de INT-MD mediante P4, implementado en un entorno virtualizado de componentes de 5G SA. Dichos componentes permiten la emulación de una red 5G completa, con todos los protocolos y funciones claves en un entorno real.
+Al implementar la telemetría en banda (INT-MD) en las interfaces N2 y N3 del core 5G, se ha validado que es posible obtener métricas detalladas de rendimiento de la red en tiempo real, sin afectar significativamente la latencia o el rendimiento general de la red, y más importante, sin afectar la percepción del usuario final con respecto a la calidad del servicio.
 
 Los resultados obtenidos indican que:
 \begin{itemize}
@@ -27,7 +27,7 @@ Las principales contribuciones de este trabajo de fin de máster son las siguien
 
     \item \textbf{Programas P4 especializados para INT en 5G}: Se han diseñado y validado tres programas P4 diferenciados (int-source.p4, int-transit.p4 e int-sink.p4) que implementan cada rol de la arquitectura INT. Estos programas incluyen parsers personalizados para SCTP y GTP-U, así como lógica específica para la inserción, actualización y extracción de metadatos INT-MD.
     
-    \item \textbf{Integración de INT con core 5G SA open source}: Se ha logrado una integración exitosa entre switches P4 programables (BMv2) y un core 5G completo basado en free5gc, demostrando la compatibilidad de INT con implementaciones open source de 5G. Esta integración incluye la correcta interacción con UERANSIM para la generación de tráfico realista de UEs.
+    \item \textbf{Integración de INT con core 5G SA open source}: Se ha logrado una integración exitosa entre switches P4 programables (BMv2) y un core 5G completo basado en free5gc, demostrando la compatibilidad de INT con implementaciones open source de 5G. Esta integración incluye la correcta interacción con UERANSIM \cite{ueransim} para la generación de tráfico realista de UEs.
     
     \item \textbf{Entorno de desarrollo virtualizado completo}: Se ha diseñado y documentado una arquitectura de laboratorio basada en GNS3, VMware Workstation y Docker que permite replicar un entorno 5G SA funcional con capacidades INT. Esta contribución facilita futuras investigaciones y experimentaciones sin necesidad de hardware especializado.
     
@@ -45,20 +45,20 @@ A pesar de los resultados positivos obtenidos, es importante reconocer las limit
 \begin{enumerate}
     \item \textbf{Entorno emulado vs. producción real}: Todo el trabajo se ha realizado en un entorno virtualizado, utilizando emuladores y simuladores (GNS3, VMware, Docker). Aunque se han replicado fielmente los protocolos y funciones de un core 5G SA, no se ha validado la solución en hardware real ni en una red de producción con tráfico real de usuarios. Las condiciones de red en entornos reales pueden diferir significativamente.
     
-    \item \textbf{Escala reducida del testbed}: La topología implementada consta unicamente con 3 switches BMv2 en la capa de transporte, lo cual difiere de la red de transporte de un operador real, la cual posee multiples nodos con protocolos de enrutamiento de transporte como MPLS o Segment Routing. No se ha evaluado el comportamiento de INT en redes de mayor escala con múltiples saltos y rutas dinámicas. 
+    \item \textbf{Escala reducida del testbed}: La topología implementada consta únicamente con 3 switches BMv2 en la capa de transporte, lo cual difiere de la red de transporte de un operador real, la cual posee múltiples nodos con protocolos de enrutamiento de transporte como MPLS o Segment Routing. No se ha evaluado el comportamiento de INT en redes de mayor escala con múltiples saltos y rutas dinámicas. 
     
     \item \textbf{Tráfico sintético limitado}: Las pruebas se han realizado principalmente con tráfico ICMP generado artificialmente desde UERANSIM. No se han evaluado casos de uso reales con tráfico heterogéneo (vídeo streaming, VoIP, IoT masivo) ni se ha analizado el comportamiento de INT bajo patrones de tráfico complejos.
     
     \item \textbf{Ausencia de análisis de seguridad}: No se ha abordado en profundidad la problemática de seguridad asociada a INT. Los metadatos de telemetría podrían ser manipulados por atacantes o revelar información sensible sobre la topología y el estado de la red.
     
-    \item \textbf{Falta de evaluación de escalabilidad}: No se ha evaluado el comportamiento de INT cuando el trafico esta siendo balanceado entre multiples rutas o cuando existen fallos en la red que requieran reruteo dinámico.
+    \item \textbf{Falta de evaluación de escalabilidad}: No se ha evaluado el comportamiento de INT cuando el tráfico está siendo balanceado entre múltiples rutas o cuando existen fallos en la red que requieran reruteo dinámico.
     
     \item \textbf{Compatibilidad con estándares}: Aunque se basa en conceptos de INT-MD definidos por el P4 Applications Working Group, la implementación no ha sido validada contra especificaciones formales de estandarización (3GPP, IETF) ni se ha probado la interoperabilidad con implementaciones INT de otros vendors.
     
     \item \textbf{Análisis económico ausente}: No se ha realizado un estudio de viabilidad económica que compare los costos de despliegue de INT (hardware P4, capacitación, integración) frente a soluciones tradicionales o comerciales de telemetría de red.
 \end{enumerate}
 
-Estas limitaciones no invalidan los resultados obtenidos, pero sí establecen el contexto y alcance de las conclusiones pero si ayuda para futuras lineas de investigación.
+Estas limitaciones no invalidan los resultados obtenidos, pero sí establecen el contexto y alcance de las conclusiones pero sí ayudan para futuras líneas de investigación.
 
 \section{Líneas futuras de investigación}
 

@@ -1,5 +1,5 @@
 \chapter{Telemetría y QoS en 5G}
-En 5GC, la telemetria juega un papel crucial en la monitorización y gestión del rendimiento de la red, especialmente en el contexto de las demandas crecientes de servicios como URLLC (Ultra-Reliable Low-Latency Communications), eMBB (enhanced Mobile Broadband) y mMTC (massive Machine Type Communications). La telemetría en banda (In-Band Network Telemetry, INT) permite la recopilación de datos en tiempo real directamente desde los paquetes que atraviesan la red, proporcionando una visibilidad detallada del estado de la red y facilitando la detección y resolución de problemas.
+En 5GC, la telemetria juega un papel crucial en la monitorización y gestión del rendimiento de la red, especialmente en el contexto de las demandas crecientes de servicios como URLLC, eMBB y mMTC. La telemetría en banda (INT) permite la recopilación de datos en tiempo real directamente desde los paquetes que atraviesan la red, proporcionando una visibilidad detallada del estado de la red y facilitando la detección y resolución de problemas.
 
 \section{Desafíos de Telemetría en Redes 5G}
 \subsection{Requisitos de visibilidad en URLLC, eMBB y mMTC}
@@ -18,9 +18,9 @@ La telemetría en banda (INT) es una técnica que permite la inserción de metad
 \section{Arquitectura y componentes de INT}
 En INT se utilizan tres componentes principales:
 \begin{itemize}
-    \item \textbf{Source (Fuente)}: El nodo que inserta los metadatos de telemetría en los paquetes. En 5G, esto podría ser un gNB o un UPF.
+    \item \textbf{Source (Origen)}: El nodo que inserta los metadatos de telemetría en los paquetes. En 5G, esto podría ser un gNB o un UPF.
     \item \textbf{Transit (Tránsito)}: Nodos intermedios que pueden actualizar o añadir información adicional a los metadatos INT mientras los paquetes atraviesan la red.
-    \item \textbf{Sink (Sumidero)}: El nodo que recibe los paquetes con metadatos INT y extrae la información para su análisis y procesamiento.
+    \item \textbf{Sink (Destino)}: El nodo que recibe los paquetes con metadatos INT y extrae la información para su análisis y procesamiento.
 \end{itemize}
 \subsection{Metadatos INT-MD y su estructura}
 Los metadatos INT-MD incluyen información clave como:
@@ -43,7 +43,7 @@ La telemetría en banda (INT) ofrece varias ventajas sobre la telemetría fuera 
 \end{itemize}
 
 \section{Calidad de Servicio en 5G}
-La Calidad de Servicio (QoS) en 5G es fundamental para garantizar que los diferentes tipos de tráfico reciban el tratamiento adecuado según sus requisitos específicos. La arquitectura 5G introduce mecanismos avanzados para la gestión de QoS, permitiendo una asignación dinámica de recursos y una priorización eficiente del tráfico.
+La Calidad de Servicio (QoS) en 5G es fundamental para garantizar que los diferentes tipos de tráfico reciban el tratamiento adecuado según sus requisitos específicos \cite{3gpp.ts.23.503}. La arquitectura 5G introduce mecanismos avanzados para la gestión de QoS, permitiendo una asignación dinámica de recursos y una priorización eficiente del tráfico.
 
 \section{QoS basado en 5G Flujo}
 \subsection{Definición de flujo en 5G}
@@ -63,6 +63,5 @@ La gestión de QoS por flujo en 5G se basa en varios mecanismos clave:
     \item \textbf{Asignación dinámica de recursos}: La red puede asignar recursos de manera dinámica según las necesidades de cada flujo, garantizando que los flujos críticos reciban la prioridad adecuada.
     \item \textbf{Políticas de enrutamiento}: Los flujos pueden ser enrutados a través de diferentes caminos en la red según sus requisitos de QoS, optimizando el rendimiento y la eficiencia.
     \item \textbf{Monitoreo y ajuste en tiempo real}: La telemetría en banda (INT) permite un monitoreo continuo del rendimiento de los flujos, facilitando ajustes en tiempo real para mantener los niveles de QoS deseados.
-    \item \textbf{Mecanismos de control de congestión}: Implementación de técnicas para gestionar la congestión en la red, asegurando que los flujos prioritarios no se vean afectados por el tráfico menos crítico.
-    \item \textbf{SLA y políticas de usuario}: Definición de acuerdos de nivel de servicio (SLA) específicos para diferentes tipos de flujos, permitiendo una gestión personalizada de la QoS según las necesidades del usuario o aplicación.
 \end{itemize}
+ 

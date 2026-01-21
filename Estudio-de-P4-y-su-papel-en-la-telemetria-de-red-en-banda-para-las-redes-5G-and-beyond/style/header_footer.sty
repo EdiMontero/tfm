@@ -5,8 +5,22 @@
 \pagestyle{fancy}
 \fancyhf{}
 
-\fancyhead[L]{\leftmark}
-\fancyhead[R]{\thepage}
+% Configuración del encabezado
+\fancyhead[L]{\scriptsize\leftmark}
+\fancyhead[R]{\scriptsize\thepage}
 
-\renewcommand{\headrulewidth}{0pt}
-\setlength{\headheight}{16pt}
+% Línea divisoria debajo del encabezado
+\renewcommand{\headrulewidth}{0.4pt}
+
+% Altura del encabezado
+\setlength{\headheight}{5.5pt}
+
+% Personalización del formato de capítulo en el encabezado
+\renewcommand{\chaptermark}[1]{%
+  \markboth{\MakeUppercase{Capítulo \thechapter. #1}}{}%
+}
+
+% Personalización del formato de sección en el encabezado (opcional)
+\renewcommand{\sectionmark}[1]{%
+  \markright{\MakeUppercase{\thesection. #1}}{}%
+}
