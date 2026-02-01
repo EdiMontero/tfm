@@ -1,14 +1,14 @@
-sudo docker cp ~/tfm/archivos/int/gtpu/int-gtp-source/int-gtp-source-2.json d4f94866e11d:/behavioral-model
-sudo docker cp ~/tfm/archivos/int/gtpu/int-gtp-source/int-gtp-source-2.json e89653f9e653:/behavioral-model
-sudo docker cp ~/tfm/archivos/int/gtpu/int-gtp-source/int-gtp-source-2.json 975b706021ed:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/int-gtp-source/int-gtp-source-2.json dcdb8d2ec1d7:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/int-gtp-source/int-gtp-source-2.json 588e1eb4365d:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/int-gtp-source/int-gtp-source-2.json 2d0e2e708e12:/behavioral-model
 # Add the int-gtp-transit.json file to the containers
-sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-transit/int-gtp-transit.json d4f94866e11d:/behavioral-model
-sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-transit/int-gtp-transit.json e89653f9e653:/behavioral-model
-sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-transit/int-gtp-transit.json 975b706021ed:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-transit/int-gtp-transit.json dcdb8d2ec1d7:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-transit/int-gtp-transit.json 588e1eb4365d:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-transit/int-gtp-transit.json 2d0e2e708e12:/behavioral-model
 # Add the int-gtp-sink.json file to the containers
-sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-destination/int-gtp-destination.json d4f94866e11d:/behavioral-model
-sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-destination/int-gtp-destination.json e89653f9e653:/behavioral-model
-sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-destination/int-gtp-destination.json 975b706021ed:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-destination/int-gtp-destination.json dcdb8d2ec1d7:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-destination/int-gtp-destination.json 588e1eb4365d:/behavioral-model
+sudo docker cp ~/tfm/archivos/int/gtpu/v2/int-gtp-destination/int-gtp-destination.json 2d0e2e708e12:/behavioral-model
 
 ==========INT-MD Switch Runtime Commands==========
 
