@@ -1,8 +1,8 @@
 \chapter{Entorno de Desarrollo Implementado}
 
 \section{Arquitectura general del sistema}
-A diferencia de las tecnologias pasadas, 5G esta diseñada para ser facilmente desplegada en entornos virtualizados y basados en contenedores, lo que permite una mayor flexibilidad y escalabilidad. En este proyecto, se ha implementado un entorno de desarrollo que emula una red 5G Standalone (SA), virtualizando sus componentes principales mediante Docker y orquestando el Core con Docker Compose.
-El entorno de desarrollo se ha desplegado utilizando GNS3, GNS3 VM y VMware Workstation para crear una infraestructura base o underlay sobre la cual se han implementado otras máquinas virtuales  que alojan los contenedores Docker. Esta infraestructura virtual proporciona la conectividad necesaria entre los componentes y permite emular una red de un MNO (Mobile Network Operator) real, con componentes tanto de red y VFs (Virtualized Functions) como de 5G. Tambien cabe destacar que para los componentes de 5G se empleó el projecto open source free5gc \cite{free5gc}, el cual permite desplegar un core 5G SA completo en un entorno virtualizado con Docker. La siguiente figura muestra la arquitectura general del entorno de desarrollo implementado, destacando la integración entre GNS3, Docker y la máquina virtual en vmware \ref{fig:diseno_sistema}.
+A diferencia de las tecnologías pasadas, 5G está diseñada para ser fácilmente desplegada en entornos virtualizados y basados en contenedores, lo que permite una mayor flexibilidad y escalabilidad. En este proyecto, se ha implementado un entorno de desarrollo que emula una red 5G Standalone (SA), virtualizando sus componentes principales mediante Docker y orquestando el Core con Docker Compose.
+El entorno de desarrollo se ha desplegado utilizando GNS3 \cite{gns3}, GNS3 VM y VMware Workstation para crear una infraestructura base o underlay sobre la cual se han implementado otras máquinas virtuales  que alojan los contenedores Docker. Esta infraestructura virtual proporciona la conectividad necesaria entre los componentes y permite emular una red de un MNO (Mobile Network Operator) real, con componentes tanto de red y VFs (Virtualized Functions) como de 5G. También cabe destacar que para los componentes de 5G se empleó el proyecto open source free5gc \cite{free5gc,huang2021free5gc}, el cual permite desplegar un core 5G SA completo en un entorno virtualizado con Docker. La siguiente figura muestra la arquitectura general del entorno de desarrollo implementado, destacando la integración entre GNS3, Docker y la máquina virtual en vmware \ref{fig:diseno_sistema}.
  \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{images/diseno-sistema.png}
@@ -10,7 +10,7 @@ El entorno de desarrollo se ha desplegado utilizando GNS3, GNS3 VM y VMware Work
     \label{fig:diseno_sistema}
 \end{figure}
 \subsection{Diseño de la red 5G SA}
-Con respecto a la red de transporte, se ha implementado utilizando switches programables P4 para insertar metadatos de telemetría en banda (INT-MD) en el tráfico N2 (SCTP) y N3 (GTP-U), estos switches estan construidos con P4 para el reenvio de trafico a nivel de L3. ademas de estos switches P4, tanto para el trafico entre los Nodos en el Core como en la comunicacion entre el NGRAN y R1, se ha empleado switches virtuales Open vSwitch (OVS) para gestionar gestionar los paquetes ARP. La siguiente figura es un diseño de alto nivel (HLD) quemuestra la topología de red implementada en GNS3 \ref{fig:topologia_red}.
+Con respecto a la red de transporte, se ha implementado utilizando switches programables P4 para insertar metadatos de telemetría en banda (INT-MD) en el tráfico N2 (SCTP) y N3 (GTP-U), estos switches están construidos con P4 para el reenvío de tráfico a nivel de L3. Además de estos switches P4, tanto para el tráfico entre los Nodos en el Core como en la comunicación entre el NGRAN y R1, se ha empleado switches virtuales Open vSwitch (OVS) para gestionar los paquetes ARP. La siguiente figura es un diseño de alto nivel (HLD) que muestra la topología de red implementada en GNS3 \ref{fig:topologia_red}.
 \subsubsection{Diseño de alto nivel (HLD)}
 \begin{figure}[H]
     \centering
@@ -65,12 +65,12 @@ ueransim & 172.18.10.3 & /29 & f6:b8:eb:4d:0f:3c & macvlan & ueransim.free5gc.or
 
 
 \section{Despliegue del Core 5G SA}
-Como se pudo apreciar en la figura \ref{fig:diseno_sistema}, el Core 5G SA se ha desplegado utilizando contenedores Docker orquestados con Docker Compose dentro de maquinas virtuales alojadas en una maquina virtual principal (GNS3 VM). los componentes que interactuan mediante HTTP/2 se han desplegado en una VM con Ubuntu 20.04, mientras que el resto de componentes; AMF, SMF y UPF se han desplegado en maquinas virtuales separadas con la misma version de Ubuntu. Juntar los componentes que interactuan mediante HTTP/2 en una sola VM permite reducir la latencia y mejorar el rendimiento de las comunicaciones entre ellos.
+Como se pudo apreciar en la figura \ref{fig:diseno_sistema}, el Core 5G SA se ha desplegado utilizando contenedores Docker orquestados con Docker Compose dentro de máquinas virtuales alojadas en una máquina virtual principal (GNS3 VM). Los componentes que interactúan mediante HTTP/2 se han desplegado en una VM con Ubuntu 20.04, mientras que el resto de componentes; AMF, SMF y UPF se han desplegado en máquinas virtuales separadas con la misma versión de Ubuntu. Juntar los componentes que interactúan mediante HTTP/2 en una sola VM permite reducir la latencia y mejorar el rendimiento de las comunicaciones entre ellos.
 
-La configuracion de red de cada contenedor Docker se realizó con la modalidad de red \textbf{macvlan}, detallada en la tabla \ref{tab:lld_containers}, que permite asignar una direccion IP en el mismo ranfo que la red fisica de la VM anfitriona. Esto facilita la comunicacion entre los contenedores y hace posible el establecimiento del enlace \textbf{N2} (SCTP) entre el NGRAN y el AMF.
+La configuración de red de cada contenedor Docker se realizó con la modalidad de red \textbf{macvlan}, detallada en la tabla \ref{tab:lld_containers}, que permite asignar una dirección IP en el mismo rango que la red física de la VM anfitriona. Esto facilita la comunicación entre los contenedores y hace posible el establecimiento del enlace \textbf{N2} (SCTP) entre el NGRAN y el AMF.
 
-\subsection{Configuracion de Core-Host}
-Los detalles sobre la instalacion de Docker y Docker Compose no estan incluidos en este documento, pero se asume que el lector tiene conocimientos basicos sobre estas tecnologias. En caso contrario, puede consultar la documentacion oficial \cite{docker2024install}.
+\subsection{Configuración de Core-Host}
+Los detalles sobre la instalación de Docker y Docker Compose no están incluidos en este documento, pero se asume que el lector tiene conocimientos básicos sobre estas tecnologías. En caso contrario, puede consultar la documentación oficial \cite{docker2024install}.
 \subsubsection{Obtención del código fuente 5GC}
 El primer paso para desplegar el Core 5G SA es clonar el repositorio oficial de free5gc desde GitHub como se muestra en la figura \ref{fig:clone-repo}.
 
@@ -89,7 +89,7 @@ Luego de clonar el repositorio, se procede a clonar las bases de las Network Fun
     \label{fig:clonacion-nf}
 \end{figure}
 
-Una vez clonado el repositorio principal y las bases de las NFs adicionales, se procede a complilar las NFs que en este caso, como es en el Core-Host, los compilamos todos como se puede ver en la figura \ref{fig:compilacion-nf}.
+Una vez clonado el repositorio principal y las bases de las NFs adicionales, se procede a compilar las NFs que en este caso, como es en el Core-Host, los compilamos todos como se puede ver en la figura \ref{fig:compilacion-nf}.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\textwidth]{images/compilacion-nf.png}
@@ -671,7 +671,7 @@ Una vez desplegado el contenedor UPF, en la figura \ref{fig:upf-up} se aprecia q
     \centering
     \includegraphics[width=1.0\textwidth]{images/upf-up.png}
     \caption{ UPF registro y preparacion de interfaz N3}
-    \label{fig:supf-up}    
+    \label{fig:upf-up}    
 \end{figure}
 
 \subsubsection{ Conección N4 con SMF}
@@ -689,7 +689,7 @@ En la figura \ref{fig:smf-upf-n4-connection} se aprecia que el UPF establece la 
 El diseño de la red de transporte se se encuentra en la grafica \ref{sec:topologia_int}. 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\textwidth]{images/int-topologia.png}
+    \includegraphics[width=0.8\textwidth]{images/int-topologia.png}
     \caption{Topologia INT-MD}
     \label{sec:topologia_int}
 \end{figure}
@@ -771,7 +771,7 @@ Con estas constantes se definen los parámetros necesarios para la implementaci�
       {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
       {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
     caption={Definición de Cabeceras P4 para INT}, 
-    label=lst:  ]
+    label=lst:int-cabeceras]
 /********** Cabeceras comunes **********/
 header ethernet_t {...}
 header ipv4_t {...}
@@ -848,7 +848,7 @@ struct headers {
 }
 
 \end{lstlisting}
- En el bloque de código \ref{lst:int-cabeceras} se definen las cabeceras de los protocolos a monitorear (SCTP y GTP-U) y las de INT, donde se puede apreciar la reserva de espacio para un máximo de 8 saltos en la cabecera INT-MD, los parametros de telemetría a recolectar en cada salto y el tipo de encabezado INT.
+ En el bloque de código \ref{lst:int-cabeceras} se definen las cabeceras de los protocolos a monitorear (SCTP y GTP-U) y las de INT, donde se puede apreciar la reserva de espacio para un máximo de 8 saltos en la cabecera INT-MD, los parámetros de telemetría a recolectar en cada salto y el tipo de encabezado INT.
  En la cabecera INT se define qué metadata se va a insertar en el paquete, cuántos saltos se han realizado, cuantos faltan y el modo INT; Es decir, si es Source, Transit o Sink.
  
 
@@ -976,12 +976,7 @@ control MyIngress(inout headers hdr,
         meta.should_insert_int = 1;
     }
 
-    action do_insert_int() {
-        // Almacena el Ethernet type original
-        bit<16> original_ether_type = hdr.ethernet.etherType;
-
-        // Cambia el Ethernet type a INT
-        hdr.ethernet.etherType = TYPE_INT;
+......
 
         // Pone la cabecera INT shim
         hdr.int_shim.setValid();
@@ -1092,6 +1087,7 @@ control MyIngress(inout headers hdr,
 \end{lstlisting}
 Como el bloque de código \ref{lst:int-ingress} Contiene comentarios en cada sección, no es necesario detallar su funcionamiento. En su lugar, es preciso destacar que la razón por la que se decidió implementar una tabla para especificar las IPs de origen que se le va a aplicar INT y otra tabla para verificar el tipo de tráfico (NGAP o GTP-U) es para optimizar el rendimiento del switch. De esta manera, se reduce la cantidad de paquetes que pasan por la lógica de inserción INT, ya que solo los paquetes que cumplen ambos criterios serán procesados para la inserción de metadatos INT-MD. Esto mejora la eficiencia del switch aportando mas flexibilidad para agregar mas IP de gnb en el futuro sin afectar el rendimiento del switch.
 
+
 \subsubsection{Egress}
   \begin{lstlisting}[language=C++,
       basicstyle=\ttfamily\footnotesize,
@@ -1131,7 +1127,6 @@ control MyEgress(inout headers hdr,
             hdr.int_md.queue_occupancy = (bit<32>)standard_metadata.enq_qdepth;
         }
     }
-
     apply {
         if (hdr.int_shim.isValid()) {
             update_int_metadata();
@@ -1170,18 +1165,11 @@ El bloque de código \ref{lst:int-egress} muestra el control Egress, donde se ac
       label=lst:int-deparser]
 control MyDeparser(packet_out packet, in headers hdr) {
     apply {
-        // Always emit Ethernet
         packet.emit(hdr.ethernet);
-
-        // Emit INT headers if valid
         packet.emit(hdr.int_shim);
         packet.emit(hdr.int_header);
         packet.emit(hdr.int_md);
-
-        // Emit inner packet headers
         packet.emit(hdr.ipv4);
-
-        // Emit transport layer headers - deparser only emits valid headers
         packet.emit(hdr.udp);
         packet.emit(hdr.gtp_u);
         packet.emit(hdr.sctp);
@@ -1238,7 +1226,6 @@ parser MyParser(packet_in packet,
                 out headers hdr,
                 inout metadata meta,
                 inout standard_metadata_t standard_metadata) {
-
     state start {
         packet.extract(hdr.ethernet);
         meta.ingress_port = standard_metadata.ingress_port;
@@ -1251,7 +1238,6 @@ parser MyParser(packet_in packet,
             default: accept;
         }
     }
-
     // Parsing de cabeceras INT
     state parse_int_shim {
         packet.extract(hdr.int_shim);
@@ -1289,7 +1275,6 @@ parser MyParser(packet_in packet,
             default: accept;
         }
     }
-
     // ... estados adicionales para procesar UDP/GTP-U o SCTP omitidos ...
 }
 \end{lstlisting}
@@ -1954,11 +1939,11 @@ En la siguiente figura \ref{fig:grafana-installation} Se muestran los comandos e
     \label{fig:grafana-installation}
 \end{figure}
 
-\subsection{Creacion de la base de datos InfluxDB}
+\subsection{Creación de la base de datos InfluxDB}
 En la figura \ref{fig:influxdb-creation} se muestran los comandos ejecutados para la creación de la base de datos \textit{int\_telemetry} en InfluxDB, la cual almacenará los metadatos recolectados.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.1\textwidth]{images/creacion-influxdb.png}
+    \includegraphics[width=0.5\textwidth]{images/creacion-influxdb-2.png}
     \caption{Creación de la base de datos InfluxDB}
     \label{fig:influxdb-creation}
 \end{figure}
@@ -1970,14 +1955,14 @@ Una vez dentro de Grafana, en la sección de conexión de fuentes de datos se co
 En la figura \ref{fig:grafana-configuration} y  \ref{fig:grafana-configuration-2} se muestra la pantalla de configuración de la fuente de datos en Grafana.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.1\textwidth]{images/influxdb-connection.png}
+    \includegraphics[width=0.8\textwidth]{images/influxdb-connection.png}
     \caption{Configuración de la fuente de datos InfluxDB en Grafana}
     \label{fig:grafana-configuration}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.1\textwidth]{images/influxdb-connection-2.png}
+    \includegraphics[width=0.8\textwidth]{images/influxdb-connection-2.png}
     \caption{Configuración de la fuente de datos InfluxDB en Grafana - Parte 2}
     \label{fig:grafana-configuration-2}
 \end{figure}
@@ -2040,100 +2025,9 @@ INT_MD_LEN = 28            # Tamaño del bloque de metadatos INT-MD (28 bytes)
 # Conectar a InfluxDB
 client = InfluxDBClient(host=INFLUX_HOST, port=INFLUX_PORT, 
                        database=INFLUX_DB)
-
-PARSER_VERSION = "v3-md28-endian-autodetect"
 \end{lstlisting}
 
 Un aspecto importante a destacar es que el tamaño del bloque de metadatos INT-MD es de \textbf{28 bytes en el wire} (224 bits), aunque el protocolo contabiliza en incrementos de 32 bytes (4-byte aligned) en el campo \texttt{int\_shim.length}. Esta discrepancia se debe al padding y alineación de memoria en la implementación P4 de BMv2.
-
-\subsubsection{Detección automática de endianness}
-Uno de los desafíos más complejos en el parsing de paquetes INT es determinar el orden de bytes (endianness) correcto. Aunque el protocolo INT especifica big-endian (network byte order), en la práctica diferentes implementaciones de BMv2 pueden emitir los campos en little-endian debido a diferencias en la arquitectura del sistema.
-
-El script implementa un sistema de \textbf{auto-detección heurística} que evalúa ambos órdenes de bytes y selecciona el más plausible mediante un sistema de puntuación:
-
-\begin{lstlisting}[language=Python,
-    basicstyle=\ttfamily\footnotesize,
-    keywordstyle=\color{blue!70!black}\bfseries,
-    commentstyle=\color{green!50!black}\itshape,
-    stringstyle=\color{red!80!black},
-    numbers=left,
-    numberstyle=\tiny\color{gray!70},
-    stepnumber=1,
-    numbersep=10pt,
-    backgroundcolor=\color{gray!5},
-    showstringspaces=false,
-    breaklines=true,
-    frame=single,
-    frameround=tttt,
-    rulecolor=\color{gray!30},
-    captionpos=b,
-    tabsize=4,
-    xleftmargin=15pt,
-    framexleftmargin=12pt,
-    literate=
-      {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
-      {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
-      {ñ}{{\~n}}1 {Ñ}{{\~N}}1,
-    caption={Sistema de auto-detección de endianness}, 
-    label=lst:int-script-endian]
-def _score_int_md(values):
-    """Heurística para determinar el endianness más plausible.
-    
-    Los switch_id y ports son enteros pequeños (1..9). Cuando el orden
-    de bytes es incorrecto, se convierten en valores como 256, 512, etc.
-    """
-    score = 0
-    
-    switch_id = values["switch_id"]
-    ingress_port_id = values["ingress_port_id"]
-    egress_port_id = values["egress_port_id"]
-    queue_occupancy = values["queue_occupancy"]
-    
-    # Switch IDs son enteros pequeños en este proyecto
-    if 1 <= switch_id <= 32:
-        score += 5
-    elif switch_id in (256, 512, 768, 1024):
-        score -= 5
-    
-    # Puertos también son pequeños
-    for port in (ingress_port_id, egress_port_id):
-        if 0 <= port <= 64:
-            score += 2
-        elif port in (256, 512, 768, 1024, 2048):
-            score -= 2
-    
-    # enq_qdepth no debe parecer un byte desplazado (0xNN000000)
-    if queue_occupancy <= 200_000:
-        score += 2
-    if (queue_occupancy & 0x00FFFFFF) == 0 and queue_occupancy >= 0x01000000:
-        score -= 6
-    
-    return score
-
-def _decode_int_md(md_data, endian):
-    """Decodificar bloque INT-MD usando endian '<' o '>'."""
-    switch_id = struct.unpack(f'{endian}H', md_data[2:4])[0]
-    ingress_port_id = struct.unpack(f'{endian}H', md_data[4:6])[0]
-    egress_port_id = struct.unpack(f'{endian}H', md_data[6:8])[0]
-    hop_latency_field = struct.unpack(f'{endian}I', md_data[8:12])[0]
-    queue_occupancy = struct.unpack(f'{endian}I', md_data[12:16])[0]
-    ingress_timestamp = struct.unpack(f'{endian}I', md_data[16:20])[0]
-    egress_timestamp = struct.unpack(f'{endian}I', md_data[20:24])[0]
-    # ... extracción de otros campos ...
-    
-    return {
-        "switch_id": switch_id,
-        "ingress_port_id": ingress_port_id,
-        "egress_port_id": egress_port_id,
-        "hop_latency_field": hop_latency_field,
-        "queue_occupancy": queue_occupancy,
-        "ingress_timestamp": ingress_timestamp,
-        "egress_timestamp": egress_timestamp,
-        # ...
-    }
-\end{lstlisting}
-
-El sistema de puntuación evalúa la plausibilidad de los valores decodificados. Por ejemplo, si al decodificar con big-endian obtenemos \texttt{switch\_id = 256} pero con little-endian obtenemos \texttt{switch\_id = 1}, el sistema asignará mayor puntuación a little-endian, ya que es más razonable tener un switch con ID 1 que con ID 256 en una topología pequeña.
 
 \subsubsection{Parsing de cabeceras INT}
 El parsing de paquetes INT comienza con la extracción manual de la cabecera Ethernet, seguida de la verificación del EtherType 0x00FA que identifica paquetes INT. Posteriormente, se extraen las cabeceras INT Shim e INT Header:
@@ -2217,7 +2111,7 @@ def parse_int_packet(pkt):
     # ...
 \end{lstlisting}
 
-El script implementa detección automática de padding entre la cabecera INT Header y los bloques de metadatos. Aunque la especificación indica 7 bytes (56 bits) para el INT Header, algunas implementaciones añaden 1 byte de padding para alineación a 8 bytes. El script prueba ambas configuraciones y selecciona la que produce valores más coherentes en el primer bloque de metadatos.
+El script implementa detección automática de padding entre la cabecera INT Header y los bloques de metadatos.
 
 \subsubsection{Extracción y validación de metadatos}
 La extracción de metadatos INT-MD es el componente más crítico del script. Cada bloque de 28 bytes contiene información de telemetría de un switch en la ruta. El script implementa validación robusta y recuperación de errores:
@@ -2322,8 +2216,6 @@ def parse_int_metadata_correct(md_data, hop_number):
     }
 \end{lstlisting}
 
-La recuperación heurística de errores es particularmente importante cuando se detectan anomalías en los datos. Por ejemplo, si \texttt{hop\_latency\_field = 0} y \texttt{egress\_timestamp = 0} pero \texttt{queue\_occupancy} contiene un valor que parece un timestamp, el script intenta intercambiar los campos para recuperar los valores correctos.
-
 \subsubsection{Almacenamiento en InfluxDB}
 Una vez extraídos y validados los metadatos de todos los saltos, el script almacena la información en InfluxDB utilizando dos mediciones (measurements) diferentes:
 
@@ -2360,7 +2252,6 @@ Una vez extraídos y validados los metadatos de todos los saltos, el script alma
 def handle_packet(pkt):
     """Manejar paquetes INT entrantes"""
     metadata_blocks = parse_int_packet(pkt)
-    
     if not metadata_blocks:
         return
     
@@ -2393,14 +2284,12 @@ def handle_packet(pkt):
             "time": int(time.time() * 1e9)  # Nanosegundos
         }]
         client.write_points(json_body)
-    
     # Calcular y almacenar latencia end-to-end
     # IMPORTANTE: No restar timestamps entre switches diferentes
     # porque cada BMv2 tiene su propio dominio de tiempo.
     # En su lugar, sumar las latencias individuales de cada salto.
     e2e_latency_us = sum(md["hop_latency"] for md in metadata_blocks)
     e2e_latency_ms = e2e_latency_us / US_TO_MS
-    
     path_json_body = [{
         "measurement": "int_path_metrics",
         "tags": {
@@ -2415,7 +2304,6 @@ def handle_packet(pkt):
         "time": int(time.time() * 1e9)
     }]
     client.write_points(path_json_body)
-    
     print(f" E2E latency (sum): {e2e_latency_ms:.3f}ms ({e2e_latency_us}us)")
 \end{lstlisting}
 
@@ -2495,40 +2383,6 @@ El script genera salida de debugging detallada que permite monitorear en tiempo 
  Saved path to DB: SW1 -> SW2 -> SW3, E2E latency: 0.588ms
 \end{verbatim}
 
-Este nivel de detalle facilita el debugging y permite verificar que el parsing se está realizando correctamente, mostrando información como el endianness detectado, la ruta completa del paquete, y las métricas individuales de cada salto. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 %
 \section{Despliegue del NGRAN con UERANSIM}
 El NGRAN se ha desplegado utilizando la herramienta UERANSIM, la cual simula tanto el gNB como el UE en modo 5G Standalone (SA). UERANSIM se ha configurado para conectarse al Core 5G SA desplegado previamente, estableciendo el enlace N2 (SCTP) con el AMF y el enlace N3 (GTP-U) con el UPF.
@@ -2566,7 +2420,3 @@ networks:
   macvlan_net:
    external: true
 \end{lstlisting}
-
-\subsection{Configuración del gNB}
-
-La configuración del gNB se realiza mediante el archivo \textit{gnb.yaml} el cual se describirá mas a detalle en el capitulo se los resultados, donde se especifican los parámetros necesarios para la conexión con el Core 5G SA, como la dirección IP del AMF, el PLMN ID, y los parámetros de la interfaz N3. Un ejemplo de configuración del gNB se muestra en la figura \ref{fig:gnb-config}.

@@ -1,9 +1,50 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{3gpp.23.799}
+{3GPP}.
+\newblock 3gpp tr 23.799: Study on new radio access technology architecture for
+  5g.
+\newblock Technical report, 3GPP, 2014.
+
+\bibitem{3gpp.sp.160455}
+{3GPP}.
+\newblock 3gpp sp-160455: Technical specification group services and system
+  aspects.
+\newblock Technical report, 3GPP, 2016.
 
 \bibitem{3gpp.23.501}
 {3GPP}.
 \newblock 3gpp ts 23.501: System architecture for the 5g system (5gs).
-\newblock Technical report, 2021.
+\newblock Technical report, 3GPP, 2021.
+
+\bibitem{3gpp.29.244}
+{3GPP}.
+\newblock 3gpp ts 29.244: Interface between the control plane and the user
+  plane nodes (pfcp).
+\newblock Technical report, 3GPP, 2021.
+
+\bibitem{3gpp.ts.23.503}
+{3GPP}.
+\newblock 3gpp ts 23.503: Policy and charging control framework for the 5g
+  system (5gs).
+\newblock Technical report, 3GPP, 2022.
+
+\bibitem{3gpp.ts.37.340}
+{3GPP}.
+\newblock 3gpp ts 37.340: E-utra and nr; dual connectivity (dc) enhancements
+  for e-utra and nr.
+\newblock Technical report, 3GPP, 2023.
+
+\bibitem{3gpp.ts.38.401}
+{3GPP}.
+\newblock 3gpp ts 38.401: Ng-ran; overall description of the ng-ran
+  architecture.
+\newblock Technical report, 3GPP, 2023.
+
+\bibitem{dang2020should}
+Shuping Dang, Omid Amin, Basem Shihada, and Mohamed-Slim Alouini.
+\newblock What should 6g be?
+\newblock {\em Nature Electronics}, 3(1):20--29, 2020.
 
 \bibitem{docker2024install}
 {Docker Inc.}
@@ -13,10 +54,53 @@
 {Free5GC Community}.
 \newblock Free5gc: Open source 5g core network, 2021.
 
+\bibitem{gns3}
+{GNS3 Community}.
+\newblock Gns3: Graphical network simulator-3, 2021.
+
+\bibitem{grafana}
+{Grafana Labs}.
+\newblock Grafana: Visualization and alerting platform, 2021.
+
+\bibitem{huang2021free5gc}
+Yi-Bing Huang, Chi-Yu Tsai, and Chia-Hao Lin.
+\newblock Free5gc: A customizable open source 5gc for research and development.
+\newblock In {\em IEEE International Conference on Communications Workshops
+  (ICC Workshops)}, pages 1--6, 2021.
+
+\bibitem{rfc9950}
+IETF.
+\newblock Rfc 9950: Ng application protocol (ngap).
+\newblock Technical report, Internet Engineering Task Force, 2023.
+
+\bibitem{influxdb}
+{InfluxData}.
+\newblock Influxdb: Time series data platform, 2021.
+
+\bibitem{saad20206g}
+Walid Saad, Mehdi Bennis, and Mingzhe Chen.
+\newblock A vision of 6g wireless systems: Applications, trends, technologies,
+  and open research problems.
+\newblock {\em IEEE Network}, 34(3):134--142, 2020.
+
+\bibitem{sachs2018adaptive}
+Joachim Sachs, Lars~A Andersson, Joao Araújo, Calin Curescu, Jonas
+  Lundsj{\"o}, Gunnar Rune, Eckehard Steinbach, and Gustav Wikstr{\"o}m.
+\newblock Adaptive 5g low-latency communication for tactile internet services.
+\newblock {\em Proceedings of the IEEE}, 107(2):325--349, 2019.
+
 \bibitem{oreillyf2021}
-Ulises O'Neill, Amelia Mackey, and Victor~C.M. Leung.
-\newblock {\em 5G Core Networks: A Comprehensive Guide to 5GC Architecture and
-  Deployment}.
-\newblock O'Reilly Media, 1st edition, 2021.
+Radhakrishna Saia and Sudhir~K. Biswas.
+\newblock {\em 5G Core Networks: Powering Digitalization}.
+\newblock Academic Press, 1st edition, 2021.
+
+\bibitem{ueransim}
+{UERANSIM Project}.
+\newblock Ueransim: Open source 5g ue and ran (gnodeb) simulator, 2022.
+
+\bibitem{zhang20195g}
+Shunliang Zhang.
+\newblock An overview of network slicing for 5g.
+\newblock {\em IEEE Wireless Communications}, 26(3):111--117, 2019.
 
 \end{thebibliography}

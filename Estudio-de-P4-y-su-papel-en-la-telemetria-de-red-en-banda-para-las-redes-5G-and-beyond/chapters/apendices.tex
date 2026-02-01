@@ -1,7 +1,61 @@
 \chapter{Apéndices}
-\section{Código}
+
+\section{Código fuente P4}
+Esta sección contiene los programas P4 desarrollados para la implementación de telemetría en banda (INT-MD) en las interfaces N2 y N3 del core 5G.
+
+\subsection{Programas INT}
+\begin{itemize}
+    \item \texttt{int-gtp-source.p4}: Inserta INT en paquetes GTP-U
+    \item \texttt{int-gtp-transit.p4}: Procesa y actualiza INT en túneles GTP-U
+    \item \texttt{int-gtp-destination.p4}: Extrae INT de paquetes GTP-U y genera reportes
+\end{itemize}
+
+Códigos disponibles en: \texttt{archivos/int/gtpu/}
+
 \section{Topologías de red}
+
+\subsection{Archivo de topología GNS3}
+Archivo de proyecto: \texttt{5G-INT-Topology.gns3project}
+
+\subsection{Diagrama de arquitectura}
+Disponibles en formato PNG/SVG en: \texttt{images/}
+
 \section{Configuraciones del core 5G}
+
+\subsection{Archivos Docker Compose}
+Configuraciones completas para desplegar el core 5G SA con free5gc:
+\begin{itemize}
+    \item \texttt{docker-compose-build-core-host.yaml}: NFs de soporte (DB, NRF, AUSF, UDM, UDR, PCF, NSSF, CHF, NEF, WebUI)
+    \item \texttt{docker-compose-build-amf.yaml}: Access and Mobility Management Function
+    \item \texttt{docker-compose-build-smf.yaml}: Session Management Function
+    \item \texttt{docker-compose-build-upf.yaml}: User Plane Function
+    \item \texttt{docker-compose-build-ngran.yaml}: gNB y UE (UERANSIM)
+\end{itemize}
+
+Todos los archivos incluyen configuración de redes macvlan, direcciones IP/MAC, volúmenes persistentes y dependencias entre contenedores.
+
+\subsection{Archivos de configuración de Network Functions}
+Configuraciones YAML para cada NF del core 5G:
+\begin{itemize}
+    \item \texttt{amfcfg.yaml}: Configuración del AMF (PLMN, TAC, interfaces N2/N11, seguridad)
+    \item \texttt{smfcfg.yaml}: Configuración del SMF (DNN, UE subnets, interfaces N4/N7/N10)
+    \item \texttt{upfcfg.yaml}: Configuración del UPF (interfaces GTP-U, N4, routing)
+    \item \texttt{nrfcfg.yaml}: Configuración del NRF (registro de servicios)
+    \item Configuraciones de AUSF, UDM, UDR, PCF, NSSF, CHF, NEF
+\end{itemize}
+
+Directorio: \texttt{config/}
+
 \section{Capturas de tráfico}
-\section{Dashboards de Grafana}
-\section{Scripts y herramientas auxiliares}
+
+\subsection{Capturas PCAP de interfaces clave}
+Archivos de captura de paquetes en diferentes puntos de la red:
+\begin{itemize}
+    \item \texttt{R1-S1.pcapng}: Tráfico NGAP sin INT (gNB $\rightarrow$ INT-Source)
+    \item \texttt{s1-s2.pcapng}: Tráfico NGAP con INT insertado (INT-Source $\rightarrow$ INT-Transit)
+    \item \texttt{S2-S3.pcapng}: Tráfico NGAP con múltiples hops INT (INT-Transit $\rightarrow$ INT-Sink)
+    \item \texttt{S3-R2.pcapng}: Tráfico NGAP sin INT después de extracción (INT-Sink $\rightarrow$ AMF)
+    \item \texttt{S3-RS.pcapng}: Reportes INT clonados hacia servidor de telemetría
+\end{itemize}
+
+Todas las capturas están disponibles en: \texttt{archivos/captures/}

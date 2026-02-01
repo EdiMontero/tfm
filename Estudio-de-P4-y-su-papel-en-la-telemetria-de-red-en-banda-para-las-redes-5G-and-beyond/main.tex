@@ -28,6 +28,17 @@
 %------------------------------------------------
 % Comienzo del documento
 %------------------------------------------------
+% Configuración de idioma español
+\usepackage[spanish,es-tabla]{babel}
+\addto\captionsspanish{
+  \renewcommand{\contentsname}{Índice de Contenidos}
+  \renewcommand{\listfigurename}{Índice de Figuras}
+  \renewcommand{\listtablename}{Índice de Tablas}
+  \renewcommand{\bibname}{Referencias Bibliográficas}
+  \renewcommand{\appendixname}{Apéndice}
+  \renewcommand{\chaptername}{Capítulo}
+}
+
 \begin{document}
 
 %------------------------------------------------
@@ -40,19 +51,22 @@
 \maketitle
 
 %------------------------------------------------
+% Prefacio
+%------------------------------------------------
+\include{preface/1.dedicatory}
+\include{preface/2.acronyms}
+
+%------------------------------------------------
 % Índices
 %------------------------------------------------
 \tableofcontents
 \cleardoublepage
 
-%------------------------------------------------
-% Prefacio
-%------------------------------------------------
-\include{preface/1.dedicatory}
-\include{preface/2.acronyms}
-\include{preface/3.TableOfContents}
-\include{preface/4.TableOfFigures}
-\include{preface/5.TableOfTables}
+\listoffigures
+\cleardoublepage
+
+\listoftables
+\cleardoublepage
 
 %------------------------------------------------
 % Capítulos
@@ -66,15 +80,16 @@
 \include{chapters/7.conclusiones}
 
 %------------------------------------------------
+% Bibliografía (must be before appendices)
+%------------------------------------------------
+\cleardoublepage
+\bibliographystyle{plain}
+\bibliography{chapters/references}
+
+%------------------------------------------------
 % Apéndices
 %------------------------------------------------
 \appendix
 \include{chapters/apendices}
-
-%------------------------------------------------
-% Bibliografía
-%------------------------------------------------
-\bibliographystyle{plain}
-\bibliography{chapters/references}
 
 \end{document}

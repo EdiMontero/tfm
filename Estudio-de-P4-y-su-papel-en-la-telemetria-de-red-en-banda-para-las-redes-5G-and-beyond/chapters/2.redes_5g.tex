@@ -14,7 +14,7 @@ La evolución de las tecnologías móviles ha sido un proceso continuo que ha tr
 \item \textbf{5G Standalone (SA)}: Arquitectura completamente nueva basada en servicios y virtualización, permitiendo nuevas funcionalidades y mejoras en latencia y confiabilidad.
 \item \textbf{5G Advanced}: Mejoras en IA, eficiencia energética y soporte para nuevas aplicaciones, como XR y comunicaciones vehiculares.
 \item \textbf{Beyond-5G}: Investigación en tecnologías emergentes como comunicaciones cuánticas y redes holográficas, con miras a la futura generación 6G.
-\item \textbf{Visión de 6G}: Redes ultra confiables, latencia casi nula y capacidades de inteligencia artificial integradas de manera nativa.
+\item \textbf{Visión de 6G}: Redes ultra confiables, latencia casi nula y capacidades de inteligencia artificial integradas de manera nativa \cite{saad20206g,dang2020should}.
 \item \textbf{Tecnologías emergentes}: Comunicaciones terahertz, redes auto-organizadas y computación en el borde (Edge Computing).
 \item \textbf{Aplicaciones futuras}: Realidad extendida (XR), ciudades inteligentes (Smart Cities) y redes de sensores masivos (IoT masivo).
 \item \textbf{Desafíos}: Seguridad, privacidad y sostenibilidad ambiental.
@@ -22,7 +22,7 @@ La evolución de las tecnologías móviles ha sido un proceso continuo que ha tr
 
 %----------------------------------------
 \section{Arquitectura NR en 5G}
-3GPP introdujo 6 opciones de implementación para la tecnología New Radio (NR) como se muestra en la figura \ref{fig:nr-arch}. Estas opciones se dividen en dos categorías principales: \textbf{Non-Standalone (NSA)} y \textbf{Standalone (SA)}. 
+3GPP \cite{3gpp.23.799,3gpp.sp.160455} introdujo 6 opciones de implementación para la tecnología New Radio (NR) como se muestra en la figura \ref{fig:nr-arch}. Estas opciones se dividen en dos categorías principales: \textbf{Non-Standalone (NSA)} y \textbf{Standalone (SA)}. 
 SA representa una arquitectura con NR como unica tecnología de acceso, mientras que NSA combina NR con la infraestructura existente de 4G LTE. Las opciones 1, 2, 5 son implementaciones SA, mientras que las opciones 3, 4 y 7 son implementaciones NSA. Cabe destacar que la opcion 1 es puramente LTE sin NR.
 
 %-------Imagen Figura 2.1-------
@@ -36,7 +36,7 @@ SA representa una arquitectura con NR como unica tecnología de acceso, mientras
 
 
 \section{Arquitectura 5G Non Standalone (NSA) }
-La arquitectura 5G Non-Standalone (NSA) es una configuración de red que permite la coexistencia y colaboración entre las tecnologías 4G LTE y 5G NR. En esta arquitectura, la red 4G LTE actúa como la red principal para la señalización y el control, mientras que la red 5G NR se utiliza principalmente para el transporte de datos de alta velocidad. Esta coexcistancia se logra mediante \textbf{Multi-Radio Dual Connectivity (MR-DC)}, descrito mas adelante y que permite a los dispositivos de usuario (UE) conectarse simultáneamente a dos distintas generaciones de red de radio. 
+La arquitectura 5G Non-Standalone (NSA) es una configuración de red que permite la coexistencia y colaboración entre las tecnologías 4G LTE y 5G NR. En esta arquitectura, la red 4G LTE actúa como la red principal para la señalización y el control, mientras que la red 5G NR se utiliza principalmente para el transporte de datos de alta velocidad. Esta coexcistancia se logra mediante \textbf{Multi-Radio Dual Connectivity (MR-DC)} \cite{3gpp.ts.37.340}, descrito mas adelante y que permite a los dispositivos de usuario (UE) conectarse simultáneamente a dos distintas generaciones de red de radio. 
 Las opciones pueden ser:
 \begin{itemize}
     \item \textbf{EN-DC (E-UTRA-NR Dual Connectivity)}: \emph{Opcion 3}, donde el UE se conecta a una estación base LTE (eNodeB) como nodo maestro y a una estación base NR (gNodeB) como nodo secundario. El eNodeB gestiona la señalización y el control, mientras que el gNodeB se utiliza principalmente para la transferencia de datos de alta velocidad.
@@ -54,14 +54,14 @@ Desde el punto de vista del usuario final, la arquitectura NSA ofrece una experi
 %-----------------------------------------
 \section{Arquitectura 5G Standalone (SA)}
 \subsection{Visión general de la arquitectura 5G SA}
-La arquitectura 5G Standalone (SA) representa una evolución significativa en comparación con las generaciones anteriores de redes móviles. A diferencia de las implementaciones Non-Standalone (NSA), que dependen de la infraestructura existente de 4G LTE, la arquitectura SA está diseñada desde cero para aprovechar al máximo las capacidades de la tecnología 5G. Esta arquitectura se basa en una serie de principios clave que permiten una mayor flexibilidad, eficiencia y capacidad para soportar una amplia gama de servicios y aplicaciones. Entre los aspectos más destacados de la arquitectura 5G SA se encuentran:
+La arquitectura 5G Standalone (SA) representa una evolución significativa en comparación con las generaciones anteriores de redes móviles \cite{3gpp.23.501}. A diferencia de las implementaciones Non-Standalone (NSA), que dependen de la infraestructura existente de 4G LTE. Esta arquitectura se basa en una serie de principios clave que permiten una mayor flexibilidad, eficiencia y capacidad para soportar una amplia gama de servicios y aplicaciones. Entre los aspectos más destacados de la arquitectura 5G SA se encuentran:
 \begin{itemize}
     \item \textbf{Red basada en servicios}: La arquitectura 5G SA adopta un enfoque basado en servicios, donde las funciones de red se implementan como servicios independientes que pueden ser orquestados y gestionados de manera flexible.
-    \item \textbf{Virtualización y desagregación}: La arquitectura permite la virtualización de funciones de red (NFV) y la desagregación de hardware y software, lo que facilita la implementación en entornos de nube y mejora la escalabilidad.
+\item \textbf{Virtualización y desagregación}: La arquitectura permite la virtualización de funciones de red (NFV) y la desagregación de hardware y software, lo que facilita la implementación en entornos de nube y mejora la escalabilidad.
     \item \textbf{Separación del plano de control y plano de usuario}: Esta separación permite una gestión más eficiente del tráfico y una mejor calidad de servicio (QoS) para diferentes tipos de aplicaciones.
     \item \textbf{Soporte para nuevas tecnologías}: La arquitectura 5G SA está diseñada para integrar tecnologías emergentes como la inteligencia artificial (IA), el edge computing y la Internet de las cosas (IoT).
-    \item \textbf{Categorías de servicio: eMBB, URLLC y mMTC}: 5G define tres clases de servicio principales —\textbf{eMBB} (enhanced Mobile Broadband) para altas tasas de datos y capacidad; \textbf{URLLC} (Ultra-Reliable Low-Latency Communications) para comunicaciones con latencia muy baja y alta fiabilidad; y \textbf{mMTC} (massive Machine Type Communications) para conectividad masiva de dispositivos IoT de baja potencia y baja tasa. La arquitectura SA y el 5GC están pensados para soportar simultáneamente estas demandas diferenciadas /cite{3gpp.ts.22.261}.
-    \item \textbf{Network Slicing}: Permite crear múltiples redes virtuales independientes (slices) sobre la misma infraestructura física, cada una con sus propios requisitos de rendimiento, seguridad y gestión (por ejemplo, un slice para eMBB y otro para URLLC). Network Slicing se apoya en SBA, NFV y orquestación para instanciar, aislar y escalar slices según demanda.
+\item \textbf{Categorías de servicio: eMBB, URLLC y mMTC}: 5G define tres clases de servicio principales \textbf{eMBB} (enhanced Mobile Broadband) para altas tasas de datos y capacidad; \textbf{URLLC} (Ultra-Reliable Low-Latency Communications) para comunicaciones con latencia muy baja y alta fiabilidad; y \textbf{mMTC} (massive Machine Type Communications) para conectividad masiva de dispositivos IoT de baja potencia y baja tasa.
+\item \textbf{Network Slicing}: Permite crear múltiples redes virtuales independientes (slices) sobre la misma infraestructura física, cada una con sus propios requisitos de rendimiento, seguridad y gestión \cite{zhang20195g}. Network Slicing se apoya en SBA, NFV y orquestación para instanciar, aislar y escalar slices según demanda.
 \end{itemize}
 %-----------------------------------------
 
@@ -138,7 +138,7 @@ A continuación se muestra la pila de protocolos del plano de control de forma d
     \label{fig:stack-cp}
 \end{figure}
 %-------------------------------
-Para mas detalles de los acrónimos y protocolos ver la tabla \ref{tab:acronimos} y \ref{tab:protocolos} en el apéndice \ref{appendix:acronimos_protocolos}.
+Para más detalles de los acrónimos y protocolos, consultar la lista de acrónimos al inicio del documento.
 
 \subsubsection{Plano de Usuario}
 En este plano se maneja el tráfico de datos real que fluye entre los dispositivos de usuario (UE) y la red. El plano de usuario se encarga de la transmisión eficiente y segura de los datos, asegurando que se cumplan los requisitos de calidad de servicio (QoS) y latencia para diferentes tipos de aplicaciones.
@@ -153,16 +153,16 @@ A continuación se muestra la pila de protocolos del plano de usuario de forma d
 \end{figure}
 %-------------------------------
 
-Al igual que en el plano de control, para mas detalles de los acrónimos y protocolos ver la tabla \ref{tab:acronimos} y \ref{tab:protocolos} en el apéndice \ref{appendix:acronimos_protocolos}.
+Para más detalles de los acrónimos y protocolos, consultar la lista de acrónimos al inicio del documento.
 
 \subsection{Interfaces clave en 5GC}
 
 Las interfaces N1, N2, N3, N4, N6 y N9 son fundamentales en la arquitectura de las redes 5G, cada una desempeñando un papel crucial en la interconexión de dispositivos y la gestión de datos. A continuación, se describen cada una de estas interfaces, los protocolos asociados y los dispositivos que conectan.
 \begin{itemize}
     \item \textbf{N1}: Esta interfaz conecta el dispositivo de usuario (UE) con el Access and Mobility Management Function (AMF) en el plano de control. Utiliza el protocolo NAS (Non-Access Stratum) para la señalización y gestión de la conexión del UE.
-    \item \textbf{N2}: Conecta la estación base 5G (gNodeB) con el AMF en el plano de control. Utiliza el protocolo NGAP (Next Generation Application Protocol) para la señalización y gestión de la conexión entre el gNodeB y el AMF.
+    \item \textbf{N2}: Conecta la estación base 5G (gNodeB) con el AMF en el plano de control. Utiliza el protocolo NGAP (Next Generation Application Protocol) \cite{3gpp.ts.38.401} para la señalización y gestión de la conexión entre el gNodeB y el AMF.
     \item \textbf{N3}: Esta interfaz conecta la estación base 5G (gNodeB) con el User Plane Function (UPF) en el plano de usuario. Utiliza el protocolo GTP-U (GPRS Tunneling Protocol - User Plane) para la transmisión de datos entre el gNodeB y el UPF.
-    \item \textbf{N4}: Conecta el SMF (Session Management Function) con el UPF en el plano de control. Utiliza el protocolo PFCP (Packet Forwarding Control Protocol) para la gestión y configuración del plano de usuario en el UPF.
+    \item \textbf{N4}: Conecta el SMF (Session Management Function) con el UPF en el plano de control. Utiliza el protocolo PFCP (Packet Forwarding Control Protocol) \cite{3gpp.29.244} para la gestión y configuración del plano de usuario en el UPF.
     \item \textbf{N6}: Esta interfaz conecta el UPF con la red externa, como Internet o una red privada. Utiliza protocolos estándar como IP para la transmisión de datos entre el UPF y la red externa.
     \item \textbf{N9}: Conecta diferentes instancias de UPF entre sí en el plano de usuario. Utiliza el protocolo GTP-U para la transmisión de datos entre las instancias de UPF, permitiendo la movilidad y continuidad del servicio.
     \item \textbf{N11}: Conecta el AMF con el SMF en el plano de control. Utiliza interfaces basadas en servicios (SBI) y protocolos HTTP/2 y RESTful APIs para la comunicación entre el AMF y el SMF.
